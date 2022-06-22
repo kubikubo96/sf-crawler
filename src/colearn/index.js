@@ -10,87 +10,128 @@ import 'dotenv/config'
   });
   const page = await browser.newPage();
 
-  const listSubjects = [
-    { 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-toan-s5af3ead5f4ed8c11759c1ade.html', 'name': 'toan' },
-    { 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-ly-s5af3ead5f4ed8c11759c1add.html', 'name': 'ly' },
-    { 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-hoa-s5af3ead5f4ed8c11759c1adc.html', 'name': 'hoa' },
-    { 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-sinh-s5af3ead5f4ed8c11759c1adb.html', 'name': 'sinh' },
-    { 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-van-s5d14722fbcafcc004810c09f.html', 'name': 'van' },
-    { 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-tieng-anh-s5b7f644c5b9305855ffadced.html', 'name': 'anh' },
-    { 'url': 'https://vungoi.vn/lop-12/bai-tap-tieng-anh-moi-s5f1e3ac59d96250022154460.html', 'name': 'anh-new' },
-    { 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-su-s5b3d7dd3d9e263cf2e5a16c3.html', 'name': 'su' },
-    { 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-dia-s5b3d7ddcd9e263cf2e5a16c4.html', 'name': 'dia' },
-    { 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-gdcd-s5d61eaf3ea5cb900220fa953.html', 'name': 'gdcd' },
+  const TIME_OUT = 1000;
+  const TIME_OUT_LONG = 5000;
+
+  const listCategory = [
+    { 'idx': 0, 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-toan-s5af3ead5f4ed8c11759c1ade.html', 'name': 'toan' },
+    { 'idx': 1, 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-ly-s5af3ead5f4ed8c11759c1add.html', 'name': 'ly' },
+    { 'idx': 2, 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-hoa-s5af3ead5f4ed8c11759c1adc.html', 'name': 'hoa' },
+    { 'idx': 3, 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-sinh-s5af3ead5f4ed8c11759c1adb.html', 'name': 'sinh' },
+    { 'idx': 4, 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-van-s5d14722fbcafcc004810c09f.html', 'name': 'van' },
+    { 'idx': 5, 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-tieng-anh-s5b7f644c5b9305855ffadced.html', 'name': 'anh' },
+    { 'idx': 6, 'url': 'https://vungoi.vn/lop-12/bai-tap-tieng-anh-moi-s5f1e3ac59d96250022154460.html', 'name': 'anh-new' },
+    { 'idx': 7, 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-su-s5b3d7dd3d9e263cf2e5a16c3.html', 'name': 'su' },
+    { 'idx': 8, 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-dia-s5b3d7ddcd9e263cf2e5a16c4.html', 'name': 'dia' },
+    { 'idx': 9, 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-gdcd-s5d61eaf3ea5cb900220fa953.html', 'name': 'gdcd' },
   ];
+  const class_name = 'lop-12';
 
-  const TIME_OUT = 2000;
-
-  const elmTopics = '.list-chapters .sub-string';
-  const elmQuestions = '#list_relate-quiz .quiz-relate-item a';
-
-  var data = [];
   var total = 0;
 
-  var limit_subjects = 10;
-  var limit_topics = 0;
-  var limit_questions = 0;
+  var limit_subjects = parseInt(process.env.LIMIT_SUBJECTS);
+  var limit_topics = parseInt(process.env.LIMIT_TOPICS);
+  var limit_questions = parseInt(process.env.LIMIT_QUESTIONS);
 
   var number_subjects = 0;
-  var number_topics = 0;
-  var number_questions = 0;
+  var number_topics = parseInt(process.env.NUMBER_TOPICS);
+  var number_questions = parseInt(process.env.NUMBER_QUESTIONS);
 
-  var title_subject = '';
-  var name_topic = '';
+  var topic_parent_name = '';
+  var topic_name = '';
 
   /**
    * While list menu
    */
   while (1) {
+    if (page.url() == 'about:blank') {
+      try {
+        await page.goto(listCategory[number_subjects].url)
+      } catch (error) {
+        try {
+          await page.reload({ timeout: TIME_OUT_LONG })
+        } catch (error) {
+          sendTele(error, [], 'ERROR FOR RELOAD PAGE', page.url(), 57);
+        }
+      }
+    }
     /**
      * B1. Go 1 subject
      */
     try {
-      await page.goto(listSubjects[number_subjects].url)
-
-      title_subject = await page.$$eval('.menu .menu__item-name', (elm, number_subjects) => {
-        return elm[number_subjects].getAttribute('title')
-      }, number_subjects);
+      await page.goto(listCategory[number_subjects].url)
     } catch (error) {
-      await sendTele(error, [], 'waitForSelector elmSubjects');
+      try {
+        await page.reload({ timeout: TIME_OUT_LONG })
+      } catch (error) {
+        sendTele(error, [], 'ERROR FOR RELOAD PAGE', page.url(), 57);
+      }
     }
 
     /**
      * While list topic
      */
     while (1) {
+      if (page.url() == 'about:blank') {
+        try {
+          await page.goto(listCategory[number_subjects].url)
+        } catch (error) {
+          try {
+            await page.reload({ timeout: TIME_OUT_LONG })
+          } catch (error) {
+            sendTele(error, [], 'ERROR FOR RELOAD PAGE', page.url(), 57);
+          }
+        }
+      }
       /**
-        * B2. Go 1 topic
-        */
+       * B2. Go 1 topic
+       */
       try {
+        const elmTopics = '.list-chapters .sub-string';
         await page.waitForSelector(elmTopics, { timeout: TIME_OUT }).then(async () => {
 
           limit_topics = await page.$$eval(elmTopics, (elm) => elm.length);
 
-          name_topic = await page.$$eval(elmTopics, (elm, number_topics) => {
+          topic_name = await page.$$eval(elmTopics, (elm, number_topics) => {
             return elm[number_topics].getAttribute('title')
           }, number_topics);
+
+
+          topic_parent_name = await page.evaluate(async (elmTopics, number_topics) => {
+            let elm = document.querySelectorAll(elmTopics)[number_topics]
+            let elmParent = elm.closest('.chapter-item').querySelectorAll('a')[0];
+            return elmParent.textContent;
+          }, elmTopics, number_topics)
+
 
           await page.$$eval(elmTopics, (element, number_topics) => {
             element[number_topics].click()
           }, number_topics);
         });
       } catch (error) {
-        await sendTele(error, [], 'waitForSelector elmTopics');
+        sendTele(error, [], 'waitForSelector elmTopics', page.url(), 91);
       }
 
       /**
        * While list question
        */
       while (1) {
+        if (page.url() == 'about:blank') {
+          try {
+            await page.goto(listCategory[number_subjects].url)
+          } catch (error) {
+            try {
+              await page.reload({ timeout: TIME_OUT_LONG })
+            } catch (error) {
+              sendTele(error, [], 'ERROR FOR RELOAD PAGE', page.url(), 57);
+            }
+          }
+        }
         /**
-        * B3. Go 1 question
-        */
+         * B3. Go 1 question
+         */
         try {
+          const elmQuestions = '#list_relate-quiz .quiz-relate-item a';
           await page.waitForSelector(elmQuestions, { timeout: TIME_OUT }).then(async () => {
 
             limit_questions = await page.$$eval(elmQuestions, (elm) => elm.length);
@@ -104,13 +145,11 @@ import 'dotenv/config'
             console.log("[questions] limit: " + limit_questions + ", number: " + number_questions);
           });
 
-        } catch (error) {
-          // await sendTele(error, [], 'waitForSelector elmQuestions');
-        }
+        } catch (error) { }
 
         /**
-        * B4. Get data questions
-        */
+         * B4. Get data questions
+         */
         // try {
         let elmName = '#quiz-single .vn-tit-question strong';
         let elmTag = '#quiz-single .vn-tit-question .clf';
@@ -118,27 +157,79 @@ import 'dotenv/config'
         let elmImageQuestion = '#quiz-single img';
         let elmOption = '.vn-box-answer .row > div';
         let elmCorrectAnswer = '.anwsers-correct span span';
-        let elmSolution = '.content-solution .solution-item p';
+        let elmSolution = '.content-solution .solution-item div';
+        let elmImageSolution = '.content-solution .solution-item div img';
         let elmAnswer = '#quiz-solution .solution-item div';
+        let elmImageAnswer = '#quiz-solution .solution-item div img';
         let elmNote = '.content-solution .note';
 
-        let temp_data = {
+        let default_data = {
           'url_question': '',
-          'title_subject': title_subject,
-          'name_subject': listSubjects[number_subjects].name,
-          'name_topic': name_topic,
+          'category_id': '',
+          'category_name': listCategory[number_subjects].name,
+          'topic_id': '',
+          'topic_name': topic_name,
+          'topic_parent_name': topic_parent_name,
+          'topic_parent_name_no_accents': removeAccents(topic_parent_name),
+          'class_id': '',
+          'class_name': class_name,
           'name': '',
           'tag': '',
-          'question': '',
-          'image_question': [],
+          'content': '',
+          'images': [],
           'option': [],
           'solution': '',
+          'images_solution': [],
           'answer': '',
+          'images_answer': [],
           'correct_answer': '',
           'note': ''
-        }
+        };
+        let temp_data = { ...default_data };
 
-        await page.waitForTimeout(2000).then(async () => {
+        await page.waitForTimeout(500).then(async () => {
+
+          /**
+           * GET Option
+           */
+          try {
+            await page.waitForSelector(elmOption, { timeout: TIME_OUT_LONG }).then(async () => {
+              temp_data.url_question = page.url();
+              const option = await page.evaluate(async (elmOption) => {
+                let elm = document.querySelectorAll(elmOption)
+                elm = [...elm]
+                let data = elm.map(item => ({
+                  title: item.textContent.charAt(0),
+                  content: item.textContent.slice(2),
+                  image: item.querySelectorAll('img')[0] ? item.querySelectorAll('img')[0].getAttribute('src') : []
+                }));
+                return data;
+              }, elmOption)
+              temp_data.option = option;
+            })
+
+          } catch (error) {
+            number_questions = number_questions + 1;
+            sendTele(error, temp_data, 'GET Option', page.url());
+            try {
+              if (page.url() !== 'about:blank') {
+                await page.goBack({ timeout: TIME_OUT_LONG })
+              } else {
+                await page.goto(listCategory[number_subjects].url)
+              }
+            } catch (error) {
+              sendTele(error, [], 'ERROR GOBACK 342', page.url())
+              try {
+                await page.goto(listCategory[number_subjects].url)
+              } catch (error) {
+                try {
+                  await page.reload({ timeout: TIME_OUT_LONG })
+                } catch (error) {
+                  sendTele(error, [], 'ERROR PAGE GOTO 350', page.url())
+                }
+              }
+            }
+          }
           /**
            * Get URL Question
            */
@@ -146,9 +237,7 @@ import 'dotenv/config'
             await page.waitForSelector('#quiz-single', { timeout: TIME_OUT }).then(() => {
               temp_data.url_question = page.url();
             })
-          } catch (error) {
-            // sendTele(error, temp_data, 'GET Name', page.url());
-          }
+          } catch (error) { }
 
           /**
            * GET Name
@@ -157,38 +246,32 @@ import 'dotenv/config'
             await page.waitForSelector(elmName, { timeout: TIME_OUT }).then(async () => {
               temp_data.name = await page.$$eval(elmName, (elm) => elm[0].textContent);
             })
-          } catch (error) {
-            // sendTele(error, temp_data, 'GET Name', page.url());
-          }
+          } catch (error) { }
 
           /**
-            * GET Tag
-            */
+           * GET Tag
+           */
           try {
             await page.waitForSelector(elmTag, { timeout: TIME_OUT }).then(async () => {
               temp_data.tag = await page.$$eval(elmTag, (elm) => elm[0].textContent);
             })
-          } catch (error) {
-            // sendTele(error, temp_data, ' GET Tag', page.url());
-          }
+          } catch (error) { }
 
           /**
-            * GET Question
-            */
+           * GET Question
+           */
           try {
             await page.waitForSelector(elmQuestion, { timeout: TIME_OUT }).then(async () => {
-              temp_data.question = await page.$$eval(elmQuestion, (elm) => elm[0].textContent);
+              temp_data.content = await page.$$eval(elmQuestion, (elm) => elm[0].textContent);
             })
-          } catch (error) {
-            // sendTele(error, temp_data, 'GET Question', page.url());
-          }
+          } catch (error) { }
 
           /**
-           * GET Image
+           * GET Image question
            */
           try {
             await page.waitForSelector(elmImageQuestion, { timeout: TIME_OUT }).then(async () => {
-              const image_question = await page.evaluate(async (elmImageQuestion) => {
+              const images = await page.evaluate(async (elmImageQuestion) => {
                 let elm = document.querySelectorAll(elmImageQuestion)
                 elm = [...elm]
                 let data = elm.map(item => ({
@@ -197,87 +280,89 @@ import 'dotenv/config'
                 }));
                 return data;
               }, elmImageQuestion)
-              temp_data.image_question = image_question;
+              temp_data.images = images;
             })
-          } catch (error) {
-            // sendTele(error, temp_data, 'GET Image', page.url());
-          }
-
+          } catch (error) { }
 
           /**
-            * GET Option
-            */
-          try {
-            await page.waitForSelector(elmOption, { timeout: TIME_OUT }).then(async () => {
-              temp_data.url_question = page.url();
-              const option = await page.evaluate(async (elmOption) => {
-                let elm = document.querySelectorAll(elmOption)
-                elm = [...elm]
-                let data = elm.map(item => ({
-                  title: item.textContent.charAt(0),
-                  content: item.textContent.slice(2),
-                }));
-                return data;
-              }, elmOption)
-              temp_data.option = option;
-            })
-
-          } catch (error) {
-            // sendTele(error, temp_data, 'GET Option', page.url());
-          }
-
-          /**
-            * GET Solution
-            */
+           * GET Solution
+           */
           try {
             await page.waitForSelector(elmSolution, { timeout: TIME_OUT }).then(async () => {
-              temp_data.solution = await page.$$eval(elmSolution, (elm) => elm[1].textContent);
+              temp_data.solution = await page.$$eval(elmSolution, (elm) => elm[0].textContent.replace('Xem chi tiết', '').replace('---', '').trim());
             })
-          } catch (error) {
-            // sendTele(error, temp_data, 'GET Solution', page.url());
-          }
+          } catch (error) { }
 
           /**
-            * GET Answer
-            */
+           * GET Image Solution
+           */
+          try {
+            await page.waitForSelector(elmImageSolution, { timeout: TIME_OUT }).then(async () => {
+              const images = await page.evaluate(async (elmImageSolution) => {
+                let elm = document.querySelectorAll(elmImageSolution)
+                elm = [...elm]
+                let data = elm.map(item => ({
+                  src: item.getAttribute('src'),
+                  title: item.getAttribute('title')
+                }));
+                return data;
+              }, elmImageSolution)
+              temp_data.images_solution = images;
+            })
+          } catch (error) { }
+
+          /**
+           * GET Answer
+           */
           try {
             await page.waitForSelector(elmAnswer, { timeout: TIME_OUT }).then(async () => {
               temp_data.answer = await page.$$eval(elmAnswer, (elm) => elm[0].textContent);
             })
-          } catch (error) {
-            // sendTele(error, temp_data, 'GET Answer', page.url());
-          }
+          } catch (error) { }
 
           /**
-            * GET Correct answer
-            */
+           * GET Image answer
+           */
+          try {
+            await page.waitForSelector(elmImageAnswer, { timeout: TIME_OUT }).then(async () => {
+              const images = await page.evaluate(async (elmImageAnswer) => {
+                let elm = document.querySelectorAll(elmImageAnswer)
+                elm = [...elm]
+                let data = elm.map(item => ({
+                  src: item.getAttribute('src'),
+                  title: item.getAttribute('title')
+                }));
+                return data;
+              }, elmImageAnswer)
+              temp_data.images_answer = images;
+            })
+          } catch (error) { }
+
+          /**
+           * GET Correct answer
+           */
           try {
             await page.waitForSelector(elmCorrectAnswer, { timeout: TIME_OUT }).then(async () => {
               temp_data.correct_answer = await page.$$eval(elmCorrectAnswer, (elm) => elm[0].textContent);
             })
-          } catch (error) {
-            // sendTele(error, temp_data, 'GET Correct answer', page.url());
-          }
+          } catch (error) { }
 
           /**
-            * GET Note
-            */
+           * GET Note
+           */
           try {
             await page.waitForSelector(elmNote, { timeout: TIME_OUT }).then(async () => {
               temp_data.note = await page.$$eval(elmNote, (elm) => elm[0].textContent);
             })
-          } catch (error) {
-            // sendTele(error, temp_data, 'GET Note', page.url());
-          }
+          } catch (error) { }
         })
 
         /**
          * push data
          */
         if (number_questions < limit_questions) {
-          data.push(temp_data)
-          saveData(data);
-          data = [];
+          await saveData(temp_data);
+          temp_data = { ...default_data };
           number_questions = number_questions + 1;
           total = total + 1;
 
@@ -285,7 +370,20 @@ import 'dotenv/config'
           console.log("||          " + total + "       ||");
           console.log("=================================");
 
-          await page.goBack()
+          try {
+            await page.goBack({ timeout: TIME_OUT_LONG })
+          } catch (error) {
+            sendTele(error, [], 'ERROR GOBACK 342', page.url())
+            try {
+              await page.goto(listCategory[number_subjects].url)
+            } catch (error) {
+              try {
+                await page.reload({ timeout: TIME_OUT_LONG })
+              } catch (error) {
+                sendTele(error, [], 'ERROR PAGE GOTO 350', page.url())
+              }
+            }
+          }
         }
 
         /**
@@ -294,7 +392,15 @@ import 'dotenv/config'
         if (number_questions >= limit_questions) {
           number_topics = number_topics + 1;
           number_questions = 0;
-          await page.goto(listSubjects[number_subjects].url)
+          try {
+            await page.goto(listCategory[number_subjects].url)
+          } catch (error) {
+            try {
+              await page.reload({ timeout: TIME_OUT_LONG })
+            } catch (error) {
+              sendTele(error, [], 'ERROR GOBACK 377', page.url())
+            }
+          }
           console.log("**********  DONE 1 STEP TOPIC *********** \n");
           break;
         }
@@ -306,8 +412,16 @@ import 'dotenv/config'
       if (number_topics >= limit_topics) {
         number_subjects = number_subjects + 1;
         number_topics = 0;
-        console.log("**********  DONE 1 STEP TOPIC *********** \n");
-        await page.goto(listSubjects[number_subjects].url);
+        console.log("**********  DONE 1 STEP SUBJECT *********** \n");
+        try {
+          await page.goto(listCategory[number_subjects].url);
+        } catch (error) {
+          try {
+            await page.reload({ timeout: TIME_OUT_LONG })
+          } catch (error) {
+            sendTele(error, [], 'ERROR GOTO 398')
+          }
+        }
         break;
       }
     }
@@ -320,7 +434,7 @@ import 'dotenv/config'
       break;
     }
   }
-  // await browser.close();
+  await browser.close();
 })();
 
 
@@ -333,20 +447,19 @@ async function sendTele(error, data_tpm = [], note = '', url = '', line = 0) {
   html += '<b>[Data] : </b><code>' + JSON.stringify(data_tpm) + '</code> \n';
 
   try {
-    console.log(process.env.TELE_URL);
     await axios.post(process.env.TELE_URL, {
       chat_id: process.env.TELE_CHAT_ID,
       text: html,
     }).then(function (response) {
     });
   } catch (error) {
-    console.log('LOCAL LOG: ERROR SEND TELEGRAM');
+    console.log("LOCAL LOG: ERROR SEND TELEGRAM");
   }
 }
 
-function saveData(data) {
+async function saveData(data) {
   try {
-    axios.post('http://basic.laravel.local/crawler/store', data)
+    await axios.post(process.env.HOST_LOCAL, data)
       .then(function (response) {
 
       })
@@ -379,5 +492,5 @@ function removeAccents(str) {
     var char = AccentsMap[i][0];
     str = str.replace(re, char);
   }
-  return str.trim().replace(/\s/g, '-');;
+  return str.trim().replace(/\s/g, '-').replaceAll(':', '').replaceAll(',', '').replaceAll('.', '').toLowerCase();
 }
