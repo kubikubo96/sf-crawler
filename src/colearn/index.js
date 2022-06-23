@@ -674,11 +674,6 @@ function removeAccents(str) {
   return str.trim().replace(/\s/g, '-').replaceAll(':', '').replaceAll(',', '').replaceAll('.', '').toLowerCase();
 }
 
-function timestamps(params) {
-  var currentdate = new Date();
-  var datetime = currentdate.getDay() + "/" + currentdate.getMonth()
-    + "/" + currentdate.getFullYear() + " - "
-    + currentdate.getHours() + ":"
-    + currentdate.getMinutes() + ":" + currentdate.getSeconds();
-  return datetime;
+function timestamps() {
+  return new Date().toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh" })
 }
