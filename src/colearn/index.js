@@ -10,8 +10,8 @@ import 'dotenv/config'
   });
   const page = await browser.newPage();
 
-  const TIME_OUT = 1000;
-  const TIME_OUT_LONG = 3000;
+  const TIME_OUT = 2000;
+  const TIME_OUT_LONG = 5000;
 
   const listCategory = [
     { 'class': 'lop-12', 'url': 'https://vungoi.vn/lop-12/bai-tap-mon-toan-s5af3ead5f4ed8c11759c1ade.html', 'name': 'toan' },
@@ -101,10 +101,11 @@ import 'dotenv/config'
      * B1. Go 1 subject
      */
     try {
-      console.log("STEP 1: Go to 1 category/subject");
+      console.log("STEP 1: Go to 1 Subject  \n");
       try {
         await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
       } catch (error) {
+        console.log("-- CATCH STEP 1: Go to 1 Subject -- [page.goto] \n");
         setTimeout(async () => {
           try {
             await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
@@ -121,18 +122,19 @@ import 'dotenv/config'
         break;
       }
     } catch (error) {
+      console.log("-- CATCH STEP 1: Go to 1 Subject -- [page.goto] \n");
       try {
         try {
           await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
           await page.waitForNavigation()
         } catch (error) { break }
       } catch (error) {
-        await sendTele(error, [], 'Error reload page', page.url(), 130);
+        await sendTele(error, [], 'CATCH STEP 1: Go to 1 Subject -- [page.goto]', page.url(), 132);
         break;
       }
     }
 
-    console.log("STEP 2: Go 1 topic");
+    console.log("STEP 2: Go 1 Topic  \n");
     /**
      * While list topic
      */
@@ -142,36 +144,29 @@ import 'dotenv/config'
        */
       try {
         const elmTopics = '.list-chapters .sub-string';
-
-        console.log("STEP 2.1: WaitForSelector elmTopics");
         try {
           await page.waitForSelector(elmTopics);
         } catch (error) {
-          console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 2.1 catch');
+          console.log("-- CATCH Go 1 Topic [waitForSelector( elmTopics )] --  \n");
           number_topics = number_topics + 1
-          await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
-          await page.waitForNavigation()
-          await sendTele(error, [], 'ERROR STEP 2.1: WaitForSelector elmTopics', page.url(), 154)
+          number_questions = 0
           break
         }
 
-        console.log("STEP 2.2 Get limit_topics");
         try {
           limit_topics = await page.$$eval(elmTopics, (elm) => elm.length);
         } catch (error) {
-          console.log('xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 2.2 catch');
+          console.log("-- CATCH Get limit_topics --  \n");
         }
 
-        console.log("STEP 2.3 Get topic_name");
         try {
           topic_name = await page.$$eval(elmTopics, (elm, number_topics) => {
             return elm[number_topics].getAttribute('title')
           }, number_topics);
         } catch (error) {
-          console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 2.3 catch");
+          console.log("-- CATCH Get number_topics -- \n");
         }
 
-        console.log("STEP 2.4 Get topic_parent_name");
         try {
           topic_parent_name = await page.evaluate(async (elmTopics, number_topics) => {
             let elm = document.querySelectorAll(elmTopics)[number_topics]
@@ -179,53 +174,33 @@ import 'dotenv/config'
             return elmParent.textContent;
           }, elmTopics, number_topics)
         } catch (error) {
-          console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 2.4 catch");
+          console.log("-- CATCH Get topic_parent_name -- \n");
         }
 
-        console.log("STEP 2.5 Click go to 1 topic");
         try {
           const listTopics = await page.$$(elmTopics)
           await listTopics[number_topics].click() //Click vào 1 topic
 
         } catch (error) {
-          try {
-            await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
-            await page.waitForNavigation()
-          } catch (error) { break }
+          console.log("-- CATCH Action click to 1 topic -- \n");
+          number_subjects = number_subjects + 1
+          number_topics = 0
+          number_questions = 0
+          break
         }
 
-        /**
-        * break topic
-        */
-        if (number_topics >= limit_topics) {
-          number_subjects = number_subjects + 1;
-          number_topics = 0;
-          console.log("**********  DONE 1 STEP SUBJECT *********** \n");
-          try {
-            await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
-          } catch (error) {
-            try {
-              await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
-              await page.waitForNavigation()
-            } catch (error) {
-              await sendTele(error, [], 'ERROR GOTO 202', page.url(), 211)
-              break;
-            }
-          }
-          break;
-        }
       } catch (error) {
-        console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 2 catch");
+        console.log("-- CATCH STEP 2: Go To 1 Topic -- \n");
         try {
           await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
           await page.waitForNavigation()
         } catch (error) {
-          await sendTele(error, [], 'Error reload page', page.url(), 223);
+          await sendTele(error, [], '-- CATCH STEP 2: Go To 1 Topic --', page.url(), 198);
           break;
         }
       }
 
-      console.log("STEP 3: Go to 1 question");
+      console.log("STEP 3: Go to 1 Question \n");
       /**
      * While list question
      */
@@ -235,46 +210,44 @@ import 'dotenv/config'
          */
         try {
           const elmQuestions = '#list_relate-quiz .quiz-relate-item a';
-
-          console.log("STEP 3.1 WaitForSelector elmQuestions");
           try {
             await page.waitForSelector(elmQuestions)
           } catch (error) {
+            console.log("-- CATCH Go to 1 Question [waitForSelector( elmQuestions )] -- \n");
             number_questions = number_questions + 1
-            await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
-            await page.waitForNavigation()
-            await sendTele(error, [], 'ERROR STEP 3.1 WaitForSelector elmQuestions', page.url(), 246)
             break
           }
 
-          console.log("STEP 3.2 Get limit_questions");
           try {
             limit_questions = await page.$$eval(elmQuestions, (elm) => elm.length);
-          } catch (error) { }
+          } catch (error) {
+            console.log("-- CATCH Get limit_questions -- \n");
+          }
 
-          console.log("STEP 3.3 Click go to 1 question");
           try {
             const listQuestions = await page.$$(elmQuestions)
-            await listQuestions[number_questions].click(); //Click vào 1 question
-          } catch (error) { }
+            await listQuestions[number_questions].click() //Click vào 1 question
+          } catch (error) {
+            console.log("-- CATCH Action click to 1 quesion -- \n");
+          }
 
-          console.log("STEP 3.4 WaitForNavigation, WaitForTimeout => Wait Document Question load Success");
+          console.log("STEP 3.1: Wait Nivigation... \n");
           try {
-            await page.waitForNavigation();
-            await page.waitForTimeout(2000);
+            await page.waitForNavigation()
           } catch (error) { }
 
-          console.log('-                                           -');
-          console.log('-                                           -');
-          console.log('---------------------------------------------');
-          console.log("[subjects] limit:  " + limit_subjects + ", number:  " + number_subjects);
-          console.log("[topics] limit:    " + limit_topics + ", number:  " + number_topics);
-          console.log("[questions] limit: " + limit_questions + ", number: " + number_questions);
+          /**
+           * Log Number Running In Progress
+           */
+          console.log('-                                           -')
+          console.log('---------------------------------------------')
+          console.log("[subjects] limit:  " + limit_subjects + ", number:  " + number_subjects)
+          console.log("[topics] limit:    " + limit_topics + ", number:  " + number_topics)
+          console.log("[questions] limit: " + limit_questions + ", number: " + number_questions)
           console.log("[timestamps]: " + timestamps());
           console.log("[url question]: " + page.url());
-          console.log('---------------------------------------------');
-          console.log('-                                           -');
-          console.log('-                                           -');
+          console.log('---------------------------------------------')
+          console.log('-                                           -')
 
           /**
          * B4. Get data questions
@@ -317,14 +290,16 @@ import 'dotenv/config'
           let temp_data = { ...default_data };
 
 
-          console.log("STEP 4: Get Option");
+          /**
+           * Get Data Question
+           */
+          console.log("STEP 4: Get Data Question \n");
+
           /**
            * GET Option
            */
           try {
-            console.log("STEP 4.1 WaitForSelector elmOption");
             await page.waitForSelector(elmOption, { timeout: TIME_OUT }).then(async () => {
-              console.log("STEP 4.2 Get option");
               temp_data.url_question = page.url();
               const option = await page.evaluate(async (elmOption) => {
                 let elm = document.querySelectorAll(elmOption)
@@ -337,8 +312,8 @@ import 'dotenv/config'
                 return data;
               }, elmOption)
               temp_data.option = option;
-            }).catch((error) => {
-              console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 4 catch");
+            }).catch(() => {
+              console.log("-- CATCH Get Option -- \n");
             })
           } catch (error) { }
 
@@ -346,71 +321,53 @@ import 'dotenv/config'
           /**
           * Get URL Question
           */
-          console.log("STEP 5: Get Url Question");
           try {
-            console.log("STEP 5.1 WaitForSelector #quiz-single");
             await page.waitForSelector('#quiz-single', { timeout: TIME_OUT }).then(() => {
-              console.log("STEP 5.2 Get url_question");
               temp_data.url_question = page.url();
-
             }).catch(() => {
-              console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 5 catch");
+              console.log("-- CATCH Get Url Question -- \n");
             })
           } catch (error) { }
 
           /**
            * GET Name
            */
-          console.log("STEP 6: Get Name");
           try {
-            console.log("STEP 6.1 WaitForSelector elmName");
             await page.waitForSelector(elmName, { timeout: TIME_OUT }).then(async () => {
-              console.log("STEP 6.2 Get name");
               temp_data.name = await page.$$eval(elmName, (elm) => elm[0].textContent);
-
             }).catch(() => {
-              console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 6 catch");
+              console.log("-- CATCH Get Name -- \n");
             })
           } catch (error) { }
 
           /**
            * GET Tag
            */
-          console.log("STEP 7: Get Tag");
           try {
-            console.log("STEP 7.1 WaitForSelector elmTag");
             await page.waitForSelector(elmTag, { timeout: TIME_OUT }).then(async () => {
-              console.log("STEP 7.2 Get tag");
               temp_data.tag = await page.$$eval(elmTag, (elm) => elm[0].textContent);
-
             }).catch(() => {
-              console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 7 catch");
+              console.log("-- CATCH Get Tag -- \n");
             })
           } catch (error) { }
 
           /**
            * GET Content
            */
-          console.log("STEP 8: Get Content");
           try {
-            console.log("STEP 8.1 WaitForSelector elmQuestion");
             await page.waitForSelector(elmQuestion, { timeout: TIME_OUT }).then(async () => {
-              console.log("STEP 8.2 Get content");
               temp_data.content = await page.$$eval(elmQuestion, (elm) => elm[0].textContent);
 
             }).catch(() => {
-              console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 8 catch");
+              console.log("-- CATCH Get Content -- \n");
             })
           } catch (error) { }
 
           /**
            * GET Image question
            */
-          console.log("STEP 9: Get Image Question");
           try {
-            console.log("STEP 9.1 WaitForSelector elmImageQuestion");
             await page.waitForSelector(elmImageQuestion, { timeout: TIME_OUT }).then(async () => {
-              console.log("STEP 9.2 Get images");
               const images = await page.evaluate(async (elmImageQuestion) => {
                 let elm = document.querySelectorAll(elmImageQuestion)
                 elm = [...elm]
@@ -421,35 +378,27 @@ import 'dotenv/config'
                 return data;
               }, elmImageQuestion)
               temp_data.images = images;
-
             }).catch(() => {
-              console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 9 catch");
+              console.log("-- CATCH Get Image Question -- \n");
             })
           } catch (error) { }
 
           /**
            * GET Solution
            */
-          console.log("STEP 10: Get Solution");
           try {
-            console.log("STEP 10.1 WaitForSelector elmSolution");
             await page.waitForSelector(elmSolution, { timeout: TIME_OUT }).then(async () => {
-              console.log("STEP 10.2 Get solution");
               temp_data.solution = await page.$$eval(elmSolution, (elm) => elm[0].textContent.replace('Xem chi tiết', '').replace('---', '').trim());
-
             }).catch(() => {
-              console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 10 catch");
+              console.log("-- CATCH Get Solution -- \n");
             })
           } catch (error) { }
 
           /**
            * GET Image Solution
            */
-          console.log("STEP 11: Get Image Solution");
           try {
-            console.log("STEP 11.1 WaitForSelector elmSolution");
             await page.waitForSelector(elmImageSolution, { timeout: TIME_OUT }).then(async () => {
-              console.log("STEP 11.2 get images_solution");
               const images = await page.evaluate(async (elmImageSolution) => {
                 let elm = document.querySelectorAll(elmImageSolution)
                 elm = [...elm]
@@ -462,33 +411,26 @@ import 'dotenv/config'
               temp_data.images_solution = images;
 
             }).catch(() => {
-              console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 11 catch");
+              console.log("-- CATCH Get Image Solution -- \n");
             })
           } catch (error) { }
 
           /**
            * GET Answer
            */
-          console.log("STEP 12: Get Answer");
           try {
-            console.log("STEP 12.1 WaitForSelector elmAnswer");
             await page.waitForSelector(elmAnswer, { timeout: TIME_OUT }).then(async () => {
-              console.log("STEP 11.2 Get answer");
               temp_data.answer = await page.$$eval(elmAnswer, (elm) => elm[0].textContent);
-
             }).catch(() => {
-              console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 12 catch");
+              console.log("-- CATCH Get Answer -- \n");
             })
           } catch (error) { }
 
           /**
            * GET Image answer
            */
-          console.log("STEP 13: Get Image Answer");
           try {
-            console.log("STEP 13.1 WaitForSelector elmAnswer");
             await page.waitForSelector(elmImageAnswer, { timeout: TIME_OUT }).then(async () => {
-              console.log("STEP 13.2 Get images_answer");
               const images = await page.evaluate(async (elmImageAnswer) => {
                 let elm = document.querySelectorAll(elmImageAnswer)
                 elm = [...elm]
@@ -499,39 +441,30 @@ import 'dotenv/config'
                 return data;
               }, elmImageAnswer)
               temp_data.images_answer = images;
-
             }).catch(() => {
-              console.log("STEP 13 catch");
+              console.log("-- CATCH Image Answer -- \n");
             })
           } catch (error) { }
 
           /**
            * GET Correct answer
            */
-          console.log("STEP 14: GET Correct Answer");
           try {
-            console.log("STEP 14.1 WaitForSelector elmCorrectAnswer");
             await page.waitForSelector(elmCorrectAnswer, { timeout: TIME_OUT }).then(async () => {
-              console.log("STEP 14.2 Get correct_answer");
               temp_data.correct_answer = await page.$$eval(elmCorrectAnswer, (elm) => elm[0].textContent);
-
             }).catch(() => {
-              console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 14 catch");
+              console.log("-- CATCH Get Correct Answer -- \n");
             })
           } catch (error) { }
 
           /**
            * GET Note
            */
-          console.log("STEP 15: GET Note");
           try {
-            console.log("STEP 15.1 WaitForSelector elmNote");
             await page.waitForSelector(elmNote, { timeout: TIME_OUT }).then(async () => {
-              console.log("STEP 15.2 Get note");
               temp_data.note = await page.$$eval(elmNote, (elm) => elm[0].textContent);
-
             }).catch(() => {
-              console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 15 catch");
+              console.log("-- CATCH Get Note -- \n");
             })
           } catch (error) { }
 
@@ -539,45 +472,49 @@ import 'dotenv/config'
           /**
            * push data
            */
-          console.log("STEP 16: Save Data In Database");
+          console.log("STEP 5: Push Data To API \n");
           try {
             if (number_questions < limit_questions) {
               if (temp_data.option.length > 0) {
-                total = total + 1;
-                console.log("");
-                console.log("SUCCESS!");
-                console.log("=================================");
-                console.log("|             " + total + "     |");
-                console.log("=================================");
+                total = total + 1
+                console.log("--- !!! PUSH SUCCESS !!!! ---")
+                console.log("")
+                console.log("=================================")
+                console.log("|             " + total + "     |")
+                console.log("=================================")
                 console.log("");
               } else {
-                console.log("");
-                console.log("********************************");
-                console.log("||          EMPTY OPTION       ||");
-                console.log("********************************");
-                console.log("");
+                console.log("********************************")
+                console.log("||          EMPTY OPTION       ||")
+                console.log("********************************")
+                console.log('')
+                console.log("[URL EMPTY]: " + page.url());
+                console.log('')
+                /**
+                 * Log Number Running In Progress
+                 */
               }
-              await saveData(temp_data);
+              await saveData(temp_data)
 
-              temp_data = { ...default_data };
-              number_questions = number_questions + 1;
+              temp_data = { ...default_data }
+              number_questions = number_questions + 1
               try {
-                console.log("STEP 16.1 Back To List Question ======> STEP 3");
+                console.log("STEP 6: Back To List Question ======> STEP 1,2,3 \n")
                 await page.goBack({ waitUntil: ['networkidle2'] })
               } catch (error) {
-                console.log("STEP 16.2 Goto List Page Category -------------------> ERROR [ page.goback() ]");
+                console.log("CATCH STEP 6: Goto List Page Category -- ERROR [ page.goback() ]")
                 try {
                   await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
-                  await sendTele(error, [], 'ERROR STEP 16.1 Back To List Question', page.url(), 574)
-                } catch (error) {
-                  await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
                   await page.waitForNavigation()
+                  await sendTele(error, [], 'CATCH STEP 6 Back To List Question', page.url(), 505)
+                } catch (error) {
                   break
                 }
               }
             }
           } catch (error) {
-            break;
+            console.log("--- CATCH STEP 5: Push Data To API -- \n");
+            break
           }
 
 
@@ -591,24 +528,44 @@ import 'dotenv/config'
               await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
             } catch (error) {
               try {
+                console.log("--- CATCH Break Question, Go to New Topic -- \n");
                 await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
                 await page.waitForNavigation()
                 break
               } catch (error) {
-                await sendTele(error, [], 'ERROR Break Question', page.url(), 600)
+                await sendTele(error, [], 'CATCH Break Question, Go to New Topic', page.url(), 532)
                 break
               }
             }
-            console.log("**********  DONE 1 STEP TOPIC *********** \n");
-            break;
+            console.log("**********  DONE 1 STEP TOPIC *********** \n")
+            break
           }
         } catch (error) {
-          console.log("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx => STEP 2 catch");
+          console.log("--- CATCH STEP 2: Go To 1 Topic [waitForSelector( elmTopics) ] [ LAST ] --- \n");
+          break
+        }
+
+        /**
+        * break topic
+        */
+        if (number_topics >= limit_topics) {
+          number_subjects = number_subjects + 1
+          number_topics = 0
+          number_questions = 0
+          console.log("**********  DONE 1 STEP SUBJECT *********** \n")
           try {
             await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
           } catch (error) {
-            break
+            console.log("--- CATCH Break Topic, Go to New Subjects -- \n");
+            try {
+              await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
+              await page.waitForNavigation()
+            } catch (error) {
+              await sendTele(error, [], 'CATCH Break Topic, Go to New Subjects', page.url(), 560)
+              break
+            }
           }
+          break
         }
       }
     }
@@ -646,7 +603,7 @@ async function saveData(data) {
         sendTele(error, data, 'Error Saved Database');
       });
   } catch (error) {
-    console.log('LOCAL LOG: ERROR SAVE DATA');
+    console.log('LOCAL LOG: ERROR SAVE DATABASE');
   }
 }
 
