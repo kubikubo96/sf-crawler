@@ -109,8 +109,9 @@ import 'dotenv/config'
         setTimeout(async () => {
           try {
             await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
-            await page.waitForNavigation()
-          } catch (error) { }
+          } catch (error) {
+            console.log("-- CATCH STEP 1: Go to 1 Subject -- [page.goto] \n");
+          }
         }, TIME_OUT_LONG);
       }
 
@@ -126,7 +127,6 @@ import 'dotenv/config'
       try {
         try {
           await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
-          await page.waitForNavigation()
         } catch (error) { break }
       } catch (error) {
         await sendTele(error, [], 'CATCH STEP 1: Go to 1 Subject -- [page.goto]', page.url(), 132);
@@ -193,10 +193,10 @@ import 'dotenv/config'
         console.log("-- CATCH STEP 2: Go To 1 Topic -- \n");
         try {
           await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
-          await page.waitForNavigation()
+          break
         } catch (error) {
           await sendTele(error, [], '-- CATCH STEP 2: Go To 1 Topic --', page.url(), 198);
-          break;
+          break
         }
       }
 
@@ -234,7 +234,9 @@ import 'dotenv/config'
           console.log("STEP 3.1: Wait Nivigation... \n");
           try {
             await page.waitForNavigation()
-          } catch (error) { }
+          } catch (error) { 
+            console.log("CATCH STEP 3.1: Wait Nivigation... \n");
+          }
 
           /**
            * Log Number Running In Progress
@@ -243,7 +245,7 @@ import 'dotenv/config'
           console.log('---------------------------------------------')
           console.log("[subjects] limit:  " + limit_subjects + ", number:  " + number_subjects)
           console.log("[topics] limit:    " + limit_topics + ", number:  " + number_topics)
-          console.log("[questions] limit: " + limit_questions + ", number: " + number_questions)
+          console.log("[questions] limit: " + limit_questions + ", number:  " + number_questions)
           console.log("[timestamps]: " + timestamps());
           console.log("[url question]: " + page.url());
           console.log('---------------------------------------------')
@@ -505,7 +507,6 @@ import 'dotenv/config'
                 console.log("CATCH STEP 6: Goto List Page Category -- ERROR [ page.goback() ]")
                 try {
                   await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
-                  await page.waitForNavigation()
                   await sendTele(error, [], 'CATCH STEP 6 Back To List Question', page.url(), 505)
                 } catch (error) {
                   break
@@ -530,7 +531,6 @@ import 'dotenv/config'
               try {
                 console.log("--- CATCH Break Question, Go to New Topic -- \n");
                 await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
-                await page.waitForNavigation()
                 break
               } catch (error) {
                 await sendTele(error, [], 'CATCH Break Question, Go to New Topic', page.url(), 532)
@@ -559,7 +559,6 @@ import 'dotenv/config'
             console.log("--- CATCH Break Topic, Go to New Subjects -- \n");
             try {
               await page.goto(listCategory[number_subjects].url, { waitUntil: ['networkidle2'] })
-              await page.waitForNavigation()
             } catch (error) {
               await sendTele(error, [], 'CATCH Break Topic, Go to New Subjects', page.url(), 560)
               break
