@@ -385,6 +385,7 @@ import "dotenv/config";
    * While list menu
    */
   while (1) {
+    await page.waitForTimeout(1000);
     /**
      * B1. Go 1 subject
      */
@@ -409,24 +410,6 @@ import "dotenv/config";
       }
     } catch (error) {
       console.log("-- CATCH STEP 1: Go to 1 Subject -- [page.goto] \n");
-      try {
-        try {
-          await page.goto(listCategory[number_subjects].url, {
-            waitUntil: ["networkidle2"],
-          });
-        } catch (error) {
-          break;
-        }
-      } catch (error) {
-        await sendTele(
-          error,
-          [],
-          "CATCH STEP 1: Go to 1 Subject -- [page.goto]",
-          page.url(),
-          132
-        );
-        break;
-      }
     }
 
     console.log("STEP 2: Go 1 Topic  \n");
@@ -434,6 +417,7 @@ import "dotenv/config";
      * While list topic
      */
     while (1) {
+      await page.waitForTimeout(1000);
       /**
        * B2. Go 1 topic
        */
@@ -441,12 +425,11 @@ import "dotenv/config";
         const elmTopics = ".list-chapters .sub-string";
         try {
           await page.waitForSelector(elmTopics);
+          await page.waitForTimeout(1000);
         } catch (error) {
           console.log(
             "-- CATCH Go 1 Topic [waitForSelector( elmTopics )] --  \n"
           );
-          number_topics = number_topics + 1;
-          number_questions = 0;
           break;
         }
 
@@ -488,10 +471,6 @@ import "dotenv/config";
           const listTopics = await page.$$(elmTopics);
           await listTopics[number_topics].click(); //Click vào 1 topic
         } catch (error) {
-          console.log("-- CATCH Action click to 1 topic -- \n");
-          number_subjects = number_subjects + 1;
-          number_topics = 0;
-          number_questions = 0;
           break;
         }
       } catch (error) {
@@ -518,6 +497,7 @@ import "dotenv/config";
        * While list question
        */
       while (1) {
+        await page.waitForTimeout(1000);
         urlListQuestion = page.url();
         /**
          * B3. Go 1 question
@@ -525,12 +505,13 @@ import "dotenv/config";
         try {
           const elmQuestions = "#list_relate-quiz .quiz-relate-item a";
           try {
-            await page.waitForSelector(elmQuestions);
+            await page.waitForSelector(elmQuestions, {
+              timeout: TIME_OUT_LONG,
+            });
           } catch (error) {
             console.log(
               "-- CATCH Go to 1 Question [waitForSelector( elmQuestions )] -- \n"
             );
-            number_questions = number_questions + 1;
             break;
           }
 
@@ -547,8 +528,10 @@ import "dotenv/config";
             const listQuestions = await page.$$(elmQuestions);
             await listQuestions[number_questions].click(); //Click vào 1 question
             await page.waitForNavigation();
+            await page.waitForTimeout(1000);
           } catch (error) {
             console.log("-- CATCH Action click to 1 quesion -- \n");
+            break;
           }
 
           /**
@@ -582,19 +565,12 @@ import "dotenv/config";
           const elmName = "#quiz-single .vn-tit-question strong";
           const elmTag = "#quiz-single .vn-tit-question .clf";
           const elmQuestion = "#quiz-single .content-quiz";
-          const elmQuestionLatex = "#quiz-single .content-quiz .mjx-math";
           const elmImageQuestion = "#quiz-single img";
           const elmOption = ".vn-box-answer .row > div";
           const elmCorrectAnswer = ".anwsers-correct span span";
           const elmSolution = ".content-solution .solution-item div";
-          const elmSolutionLatex =
-            ".content-solution .solution-item div .mjx-math";
-          const elmImageSolution = ".content-solution .solution-item div img";
           const elmAnswer = "#quiz-solution .solution-item div";
-          const elmAnswerLatex = "#quiz-solution .solution-item div .mjx-math";
-          const elmImageAnswer = "#quiz-solution .solution-item div img";
           const elmNote = ".content-solution .note";
-          const elmNoteLatex = ".content-solution .note .mjx-math";
 
           let default_data = {
             url_question: "",
@@ -604,7 +580,6 @@ import "dotenv/config";
             topic_id: "",
             topic_name: topic_name,
             topic_parent_name: topic_parent_name,
-            topic_parent_name_no_accents: removeAccents(topic_parent_name),
             class_id: "",
             class_name: listCategory[number_subjects].class,
             name: "",
@@ -613,12 +588,10 @@ import "dotenv/config";
             images: [],
             option: [],
             solution: "",
-            images_solution: [],
             answer: "",
-            images_answer: [],
             correct_answer: "",
             note: "",
-            temp_text: "CRAWLER",
+            temp_text: "CRAWLER_AFTER",
           };
           let temp_data = { ...default_data };
 
@@ -626,18 +599,13 @@ import "dotenv/config";
            * Reload Page when go to 1 question
            */
           try {
-            await page.waitForTimeout(1000);
-            await page.reload({ waitUntil: ["networkidle2"] });
-            await page.waitForTimeout(1000);
+            await page.reload({
+              waitUntil: ["networkidle2"],
+              timeout: TIME_OUT_LONG,
+            });
+            await page.waitForTimeout(3000);
           } catch (error) {
             console.log("CATCH reload page in 1 Question");
-            try {
-              await page.goto(listCategory[number_subjects].url, {
-                waitUntil: ["networkidle2"],
-              });
-            } catch (error) {
-              break;
-            }
           }
 
           /**
@@ -658,33 +626,26 @@ import "dotenv/config";
                   let elm = document.querySelectorAll(elmOption);
                   elm = [...elm];
                   let content = [];
-                  elm.forEach((item, key) => {
-                    let contentHTML = item.innerHTML;
-                    let latexHTML = item.querySelectorAll(".mjx-math");
+                  elm.forEach((item) => {
+                    let latexHTML = item.querySelectorAll("script");
                     latexHTML = [...latexHTML];
                     latexHTML.forEach((itemLatex) => {
-                      contentHTML = contentHTML.replace(
-                        itemLatex.innerHTML,
-                        "<span> \\( </span>" +
-                          itemLatex.innerHTML +
-                          "<span> \\) </span>"
-                      );
+                      itemLatex.insertAdjacentHTML("afterbegin", " \\( ");
+                      itemLatex.insertAdjacentHTML("beforeend", " \\) ");
                     });
-                    elm[key].innerHTML = contentHTML;
-                    let tagScript = item.querySelectorAll("script");
-                    tagScript = [...tagScript];
-                    for (let i = 0; i < tagScript.length; i++) {
+
+                    let mathTrash1 = item.querySelectorAll(".MathJax_Preview");
+                    let mathTrash2 = item.querySelectorAll(".mjx-chtml");
+                    mathTrash1 = [...mathTrash1];
+                    for (let i = 0; i < mathTrash1.length; i++) {
                       try {
-                        tagScript[i].remove();
+                        mathTrash1[i].remove();
                       } catch (error) {}
                     }
-                    let mathTrash = item.querySelectorAll(
-                      ".MJX_Assistive_MathML"
-                    );
-                    mathTrash = [...mathTrash];
-                    for (let i = 0; i < mathTrash.length; i++) {
+                    mathTrash2 = [...mathTrash2];
+                    for (let i = 0; i < mathTrash2.length; i++) {
                       try {
-                        mathTrash[i].remove();
+                        mathTrash2[i].remove();
                       } catch (error) {}
                     }
                     content.push({
@@ -761,46 +722,33 @@ import "dotenv/config";
               .waitForSelector(elmQuestion, { timeout: TIME_OUT })
               .then(async () => {
                 await page.waitForTimeout(1000);
-                temp_data.content = await page.evaluate(
-                  async (elmQuestion, elmQuestionLatex) => {
-                    let contentHTML =
-                      document.querySelectorAll(elmQuestion)[0].innerHTML;
-                    let latexHTML = document.querySelectorAll(elmQuestionLatex);
-                    latexHTML = [...latexHTML];
-                    latexHTML.forEach((item) => {
-                      contentHTML = contentHTML.replace(
-                        item.innerHTML,
-                        "<span> \\( </span>" +
-                          item.innerHTML +
-                          "<span> \\) </span>"
-                      );
-                    });
-                    document.querySelectorAll(elmQuestion)[0].innerHTML =
-                      contentHTML;
-                    let tagScript = document
-                      .querySelectorAll(elmQuestion)[0]
-                      .querySelectorAll("script");
-                    tagScript = [...tagScript];
-                    for (let i = 0; i < tagScript.length; i++) {
-                      try {
-                        tagScript[i].remove();
-                      } catch (error) {}
-                    }
-                    let mathTrash = document.querySelectorAll(
-                      ".MJX_Assistive_MathML"
-                    );
-                    mathTrash = [...mathTrash];
-                    for (let i = 0; i < mathTrash.length; i++) {
-                      try {
-                        mathTrash[i].remove();
-                      } catch (error) {}
-                    }
-                    return document.querySelectorAll(elmQuestion)[0]
-                      .textContent;
-                  },
-                  elmQuestion,
-                  elmQuestionLatex
-                );
+                temp_data.content = await page.evaluate(async (elmQuestion) => {
+                  const domElmQuestion = document.querySelector(elmQuestion);
+                  let latexHTML = domElmQuestion.querySelectorAll("script");
+                  latexHTML = [...latexHTML];
+                  latexHTML.forEach((item) => {
+                    item.insertAdjacentHTML("afterbegin", " \\( ");
+                    item.insertAdjacentHTML("beforeend", " \\) ");
+                  });
+
+                  let mathTrash1 =
+                    domElmQuestion.querySelectorAll(".MathJax_Preview");
+                  let mathTrash2 =
+                    domElmQuestion.querySelectorAll(".mjx-chtml");
+                  mathTrash1 = [...mathTrash1];
+                  for (let i = 0; i < mathTrash1.length; i++) {
+                    try {
+                      mathTrash1[i].remove();
+                    } catch (error) {}
+                  }
+                  mathTrash2 = [...mathTrash2];
+                  for (let i = 0; i < mathTrash2.length; i++) {
+                    try {
+                      mathTrash2[i].remove();
+                    } catch (error) {}
+                  }
+                  return domElmQuestion.textContent;
+                }, elmQuestion);
               })
               .catch(() => {
                 console.log("-- CATCH Get Content -- \n");
@@ -837,75 +785,13 @@ import "dotenv/config";
             await page
               .waitForSelector(elmSolution, { timeout: TIME_OUT })
               .then(async () => {
-                temp_data.solution = await page.evaluate(
-                  async (elmSolution, elmSolutionLatex) => {
-                    let contentHTML =
-                      document.querySelectorAll(elmSolution)[0].innerHTML;
-                    let latexHTML = document.querySelectorAll(elmSolutionLatex);
-                    latexHTML = [...latexHTML];
-                    latexHTML.forEach((item) => {
-                      contentHTML = contentHTML.replace(
-                        item.innerHTML,
-                        "<span> \\( </span>" +
-                          item.innerHTML +
-                          "<span> \\) </span>"
-                      );
-                    });
-                    document.querySelectorAll(elmSolution)[0].innerHTML =
-                      contentHTML;
-                    let tagScript = document
-                      .querySelectorAll(elmSolution)[0]
-                      .querySelectorAll("script");
-                    tagScript = [...tagScript];
-                    for (let i = 0; i < tagScript.length; i++) {
-                      try {
-                        tagScript[i].remove();
-                      } catch (error) {}
-                    }
-                    let mathTrash = document.querySelectorAll(
-                      ".MJX_Assistive_MathML"
-                    );
-                    mathTrash = [...mathTrash];
-                    for (let i = 0; i < mathTrash.length; i++) {
-                      try {
-                        mathTrash[i].remove();
-                      } catch (error) {}
-                    }
-                    return document
-                      .querySelectorAll(elmSolution)[0]
-                      .textContent.replace("Xem chi tiết", "")
-                      .replace("---", "")
-                      .trim();
-                  },
+                temp_data.solution = await page.$$eval(
                   elmSolution,
-                  elmSolutionLatex
+                  (elm) => elm[0].innerHTML
                 );
               })
               .catch((error) => {
                 console.log("-- CATCH Get Solution -- \n");
-              });
-          } catch (error) {}
-
-          /**
-           * GET Image Solution
-           */
-          try {
-            await page
-              .waitForSelector(elmImageSolution, { timeout: TIME_OUT })
-              .then(async () => {
-                const images = await page.evaluate(async (elmImageSolution) => {
-                  let elm = document.querySelectorAll(elmImageSolution);
-                  elm = [...elm];
-                  let data = elm.map((item) => ({
-                    src: item.getAttribute("src"),
-                    title: item.getAttribute("title"),
-                  }));
-                  return data;
-                }, elmImageSolution);
-                temp_data.images_solution = images;
-              })
-              .catch(() => {
-                console.log("-- CATCH Get Image Solution -- \n");
               });
           } catch (error) {}
 
@@ -916,71 +802,13 @@ import "dotenv/config";
             await page
               .waitForSelector(elmAnswer, { timeout: TIME_OUT })
               .then(async () => {
-                temp_data.answer = await page.evaluate(
-                  async (elmAnswer, elmAnswerLatex) => {
-                    let contentHTML =
-                      document.querySelectorAll(elmAnswer)[0].innerHTML;
-                    let latexHTML = document.querySelectorAll(elmAnswerLatex);
-                    latexHTML = [...latexHTML];
-                    latexHTML.forEach((item) => {
-                      contentHTML = contentHTML.replace(
-                        item.innerHTML,
-                        "<span> \\( </span>" +
-                          item.innerHTML +
-                          "<span> \\) </span>"
-                      );
-                    });
-                    document.querySelectorAll(elmAnswer)[0].innerHTML =
-                      contentHTML;
-                    let tagScript = document
-                      .querySelectorAll(elmAnswer)[0]
-                      .querySelectorAll("script");
-                    tagScript = [...tagScript];
-                    for (let i = 0; i < tagScript.length; i++) {
-                      try {
-                        tagScript[i].remove();
-                      } catch (error) {}
-                    }
-                    let mathTrash = document.querySelectorAll(
-                      ".MJX_Assistive_MathML"
-                    );
-                    mathTrash = [...mathTrash];
-                    for (let i = 0; i < mathTrash.length; i++) {
-                      try {
-                        mathTrash[i].remove();
-                      } catch (error) {}
-                    }
-                    return document.querySelectorAll(elmAnswer)[0].textContent;
-                  },
+                temp_data.answer = await page.$$eval(
                   elmAnswer,
-                  elmAnswerLatex
+                  (elm) => elm[0].innerHTML
                 );
               })
               .catch((error) => {
                 console.log("-- CATCH Get Answer -- \n");
-              });
-          } catch (error) {}
-
-          /**
-           * GET Image answer
-           */
-          try {
-            await page
-              .waitForSelector(elmImageAnswer, { timeout: TIME_OUT })
-              .then(async () => {
-                const images = await page.evaluate(async (elmImageAnswer) => {
-                  let elm = document.querySelectorAll(elmImageAnswer);
-                  elm = [...elm];
-                  let data = elm.map((item) => ({
-                    src: item.getAttribute("src"),
-                    title: item.getAttribute("title"),
-                  }));
-                  return data;
-                }, elmImageAnswer);
-                temp_data.images_answer = images;
-              })
-              .catch(() => {
-                console.log("-- CATCH Image Answer -- \n");
               });
           } catch (error) {}
 
@@ -1008,48 +836,9 @@ import "dotenv/config";
             await page
               .waitForSelector(elmNote, { timeout: TIME_OUT })
               .then(async () => {
-                temp_data.note = await page.evaluate(
-                  async (elmNote, elmNoteLatex) => {
-                    let contentHTML =
-                      document.querySelectorAll(elmNote)[0].innerHTML;
-                    let latexHTML = document.querySelectorAll(elmNoteLatex);
-                    latexHTML = [...latexHTML];
-                    latexHTML.forEach((item) => {
-                      contentHTML = contentHTML.replace(
-                        item.innerHTML,
-                        "<span> \\( </span>" +
-                          item.innerHTML +
-                          "<span> \\) </span>"
-                      );
-                    });
-                    document.querySelectorAll(elmNote)[0].innerHTML =
-                      contentHTML;
-                    let tagScript = document
-                      .querySelectorAll(elmNote)[0]
-                      .querySelectorAll("script");
-                    tagScript = [...tagScript];
-                    for (let i = 0; i < tagScript.length; i++) {
-                      try {
-                        tagScript[i].remove();
-                      } catch (error) {}
-                    }
-                    let mathTrash = document.querySelectorAll(
-                      ".MJX_Assistive_MathML"
-                    );
-                    mathTrash = [...mathTrash];
-                    for (let i = 0; i < mathTrash.length; i++) {
-                      try {
-                        mathTrash[i].remove();
-                      } catch (error) {}
-                    }
-                    return document
-                      .querySelectorAll(elmNote)[0]
-                      .textContent.replace("Xem chi tiết", "")
-                      .replace("---", "")
-                      .trim();
-                  },
+                temp_data.note = await page.$$eval(
                   elmNote,
-                  elmNoteLatex
+                  (elm) => elm[0].innerHTML
                 );
               })
               .catch((error) => {
@@ -1082,35 +871,21 @@ import "dotenv/config";
                  * Log Number Running In Progress
                  */
               }
-              await saveData(temp_data);
 
+              await saveData(temp_data);
               temp_data = { ...default_data };
               number_questions = number_questions + 1;
               try {
                 console.log(
                   "STEP 6: Back To List Question ======> STEP 1,2,3 \n"
                 );
-                await page.goto(urlListQuestion, {
-                  waitUntil: ["networkidle2"],
-                });
+                await page.goto(urlListQuestion);
+                await page.waitForTimeout(2000);
               } catch (error) {
                 console.log(
                   "CATCH STEP 6: Goto List Page Category -- ERROR [  page.goto(urlListQuestion) ]"
                 );
-                try {
-                  await page.goto(listCategory[number_subjects].url, {
-                    waitUntil: ["networkidle2"],
-                  });
-                  await sendTele(
-                    error,
-                    [],
-                    "CATCH STEP 6 Back To List Question",
-                    page.url(),
-                    505
-                  );
-                } catch (error) {
-                  break;
-                }
+                break;
               }
             }
           } catch (error) {
@@ -1119,32 +894,17 @@ import "dotenv/config";
           }
 
           /**
-           * break questions
+           * break 1 topic
            */
           if (number_questions >= limit_questions) {
             number_topics = number_topics + 1;
             number_questions = 0;
             try {
-              await page.goto(listCategory[number_subjects].url, {
-                waitUntil: ["networkidle2"],
-              });
+              await page.goto(listCategory[number_subjects].url);
+              await page.waitForTimeout(2000);
             } catch (error) {
-              try {
-                console.log("--- CATCH Break Question, Go to New Topic -- \n");
-                await page.goto(listCategory[number_subjects].url, {
-                  waitUntil: ["networkidle2"],
-                });
-                break;
-              } catch (error) {
-                await sendTele(
-                  error,
-                  [],
-                  "CATCH Break Question, Go to New Topic",
-                  page.url(),
-                  532
-                );
-                break;
-              }
+              console.log("--- CATCH Break Question, Go to New Topic -- \n");
+              break;
             }
             console.log("**********  DONE 1 STEP TOPIC *********** \n");
             break;
@@ -1158,7 +918,7 @@ import "dotenv/config";
       }
 
       /**
-       * break topic
+       * break 1 subject
        */
       if (number_topics >= limit_topics) {
         number_subjects = number_subjects + 1;
@@ -1166,34 +926,19 @@ import "dotenv/config";
         number_questions = 0;
         console.log("**********  DONE 1 STEP SUBJECT *********** \n");
         try {
-          await page.goto(listCategory[number_subjects].url, {
-            waitUntil: ["networkidle2"],
-          });
+          await page.goto(listCategory[number_subjects].url);
+          await page.waitForTimeout(2000);
         } catch (error) {
           console.log("--- CATCH Break Topic, Go to New Subjects -- \n");
-          try {
-            await page.goto(listCategory[number_subjects].url, {
-              waitUntil: ["networkidle2"],
-            });
-          } catch (error) {
-            await sendTele(
-              error,
-              [],
-              "CATCH Break Topic, Go to New Subjects",
-              page.url(),
-              560
-            );
-            break;
-          }
         }
         break;
       }
     }
 
     /**
-     * break subjects: Finish
+     * Finish
      */
-    if (number_subjects >= limit_subjects) {
+    if (number_subjects > limit_subjects) {
       console.log("\n************* !!! FINISH ALL !!!! ************* \n");
       break;
     }
@@ -1232,37 +977,6 @@ async function saveData(data) {
   } catch (error) {
     console.log("LOCAL LOG: ERROR SAVE DATABASE");
   }
-}
-
-function removeAccents(str) {
-  var AccentsMap = [
-    "aàảãáạăằẳẵắặâầẩẫấậ",
-    "AÀẢÃÁẠĂẰẲẴẮẶÂẦẨẪẤẬ",
-    "dđ",
-    "DĐ",
-    "eèẻẽéẹêềểễếệ",
-    "EÈẺẼÉẸÊỀỂỄẾỆ",
-    "iìỉĩíị",
-    "IÌỈĨÍỊ",
-    "oòỏõóọôồổỗốộơờởỡớợ",
-    "OÒỎÕÓỌÔỒỔỖỐỘƠỜỞỠỚỢ",
-    "uùủũúụưừửữứự",
-    "UÙỦŨÚỤƯỪỬỮỨỰ",
-    "yỳỷỹýỵ",
-    "YỲỶỸÝỴ",
-  ];
-  for (var i = 0; i < AccentsMap.length; i++) {
-    var re = new RegExp("[" + AccentsMap[i].substr(1) + "]", "g");
-    var char = AccentsMap[i][0];
-    str = str.replace(re, char);
-  }
-  return str
-    .trim()
-    .replace(/\s/g, "-")
-    .replaceAll(":", "")
-    .replaceAll(",", "")
-    .replaceAll(".", "")
-    .toLowerCase();
 }
 
 function timestamps() {
