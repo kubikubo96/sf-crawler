@@ -879,11 +879,12 @@ import "dotenv/config";
                 console.log(
                   "STEP 6: Back To List Question ======> STEP 1,2,3 \n"
                 );
-                await page.goto(urlListQuestion);
+                // await page.goto(urlListQuestion);
+                await page.goBack({ timeout: TIME_OUT_LONG });
                 await page.waitForTimeout(2000);
               } catch (error) {
                 console.log(
-                  "CATCH STEP 6: Goto List Page Category -- ERROR [  page.goto(urlListQuestion) ]"
+                  "CATCH STEP 6: Goto List Page Category ]"
                 );
                 break;
               }
