@@ -1,0 +1,150 @@
+import puppeteer from "puppeteer";
+import axios from "axios";
+import "dotenv/config";
+
+(async () => {
+  const browser = await puppeteer.launch({
+    headless: false,
+  });
+  const page = await browser.newPage();
+
+  const listPage = [
+    {
+      categories: ["GIAI_TRI"],
+      url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/3/",
+    },
+    {
+      categories: ["GIAI_TRI"],
+      url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/4/",
+    },
+    {
+      categories: ["GIAI_TRI"],
+      url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/5/",
+    },
+    {
+      categories: ["GIAI_TRI"],
+      url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/6/",
+    },
+    {
+      categories: ["GIAI_TRI"],
+      url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/7/",
+    },
+    {
+      categories: ["GIAI_TRI"],
+      url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/8/",
+    },
+  ];
+  const limit_page = listPage.length;
+  let number_page = 0;
+
+  /**
+   * While list page
+   */
+  while (1) {
+    try {
+      console.log(
+        "\n url page: " + listPage[number_page].url + "\n -------- \n"
+      );
+      await page.goto(listPage[number_page].url, {
+        waitUntil: ["networkidle2"],
+      });
+
+      const listPost = await page.evaluate(() => {
+        let links = document.querySelectorAll(
+          ".td-main-content .td-module-title a"
+        );
+        links = [...links];
+        let slug = links.map((link) => ({
+          url: link.getAttribute("href"),
+        }));
+        return slug;
+      });
+
+      const limit_post = listPost.length;
+      let number_post = 0;
+
+      /**
+       * While list post
+       */
+      while (1) {
+        await page.waitForTimeout(2000);
+        await page.goto(listPost[number_post].url, {
+          waitUntil: ["networkidle2"],
+        });
+        await page.waitForTimeout(1000);
+
+        const elmTitle = ".td-main-content .td-post-title .entry-title";
+        const elmContent = ".td-main-content .td-post-content";
+
+        const data = {
+          title: "",
+          content: "",
+          source:
+            '<p></p><p style="text-align: right;"><strong>Nguồn: </strong> gicungbiet.net </p>',
+          url: page.url(),
+          categories: listPost[number_post].categories,
+        };
+
+        await page.evaluate(() => {
+          const elmMenu = document.getElementById("ez-toc-container");
+          if (elmMenu) {
+            elmMenu.parentNode.removeChild(elmMenu);
+          }
+        });
+
+        data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
+        data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
+
+        /**
+         * Save data
+         */
+        if (data.content.length > 0) {
+          data.content = data.content + data.source;
+          console.log(data.title + "\n");
+          saveData(data);
+        }
+        number_post = number_post + 1;
+
+        /**
+         * Done 1 page
+         */
+        if (number_post >= limit_post) {
+          number_page = number_page + 1;
+          console.log("\n -- DONE 1 PAGE -- \n");
+          break;
+        }
+
+        await page.goBack();
+      }
+    } catch (error) {
+      console.log(error);
+    }
+
+    /**
+     * Finish
+     */
+    if (number_page >= limit_page) {
+      console.log("\n************* !!! FINISH ALL !!!! ************* \n");
+      break;
+    }
+  }
+
+  await browser.close();
+})();
+
+async function saveData(data) {
+  try {
+    await axios
+      .post(process.env.HOST_API, data)
+      .then(function (response) {})
+      .catch(function (error) {
+        sendTele(error, data, "Error Saved Database");
+      });
+  } catch (error) {
+    console.log("LOCAL LOG: ERROR SAVE DATABASE");
+  }
+}
+
+function timestamps() {
+  return new Date().toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh" });
+}
