@@ -105,9 +105,14 @@ import "dotenv/config";
       await page.$eval("#in-category-1", (el) => el.click());
       await page.$eval("#in-category-4", (el) => el.click());
 
-      //add tag
+      //add tag 1
       await page.$eval("#new-tag-post_tag", (el) => {
         el.value = "giải trí";
+      });
+      await page.$eval(".tagadd", (el) => el.click());
+      //add tag 2
+      await page.$eval("#new-tag-post_tag", (el) => {
+        el.value = "Tổng hợp";
       });
       await page.$eval(".tagadd", (el) => el.click());
 
@@ -119,9 +124,11 @@ import "dotenv/config";
       //save
       await page.$eval("#publish", (el) => el.click());
 
-      await page.waitForNavigation({
-        waitUntil: "networkidle2",
-      });
+      try {
+        await page.waitForNavigation({
+          waitUntil: "networkidle2",
+        });
+      } catch (error) {}
 
       console.log(" \n -- DONE " + number_id + ": " + post_ids[number_id]);
       number_id = number_id + 1;
