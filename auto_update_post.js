@@ -14,13 +14,13 @@ import "dotenv/config";
   });
 
   const urlLogin =
-    "http://localhost/develop/wordpress/wp-login.php?loggedout=true&wp_lang=vi";
+    process.env.HOST_APP + "wp-login.php?loggedout=true&wp_lang=vi";
 
   const urlPostPrivate =
-    "http://localhost/develop/wordpress/wp-admin/edit.php?post_status=private&post_type=post";
+    process.env.HOST_APP +
+    "wp-admin/edit.php?post_status=private&post_type=post";
 
-  const urlPost =
-    "http://localhost/develop/wordpress/wp-admin/post.php?action=edit&post=";
+  const urlPost = process.env.HOST_APP + "wp-admin/post.php?action=edit&post=";
 
   await page.goto(urlLogin, {
     waitUntil: ["networkidle2"],
