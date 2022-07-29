@@ -86,6 +86,14 @@ import "dotenv/config";
             elmMenu.parentNode.removeChild(elmMenu);
           }
         });
+        await page.evaluate(() => {
+          const elmFeatured = document.querySelectorAll(
+            ".td-post-featured-image"
+          );
+          if (elmFeatured) {
+            elmFeatured[0].append("<p></p><p></p>");
+          }
+        });
 
         data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
         data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
