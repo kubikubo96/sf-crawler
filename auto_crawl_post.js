@@ -10,22 +10,32 @@ import "dotenv/config";
 
   const listPage = [
     {
-      url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/3/",
+      url: "https://gicungbiet.net/top-ky-thu/cong-nghe/",
+      tag: "Công nghệ",
     },
     {
-      url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/4/",
+      url: "https://gicungbiet.net/top-ky-thu/du-lich/",
+      tag: "Du lịch",
     },
     {
-      url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/5/",
+      url: "https://gicungbiet.net/top-ky-thu/du-lich/page/2/",
+      tag: "Du lịch",
     },
     {
-      url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/6/",
+      url: "https://gicungbiet.net/top-ky-thu/the-gioi/",
+      tag: "Thế giới",
     },
     {
-      url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/7/",
+      url: "https://gicungbiet.net/top-ky-thu/the-thao/",
+      tag: "Thể thao",
     },
     {
-      url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/8/",
+      url: "https://gicungbiet.net/vat-ly/",
+      tag: "Vật lý",
+    },
+    {
+      url: "https://gicungbiet.net/vu-tru/",
+      tag: "Vũ trụ",
     },
   ];
   const limit_page = listPage.length;
@@ -76,7 +86,7 @@ import "dotenv/config";
           source:
             '<p></p><p style="text-align: right;"><strong>Nguồn: </strong> gicungbiet.net </p>',
           url: page.url(),
-          tag: "GIAI_TRI",
+          tag: listPost[number_post].tag,
           categories: "",
         };
 
