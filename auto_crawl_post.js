@@ -86,7 +86,7 @@ import "dotenv/config";
           source:
             '<p></p><p style="text-align: right;"><strong>Nguồn: </strong> gicungbiet.net </p>',
           url: page.url(),
-          tag: listPost[number_post].tag,
+          tag: listPage[number_page].tag,
           categories: "",
         };
 
@@ -101,7 +101,7 @@ import "dotenv/config";
             ".td-post-featured-image"
           );
           if (elmFeatured) {
-            elmFeatured[0].append("<p></p><p></p>");
+            elmFeatured[0].insertAdjacentHTML("afterbegin", "<p></p><p></p>");
           }
         });
 
@@ -152,7 +152,7 @@ async function saveData(data) {
       .then(function (response) {})
       .catch(function (error) {
         console.log("\n ---  \n ERROR SAVE DATABASE \n ---  \n ");
-        console.log(error);
+        console.log(error.response.data);
       });
   } catch (error) {}
 }
