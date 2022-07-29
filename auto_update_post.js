@@ -111,15 +111,6 @@ import "dotenv/config";
       });
       await page.$eval(".tagadd", (el) => el.click());
 
-      //add seo
-      await page.evaluate(() => {
-        document.getElementById("focus-keyword-input-metabox").value =
-          "toi la ai";
-        document
-          .getElementById("focus-keyword-input-metabox")
-          .setAttribute("value", "toi la ai");
-      });
-
       //publish
       await page.$eval(".edit-visibility", (el) => el.click());
       await page.$eval("#visibility-radio-public", (el) => el.click());
@@ -132,7 +123,6 @@ import "dotenv/config";
         waitUntil: "networkidle2",
       });
 
-      await page.waitForTimeout(2000);
       console.log(" \n -- DONE " + number_id + ": " + post_ids[number_id]);
       number_id = number_id + 1;
 
