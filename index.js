@@ -4,33 +4,27 @@ import "dotenv/config";
 
 (async () => {
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
   });
   const page = await browser.newPage();
 
   const listPage = [
     {
-      categories: ["GIAI_TRI"],
       url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/3/",
     },
     {
-      categories: ["GIAI_TRI"],
       url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/4/",
     },
     {
-      categories: ["GIAI_TRI"],
       url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/5/",
     },
     {
-      categories: ["GIAI_TRI"],
       url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/6/",
     },
     {
-      categories: ["GIAI_TRI"],
       url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/7/",
     },
     {
-      categories: ["GIAI_TRI"],
       url: "https://gicungbiet.net/top-ky-thu/giai-tri/page/8/",
     },
   ];
@@ -82,7 +76,8 @@ import "dotenv/config";
           source:
             '<p></p><p style="text-align: right;"><strong>Nguồn: </strong> gicungbiet.net </p>',
           url: page.url(),
-          categories: listPost[number_post].categories,
+          tag: "GIAI_TRI",
+          categories: "",
         };
 
         await page.evaluate(() => {
@@ -138,13 +133,8 @@ async function saveData(data) {
       .post(process.env.HOST_API, data)
       .then(function (response) {})
       .catch(function (error) {
-        sendTele(error, data, "Error Saved Database");
+        console.log("\n ---  \n ERROR SAVE DATABASE \n ---  \n ");
+        console.log(error);
       });
-  } catch (error) {
-    console.log("LOCAL LOG: ERROR SAVE DATABASE");
-  }
-}
-
-function timestamps() {
-  return new Date().toLocaleString("en-US", { timeZone: "Asia/Ho_Chi_Minh" });
+  } catch (error) {}
 }
