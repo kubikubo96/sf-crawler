@@ -5,7 +5,15 @@ import "dotenv/config";
 (async () => {
   const browser = await puppeteer.launch({
     headless: false,
-    args: ["--disable-site-isolation-trials", "--window-size=1900,1000"],
+    executablePath:
+      "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
+    args: [
+      "--disable-site-isolation-trials",
+      "--window-size=1900,1000",
+      "--lang=en-US,en",
+      "--no-sandbox",
+      "--disable-setuid-sandbox",
+    ],
   });
   const page = await browser.newPage();
 
@@ -186,8 +194,9 @@ import "dotenv/config";
 
         data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
         data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
-        data.seo_tag_description = await page.$$eval(elmContent, (elm) =>
-          elm[0].textContent.slice(0, 140)
+        data.seo_tag_description = await page.$$eval(
+          elmContent,
+          (elm) => elm[0].textContent.slice(0, 137) + "..."
         );
 
         /**
