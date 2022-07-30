@@ -83,7 +83,7 @@ import "dotenv/config";
             '<p></p><p style="text-align: right;"><strong>Nguồn: </strong> quantrimang.com </p>',
           url_crawl: page.url(),
           tag: listPage[number_page].tag,
-          categories: "",
+          seo_tag_description: "",
         };
 
         //start: remove trash
@@ -186,6 +186,9 @@ import "dotenv/config";
 
         data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
         data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
+        data.seo_tag_description = await page.$$eval(elmContent, (elm) =>
+          elm[0].textContent.slice(0, 140)
+        );
 
         /**
          * Save data
