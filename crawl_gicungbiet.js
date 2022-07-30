@@ -90,12 +90,15 @@ import "dotenv/config";
           categories: "",
         };
 
+        //remove menu
         await page.evaluate(() => {
           const elmMenu = document.getElementById("ez-toc-container");
           if (elmMenu) {
             elmMenu.parentNode.removeChild(elmMenu);
           }
         });
+
+        //append break line
         await page.evaluate(() => {
           const elmFeatured = document.querySelectorAll(
             ".td-post-featured-image"
@@ -105,6 +108,7 @@ import "dotenv/config";
           }
         });
 
+        //get content
         data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
         data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
 
@@ -126,8 +130,6 @@ import "dotenv/config";
           console.log("\n -- DONE 1 PAGE -- \n");
           break;
         }
-
-        await page.goBack();
       }
     } catch (error) {
       console.log(error);
