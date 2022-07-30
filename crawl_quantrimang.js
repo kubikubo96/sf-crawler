@@ -152,14 +152,14 @@ import "dotenv/config";
 
         await page.waitForTimeout(5000);
         //replace src iamge
-        // try {
-        await page.$$eval(".content-detail img", (elms) => {
-          return elms.forEach((elm) => {
-            elms = [...elms];
-            elm.src = elm.getAttribute("data-src");
+        try {
+          await page.$$eval(".content-detail img", (elms) => {
+            return elms.forEach((elm) => {
+              elms = [...elms];
+              elm.src = elm.getAttribute("data-src");
+            });
           });
-        });
-        // } catch (error) {}
+        } catch (error) {}
 
         data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
         data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
