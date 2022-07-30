@@ -107,12 +107,7 @@ import "dotenv/config";
 
       //add tag 1
       await page.$eval("#new-tag-post_tag", (el) => {
-        el.value = "giải trí";
-      });
-      await page.$eval(".tagadd", (el) => el.click());
-      //add tag 2
-      await page.$eval("#new-tag-post_tag", (el) => {
-        el.value = "Tổng hợp";
+        el.value = "Top";
       });
       await page.$eval(".tagadd", (el) => el.click());
 
