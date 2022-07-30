@@ -5,8 +5,6 @@ import "dotenv/config";
 (async () => {
   const browser = await puppeteer.launch({
     headless: false,
-    executablePath:
-      "C:\\Program Files (x86)\\Google\\Chrome\\Application\\chrome.exe",
     args: [
       "--disable-site-isolation-trials",
       "--window-size=1900,1000",
