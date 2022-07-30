@@ -166,7 +166,9 @@ import "dotenv/config";
           await page.$$eval(".content-detail img", (elms) => {
             return elms.forEach((elm) => {
               elms = [...elms];
-              elm.src = elm.getAttribute("data-src");
+              elm.src = elm.getAttribute("data-src")
+                ? elm.getAttribute("data-src")
+                : elm.src;
             });
           });
         } catch (error) {}
