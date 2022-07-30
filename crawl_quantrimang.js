@@ -86,7 +86,7 @@ import "dotenv/config";
           categories: "",
         };
 
-        //remove trash
+        //start: remove trash
         try {
           await page.$$eval(".top-news", (elms) => {
             return elms.map((elm) => {
@@ -150,8 +150,18 @@ import "dotenv/config";
           });
         } catch (error) {}
 
-        await page.waitForTimeout(5000);
+        try {
+          await page.$$eval("div.toc", (elms) => {
+            return elms.map((elm) => {
+              elms = [...elms];
+              elm.remove();
+            });
+          });
+        } catch (error) {}
+        //start: remove trash
+
         //replace src iamge
+        await page.waitForTimeout(5000);
         try {
           await page.$$eval(".content-detail img", (elms) => {
             return elms.forEach((elm) => {
@@ -160,6 +170,17 @@ import "dotenv/config";
             });
           });
         } catch (error) {}
+
+        //start: remove trash
+        try {
+          await page.$$eval("iframe.lazy", (elms) => {
+            return elms.map((elm) => {
+              elms = [...elms];
+              elm.remove();
+            });
+          });
+        } catch (error) {}
+        //end: remove trash
 
         data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
         data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
