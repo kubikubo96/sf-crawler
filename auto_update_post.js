@@ -102,8 +102,10 @@ import "dotenv/config";
       console.log(" \n PUBLISH post " + number_id + ": " + post_ids[number_id]);
 
       //add category
-      await page.$eval("#in-category-1", (el) => el.click());
-      await page.$eval("#in-category-4", (el) => el.click());
+      await page.$eval("#in-category-1", (el) => el.click()); //Tổng hợp
+      // await page.$eval("#in-category-4", (el) => el.click()); //Top kỳ thú
+      await page.$eval("#in-category-7", (el) => el.click()); //Thủ thuật hữu ích
+      // await page.$eval("#in-category-63", (el) => el.click()); //Đời sống
 
       //add tag 1
       await page.$eval("#new-tag-post_tag", (el) => {
