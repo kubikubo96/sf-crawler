@@ -211,9 +211,7 @@ import "dotenv/config";
          */
         if (number_post >= limit_post) {
           number_page = number_page + 1;
-          console.log(
-            "\n -- DONE 1 PAGE: \n\n" + listPage[number_page].url + "  -- \n"
-          );
+          console.log("\n -- DONE 1 PAGE -- \n");
           break;
         }
       }
