@@ -22,11 +22,11 @@ import "dotenv/config";
 
   const listPage = [];
   const startPage = 1;
-  const endPage = 17;
+  const endPage = 47;
   for (let i = startPage; i <= endPage; i++) {
     const itemPage = {
-      url: "https://quantrimang.com/windows-11-tips?dataType=ajax&p=" + i,
-      tag: ["Công nghệ", "Hướng dẫn Windows 11"],
+      url: "https://quantrimang.com/suc-khoe?dataType=ajax&p=" + i,
+      tag: ["Sức khỏe"],
     };
     listPage.push(itemPage);
   }
