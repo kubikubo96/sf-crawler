@@ -71,13 +71,14 @@ import "dotenv/config";
 
         const elmTitle = ".block-info h1";
         const elmContent = ".news-block .asset-content";
+        const elmLink = ".news-block .asset-content a";
         page.waitForSelector(elmTitle);
         page.waitForSelector(elmContent);
 
         const data = {
           title: "",
           content: "",
-          source: '<p></p><p style="text-align: right;"><strong>Nguồn: </strong> surfacepro </p>',
+          source: '<p></p><p style="text-align: right;color: #909090;font-style: italic;"><strong>Nguồn: </strong> ' + source_crawl + " </p>",
           url_crawl: page.url(),
           tag: listPage[number_page].tag,
           seo_tag_description: "",
@@ -86,8 +87,8 @@ import "dotenv/config";
         //start: remove trash
         try {
           await page.$$eval(".asset-content > p > strong", (elms) => {
+            elms = [...elms];
             return elms.map((elm) => {
-              elms = [...elms];
               elm.remove();
             });
           });
@@ -95,8 +96,8 @@ import "dotenv/config";
 
         try {
           await page.$$eval(".top-news", (elms) => {
+            elms = [...elms];
             return elms.map((elm) => {
-              elms = [...elms];
               elm.remove();
             });
           });
@@ -104,8 +105,8 @@ import "dotenv/config";
 
         try {
           await page.$$eval(".adsbygoogle", (elms) => {
+            elms = [...elms];
             return elms.map((elm) => {
-              elms = [...elms];
               elm.remove();
             });
           });
@@ -113,8 +114,8 @@ import "dotenv/config";
 
         try {
           await page.$$eval(".adsense", (elms) => {
+            elms = [...elms];
             return elms.map((elm) => {
-              elms = [...elms];
               elm.remove();
             });
           });
@@ -122,8 +123,8 @@ import "dotenv/config";
 
         try {
           await page.$$eval(".in-article", (elms) => {
+            elms = [...elms];
             return elms.map((elm) => {
-              elms = [...elms];
               elm.remove();
             });
           });
@@ -131,8 +132,8 @@ import "dotenv/config";
 
         try {
           await page.$$eval(".adszone", (elms) => {
+            elms = [...elms];
             return elms.map((elm) => {
-              elms = [...elms];
               elm.remove();
             });
           });
@@ -140,8 +141,8 @@ import "dotenv/config";
 
         try {
           await page.$$eval(".adstopimage", (elms) => {
+            elms = [...elms];
             return elms.map((elm) => {
-              elms = [...elms];
               elm.remove();
             });
           });
@@ -149,8 +150,8 @@ import "dotenv/config";
 
         try {
           await page.$$eval(".adsviewed", (elms) => {
+            elms = [...elms];
             return elms.map((elm) => {
-              elms = [...elms];
               elm.remove();
             });
           });
@@ -158,12 +159,28 @@ import "dotenv/config";
 
         try {
           await page.$$eval("div.toc", (elms) => {
+            elms = [...elms];
             return elms.map((elm) => {
-              elms = [...elms];
               elm.remove();
             });
           });
         } catch (error) {}
+
+        try {
+          await page.$$eval(
+            elmLink,
+            (elms) => {
+              elms = [...elms];
+              return elms.map((elm, source_crawl) => {
+                if (elm.href.indexOf("http") !== -1 || elm.href.indexOf(source_crawl) !== -1) {
+                  elm.outerHTML = elm.textContent;
+                }
+              });
+            },
+            source_crawl
+          );
+        } catch (error) {}
+
         //start: remove trash
 
         //replace src iamge
