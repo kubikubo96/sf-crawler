@@ -77,7 +77,7 @@ import "dotenv/config";
         const data = {
           title: "",
           content: "",
-          source: '<p></p><p style="text-align: right;"><strong>Nguồn: </strong> quantrimang.com </p>',
+          source: '<p></p><p style="text-align: right;"><strong>Nguồn: </strong> surfacepro </p>',
           url_crawl: page.url(),
           tag: listPage[number_page].tag,
           seo_tag_description: "",
