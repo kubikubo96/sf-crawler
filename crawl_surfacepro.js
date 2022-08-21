@@ -28,6 +28,7 @@ import "dotenv/config";
   const source_crawl = "https://surfacepro.vn";
   const limit_page = listPage.length;
   let number_page = 0;
+  const crawl_data = ["surfacepro", "Surfacepro", "surfacepro.vn", "Surfacepro.vn", "https://surfacepro.vn", "https://www.surfacepro.vn"];
 
   /**
    * While list page
@@ -208,6 +209,13 @@ import "dotenv/config";
         data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
         data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
         data.seo_tag_description = await page.$$eval(elmContent, (elm) => elm[0].textContent.slice(0, 137) + "...");
+
+        //clean
+        try {
+          crawl_data.forEach((item) => {
+            data.content = data.content.replaceAll(item, "Hieunhieuhon.com");
+          });
+        } catch (error) {}
 
         /**
          * Save data
