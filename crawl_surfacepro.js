@@ -16,7 +16,7 @@ import "dotenv/config";
 
   const listPage = [];
   const startPage = 1;
-  const endPage = 35;
+  const endPage = 30;
   for (let i = endPage; i >= startPage; i--) {
     const itemPage = {
       url: "https://surfacepro.vn/tin-tuc/thu-thuat-su-dung.html?p=" + i,
