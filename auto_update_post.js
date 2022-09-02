@@ -13,12 +13,9 @@ import "dotenv/config";
     height: 1080,
   });
 
-  const urlLogin =
-    process.env.HOST_APP + "wp-login.php?loggedout=true&wp_lang=vi";
+  const urlLogin = process.env.HOST_APP + "wp-login.php?loggedout=true&wp_lang=vi";
 
-  const urlPostPrivate =
-    process.env.HOST_APP +
-    "wp-admin/edit.php?post_status=private&post_type=post";
+  const urlPostPrivate = process.env.HOST_APP + "wp-admin/edit.php?post_status=private&post_type=post";
 
   const urlPost = process.env.HOST_APP + "wp-admin/post.php?action=edit&post=";
 
@@ -108,10 +105,10 @@ import "dotenv/config";
       // await page.$eval("#in-category-63", (el) => el.click()); //Đời sống
 
       //add tag 1
-      await page.$eval("#new-tag-post_tag", (el) => {
+      /*await page.$eval("#new-tag-post_tag", (el) => {
         el.value = "Top";
       });
-      await page.$eval(".tagadd", (el) => el.click());
+      await page.$eval(".tagadd", (el) => el.click());*/
 
       //publish
       await page.$eval(".edit-visibility", (el) => el.click());
