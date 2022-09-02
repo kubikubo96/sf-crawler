@@ -190,20 +190,6 @@ import "dotenv/config";
           );
         } catch (error) {}
 
-        //start: remove trash
-
-        //replace src iamge
-        await page.waitForTimeout(5000);
-        try {
-          await page.$$eval(".content-detail img", (elms) => {
-            return elms.forEach((elm) => {
-              elms = [...elms];
-              elm.src = elm.getAttribute("data-src") ? elm.getAttribute("data-src") : elm.src;
-            });
-          });
-        } catch (error) {}
-
-        //start: remove trash
         try {
           await page.$$eval("iframe.lazy", (elms) => {
             return elms.map((elm) => {
@@ -212,18 +198,27 @@ import "dotenv/config";
             });
           });
         } catch (error) {}
-        //end: remove trash
+        //start: remove trash
+
+        //start: replace src iamge
+        await page.waitForTimeout(5000);
+        try {
+          await page.$$eval(
+            ".asset-content .__wimage img",
+            (elms, source_crawl) => {
+              return elms.forEach((elm) => {
+                elms = [...elms];
+                elm.src = elm.src.replace("..", source_crawl);
+              });
+            },
+            source_crawl
+          );
+        } catch (error) {}
+        //end: replace src iamge
 
         data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
         data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
         data.seo_tag_description = await page.$$eval(elmContent, (elm) => elm[0].textContent.slice(0, 137) + "...");
-
-        //clean
-        try {
-          crawl_data.forEach((item) => {
-            data.content = data.content.replaceAll(item, "Hieunhieuhon.com");
-          });
-        } catch (error) {}
 
         /**
          * Save data
