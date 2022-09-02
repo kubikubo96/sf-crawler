@@ -28,15 +28,6 @@ import "dotenv/config";
   const source_crawl = "https://surfacepro.vn";
   const limit_page = listPage.length;
   let number_page = 0;
-  const crawl_data = [
-    "surfacepro",
-    "Surfacepro",
-    "SurfacePro.vn",
-    "surfacepro.vn",
-    "Surfacepro.vn",
-    "https://surfacepro.vn",
-    "https://www.surfacepro.vn",
-  ];
 
   /**
    * While list page
