@@ -83,7 +83,6 @@ import "dotenv/config";
                 const elmContent = ".bxcontentnews";
                 const elmLink = ".bxcontentnews a";
                 const elmImage = ".bxcontentnews img";
-                const elmP = ".bxcontentnews p";
                 await page.waitForSelector(elmTitle);
                 await page.waitForSelector(elmContent);
 
@@ -183,21 +182,6 @@ import "dotenv/config";
                     console.log(error)
                 }
                 //end: replace src image
-
-                //start: remove empty tag p
-                await page.evaluate((elmP) => {
-                    try {
-                        let queryP = document.querySelectorAll(elmP);
-                        queryP.forEach((elm) => {
-                            if (!elm.textContent) {
-                                elm.remove();
-                            }
-                        });
-                    } catch (error) {
-                        console.log(error)
-                    }
-                }, elmP);
-                //end:remove empty tag
 
                 data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
                 data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
