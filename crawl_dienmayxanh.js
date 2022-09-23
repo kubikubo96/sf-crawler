@@ -1,6 +1,7 @@
 import puppeteer from "puppeteer";
 import axios from "axios";
 import "dotenv/config";
+import fs from 'fs';
 
 (async () => {
     const browser = await puppeteer.launch({
@@ -123,17 +124,27 @@ import "dotenv/config";
                     'Điện máy xanh',
                     'Điện Máy Xanh',
                 ];
-
-                elmLink.forEach((item) => {
-                    let contentA = item.textContent;
-                    listTrashTagA.forEach(itemTrash => {
-                        if (
-                            contentA.includes(itemTrash)
-                        ) {
-                            item.remove();
-                        }
-                    });
-                });
+                try {
+                    await page.$$eval(
+                        elmLink,
+                        (elms, listTrashTagA) => {
+                            elms = [...elms];
+                            return elms.forEach((elm) => {
+                                let contentA = elm.textContent;
+                                listTrashTagA.forEach(itemTrash => {
+                                    if (
+                                        contentA.includes(itemTrash)
+                                    ) {
+                                        elm.remove();
+                                    }
+                                });
+                            });
+                        },
+                        listTrashTagA
+                    );
+                } catch (error) {
+                    console.log(error)
+                }
                 //end: remove trash tag a
 
                 //start: convert link thành text cho link crawl
@@ -197,13 +208,17 @@ import "dotenv/config";
                 });
                 //end: remove trash text
 
+                fs.writeFileSync('data.json', JSON.stringify(data));
+
+                await page.waitForTimeout(1000 * 1000)
+
                 /**
                  * Save data
                  */
                 if (data.content.length > 0) {
                     data.content = data.content + '<p>Vậy là bạn đã cùng KungFuCongNghe.Com tìm hiểu cách thực hiện. Chúc bạn thành công nhé!</p>';
                     console.log(data.title + "\n");
-                    await saveData(data);
+                    //await saveData(data);
                 }
                 numberPost = numberPost + 1;
                 /**
