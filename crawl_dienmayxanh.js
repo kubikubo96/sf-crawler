@@ -19,7 +19,7 @@ import "dotenv/config";
     const endPage = 2;
     for (let i = endPage; i >= startPage; i--) {
         const itemPage = {
-            url: "https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?url=huong-dan-su-dung-laptop&hotSorting=true&pageSize=200&pageIndex=" + i,
+            url: "https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?url=huong-dan-su-dung-laptop&hotSorting=true&pageSize=2&pageIndex=" + i,
             tag: ["Laptop"],
         };
         listPage.push(itemPage);
@@ -57,8 +57,8 @@ import "dotenv/config";
             }, sourceCrawl);
 
 
-            const limitPost = listPost.length;
-            let numberPost = 0;
+            let numberPost = listPost.length - 1;
+            let minPost = 0;
 
             /**
              * Lặp danh sách bài viết
@@ -253,12 +253,14 @@ import "dotenv/config";
                     //data.content = data.content.replaceAll('\\', '\\\\');
 
                     await saveData(data);
+
+                    console.log('\n \x1b[32m DONE: ' + data.title + ' \x1b[0m \n');
                 }
-                numberPost = numberPost + 1;
+                numberPost = numberPost - 1;
                 /**
                  * Done 1 page
                  */
-                if (numberPost >= limitPost) {
+                if (numberPost < minPost) {
                     numberPage = numberPage + 1;
                     console.log("\n -- DONE 1 PAGE -- \n");
                     break;
