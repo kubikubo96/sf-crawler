@@ -209,8 +209,6 @@ import "dotenv/config";
 
                 //fs.writeFileSync('data.json', JSON.stringify(data));
 
-                await page.waitForTimeout(1000 * 1000)
-
                 /**
                  * Save data
                  */
