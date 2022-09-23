@@ -25,7 +25,7 @@ import "dotenv/config";
         listPage.push(itemPage);
     }
 
-    const sourceCrawl = "https://www.dienmayxanh.com";
+    const sourceCrawl = "dienmayxanh.com";
     const limitPage = listPage.length;
     let numberPage = 0;
 
@@ -52,7 +52,7 @@ import "dotenv/config";
                 let links = document.querySelectorAll("a.linktitle");
                 links = [...links];
                 return links.map((link) => ({
-                    url: sourceCrawl + link.getAttribute("href"),
+                    url: 'https://' + sourceCrawl + link.getAttribute("href"),
                 }));
             }, sourceCrawl);
 
@@ -184,7 +184,7 @@ import "dotenv/config";
                         (elms, sourceCrawl) => {
                             elms = [...elms];
                             return elms.map((elm) => {
-                                if (elm.href.search(sourceCrawl) !== -1) {
+                                if (elm.href && elm.href.toLowerCase().search(sourceCrawl) !== -1) {
                                     elm.outerHTML = elm.textContent;
                                 }
                             });
@@ -230,7 +230,8 @@ import "dotenv/config";
                 const listTrashText = [
                     'Điện máy XANH',
                     'Điện máy xanh',
-                    'Điện Máy Xanh'
+                    'Điện Máy Xanh',
+                    'DienmayXANH.com',
                 ]
 
                 listTrashText.forEach((item) => {
