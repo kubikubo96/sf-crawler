@@ -246,7 +246,12 @@ import "dotenv/config";
                  */
                 if (data.content.length > 0) {
                     data.content = data.content + '<p>Vậy là bạn đã cùng KungFuCongNghe.Com tìm hiểu cách thực hiện. Chúc bạn thành công nhé!</p>';
-                    console.log(data.title + "\n");
+
+                    /**
+                     * dùng cho trường hợp auto save images
+                     */
+                    //data.content = data.content.replaceAll('\\', '\\\\');
+
                     await saveData(data);
                 }
                 numberPost = numberPost + 1;
