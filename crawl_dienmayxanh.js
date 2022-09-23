@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer";
 import axios from "axios";
 import "dotenv/config";
-import fs from 'fs';
+//import fs from 'fs';
 
 (async () => {
     const browser = await puppeteer.launch({
@@ -208,7 +208,7 @@ import fs from 'fs';
                 });
                 //end: remove trash text
 
-                fs.writeFileSync('data.json', JSON.stringify(data));
+                //fs.writeFileSync('data.json', JSON.stringify(data));
 
                 await page.waitForTimeout(1000 * 1000)
 
