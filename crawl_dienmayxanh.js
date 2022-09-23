@@ -19,7 +19,7 @@ import "dotenv/config";
     const endPage = 2;
     for (let i = endPage; i >= startPage; i--) {
         const itemPage = {
-            url: "https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?url=huong-dan-su-dung-laptop&hotSorting=true&pageSize=2&pageIndex=" + i,
+            url: "https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?url=huong-dan-su-dung-laptop&hotSorting=true&pageSize=200&pageIndex=" + i,
             tag: ["Laptop"],
         };
         listPage.push(itemPage);
