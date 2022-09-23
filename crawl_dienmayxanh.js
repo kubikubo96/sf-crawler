@@ -203,12 +203,12 @@ import "dotenv/config";
                 data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
 
                 const lengthTitle = data.title.length;
-                const lengthDescription = 135 - lengthTitle;
+                const lengthDescription = 138 - lengthTitle;
 
                 data.seo_tag_description = data.title;
                 if (lengthDescription > 0) {
                     data.seo_tag_description = data.seo_tag_description + '. ' + await page.$$eval(elmContent, (elm, lengthDescription) => {
-                        return elm[0].textContent.slice(0, Number(lengthDescription)) + "..."
+                        return elm[0].textContent.slice(0, Number(lengthDescription)).trim() + "..."
                     }, lengthDescription);
                 }
 
