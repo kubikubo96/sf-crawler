@@ -154,7 +154,6 @@ import "dotenv/config";
                         (elms, sourceCrawl) => {
                             elms = [...elms];
                             return elms.map((elm) => {
-                                console.log("sourceCrawl:" + sourceCrawl)
                                 if (elm.href.search(sourceCrawl) !== -1) {
                                     elm.outerHTML = elm.textContent;
                                 }
