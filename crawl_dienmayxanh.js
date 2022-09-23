@@ -83,6 +83,7 @@ import "dotenv/config";
                 const elmContent = ".bxcontentnews";
                 const elmLink = ".bxcontentnews a";
                 const elmImage = ".bxcontentnews img";
+                const elmP = ".bxcontentnews p";
                 await page.waitForSelector(elmTitle);
                 await page.waitForSelector(elmContent);
 
@@ -119,28 +120,28 @@ import "dotenv/config";
                 //end: remove trash
 
                 //start: remove trash tag a
-                const listTrashTagA = [
-                    'Điện máy XANH',
-                    'Điện máy xanh',
-                    'Điện Máy Xanh',
+                const listTrashTag = [
+                    'Điện máy XANH', 'Điện máy xanh', 'Điện Máy Xanh',
+                    'Mọi thắc mắc vui lòng để lại câu hỏi ngay bên dưới để Điện máy XANH hỗ trợ cho bạn nhé'
                 ];
+
                 try {
                     await page.$$eval(
                         elmLink,
-                        (elms, listTrashTagA) => {
+                        (elms, listTrashTag) => {
                             elms = [...elms];
                             return elms.forEach((elm) => {
-                                let contentA = elm.textContent;
-                                listTrashTagA.forEach(itemTrash => {
+                                let content = elm.textContent;
+                                listTrashTag.forEach(itemTrash => {
                                     if (
-                                        contentA.includes(itemTrash)
+                                        content.includes(itemTrash)
                                     ) {
                                         elm.remove();
                                     }
                                 });
                             });
                         },
-                        listTrashTagA
+                        listTrashTag
                     );
                 } catch (error) {
                     console.log(error)
@@ -183,6 +184,21 @@ import "dotenv/config";
                 }
                 //end: replace src image
 
+                //start: remove empty tag p
+                await page.evaluate((elmP) => {
+                    try {
+                        let queryP = document.querySelectorAll(elmP);
+                        queryP.forEach((elm) => {
+                            if (!elm.textContent) {
+                                elm.remove();
+                            }
+                        });
+                    } catch (error) {
+                        console.log(error)
+                    }
+                }, elmP);
+                //end:remove empty tag
+
                 data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
                 data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
 
@@ -196,16 +212,17 @@ import "dotenv/config";
                     }, lengthDescription);
                 }
 
-                //start: remove trash text
+                //start: replace Tên trang
                 const listTrashText = [
-                    'Chúc các bạn thành công. Mọi thắc mắc vui lòng để lại câu hỏi ngay bên dưới để Điện máy XANH hỗ trợ cho bạn nhé.',
-                    'Siêu thị Điện máy XANH',
+                    'Điện máy XANH',
+                    'Điện máy xanh',
+                    'Điện Máy Xanh'
                 ]
 
                 listTrashText.forEach((item) => {
-                    data.content = data.content.replaceAll(item, "");
+                    data.content = data.content.replaceAll(item, "KungFuCongNghe.Com");
                 });
-                //end: remove trash text
+                //end: replace Tên trang
 
                 //fs.writeFileSync('data.json', JSON.stringify(data));
 
