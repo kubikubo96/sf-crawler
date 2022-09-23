@@ -77,11 +77,11 @@ import fs from 'fs';
                 await page.evaluate(() => {
                     window.scrollTo(0, document.body.scrollHeight);
                 });
-                await page.waitForTimeout(5000);
+                await page.waitForTimeout(2000);
                 await page.evaluate(() => {
                     window.scrollTo(0, 0);
                 });
-                await page.waitForTimeout(5000);
+                await page.waitForTimeout(2000);
 
                 const elmTitle = ".article h1";
                 const elmContent = ".bxcontentnews";
