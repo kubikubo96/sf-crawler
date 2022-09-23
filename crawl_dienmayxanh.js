@@ -1,7 +1,6 @@
 import puppeteer from "puppeteer";
 import axios from "axios";
 import "dotenv/config";
-import fs from 'fs';
 
 (async () => {
     const browser = await puppeteer.launch({
@@ -87,6 +86,7 @@ import fs from 'fs';
                 const elmContent = ".bxcontentnews";
                 const elmLink = ".bxcontentnews a";
                 const elmImage = ".bxcontentnews img";
+                const elmSortContent = ".bxcontentnews h2";
                 await page.waitForSelector(elmTitle);
                 await page.waitForSelector(elmContent);
 
@@ -100,13 +100,6 @@ import fs from 'fs';
                     seo_tag_description: "",
                 };
 
-                //start: remove trash
-                const elmTrash = [
-                    '.top-news', '.adsbygoogle', '.adsense', '.in-article', '.adszone', '.adstopimage', '.adsviewed',
-                    'div.toc', 'iframe.lazy', '.bannerAdNews', '.clrindexknh', '.bxindexknh', '#QuickViewId', '.owl-carousel', '.infobox', '.TitleBoxSp',
-                    '.HideBox', '.generate-promotion-products', '.wrap_relate', '.interested', '.tags', '.comment', '.fh3menu', '#hmenuid4', ''
-                ];
-
                 //start: replace src image
                 try {
                     await page.$$eval(elmImage, (elms) => {
@@ -118,8 +111,28 @@ import fs from 'fs';
                         });
                     });
                 } catch (error) {
+                    console.log(error)
                 }
                 //end: replace src image
+
+                //start: replace sort content
+                try {
+                    await page.$eval(elmSortContent, (elm) => {
+                        if (elm) {
+                            elm.outerHTML = '<p><strong>' + elm.textContent + '</strong></p>'
+                        }
+                    });
+                } catch (error) {
+                    console.log(error)
+                }
+                //end: replace sort content
+
+                //start: remove trash
+                const elmTrash = [
+                    '.top-news', '.adsbygoogle', '.adsense', '.in-article', '.adszone', '.adstopimage', '.adsviewed',
+                    'div.toc', 'iframe.lazy', '.bannerAdNews', '.clrindexknh', '.bxindexknh', '#QuickViewId', '.owl-carousel', '.infobox', '.TitleBoxSp',
+                    '.HideBox', '.generate-promotion-products', '.wrap_relate', '.interested', '.tags', '.comment', '.fh3menu', '#hmenuid4', ''
+                ];
 
                 await page.evaluate((elmTrash) => {
                     elmTrash.forEach((item) => {
