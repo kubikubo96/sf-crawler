@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer";
 import axios from "axios";
 import "dotenv/config";
-//import fs from 'fs';
+import fs from 'fs';
 
 (async () => {
     const browser = await puppeteer.launch({
@@ -77,7 +77,11 @@ import "dotenv/config";
                 await page.evaluate(() => {
                     window.scrollTo(0, document.body.scrollHeight);
                 });
-                await page.waitForTimeout(2000);
+                await page.waitForTimeout(5000);
+                await page.evaluate(() => {
+                    window.scrollTo(0, 0);
+                });
+                await page.waitForTimeout(5000);
 
                 const elmTitle = ".article h1";
                 const elmContent = ".bxcontentnews";
@@ -98,11 +102,24 @@ import "dotenv/config";
 
                 //start: remove trash
                 const elmTrash = [
-                    '.asset-content > p > strong', '.top-news', '.adsbygoogle', '.adsense', '.in-article', '.adszone', '.adstopimage', '.adsviewed',
+                    '.top-news', '.adsbygoogle', '.adsense', '.in-article', '.adszone', '.adstopimage', '.adsviewed',
                     'div.toc', 'iframe.lazy', '.bannerAdNews', '.clrindexknh', '.bxindexknh', '#QuickViewId', '.owl-carousel', '.infobox', '.TitleBoxSp',
                     '.HideBox', '.generate-promotion-products', '.wrap_relate', '.interested', '.tags', '.comment', '.fh3menu', '#hmenuid4', ''
-
                 ];
+
+                //start: replace src image
+                try {
+                    await page.$$eval(elmImage, (elms) => {
+                        return elms.forEach((elm) => {
+                            elms = [...elms];
+                            elm.src = elm.getAttribute("data-src")
+                                ? elm.getAttribute("data-src")
+                                : elm.src;
+                        });
+                    });
+                } catch (error) {
+                }
+                //end: replace src image
 
                 await page.evaluate((elmTrash) => {
                     elmTrash.forEach((item) => {
@@ -167,27 +184,27 @@ import "dotenv/config";
                 //end: convert link thành text cho link crawl
 
                 //start: replace src image
-                try {
-                    await page.$$eval(
-                        elmImage,
-                        (elms, sourceCrawl) => {
-                            return elms.forEach((elm) => {
-                                elms = [...elms];
-                                elm.src = elm.src.replace("..", sourceCrawl);
-                            });
-                        },
-                        sourceCrawl
-                    );
-                } catch (error) {
-                    console.log(error)
-                }
+                // try {
+                //     await page.$$eval(
+                //         elmImage,
+                //         (elms, sourceCrawl) => {
+                //             return elms.forEach((elm) => {
+                //                 elms = [...elms];
+                //                 elm.src = elm.src.replace("..", sourceCrawl);
+                //             });
+                //         },
+                //         sourceCrawl
+                //     );
+                // } catch (error) {
+                //     console.log(error)
+                // }
                 //end: replace src image
 
                 data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
                 data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
 
                 const lengthTitle = data.title.length;
-                const lengthDescription = 138 - lengthTitle;
+                const lengthDescription = 145 - lengthTitle;
 
                 data.seo_tag_description = data.title;
                 if (lengthDescription > 0) {
@@ -208,7 +225,8 @@ import "dotenv/config";
                 });
                 //end: replace Tên trang
 
-                //fs.writeFileSync('data.json', JSON.stringify(data));
+                // fs.writeFileSync('data.json', JSON.stringify(data));
+                // await page.waitForTimeout(1000 * 1000)
 
                 /**
                  * Save data
