@@ -40,8 +40,14 @@ import "dotenv/config";
                     waitUntil: ["networkidle2"],
                 });
             } catch (error) {
+                console.log(error)
             }
 
+            /**
+             * Get danh sách bài viết
+             *
+             * @type {{url}[]}
+             */
             const listPost = await page.evaluate((sourceCrawl) => {
                 let links = document.querySelectorAll("a.linktitle");
                 links = [...links];
@@ -50,14 +56,12 @@ import "dotenv/config";
                 }));
             }, sourceCrawl);
 
-            console.log(listPost);
-            await page.waitForTimeout(1000 * 1000)
 
             const limitPost = listPost.length;
             let numberPost = 0;
 
             /**
-             * While list post
+             * Lặp danh sách bài viết
              */
             while (1) {
                 try {
@@ -65,127 +69,82 @@ import "dotenv/config";
                         waitUntil: ["networkidle2"],
                     });
                 } catch (error) {
+                    console.log(error)
                 }
-                await page.waitForTimeout(5000);
+                await page.waitForTimeout(2000);
 
                 await page.evaluate(() => {
                     window.scrollTo(0, document.body.scrollHeight);
                 });
-                await page.waitForTimeout(5000);
+                await page.waitForTimeout(2000);
 
-                const elmTitle = ".block-info h1";
-                const elmContent = ".news-block .asset-content";
-                const elmLink = ".news-block .asset-content a";
+                const elmTitle = ".article h1";
+                const elmContent = ".bxcontentnews";
+                const elmLink = ".bxcontentnews a";
+                const elmImage = ".bxcontentnews img";
                 await page.waitForSelector(elmTitle);
                 await page.waitForSelector(elmContent);
 
+                //Khởi tạo Data
                 const data = {
                     title: "",
                     content: "",
-                    source: '<p></p><p style="text-align: right;color: #909090;font-style: italic;"><strong>Nguồn: </strong> ' + sourceCrawl + " </p>",
+                    source: "",
                     url_crawl: page.url(),
                     tag: listPage[numberPage].tag,
                     seo_tag_description: "",
                 };
 
                 //start: remove trash
-                try {
-                    await page.$$eval(".asset-content > p > strong", (elms) => {
-                        elms = [...elms];
-                        return elms.map((elm) => {
-                            elm.remove();
-                        });
-                    });
-                } catch (error) {
-                }
+                const elmTrash = [
+                    '.asset-content > p > strong', '.top-news', '.adsbygoogle', '.adsense', '.in-article', '.adszone', '.adstopimage', '.adsviewed',
+                    'div.toc', 'iframe.lazy', '.bannerAdNews', '.clrindexknh', '.bxindexknh', '#QuickViewId', '.owl-carousel', '.infobox', '.TitleBoxSp',
+                    '.HideBox', '.generate-promotion-products', '.wrap_relate', '.interested', '.tags', '.comment', '.fh3menu', '#hmenuid4', ''
 
-                try {
-                    await page.$$eval(".top-news", (elms) => {
-                        elms = [...elms];
-                        return elms.map((elm) => {
-                            elm.remove();
-                        });
-                    });
-                } catch (error) {
-                }
+                ];
 
-                try {
-                    await page.$$eval(".adsbygoogle", (elms) => {
-                        elms = [...elms];
-                        return elms.map((elm) => {
-                            elm.remove();
-                        });
+                await page.evaluate((elmTrash) => {
+                    elmTrash.forEach((item) => {
+                        try {
+                            let queryTrash = document.querySelectorAll(item);
+                            queryTrash.forEach((elm) => {
+                                elm.remove();
+                            });
+                        } catch (error) {
+                            console.log(error)
+                        }
                     });
-                } catch (error) {
-                }
+                }, elmTrash);
+                //end: remove trash
 
-                try {
-                    await page.$$eval(".adsense", (elms) => {
-                        elms = [...elms];
-                        return elms.map((elm) => {
-                            elm.remove();
-                        });
+                //start: remove trash tag a
+                const listTrashTagA = [
+                    'Điện máy XANH',
+                    'Điện máy xanh',
+                    'Điện Máy Xanh',
+                ];
+
+                elmLink.forEach((item) => {
+                    let contentA = item.textContent;
+                    listTrashTagA.forEach(itemTrash => {
+                        if (
+                            contentA.includes(itemTrash)
+                        ) {
+                            item.remove();
+                        }
                     });
-                } catch (error) {
-                }
+                });
+                //end: remove trash tag a
 
-                try {
-                    await page.$$eval(".in-article", (elms) => {
-                        elms = [...elms];
-                        return elms.map((elm) => {
-                            elm.remove();
-                        });
-                    });
-                } catch (error) {
-                }
-
-                try {
-                    await page.$$eval(".adszone", (elms) => {
-                        elms = [...elms];
-                        return elms.map((elm) => {
-                            elm.remove();
-                        });
-                    });
-                } catch (error) {
-                }
-
-                try {
-                    await page.$$eval(".adstopimage", (elms) => {
-                        elms = [...elms];
-                        return elms.map((elm) => {
-                            elm.remove();
-                        });
-                    });
-                } catch (error) {
-                }
-
-                try {
-                    await page.$$eval(".adsviewed", (elms) => {
-                        elms = [...elms];
-                        return elms.map((elm) => {
-                            elm.remove();
-                        });
-                    });
-                } catch (error) {
-                }
-
-                try {
-                    await page.$$eval("div.toc", (elms) => {
-                        elms = [...elms];
-                        return elms.map((elm) => {
-                            elm.remove();
-                        });
-                    });
-                } catch (error) {
-                }
-
+                //start: convert link thành text cho link crawl
                 try {
                     await page.$$eval(
                         elmLink,
-                        (elms) => {
+                        (elms, sourceCrawl) => {
                             elms = [...elms];
-                            return elms.map((elm, sourceCrawl) => {
-                                if (elm.href.indexOf("http") !== -1 || elm.href.indexOf(sourceCrawl) !== -1) {
+                            return elms.map((elm) => {
+                                console.log("sourceCrawl:" + sourceCrawl)
+                                if (elm.href.search(sourceCrawl) !== -1) {
                                     elm.outerHTML = elm.textContent;
                                 }
                             });
@@ -193,24 +152,14 @@ import "dotenv/config";
                         sourceCrawl
                     );
                 } catch (error) {
+                    console.log(error)
                 }
+                //end: convert link thành text cho link crawl
 
-                try {
-                    await page.$$eval("iframe.lazy", (elms) => {
-                        return elms.map((elm) => {
-                            elms = [...elms];
-                            elm.remove();
-                        });
-                    });
-                } catch (error) {
-                }
-                //start: remove trash
-
-                //start: replace src iamge
-                await page.waitForTimeout(5000);
+                //start: replace src image
                 try {
                     await page.$$eval(
-                        ".asset-content .__wimage img",
+                        elmImage,
                         (elms, sourceCrawl) => {
                             return elms.forEach((elm) => {
                                 elms = [...elms];
@@ -220,19 +169,41 @@ import "dotenv/config";
                         sourceCrawl
                     );
                 } catch (error) {
+                    console.log(error)
                 }
-                //end: replace src iamge
+                //end: replace src image
 
                 data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
                 data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
-                data.seo_tag_description = await page.$$eval(elmContent, (elm) => elm[0].textContent.slice(0, 137) + "...");
+
+                const lengthTitle = data.title.length;
+                const lengthDescription = 135 - lengthTitle;
+
+                data.seo_tag_description = data.title;
+                if (lengthDescription > 0) {
+                    data.seo_tag_description = data.seo_tag_description + '. ' + await page.$$eval(elmContent, (elm, lengthDescription) => {
+                        return elm[0].textContent.slice(0, Number(lengthDescription)) + "..."
+                    }, lengthDescription);
+                }
+
+                //start: remove trash text
+                const listTrashText = [
+                    'Chúc các bạn thành công. Mọi thắc mắc vui lòng để lại câu hỏi ngay bên dưới để Điện máy XANH hỗ trợ cho bạn nhé.',
+                    'Siêu thị Điện máy XANH',
+                ]
+
+                listTrashText.forEach((item) => {
+                    data.content = data.content.replaceAll(item, "");
+                });
+                //end: remove trash text
 
                 /**
                  * Save data
                  */
                 if (data.content.length > 0) {
+                    data.content = data.content + '<p>Vậy là bạn đã cùng KungFuCongNghe.Com tìm hiểu cách thực hiện. Chúc bạn thành công nhé!</p>';
                     console.log(data.title + "\n");
-                    saveData(data);
+                    await saveData(data);
                 }
                 numberPost = numberPost + 1;
                 /**
@@ -271,5 +242,6 @@ async function saveData(data) {
                 console.log(error.response.data);
             });
     } catch (error) {
+        console.log(error)
     }
 }
