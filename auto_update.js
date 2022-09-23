@@ -111,9 +111,9 @@ import "dotenv/config";
       await page.$eval(".tagadd", (el) => el.click());*/
 
       //publish
-      await page.$eval(".edit-visibility", (el) => el.click());
-      await page.$eval("#visibility-radio-public", (el) => el.click());
-      await page.$eval(".save-post-visibility", (el) => el.click());
+      //await page.$eval(".edit-visibility", (el) => el.click());
+      //await page.$eval("#visibility-radio-public", (el) => el.click());
+      //await page.$eval(".save-post-visibility", (el) => el.click());
 
       //save
       await page.$eval("#publish", (el) => el.click());
