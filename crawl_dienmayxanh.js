@@ -129,9 +129,9 @@ import "dotenv/config";
 
                 //start: remove trash
                 const elmTrash = [
-                    '.top-news', '.adsbygoogle', '.adsense', '.in-article', '.adszone', '.adstopimage', '.adsviewed',
+                    '.top-news', '.adsbygoogle', '.adsense', '.in-article', '.adszone', '.adstopimage', '.adsviewed', '.generate-promotion-products',
                     'div.toc', 'iframe.lazy', '.bannerAdNews', '.clrindexknh', '.bxindexknh', '#QuickViewId', '.owl-carousel', '.infobox', '.TitleBoxSp',
-                    '.HideBox', '.generate-promotion-products', '.wrap_relate', '.interested', '.tags', '.comment', '.fh3menu', '#hmenuid4', ''
+                    '.HideBox', '.generate-promotion-products', '.wrap_relate', '.interested', '.tags', '.comment', '.fh3menu', '#hmenuid4', '.btn__noibat'
                 ];
 
                 await page.evaluate((elmTrash) => {
@@ -150,7 +150,7 @@ import "dotenv/config";
 
                 //start: remove trash tag a
                 const listTrashTag = [
-                    'Điện máy XANH', 'Điện máy xanh', 'Điện Máy Xanh',
+                    'điện máy xanh', 'Điện máy XANH', 'Điện máy xanh', 'Điện Máy Xanh', 'ĐIỆN MÁY XANH',
                     'Mọi thắc mắc vui lòng để lại câu hỏi ngay bên dưới để Điện máy XANH hỗ trợ cho bạn nhé'
                 ];
 
@@ -160,7 +160,7 @@ import "dotenv/config";
                         (elms, listTrashTag) => {
                             elms = [...elms];
                             return elms.forEach((elm) => {
-                                let content = elm.textContent;
+                                let content = elm.textContent?.toLowerCase();
                                 listTrashTag.forEach(itemTrash => {
                                     if (
                                         content.includes(itemTrash)
