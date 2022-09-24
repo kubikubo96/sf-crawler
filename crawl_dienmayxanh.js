@@ -476,6 +476,10 @@ import "dotenv/config";
                                 url: 'https://kungfucongnghe.com/tag/firefox'
                             },
                             {
+                                name: ' Cốc Cốc ',
+                                url: 'https://kungfucongnghe.com/tag/coc-coc'
+                            },
+                            {
                                 name: ' Iphone ',
                                 url: 'https://kungfucongnghe.com/tag/iphone'
                             },
