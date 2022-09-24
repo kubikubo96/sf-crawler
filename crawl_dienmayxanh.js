@@ -712,7 +712,8 @@ import "dotenv/config";
 
                     await saveData(data);
 
-                    console.log('\n \x1b[32m DONE: ' + data.title + ' \x1b[0m \n');
+                    console.log('\n \x1b[32m DONE: ' + data.title + ' \x1b[0m');
+                    console.log('URL: ' + page.url() + ' \n');
                 }
                 numberPost = numberPost - 1;
                 /**
