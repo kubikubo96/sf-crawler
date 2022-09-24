@@ -284,7 +284,7 @@ import "dotenv/config";
                 } catch (error) {
                     console.log(error)
                 }
-                await page.waitForTimeout(2000);
+                await page.waitForTimeout(3000);
 
                 await page.evaluate(() => {
                     window.scrollTo(0, document.body.scrollHeight);
@@ -293,7 +293,7 @@ import "dotenv/config";
                 await page.evaluate(() => {
                     window.scrollTo(0, 0);
                 });
-                await page.waitForTimeout(2000);
+                await page.waitForTimeout(4000);
 
                 const elmTitle = ".article h1";
                 const elmContent = ".bxcontentnews";
@@ -301,8 +301,17 @@ import "dotenv/config";
                 const elmImage = ".bxcontentnews img";
                 const elmSortContent = ".bxcontentnews h2";
                 const elmTagP = ".bxcontentnews > p";
-                await page.waitForSelector(elmTitle);
-                await page.waitForSelector(elmContent);
+
+                try {
+                    await page.waitForSelector(elmTitle);
+                } catch (error) {
+                    console.log(error)
+                }
+                try {
+                    await page.waitForSelector(elmContent);
+                } catch (error) {
+                    console.log(error)
+                }
 
                 //Khởi tạo Data
                 const data = {
@@ -642,6 +651,7 @@ import "dotenv/config";
                 }
                 //end: add internal link
 
+                await page.waitForTimeout(2000);
                 data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
                 data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
 
