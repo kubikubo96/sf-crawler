@@ -270,7 +270,8 @@ import "dotenv/config";
             }, sourceCrawl);
 
 
-            let numberPost = listPost.length - 1;
+            let totalCrawled = 177;
+            let numberPost = listPost.length - 1 - totalCrawled;
             let minPost = 0;
 
             /**
@@ -712,8 +713,9 @@ import "dotenv/config";
 
                     await saveData(data);
 
-                    console.log('\n \x1b[32m DONE: ' + data.title + ' \x1b[0m');
+                    console.log('\n\x1b[32mDONE: ' + data.title + ' \x1b[0m');
                     console.log('URL: ' + page.url() + ' \n');
+                    console.log("NUMBER POST:" + numberPost)
                 }
                 numberPost = numberPost - 1;
                 /**
