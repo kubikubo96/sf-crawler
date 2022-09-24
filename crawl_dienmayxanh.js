@@ -618,7 +618,7 @@ import "dotenv/config";
                                         !item.querySelector('kbd') &&
                                         !item.querySelector('img')) {
                                         if (item.innerHTML.search(dataInternal.name) !== -1) {
-                                            item.innerHTML = item.innerHTML.replaceAll(dataInternal.name, ' <a href="' + dataInternal.url + '" target="_blank">' + dataInternal.name + '</a> ');
+                                            item.innerHTML = item.innerHTML.replace(dataInternal.name, ' <a href="' + dataInternal.url + '" target="_blank">' + dataInternal.name + '</a> ');
                                             data.tag = [...data.tag, dataInternal.name.trim()];
                                             countInternal++;
                                         }
