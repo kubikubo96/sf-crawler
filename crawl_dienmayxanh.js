@@ -433,7 +433,7 @@ import "dotenv/config";
 
                 //start: add internal link
                 try {
-                    await page.$$eval(elmTagP, (elms) => {
+                    await page.$$eval(elmTagP, (elms, data) => {
                         const dataInternalLink = [
                             {
                                 name: 'Hướng dẫn',
@@ -560,14 +560,6 @@ import "dotenv/config";
                                 url: 'https://kungfucongnghe.com/tag/may-tinh-bang'
                             },
                             {
-                                name: ' iTunes ',
-                                url: 'https://kungfucongnghe.com/tag/itunes'
-                            },
-                            {
-                                name: ' Itunes ',
-                                url: 'https://kungfucongnghe.com/tag/itunes'
-                            },
-                            {
                                 name: ' âm thanh ',
                                 url: 'https://kungfucongnghe.com/tag/am-thanh'
                             },
@@ -613,34 +605,32 @@ import "dotenv/config";
                             },
                         ];
                         let countInternal = 0;
-                        //if (countInternal <= 1) {
-                        elms.forEach((item) => {
-                            dataInternalLink.forEach((dataInternal) => {
-                                if (
-                                    !item.querySelector('ul') &&
-                                    !item.querySelector('li') &&
-                                    !item.querySelector('ol') &&
-                                    !item.querySelector('a') &&
-                                    !item.querySelector('code') &&
-                                    !item.querySelector('code') &&
-                                    !item.querySelector('kbd') &&
-                                    !item.querySelector('img')) {
-                                    if (item.innerHTML.search(dataInternal.name) !== -1) {
-                                        item.innerHTML = item.innerHTML.replaceAll(dataInternal.name, ' <a href="' + dataInternal.url + '" target="_blank">' + dataInternal.name + '</a> ');
-                                        data.tag = data.tag.push(dataInternal.name.trim());
-                                        countInternal++;
+                        if (countInternal <= 2) {
+                            elms.forEach((item) => {
+                                dataInternalLink.forEach((dataInternal) => {
+                                    if (
+                                        !item.querySelector('ul') &&
+                                        !item.querySelector('li') &&
+                                        !item.querySelector('ol') &&
+                                        !item.querySelector('a') &&
+                                        !item.querySelector('code') &&
+                                        !item.querySelector('code') &&
+                                        !item.querySelector('kbd') &&
+                                        !item.querySelector('img')) {
+                                        if (item.innerHTML.search(dataInternal.name) !== -1) {
+                                            item.innerHTML = item.innerHTML.replaceAll(dataInternal.name, ' <a href="' + dataInternal.url + '" target="_blank">' + dataInternal.name + '</a> ');
+                                            data.tag = [...data.tag, dataInternal.name.trim()];
+                                            countInternal++;
+                                        }
                                     }
-                                }
+                                })
                             })
-                        })
-                        // }
-                    });
+                        }
+                    }, data);
                 } catch (error) {
                     console.log(error)
                 }
                 //end: add internal link
-
-                await page.waitForTimeout(1000 * 1000)
 
                 data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
                 data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
