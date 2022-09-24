@@ -14,17 +14,261 @@ import "dotenv/config";
         height: 1080,
     });
 
-    const partCrawl = [
-        'huong-dan-su-dung',
-    ];
-    const numberCrawl = 0;
-
-    const listPage = [
+    const dataCrawl = [
         {
-            url: "https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=10000&url=" + partCrawl[numberCrawl],
-            tag: ["Laptop"],
-        }
-    ]
+            path: "phan-chieu-hinh-anh-tivi",
+            tag: ["Tivi"]
+        },
+        {
+            path: "dieu-khien-tivi-bang-dien-thoai",
+            tag: ["Tivi", "Điện thoại"]
+        },
+        {
+            path: "ket-noi-dien-thoai-voi-tivi",
+            tag: ["Tivi", "Điện thoại"]
+        },
+        {
+            path: "ket-noi-laptop-voi-tivi",
+            tag: ["Tivi", "Laptop"]
+        },
+        {
+            path: "ket-noi-tivi-voi-dan-am-thanh",
+            tag: ["Tivi", "Âm thanh"]
+        },
+        {
+            path: "ket-noi-may-tinh-bang-voi-tivi",
+            tag: ["Tivi", "Máy tính bảng"]
+        },
+        {
+            path: "ket-noi-tivi-voi-dau-thu-ky-thuat-so",
+            tag: ["Tivi", "Đầu kỹ thuật số"]
+        },
+        {
+            path: "ket-noi-tivi-voi-thiet-bi-ngoai-vi",
+            tag: ["Tivi", "Thiết bị ngoại vi"]
+        },
+        {
+            path: "cach-su-dung-tivi-mobell",
+            tag: ["Tivi"]
+        },
+        {
+            path: "cach-su-dung-tivi-samsung",
+            tag: ["Tivi"]
+        },
+        {
+            path: "cach-su-dung-tivi-sony",
+            tag: ["Tivi"]
+        },
+        {
+            path: "cach-su-dung-tivi-lg",
+            tag: ["Tivi"]
+        },
+        {
+            path: "cach-su-dung-tivi-toshiba",
+            tag: ["Tivi"]
+        },
+        {
+            path: "cach-su-dung-tivi-panasonic",
+            tag: ["Tivi"]
+        },
+        {
+            path: "cach-su-dung-tivi-tcl",
+            tag: ["Tivi"]
+        },
+        {
+            path: "loi-ti-vi-thuong-gap",
+            tag: ["Tivi"]
+        },
+        {
+            path: "cach-su-dung-tivi-sharp",
+            tag: ["Tivi"]
+        },
+        {
+            path: "cach-su-dung-tivi-philips",
+            tag: ["Tivi"]
+        },
+        {
+            path: "cach-su-dung-tivi-skyworth",
+            tag: ["Tivi"]
+        },
+        {
+            path: "cach-su-dung-tivi-vtb",
+            tag: ["Tivi"]
+        },
+        {
+            path: "cach-su-dung-tivi-asanzo",
+            tag: ["Tivi"]
+        },
+        {
+            path: "cach-su-dung-chung-tivi",
+            tag: ["Tivi"]
+        }, {
+            path: "tivi-man-hinh-cong",
+            tag: ["Tivi"]
+        },
+        {
+            path: "cong-nghe-hinh-anh-am-thanh",
+            tag: ["Tivi"]
+        },
+        {
+            path: "tinh-nang-ket-noi-tivi",
+            tag: ["Tivi"]
+        },
+        {
+            path: "cong-nghe-tivi-moi",
+            tag: ["Tivi"]
+        },
+        {
+            path: "tu-van-mua-dan-may",
+            tag: ["Âm thanh"]
+        },
+        {
+            path: "tin-cong-nghe-dien-thoai",
+            tag: ["Điện thoại"]
+        },
+        {
+            path: "tu-van-chon-mua-dien-thoai",
+            tag: ["Điện thoại"]
+        },
+        {
+            path: "danh-gia-san-pham",
+            tag: ["Điện thoại"]
+        },
+        {
+            path: "tin-cong-nghe-laptop",
+            tag: ["Laptop"]
+        },
+        {
+            path: "danh-gia-san-pham-laptop",
+            tag: ["Laptop"]
+        },
+        {
+            path: "huong-dan-su-dung-laptop",
+            tag: ["Laptop"]
+        },
+        {
+            path: "danh-gia-san-pham-may-tinh-bang",
+            tag: ["Máy tính bảng"]
+        }, {
+            path: "huong-dan-su-dung-may-tinh-bang",
+            tag: ["Máy tính bảng"]
+        },
+        {
+            path: "danh-gia-san-pham-pc-may-in",
+            tag: ["Máy in"]
+        },
+        {
+            path: "huong-dan-su-dung-pc-may-in",
+            tag: ["Máy in"]
+        },
+        {
+            path: "meo-hay-facebook-zalo-youtube",
+            tag: ["Mạng xã hội"]
+        },
+        {
+            path: "tin-hoc-van-phong",
+            tag: ["Tin học văn phòng"]
+        },
+        {
+            path: "tu-van-mua-may-anh",
+            tag: ["Máy ảnh"]
+        },
+        {
+            path: "phu-kien",
+            tag: ["Phụ kiện"]
+        },
+        {
+            path: "thuong-hieu-dong-ho",
+            tag: ["Đồng hồ"]
+        },
+        {
+            path: "meo-huong-dan-su-dung-dong-ho",
+            tag: ["Đồng hồ"]
+        },
+        {
+            path: "thuat-ngu-dong-ho",
+            tag: ["Đồng hồ"]
+        },
+        {
+            path: "phan-biet-dong-ho-that-gia",
+            tag: ["Đồng hồ"]
+        },
+        {
+            path: "tu-van-chon-mua-mat-kinh",
+            tag: ["Mắt kính"]
+        },
+        {
+            path: "thuong-hieu-mat-kinh",
+            tag: ["Mắt kính"]
+        },
+        {
+            path: "thiet-bi-thong-minh-phong-ngu",
+            tag: ["Thiết bị thông minh"]
+        },
+        {
+            path: "thiet-bi-thong-minh-phong-khach",
+            tag: ["Thiết bị thông minh"]
+        }, {
+            path: "thiet-bi-thong-minh-nha-bep",
+            tag: ["Thiết bị thông minh"]
+        },
+        {
+            path: "thiet-bi-thong-minh-khac",
+            tag: ["Thiết bị thông minh"]
+        },
+        {
+            path: "",
+            tag: ["Tivi"]
+        },
+        {
+            path: "",
+            tag: ["Tivi"]
+        },
+        {
+            path: "",
+            tag: ["Tivi"]
+        },
+        {
+            path: "",
+            tag: ["Tivi"]
+        },
+        {
+            path: "",
+            tag: ["Tivi"]
+        }, {
+            path: "",
+            tag: ["Tivi"]
+        }, {
+            path: "",
+            tag: ["Tivi"]
+        }, {
+            path: "",
+            tag: ["Tivi"]
+        },
+        {
+            path: "",
+            tag: ["Tivi"]
+        },
+        {
+            path: "",
+            tag: ["Tivi"]
+        }, {
+            path: "",
+            tag: ["Tivi"]
+        },
+
+
+    ];
+
+    let listPage = [];
+
+    for (let i = 0; i < dataCrawl.length; i++) {
+        const itemPage = {
+            url: "https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=10000&url=" + dataCrawl[i].path,
+            tag: dataCrawl[i].tag,
+        };
+        listPage.push(itemPage);
+    }
 
     const sourceCrawl = "dienmayxanh.com";
     const limitPage = listPage.length;
