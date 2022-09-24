@@ -14,17 +14,16 @@ import "dotenv/config";
         height: 1080,
     });
 
-    const partCrawl = [
-        'huong-dan-su-dung',
-    ];
-    const numberCrawl = 0;
-
-    const listPage = [
-        {
-            url: "https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=10000&url=" + partCrawl[numberCrawl],
+    const listPage = [];
+    const startPage = 1;
+    const endPage = 2;
+    for (let i = endPage; i >= startPage; i--) {
+        const itemPage = {
+            url: "https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?url=huong-dan-su-dung-laptop&hotSorting=true&pageSize=200&pageIndex=" + i,
             tag: ["Laptop"],
-        }
-    ]
+        };
+        listPage.push(itemPage);
+    }
 
     const sourceCrawl = "dienmayxanh.com";
     const limitPage = listPage.length;
