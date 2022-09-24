@@ -436,8 +436,16 @@ import "dotenv/config";
                     await page.$$eval(elmTagP, (elms) => {
                         const dataInternalLink = [
                             {
-                                name: ' Apple ',
-                                url: 'https://kungfucongnghe.com/apple'
+                                name: 'Hướng dẫn',
+                                url: 'https://kungfucongnghe.com/kien-thuc'
+                            },
+                            {
+                                name: 'Kiến thức',
+                                url: 'https://kungfucongnghe.com/kien-thuc'
+                            },
+                            {
+                                name: ' Bluetooth ',
+                                url: 'https://kungfucongnghe.com/bluetooth'
                             },
                             {
                                 name: ' Windows 11 ',
@@ -468,8 +476,8 @@ import "dotenv/config";
                                 url: 'https://kungfucongnghe.com/tag/iphone'
                             },
                             {
-                                name: ' iPhone ',
-                                url: 'https://kungfucongnghe.com/tag/iphone'
+                                name: ' iCloud ',
+                                url: 'https://kungfucongnghe.com/tag/icloud'
                             },
                             {
                                 name: ' Instagram ',
@@ -482,6 +490,26 @@ import "dotenv/config";
                             {
                                 name: ' Zalo ',
                                 url: 'https://kungfucongnghe.com/tag/zalo'
+                            },
+                            {
+                                name: ' MacBook ',
+                                url: 'https://kungfucongnghe.com/macbook'
+                            },
+                            {
+                                name: ' Macbook ',
+                                url: 'https://kungfucongnghe.com/macbook'
+                            },
+                            {
+                                name: ' smartphone ',
+                                url: 'https://kungfucongnghe.com/smartphone'
+                            },
+                            {
+                                name: ' Smartphone ',
+                                url: 'https://kungfucongnghe.com/smartphone'
+                            },
+                            {
+                                name: ' Apple Watch ',
+                                url: 'https://kungfucongnghe.com/apple-watch'
                             },
                             {
                                 name: ' thiết bị thông minh ',
@@ -579,6 +607,10 @@ import "dotenv/config";
                                 name: ' Word ',
                                 url: 'https://kungfucongnghe.com/tag/word'
                             },
+                            {
+                                name: ' Apple ',
+                                url: 'https://kungfucongnghe.com/apple'
+                            },
                         ];
                         let countInternal = 0;
                         //if (countInternal <= 1) {
@@ -595,6 +627,7 @@ import "dotenv/config";
                                     !item.querySelector('img')) {
                                     if (item.innerHTML.search(dataInternal.name) !== -1) {
                                         item.innerHTML = item.innerHTML.replaceAll(dataInternal.name, ' <a href="' + dataInternal.url + '" target="_blank">' + dataInternal.name + '</a> ');
+                                        data.tag = data.tag.push(dataInternal.name.trim());
                                         countInternal++;
                                     }
                                 }
