@@ -671,10 +671,6 @@ import "dotenv/config";
                 data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
                 data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
 
-                console.log(data.tag);
-
-                await page.waitForTimeout(1000 * 1000)
-
                 const lengthTitle = data.title.length;
                 const lengthDescription = 145 - lengthTitle;
 
