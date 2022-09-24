@@ -14,7 +14,15 @@ import "dotenv/config";
         height: 1080,
     });
 
-    const dataCrawl = [
+    const dataCrawlList = [
+        {
+            path: "huong-dan-su-dung-laptop",
+            tag: ["Laptop"],
+        },
+        {
+            path: "huong-dan-su-dung",
+            tag: ["Điện thoại"],
+        },
         {
             path: "phan-chieu-hinh-anh-tivi",
             tag: ["Tivi"]
@@ -259,6 +267,8 @@ import "dotenv/config";
 
 
     ];
+
+    const dataCrawl = [dataCrawlList[0]];
 
     let listPage = [];
 
