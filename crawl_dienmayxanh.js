@@ -629,6 +629,10 @@ import "dotenv/config";
                                 name: ' Apple ',
                                 url: 'https://kungfucongnghe.com/apple'
                             },
+                            {
+                                name: ' laptop ',
+                                url: 'https://kungfucongnghe.com/tag/laptop'
+                            }
                         ];
                         let countInternal = 0;
                         if (countInternal <= 1) {
