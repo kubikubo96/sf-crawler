@@ -472,6 +472,10 @@ import "dotenv/config";
                                 url: 'https://kungfucongnghe.com/tag/microsoft-edge'
                             },
                             {
+                                name: ' Firefox ',
+                                url: 'https://kungfucongnghe.com/tag/firefox'
+                            },
+                            {
                                 name: ' Iphone ',
                                 url: 'https://kungfucongnghe.com/tag/iphone'
                             },
