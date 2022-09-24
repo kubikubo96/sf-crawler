@@ -623,26 +623,31 @@ import "dotenv/config";
                         ];
                         let countInternal = 0;
                         if (countInternal <= 1) {
-                            elms.forEach((item) => {
-                                dataInternalLink.forEach((dataInternal) => {
-                                    if (
-                                        !item.querySelector('ul') &&
-                                        !item.querySelector('li') &&
-                                        !item.querySelector('ol') &&
-                                        !item.querySelector('a') &&
-                                        !item.querySelector('code') &&
-                                        !item.querySelector('code') &&
-                                        !item.querySelector('kbd') &&
-                                        !item.querySelector('figure') &&
-                                        !item.querySelector('figcaption') &&
-                                        !item.querySelector('img')) {
-                                        if (item.innerHTML.search(dataInternal.name) !== -1) {
-                                            item.innerHTML = item.innerHTML.replace(dataInternal.name, ' <a href="' + dataInternal.url + '" target="_blank">' + dataInternal.name + '</a> ');
-                                            data.tag = [...data.tag, dataInternal.name.trim()];
-                                            countInternal++;
+                            dataInternalLink.forEach((dataInternal) => {
+                                let isInternal = false;
+                                if (!isInternal) {
+                                    elms.forEach((item) => {
+                                        if (
+                                            !item.querySelector('ul') &&
+                                            !item.querySelector('li') &&
+                                            !item.querySelector('ol') &&
+                                            !item.querySelector('a') &&
+                                            !item.querySelector('code') &&
+                                            !item.querySelector('code') &&
+                                            !item.querySelector('kbd') &&
+                                            !item.querySelector('figure') &&
+                                            !item.querySelector('figcaption') &&
+                                            !item.querySelector('img')) {
+                                            if (item.innerHTML.search(dataInternal.name) !== -1) {
+                                                item.innerHTML = item.innerHTML.replace(dataInternal.name, ' <a href="' + dataInternal.url + '" target="_blank">' + dataInternal.name + '</a> ');
+                                                data.tag = [...data.tag, dataInternal.name.trim()];
+                                                countInternal++;
+                                                isInternal = true;
+                                                break;
+                                            }
                                         }
-                                    }
-                                })
+                                    })
+                                }
                             })
                         }
                     }, data);
