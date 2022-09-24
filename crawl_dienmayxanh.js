@@ -648,7 +648,7 @@ import "dotenv/config";
                                             !item.querySelector('img')) {
                                             if (item.innerHTML.search(dataInternal.name) !== -1) {
                                                 item.innerHTML = item.innerHTML.replace(dataInternal.name, ' <a href="' + dataInternal.url + '" target="_blank">' + dataInternal.name + '</a> ');
-                                                data.tag = [...data.tag, dataInternal.name.trim()];
+                                                data.tag = [...data.tag, (dataInternal.name.trim().charAt(0).toUpperCase() + dataInternal.name.trim().slice(1))];
                                                 console.log(data.tag)
                                                 countInternal++;
                                                 throw BreakException;
