@@ -4,7 +4,7 @@ import "dotenv/config";
 
 (async () => {
     const browser = await puppeteer.launch({
-        headless: true,
+        headless: false,
         args: ["--disable-site-isolation-trials", "--window-size=1900,1000", "--lang=en-US,en", "--no-sandbox", "--disable-setuid-sandbox"],
     });
     const page = await browser.newPage();
@@ -442,7 +442,7 @@ import "dotenv/config";
 
                 //start: add internal link
                 try {
-                    await page.$$eval(elmTagP, (elms, data) => {
+                    data.tag = await page.$$eval(elmTagP, (elms, data) => {
                         const dataInternalLink = [
                             {
                                 name: 'Hướng dẫn',
@@ -515,6 +515,14 @@ import "dotenv/config";
                             {
                                 name: ' Macbook ',
                                 url: 'https://kungfucongnghe.com/macbook'
+                            },
+                            {
+                                name: ' Android ',
+                                url: 'https://kungfucongnghe.com/android'
+                            },
+                            {
+                                name: ' iOS ',
+                                url: 'https://kungfucongnghe.com/ios'
                             },
                             {
                                 name: ' smartphone ',
@@ -624,9 +632,9 @@ import "dotenv/config";
                         let countInternal = 0;
                         if (countInternal <= 1) {
                             dataInternalLink.forEach((dataInternal) => {
-                                let isInternal = false;
-                                if (!isInternal) {
-                                    elms.forEach((item) => {
+                                let BreakException = {};
+                                try {
+                                    elms.forEach((item, key) => {
                                         if (
                                             !item.querySelector('ul') &&
                                             !item.querySelector('li') &&
@@ -641,15 +649,18 @@ import "dotenv/config";
                                             if (item.innerHTML.search(dataInternal.name) !== -1) {
                                                 item.innerHTML = item.innerHTML.replace(dataInternal.name, ' <a href="' + dataInternal.url + '" target="_blank">' + dataInternal.name + '</a> ');
                                                 data.tag = [...data.tag, dataInternal.name.trim()];
+                                                console.log(data.tag)
                                                 countInternal++;
-                                                isInternal = true;
-                                                break;
+                                                throw BreakException;
                                             }
                                         }
                                     })
+                                } catch (e) {
+                                    if (e !== BreakException) throw e;
                                 }
                             })
                         }
+                        return data.tag;
                     }, data);
                 } catch (error) {
                     console.log(error)
@@ -659,6 +670,10 @@ import "dotenv/config";
                 await page.waitForTimeout(2000);
                 data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
                 data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
+
+                console.log(data.tag);
+
+                await page.waitForTimeout(1000 * 1000)
 
                 const lengthTitle = data.title.length;
                 const lengthDescription = 145 - lengthTitle;
