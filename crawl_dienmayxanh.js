@@ -676,7 +676,8 @@ import "dotenv/config";
                  * Save data
                  */
                 if (data.content.length > 0) {
-                    data.content = data.content + '<p>Vậy là bạn đã cùng KungFuCongNghe.Com tìm hiểu cách thực hiện. Chúc bạn thành công nhé!</p>';
+                    data.content = '<strong>' + data.title + '.</strong> ' +
+                        data.content + '<p>Vậy là bạn đã cùng KungFuCongNghe.Com tìm hiểu cách thực hiện. Chúc bạn thành công nhé!</p>';
 
                     /**
                      * dùng cho trường hợp auto save images
