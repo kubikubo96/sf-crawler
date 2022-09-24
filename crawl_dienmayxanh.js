@@ -4,7 +4,7 @@ import "dotenv/config";
 
 (async () => {
     const browser = await puppeteer.launch({
-        headless: true,
+        headless: false,
         args: ["--disable-site-isolation-trials", "--window-size=1900,1000", "--lang=en-US,en", "--no-sandbox", "--disable-setuid-sandbox"],
     });
     const page = await browser.newPage();
@@ -224,48 +224,6 @@ import "dotenv/config";
             path: "thiet-bi-thong-minh-khac",
             tag: ["Thiết bị thông minh"]
         },
-        {
-            path: "",
-            tag: ["Tivi"]
-        },
-        {
-            path: "",
-            tag: ["Tivi"]
-        },
-        {
-            path: "",
-            tag: ["Tivi"]
-        },
-        {
-            path: "",
-            tag: ["Tivi"]
-        },
-        {
-            path: "",
-            tag: ["Tivi"]
-        }, {
-            path: "",
-            tag: ["Tivi"]
-        }, {
-            path: "",
-            tag: ["Tivi"]
-        }, {
-            path: "",
-            tag: ["Tivi"]
-        },
-        {
-            path: "",
-            tag: ["Tivi"]
-        },
-        {
-            path: "",
-            tag: ["Tivi"]
-        }, {
-            path: "",
-            tag: ["Tivi"]
-        },
-
-
     ];
 
     const dataCrawl = [dataCrawlList[0]];
@@ -342,6 +300,7 @@ import "dotenv/config";
                 const elmLink = ".bxcontentnews a";
                 const elmImage = ".bxcontentnews img";
                 const elmSortContent = ".bxcontentnews h2";
+                const elmTagP = ".bxcontentnews > p";
                 await page.waitForSelector(elmTitle);
                 await page.waitForSelector(elmContent);
 
@@ -452,21 +411,202 @@ import "dotenv/config";
                 //end: convert link thành text cho link crawl
 
                 //start: replace src image
-                // try {
-                //     await page.$$eval(
-                //         elmImage,
-                //         (elms, sourceCrawl) => {
-                //             return elms.forEach((elm) => {
-                //                 elms = [...elms];
-                //                 elm.src = elm.src.replace("..", sourceCrawl);
-                //             });
-                //         },
-                //         sourceCrawl
-                //     );
-                // } catch (error) {
-                //     console.log(error)
-                // }
+                try {
+                    await page.$$eval(
+                        elmImage,
+                        (elms, sourceCrawl) => {
+                            return elms.forEach((elm) => {
+                                elms = [...elms];
+                                elm.src = elm.src.replace("./", 'https://' + sourceCrawl + '/');
+                                elm.src = elm.src.replace("../", 'https://' + sourceCrawl + '/');
+                                elm.src = elm.src.replace("./../", 'https://' + sourceCrawl + '/');
+                                elm.src = elm.src.replace("../../", 'https://' + sourceCrawl + '/');
+                            });
+                        },
+                        sourceCrawl
+                    );
+                } catch (error) {
+                    console.log(error)
+                }
                 //end: replace src image
+
+                //start: add internal link
+                try {
+                    await page.$$eval(elmTagP, (elms) => {
+                        const dataInternalLink = [
+                            {
+                                name: ' Apple ',
+                                url: 'https://kungfucongnghe.com/apple'
+                            },
+                            {
+                                name: ' Windows 11 ',
+                                url: 'https://kungfucongnghe.com/tag/windows-11'
+                            },
+                            {
+                                name: ' Windows 10 ',
+                                url: 'https://kungfucongnghe.com/tag/windows-10'
+                            },
+                            {
+                                name: ' Windows 8.1 ',
+                                url: 'https://kungfucongnghe.com/windows-81'
+                            },
+                            {
+                                name: ' Windows 7 ',
+                                url: 'https://kungfucongnghe.com/windows-7'
+                            },
+                            {
+                                name: ' Google Chrome ',
+                                url: 'https://kungfucongnghe.com/tag/google-chrome'
+                            },
+                            {
+                                name: ' Microsoft Edge ',
+                                url: 'https://kungfucongnghe.com/tag/microsoft-edge'
+                            },
+                            {
+                                name: ' Iphone ',
+                                url: 'https://kungfucongnghe.com/tag/iphone'
+                            },
+                            {
+                                name: ' iPhone ',
+                                url: 'https://kungfucongnghe.com/tag/iphone'
+                            },
+                            {
+                                name: ' Instagram ',
+                                url: 'https://kungfucongnghe.com/tag/instagram'
+                            },
+                            {
+                                name: ' Facebook ',
+                                url: 'https://kungfucongnghe.com/tag/facebook'
+                            },
+                            {
+                                name: ' Zalo ',
+                                url: 'https://kungfucongnghe.com/tag/zalo'
+                            },
+                            {
+                                name: ' thiết bị thông minh ',
+                                url: 'https://kungfucongnghe.com/tag/thiet-bi-thong-minh'
+                            },
+                            {
+                                name: ' mắt kính ',
+                                url: 'https://kungfucongnghe.com/tag/mat-kinh'
+                            },
+                            {
+                                name: ' đồng hồ ',
+                                url: 'https://kungfucongnghe.com/tag/dong-ho'
+                            },
+                            {
+                                name: ' phụ kiện ',
+                                url: 'https://kungfucongnghe.com/tag/phu-kien'
+                            },
+                            {
+                                name: ' máy ảnh ',
+                                url: 'https://kungfucongnghe.com/tag/may-anh'
+                            },
+                            {
+                                name: ' tin học văn phòng ',
+                                url: 'https://kungfucongnghe.com/tag/tin-hoc-van-phong'
+                            },
+                            {
+                                name: ' mạng xã hội ',
+                                url: 'https://kungfucongnghe.com/tag/mang-xa-hoi'
+                            },
+                            {
+                                name: ' máy in ',
+                                url: 'https://kungfucongnghe.com/tag/may-in'
+                            },
+                            {
+                                name: ' thiết bị ngoại vi ',
+                                url: 'https://kungfucongnghe.com/tag/thiet-bi-ngoai-vi'
+                            },
+                            {
+                                name: ' đầu kỹ thuật số ',
+                                url: 'https://kungfucongnghe.com/tag/dau-ky-thuat-so'
+                            },
+                            {
+                                name: ' máy tính bảng ',
+                                url: 'https://kungfucongnghe.com/tag/may-tinh-bang'
+                            },
+                            {
+                                name: ' iPad ',
+                                url: 'https://kungfucongnghe.com/tag/may-tinh-bang'
+                            },
+                            {
+                                name: ' iTunes ',
+                                url: 'https://kungfucongnghe.com/tag/itunes'
+                            },
+                            {
+                                name: ' Itunes ',
+                                url: 'https://kungfucongnghe.com/tag/itunes'
+                            },
+                            {
+                                name: ' âm thanh ',
+                                url: 'https://kungfucongnghe.com/tag/am-thanh'
+                            },
+                            {
+                                name: ' tivi ',
+                                url: 'https://kungfucongnghe.com/tag/tivi'
+                            },
+                            {
+                                name: ' Command line ',
+                                url: 'https://kungfucongnghe.com/tag/command-line'
+                            },
+                            {
+                                name: ' điện thoại ',
+                                url: 'https://kungfucongnghe.com/tag/dien-thoai'
+                            },
+                            {
+                                name: ' Onedrive ',
+                                url: 'https://kungfucongnghe.com/tag/onedrive'
+                            },
+                            {
+                                name: ' Terminal ',
+                                url: 'https://kungfucongnghe.com/tag/terminal'
+                            },
+                            {
+                                name: ' Ubuntu ',
+                                url: 'https://kungfucongnghe.com/tag/ubuntu'
+                            },
+                            {
+                                name: ' Vmware ',
+                                url: 'https://kungfucongnghe.com/tag/vmware'
+                            },
+                            {
+                                name: ' Excel ',
+                                url: 'https://kungfucongnghe.com/tag/excel'
+                            },
+                            {
+                                name: ' Word ',
+                                url: 'https://kungfucongnghe.com/tag/word'
+                            },
+                        ];
+                        let countInternal = 0;
+                        //if (countInternal <= 1) {
+                        elms.forEach((item) => {
+                            dataInternalLink.forEach((dataInternal) => {
+                                if (
+                                    !item.querySelector('ul') &&
+                                    !item.querySelector('li') &&
+                                    !item.querySelector('ol') &&
+                                    !item.querySelector('a') &&
+                                    !item.querySelector('code') &&
+                                    !item.querySelector('code') &&
+                                    !item.querySelector('kbd') &&
+                                    !item.querySelector('img')) {
+                                    if (item.innerHTML.search(dataInternal.name) !== -1) {
+                                        item.innerHTML = item.innerHTML.replaceAll(dataInternal.name, ' <a href="' + dataInternal.url + '" target="_blank">' + dataInternal.name + '</a> ');
+                                        countInternal++;
+                                    }
+                                }
+                            })
+                        })
+                        // }
+                    });
+                } catch (error) {
+                    console.log(error)
+                }
+                //end: add internal link
+
+                await page.waitForTimeout(1000 * 1000)
 
                 data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
                 data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
@@ -487,6 +627,7 @@ import "dotenv/config";
                     'Điện máy xanh',
                     'Điện Máy Xanh',
                     'DienmayXANH.com',
+                    "Dienmay.com"
                 ]
 
                 listTrashText.forEach((item) => {
@@ -506,7 +647,7 @@ import "dotenv/config";
                     /**
                      * dùng cho trường hợp auto save images
                      */
-                    //data.content = data.content.replaceAll('\\', '\\\\');
+                    data.content = data.content.replaceAll('\\', '\\\\');
 
                     await saveData(data);
 
