@@ -605,7 +605,7 @@ import "dotenv/config";
                             },
                         ];
                         let countInternal = 0;
-                        if (countInternal <= 2) {
+                        if (countInternal <= 1) {
                             elms.forEach((item) => {
                                 dataInternalLink.forEach((dataInternal) => {
                                     if (
@@ -616,6 +616,8 @@ import "dotenv/config";
                                         !item.querySelector('code') &&
                                         !item.querySelector('code') &&
                                         !item.querySelector('kbd') &&
+                                        !item.querySelector('figure') &&
+                                        !item.querySelector('figcaption') &&
                                         !item.querySelector('img')) {
                                         if (item.innerHTML.search(dataInternal.name) !== -1) {
                                             item.innerHTML = item.innerHTML.replace(dataInternal.name, ' <a href="' + dataInternal.url + '" target="_blank">' + dataInternal.name + '</a> ');
