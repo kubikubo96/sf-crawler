@@ -21,157 +21,157 @@ import "dotenv/config";
         },
         {
             path: "huong-dan-su-dung",
-            tag: ["Điện thoại"],
+            tag: ["Điện thoại", "Hướng dẫn sự dụng điện thoại"],
         },
         {
             path: "phan-chieu-hinh-anh-tivi",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Phản chiếu hình ảnh tivi"]
         },
         {
             path: "dieu-khien-tivi-bang-dien-thoai",
-            tag: ["Tivi", "Điện thoại"]
+            tag: ["Tivi", "Điều khiển tivi bằng điện thoại"]
         },
         {
             path: "ket-noi-dien-thoai-voi-tivi",
-            tag: ["Tivi", "Điện thoại"]
+            tag: ["Tivi", "Điện thoại", "Kết nối điện thoại với tivi"]
         },
         {
             path: "ket-noi-laptop-voi-tivi",
-            tag: ["Tivi", "Laptop"]
+            tag: ["Tivi", "Laptop", "Nết nối laptop với tivi"]
         },
         {
             path: "ket-noi-tivi-voi-dan-am-thanh",
-            tag: ["Tivi", "Âm thanh"]
+            tag: ["Tivi", "Âm thanh", "Kết nối tivi với dàn âm thanh"]
         },
         {
             path: "ket-noi-may-tinh-bang-voi-tivi",
-            tag: ["Tivi", "Máy tính bảng"]
+            tag: ["Tivi", "Máy tính bảng", "Kết nối máy tính bảng với tivi"]
         },
         {
             path: "ket-noi-tivi-voi-dau-thu-ky-thuat-so",
-            tag: ["Tivi", "Đầu kỹ thuật số"]
+            tag: ["Tivi", "Đầu kỹ thuật số", "Kết nối tivi với đầu thu kỹ thuật số"]
         },
         {
             path: "ket-noi-tivi-voi-thiet-bi-ngoai-vi",
-            tag: ["Tivi", "Thiết bị ngoại vi"]
+            tag: ["Tivi", "Thiết bị ngoại vi", "Kết nối tivi với thiết bị ngoại vi"]
         },
         {
             path: "cach-su-dung-tivi-mobell",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Cách sử dụng tivi Mobell"]
         },
         {
             path: "cach-su-dung-tivi-samsung",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Cách sử dụng tivi Samsung"]
         },
         {
             path: "cach-su-dung-tivi-sony",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Cách sử dụng tivi Sony"]
         },
         {
             path: "cach-su-dung-tivi-lg",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Cách sử dụng tivi LG"]
         },
         {
             path: "cach-su-dung-tivi-toshiba",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Cách sử dụng tivi TOSHIBA"]
         },
         {
             path: "cach-su-dung-tivi-panasonic",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Cách sử dụng tivi panasonic"]
         },
         {
             path: "cach-su-dung-tivi-tcl",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Cách sử dụng tivi TCL"]
         },
         {
             path: "loi-ti-vi-thuong-gap",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Lỗi tivi thường gặp"]
         },
         {
             path: "cach-su-dung-tivi-sharp",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Cách sử dụng tivi Sharp"]
         },
         {
             path: "cach-su-dung-tivi-philips",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Cách sử dụng tivi Philips"]
         },
         {
             path: "cach-su-dung-tivi-skyworth",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Cách sử dụng tini Skyworth"]
         },
         {
             path: "cach-su-dung-tivi-vtb",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Cách sử dụng tivi VTB"]
         },
         {
             path: "cach-su-dung-tivi-asanzo",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Cách sử dụng tivi Asanzo"]
         },
         {
             path: "cach-su-dung-chung-tivi",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Cách sử dụng chung tivi"]
         }, {
             path: "tivi-man-hinh-cong",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Tivi màn hình cong"]
         },
         {
             path: "cong-nghe-hinh-anh-am-thanh",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Công nghệ hình ảnh âm thanh"]
         },
         {
             path: "tinh-nang-ket-noi-tivi",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Tính năng kết nối tivi"]
         },
         {
             path: "cong-nghe-tivi-moi",
-            tag: ["Tivi"]
+            tag: ["Tivi", "Công nghệ tivi mới"]
         },
         {
             path: "tu-van-mua-dan-may",
-            tag: ["Âm thanh"]
+            tag: ["Âm thanh", "Tư vấn mua dàn máy"]
         },
         {
             path: "tin-cong-nghe-dien-thoai",
-            tag: ["Điện thoại"]
+            tag: ["Điện thoại", "Tin công nghệ điện thoại"]
         },
         {
             path: "tu-van-chon-mua-dien-thoai",
-            tag: ["Điện thoại"]
+            tag: ["Điện thoại", "Tư vấn chọn mua điện thoại"]
         },
         {
             path: "danh-gia-san-pham",
-            tag: ["Điện thoại"]
+            tag: ["Điện thoại", "Đánh giá sản phẩm"]
         },
         {
             path: "tin-cong-nghe-laptop",
-            tag: ["Laptop"]
+            tag: ["Laptop", "Tin công nghệ laptop"]
         },
         {
             path: "danh-gia-san-pham-laptop",
-            tag: ["Laptop"]
+            tag: ["Laptop", "Đánh giá sản phẩm laptop"]
         },
         {
             path: "huong-dan-su-dung-laptop",
-            tag: ["Laptop"]
+            tag: ["Laptop", "Hướng dẫn sử dụng laptop"]
         },
         {
             path: "danh-gia-san-pham-may-tinh-bang",
-            tag: ["Máy tính bảng"]
+            tag: ["Máy tính bảng", "Đánh giá sản phẩm máy tính bảng"]
         }, {
             path: "huong-dan-su-dung-may-tinh-bang",
-            tag: ["Máy tính bảng"]
+            tag: ["Máy tính bảng", "Hướng dẫn sử dụng máy tính bảng"]
         },
         {
             path: "danh-gia-san-pham-pc-may-in",
-            tag: ["Máy in"]
+            tag: ["Máy in", "Đánh gái sản phẩm PC máy in"]
         },
         {
             path: "huong-dan-su-dung-pc-may-in",
-            tag: ["Máy in"]
+            tag: ["Máy in", "Hướng dẫn sử dụng PC máy in"]
         },
         {
             path: "meo-hay-facebook-zalo-youtube",
-            tag: ["Mạng xã hội"]
+            tag: ["Mạng xã hội", "Mẹo hay Facebook Zalo Youtube"]
         },
         {
             path: "tin-hoc-van-phong",
@@ -179,7 +179,7 @@ import "dotenv/config";
         },
         {
             path: "tu-van-mua-may-anh",
-            tag: ["Máy ảnh"]
+            tag: ["Máy ảnh", "Tư vấn mua máy ảnh"]
         },
         {
             path: "phu-kien",
@@ -187,46 +187,46 @@ import "dotenv/config";
         },
         {
             path: "thuong-hieu-dong-ho",
-            tag: ["Đồng hồ"]
+            tag: ["Đồng hồ", "Thương hiệu đồng hồ"]
         },
         {
             path: "meo-huong-dan-su-dung-dong-ho",
-            tag: ["Đồng hồ"]
+            tag: ["Đồng hồ", "Mẹo hướng dẫn sử dụng dồng hồ"]
         },
         {
             path: "thuat-ngu-dong-ho",
-            tag: ["Đồng hồ"]
+            tag: ["Đồng hồ", "Thuật ngữ đồng hồ"]
         },
         {
             path: "phan-biet-dong-ho-that-gia",
-            tag: ["Đồng hồ"]
+            tag: ["Đồng hồ", "Phân biệt đồng hồ thật giả"]
         },
         {
             path: "tu-van-chon-mua-mat-kinh",
-            tag: ["Mắt kính"]
+            tag: ["Mắt kính", "Tư vấn chọn mua mắt kính"]
         },
         {
             path: "thuong-hieu-mat-kinh",
-            tag: ["Mắt kính"]
+            tag: ["Mắt kính", "Thương hiệu mắt kính"]
         },
         {
             path: "thiet-bi-thong-minh-phong-ngu",
-            tag: ["Thiết bị thông minh"]
+            tag: ["Thiết bị thông minh", "Thiết bị thông minh phòng ngủ"]
         },
         {
             path: "thiet-bi-thong-minh-phong-khach",
-            tag: ["Thiết bị thông minh"]
+            tag: ["Thiết bị thông minh", "Thiết bị thông minh phòng khách"]
         }, {
             path: "thiet-bi-thong-minh-nha-bep",
-            tag: ["Thiết bị thông minh"]
+            tag: ["Thiết bị thông minh", "Thiết bị thông minh nhà bếp"]
         },
         {
             path: "thiet-bi-thong-minh-khac",
-            tag: ["Thiết bị thông minh"]
+            tag: ["Thiết bị thông minh", "Thiết bị thông minh khác"]
         },
     ];
 
-    const dataCrawl = [dataCrawlList[0]];
+    const dataCrawl = [dataCrawlList[1]];
 
     let listPage = [];
 
