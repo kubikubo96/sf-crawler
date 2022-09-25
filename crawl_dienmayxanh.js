@@ -282,6 +282,7 @@ import "dotenv/config";
          * Lặp danh sách bài viết
          */
         while (1) {
+            console.log('Number Post: \n\x1b[43m' + numberPost + ' \x1b[0m');
             try {
                 try {
                     await page.goto(listPost[numberPost].url, {
@@ -737,7 +738,6 @@ import "dotenv/config";
 
                     console.log('\n\x1b[32mDONE: ' + data.title + ' \x1b[0m');
                     console.log('URL: ' + page.url() + ' \n');
-                    console.log("NUMBER POST:" + numberPost)
                 }
                 numberPost = numberPost - 1;
                 /**
