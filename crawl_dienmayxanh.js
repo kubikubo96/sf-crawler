@@ -526,8 +526,48 @@ import "dotenv/config";
                                 url: 'https://kungfucongnghe.com/android'
                             },
                             {
-                                name: ' iOS ',
-                                url: 'https://kungfucongnghe.com/ios'
+                                name: ' iOS 5',
+                                url: 'https://kungfucongnghe.com/ios-5'
+                            },
+                            {
+                                name: ' iOS 6',
+                                url: 'https://kungfucongnghe.com/ios-6'
+                            },
+                            {
+                                name: ' iOS 7',
+                                url: 'https://kungfucongnghe.com/ios-7'
+                            },
+                            {
+                                name: ' iOS 8',
+                                url: 'https://kungfucongnghe.com/ios-8'
+                            },
+                            {
+                                name: ' iOS 9',
+                                url: 'https://kungfucongnghe.com/ios-9'
+                            },
+                            {
+                                name: ' iOS 10',
+                                url: 'https://kungfucongnghe.com/ios-10'
+                            },
+                            {
+                                name: ' iOS 11',
+                                url: 'https://kungfucongnghe.com/ios-11'
+                            },
+                            {
+                                name: ' iOS 12',
+                                url: 'https://kungfucongnghe.com/ios-12'
+                            },
+                            {
+                                name: ' iOS 13',
+                                url: 'https://kungfucongnghe.com/ios-13'
+                            },
+                            {
+                                name: ' iOS 14',
+                                url: 'https://kungfucongnghe.com/ios-14'
+                            },
+                            {
+                                name: ' iOS 15',
+                                url: 'https://kungfucongnghe.com/ios-15'
                             },
                             {
                                 name: ' Smartphone ',
