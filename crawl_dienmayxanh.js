@@ -253,7 +253,6 @@ import "dotenv/config";
                 waitUntil: ["networkidle2"],
             });
         } catch (error) {
-            console.log(error)
         }
 
         /**
@@ -289,7 +288,6 @@ import "dotenv/config";
                         waitUntil: ["networkidle2"],
                     });
                 } catch (error) {
-                    console.log(error)
                 }
                 await page.waitForTimeout(3000);
 
@@ -298,7 +296,6 @@ import "dotenv/config";
                         window.scrollTo(0, document.body.scrollHeight);
                     });
                 } catch (error) {
-                    console.log(error)
                 }
                 await page.waitForTimeout(2000);
 
@@ -307,7 +304,6 @@ import "dotenv/config";
                         window.scrollTo(0, 0);
                     });
                 } catch (error) {
-                    console.log(error)
                 }
 
                 await page.waitForTimeout(4000);
@@ -323,7 +319,6 @@ import "dotenv/config";
                     await page.waitForSelector(elmTitle);
                     await page.waitForSelector(elmContent);
                 } catch (error) {
-                    console.log(error)
                 }
 
                 //Khởi tạo Data
@@ -347,7 +342,6 @@ import "dotenv/config";
                         });
                     });
                 } catch (error) {
-                    console.log(error)
                 }
                 //end: replace src image
 
@@ -359,7 +353,6 @@ import "dotenv/config";
                         }
                     });
                 } catch (error) {
-                    console.log(error)
                 }
                 //end: replace sort content
 
@@ -380,12 +373,10 @@ import "dotenv/config";
                                     elm.remove();
                                 });
                             } catch (error) {
-                                console.log(error)
                             }
                         });
                     }, elmTrash);
                 } catch (error) {
-                    console.log(error)
                 }
                 //end: remove trash
 
@@ -414,7 +405,6 @@ import "dotenv/config";
                         listTrashTag
                     );
                 } catch (error) {
-                    console.log(error)
                 }
                 //end: remove trash tag a
 
@@ -433,7 +423,6 @@ import "dotenv/config";
                         sourceCrawl
                     );
                 } catch (error) {
-                    console.log(error)
                 }
                 //end: convert link thành text cho link crawl
 
@@ -453,7 +442,6 @@ import "dotenv/config";
                         sourceCrawl
                     );
                 } catch (error) {
-                    console.log(error)
                 }
                 //end: replace src image
 
@@ -681,7 +669,6 @@ import "dotenv/config";
                         return data.tag;
                     }, data);
                 } catch (error) {
-                    console.log(error)
                 }
                 //end: add internal link
 
@@ -749,11 +736,9 @@ import "dotenv/config";
                     break;
                 }
             } catch (error) {
-                console.log(error)
             }
         }
     } catch (error) {
-        console.log(error);
     }
 
     /**
@@ -781,6 +766,5 @@ async function saveData(data) {
                 console.log(error.response.data);
             });
     } catch (error) {
-        console.log(error)
     }
 }
