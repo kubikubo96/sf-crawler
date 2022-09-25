@@ -270,12 +270,12 @@ import "dotenv/config";
             }, sourceCrawl);
 
 
-            let totalCrawled = 177; // tổng số bài đã crawl
-            let numberPostCrawled = 343; // number bài đã crawl
+            let totalCrawled = 0; // tổng số bài đã crawl
+            let numberPostCrawled = 0; // number bài đã crawl
 
             //let numberPost = listPost.length - 1 - totalCrawled; // tính theo totalCrawled
             let numberPost = listPost.length - 1;
-            numberPost = numberPost - (numberPost - numberPostCrawled); // tính theo numberPostCrawled
+            //numberPost = numberPost - (numberPost - numberPostCrawled); // tính theo numberPostCrawled
             let minPost = 0;
 
             /**
