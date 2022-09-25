@@ -343,7 +343,7 @@ import "dotenv/config";
                 }
                 //end: replace src image
 
-                //start: replace sort content
+                //start: thay để nội dung ngắn h2 thành strong
                 try {
                     await page.$eval(elmSortContent, (elm) => {
                         if (elm) {
@@ -450,11 +450,11 @@ import "dotenv/config";
                     data.tag = await page.$$eval(elmTagP, (elms, data) => {
                         const dataInternalLink = [
                             {
-                                name: 'Hướng dẫn',
+                                name: ' Hướng dẫn ',
                                 url: 'https://kungfucongnghe.com/kien-thuc'
                             },
                             {
-                                name: 'Kiến thức',
+                                name: ' Kiến thức ',
                                 url: 'https://kungfucongnghe.com/kien-thuc'
                             },
                             {
@@ -494,7 +494,11 @@ import "dotenv/config";
                                 url: 'https://kungfucongnghe.com/tag/coc-coc'
                             },
                             {
-                                name: ' Iphone ',
+                                name: ' Laptop ',
+                                url: 'https://kungfucongnghe.com/laptop'
+                            },
+                            {
+                                name: ' iPhone ',
                                 url: 'https://kungfucongnghe.com/tag/iphone'
                             },
                             {
@@ -518,20 +522,12 @@ import "dotenv/config";
                                 url: 'https://kungfucongnghe.com/macbook'
                             },
                             {
-                                name: ' Macbook ',
-                                url: 'https://kungfucongnghe.com/macbook'
-                            },
-                            {
                                 name: ' Android ',
                                 url: 'https://kungfucongnghe.com/android'
                             },
                             {
                                 name: ' iOS ',
                                 url: 'https://kungfucongnghe.com/ios'
-                            },
-                            {
-                                name: ' smartphone ',
-                                url: 'https://kungfucongnghe.com/smartphone'
                             },
                             {
                                 name: ' Smartphone ',
@@ -632,7 +628,7 @@ import "dotenv/config";
                             {
                                 name: ' Apple ',
                                 url: 'https://kungfucongnghe.com/apple'
-                            }
+                            },
                         ];
                         let countInternal = 0;
                         if (countInternal <= 1) {
@@ -651,17 +647,22 @@ import "dotenv/config";
                                             !item.querySelector('figure') &&
                                             !item.querySelector('figcaption') &&
                                             !item.querySelector('img')) {
+
                                             if (item.innerHTML.search(dataInternal.name) !== -1) {
                                                 item.innerHTML = item.innerHTML.replace(dataInternal.name, ' <a href="' + dataInternal.url + '" target="_blank">' + dataInternal.name + '</a> ');
-                                                data.tag = [...data.tag, (dataInternal.name.trim().charAt(0).toUpperCase() + dataInternal.name.trim().slice(1))];
-                                                console.log(data.tag)
-                                                countInternal++;
-                                                throw BreakException;
+
+                                                //Nếu chưa có tag thì thì thêm tag
+                                                let dataCheck = data.tag.filter(item => item.trim().toLowerCase() === dataInternal.name.trim().toLowerCase());
+                                                if (dataCheck.length === 0) {
+                                                    data.tag = [...data.tag, (dataInternal.name.trim().charAt(0).toUpperCase() + dataInternal.name.trim().slice(1))];
+                                                    countInternal++;
+                                                    throw BreakException; //xử lý break forEach element
+                                                }
                                             }
                                         }
                                     })
                                 } catch (e) {
-                                    if (e !== BreakException) throw e;
+                                    if (e !== BreakException) throw e; //xử lý break forEach element
                                 }
                             })
                         }
@@ -679,6 +680,7 @@ import "dotenv/config";
                 const lengthTitle = data.title.length;
                 const lengthDescription = 145 - lengthTitle;
 
+                //thêm seo tag description
                 data.seo_tag_description = data.title;
                 if (lengthDescription > 0) {
                     data.seo_tag_description = data.seo_tag_description + '. ' + await page.$$eval(elmContent, (elm, lengthDescription) => {
@@ -707,6 +709,8 @@ import "dotenv/config";
                  * Save data
                  */
                 if (data.content.length > 0) {
+
+                    // Thêm lời kết KungFuCongNghe
                     data.content = '<strong>' + data.title + '. </strong> ' +
                         data.content + '<p>Vậy là bạn đã cùng KungFuCongNghe.Com tìm hiểu cách thực hiện. Chúc bạn thành công nhé!</p>';
 
