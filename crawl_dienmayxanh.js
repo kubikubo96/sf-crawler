@@ -710,35 +710,39 @@ import "dotenv/config";
                         if (countInternal <= 1) {
                             dataInternalLink.forEach((dataInternal) => {
                                 let BreakException = {};
-                                try {
-                                    elms.forEach((item, key) => {
-                                        if (
-                                            !item.querySelector('ul') &&
-                                            !item.querySelector('li') &&
-                                            !item.querySelector('ol') &&
-                                            !item.querySelector('a') &&
-                                            !item.querySelector('code') &&
-                                            !item.querySelector('code') &&
-                                            !item.querySelector('kbd') &&
-                                            !item.querySelector('figure') &&
-                                            !item.querySelector('figcaption') &&
-                                            !item.querySelector('img')) {
+                                let addInternal = true;
+                                if(addInternal) {
+                                    try {
+                                        elms.forEach((item, key) => {
+                                            if (
+                                                !item.querySelector('ul') &&
+                                                !item.querySelector('li') &&
+                                                !item.querySelector('ol') &&
+                                                !item.querySelector('a') &&
+                                                !item.querySelector('code') &&
+                                                !item.querySelector('code') &&
+                                                !item.querySelector('kbd') &&
+                                                !item.querySelector('figure') &&
+                                                !item.querySelector('figcaption') &&
+                                                !item.querySelector('img')) {
 
-                                            if (item.innerHTML.search(dataInternal.name) !== -1) {
-                                                item.innerHTML = item.innerHTML.replace(dataInternal.name, ' <a href="' + dataInternal.url + '" target="_blank">' + dataInternal.name + '</a> ');
+                                                if (item.innerHTML.search(dataInternal.name) !== -1) {
+                                                    item.innerHTML = item.innerHTML.replace(dataInternal.name, ' <a href="' + dataInternal.url + '" target="_blank">' + dataInternal.name + '</a> ');
 
-                                                //Nếu chưa có tag thì thì thêm tag
-                                                let dataCheck = data.tag.filter(item => item.trim().toLowerCase() === dataInternal.name.trim().toLowerCase());
-                                                if (dataCheck.length === 0) {
-                                                    data.tag = [...data.tag, (dataInternal.name.trim().charAt(0).toUpperCase() + dataInternal.name.trim().slice(1))];
-                                                    countInternal++;
-                                                    throw BreakException; //xử lý break forEach element
+                                                    //Nếu chưa có tag thì thì thêm tag
+                                                    let dataCheck = data.tag.filter(item => item.trim().toLowerCase() === dataInternal.name.trim().toLowerCase());
+                                                    if (dataCheck.length === 0) {
+                                                        data.tag = [...data.tag, (dataInternal.name.trim().charAt(0).toUpperCase() + dataInternal.name.trim().slice(1))];
+                                                        countInternal++;
+                                                        addInternal = false;
+                                                        throw BreakException; //xử lý break forEach element
+                                                    }
                                                 }
                                             }
-                                        }
-                                    })
-                                } catch (e) {
-                                    if (e !== BreakException) throw e; //xử lý break forEach element
+                                        })
+                                    } catch (e) {
+                                        if (e !== BreakException) throw e; //xử lý break forEach element
+                                    }
                                 }
                             })
                         }
