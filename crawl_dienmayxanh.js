@@ -498,8 +498,44 @@ import "dotenv/config";
                                 url: 'https://kungfucongnghe.com/laptop'
                             },
                             {
-                                name: ' iPhone ',
-                                url: 'https://kungfucongnghe.com/tag/iphone'
+                                name: ' iPhone 5',
+                                url: 'https://kungfucongnghe.com/tag/iphone-5'
+                            },
+                            {
+                                name: ' iPhone 6',
+                                url: 'https://kungfucongnghe.com/tag/iphone-6'
+                            },
+                            {
+                                name: ' iPhone 7',
+                                url: 'https://kungfucongnghe.com/tag/iphone-7'
+                            },
+                            {
+                                name: ' iPhone 8',
+                                url: 'https://kungfucongnghe.com/tag/iphone-8'
+                            },
+                            {
+                                name: ' iPhone 9',
+                                url: 'https://kungfucongnghe.com/tag/iphone-10'
+                            },
+                            {
+                                name: ' iPhone 11',
+                                url: 'https://kungfucongnghe.com/tag/iphone-11'
+                            },
+                            {
+                                name: ' iPhone 12',
+                                url: 'https://kungfucongnghe.com/tag/iphone-12'
+                            },
+                            {
+                                name: ' iPhone 13',
+                                url: 'https://kungfucongnghe.com/tag/iphone-13'
+                            },
+                            {
+                                name: ' iPhone 14',
+                                url: 'https://kungfucongnghe.com/tag/iphone-14'
+                            },
+                            {
+                                name: ' iPhone 15',
+                                url: 'https://kungfucongnghe.com/tag/iphone-15'
                             },
                             {
                                 name: ' iCloud ',
