@@ -772,7 +772,8 @@ import "dotenv/config";
                     'Điện máy xanh',
                     'Điện Máy Xanh',
                     'DienmayXANH.com',
-                    "Dienmay.com"
+                    'Dienmay.com',
+                    'Điện Máy XANH'
                 ]
 
                 listTrashText.forEach((item) => {
