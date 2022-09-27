@@ -6,7 +6,7 @@ import puppeteer from "puppeteer";
       headless: false,
       args: [
         "--disable-site-isolation-trials",
-        "--window-size=0,0",
+        "--window-size=1900,1000",
         "--window-position=3000,0",
         "--lang=en-US,en",
         "--no-sandbox",
@@ -16,8 +16,8 @@ import puppeteer from "puppeteer";
     const page = await browser.newPage();
 
     await page.setViewport({
-      width: 0,
-      height: 0,
+      width: 1920,
+      height: 1080,
     });
 
     await page.goto("https://padlet.com/quangcanh118/8dnpcryokze8yx3r/wish/2315285614", {
