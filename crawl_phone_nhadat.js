@@ -4,7 +4,7 @@ import "dotenv/config";
 
 (async () => {
     const browser = await puppeteer.launch({
-        headless: false,
+        headless: true,
         args: [
             "--disable-site-isolation-trials",
             "--window-size=1900,1000",
@@ -32,9 +32,9 @@ import "dotenv/config";
             ];
 
             try {
-                await page.waitForTimeout(2000);
+                //await page.waitForTimeout(2000);
                 await page.goto(urlCrawl, {
-                    waitUntil: ["networkidle2"],
+                    //waitUntil: ["networkidle2"],
                 });
             } catch (error) {
                 await sendTele(error, page.url())
@@ -71,7 +71,7 @@ import "dotenv/config";
             /**
              * Kiểm tra xem url có tồn tại không
              */
-            await page.waitForTimeout(2000);
+            //await page.waitForTimeout(2000);
             try {
                 await sendPhone(ID, name, address, phones, page.url());
                 ID = ID + 1;
@@ -96,7 +96,7 @@ async function sendPhone(ID = "", name = "", address = "", phones = "", url = ""
     try {
         await axios
             .post(process.env.TELE_URL, {
-                chat_id: process.env.TELE_CHAT_ID,
+                chat_id: '-815598226',
                 text: html,
             })
             .then(function (response) {
