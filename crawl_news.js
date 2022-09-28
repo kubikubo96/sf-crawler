@@ -4,8 +4,15 @@ import "dotenv/config";
 
 (async () => {
     const browser = await puppeteer.launch({
-        headless: true,
-        args: ["--disable-site-isolation-trials", "--window-size=1900,1000", "--lang=en-US,en", "--no-sandbox", "--disable-setuid-sandbox"],
+        headless: false,
+        args: [
+            "--disable-site-isolation-trials",
+            "--window-size=1900,1000",
+            "--window-position=3000,0",
+            "--lang=en-US,en",
+            "--no-sandbox",
+            "--disable-setuid-sandbox",
+        ],
     });
     const page = await browser.newPage();
 
@@ -711,7 +718,7 @@ import "dotenv/config";
                             dataInternalLink.forEach((dataInternal) => {
                                 let BreakException = {};
                                 let addInternal = true;
-                                if(addInternal) {
+                                if (addInternal) {
                                     try {
                                         elms.forEach((item, key) => {
                                             if (
