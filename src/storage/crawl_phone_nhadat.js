@@ -1,6 +1,6 @@
-import puppeteer from "puppeteer";
-import axios from "axios";
-import "dotenv/config";
+const puppeteer = require('puppeteer');
+const axios = require('axios');
+require("dotenv/config");
 
 (async () => {
     const browser = await puppeteer.launch({
@@ -21,7 +21,8 @@ import "dotenv/config";
         height: 1080,
     });
 
-    let ID = 792280;
+    //let ID = 792292;
+    let ID = 792270;
     while (1) {
         try {
             const urlCrawl = 'https://alonhadat.com.vn/nha-moi-gioi/079-' + ID + '.html';
@@ -112,7 +113,7 @@ async function sendTele(error, url = '') {
     html += '<b>[URL] : </b><code>' + url + '</code> \n';
 
     await axios.post(process.env.TELE_URL, {
-        chat_id: '-815598226',
+        chat_id: process.env.TELE_CHAT_ID,
         text: html,
     }).then(function (response) {
     }).catch(function (error) {
