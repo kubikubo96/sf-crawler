@@ -13,11 +13,11 @@ import "dotenv/config";
     height: 1080,
   });
 
-  const urlLogin = process.env.HOST_APP + "wp-login.php?loggedout=true&wp_lang=vi";
+  const urlLogin = process.env.HOST_ADMIN + "wp-login.php?loggedout=true&wp_lang=vi";
 
-  const urlPostPrivate = process.env.HOST_APP + "wp-admin/edit.php?post_status=private&post_type=post";
+  const urlPostPrivate = process.env.HOST_ADMIN + "wp-admin/edit.php?post_status=private&post_type=post";
 
-  const urlPost = process.env.HOST_APP + "wp-admin/post.php?action=edit&post=";
+  const urlPost = process.env.HOST_ADMIN + "wp-admin/post.php?action=edit&post=";
 
   await page.goto(urlLogin, {
     waitUntil: ["networkidle2"],
@@ -63,26 +63,21 @@ import "dotenv/config";
   let number_page = 1;
 
   let post_ids = [];
-  while (1) {
-    await page.goto(urlPostPrivate + "&paged=" + number_page, {
-      waitUntil: ["networkidle2"],
-    });
+  await page.goto(urlPostPrivate + "&paged=" + number_page, {
+    waitUntil: ["networkidle2"],
+  });
 
-    await page.$eval("#the-list tr", (el) => el.id);
-    let ids_perpage = await page.$$eval("#the-list tr", (els) => {
-      return els.map((el) => el.id);
-    });
+  await page.$eval("#the-list tr", (el) => el.id);
+  let ids_perpage = await page.$$eval("#the-list tr", (els) => {
+    return els.map((el) => el.id);
+  });
 
-    ids_perpage = ids_perpage.map((id) => {
-      return getNumberInString(id);
-    });
-    post_ids = ids_perpage[0] !== "" ? post_ids.concat(ids_perpage) : post_ids;
-    number_page = number_page + 1;
+  ids_perpage = ids_perpage.map((id) => {
+    return getNumberInString(id);
+  });
+  post_ids = ids_perpage[0] !== "" ? post_ids.concat(ids_perpage) : post_ids;
+  number_page = number_page + 1;
 
-    if (number_page > total_page) {
-      break;
-    }
-  }
   console.log(post_ids);
 
   /**
