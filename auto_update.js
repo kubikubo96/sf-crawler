@@ -55,79 +55,80 @@ import "dotenv/config";
    */
   console.log(" \n Step 2: Get list id post \n");
 
-  await page.goto(urlPostPrivate, {
-    waitUntil: ["networkidle2"],
-  });
+  while (1) {
+    await page.goto(urlPostPrivate, {
+      waitUntil: ["networkidle2"],
+    });
 
-  const total_page = await page.$eval(".total-pages", (el) => el.innerText);
-  let number_page = 1;
+    let number_page = 1;
 
-  let post_ids = [];
-  await page.goto(urlPostPrivate + "&paged=" + number_page, {
-    waitUntil: ["networkidle2"],
-  });
+    let post_ids = [];
+    await page.goto(urlPostPrivate + "&paged=" + number_page, {
+      waitUntil: ["networkidle2"],
+    });
 
-  await page.$eval("#the-list tr", (el) => el.id);
-  let ids_perpage = await page.$$eval("#the-list tr", (els) => {
-    return els.map((el) => el.id);
-  });
+    await page.$eval("#the-list tr", (el) => el.id);
+    let ids_perpage = await page.$$eval("#the-list tr", (els) => {
+      return els.map((el) => el.id);
+    });
 
-  ids_perpage = ids_perpage.map((id) => {
-    return getNumberInString(id);
-  });
-  post_ids = ids_perpage[0] !== "" ? post_ids.concat(ids_perpage) : post_ids;
-  number_page = number_page + 1;
+    ids_perpage = ids_perpage.map((id) => {
+      return getNumberInString(id);
+    });
+    post_ids = ids_perpage[0] !== "" ? post_ids.concat(ids_perpage) : post_ids;
 
-  console.log(post_ids);
+    console.log(post_ids);
 
-  /**
-   * Step 2. Go to 1 post
-   */
-  let number_id = 0;
-  if (post_ids.length > 0) {
-    console.log(" \n Step 3: Go to post \n");
-    while (1) {
-      await page.goto(urlPost + post_ids[number_id], {
-        waitUntil: ["networkidle2"],
-      });
-
-      console.log(" \n PUBLISH post " + number_id + ": " + post_ids[number_id]);
-
-      //add category
-      //await page.$eval("#in-category-1", (el) => el.click()); //Tin tức
-      // await page.$eval("#in-category-4", (el) => el.click()); //Top kỳ thú
-      // await page.$eval("#in-category-7", (el) => el.click()); //Thợ công nghệ
-      // await page.$eval("#in-category-63", (el) => el.click()); //Đời sống
-
-      //add tag
-      /*await page.$eval("#new-tag-post_tag", (el) => {
-        el.value = "Top";
-      });
-      await page.$eval(".tagadd", (el) => el.click());*/
-
-      //publish
-      await page.$eval(".edit-visibility", (el) => el.click());
-      await page.$eval("#visibility-radio-public", (el) => el.click());
-      await page.$eval(".save-post-visibility", (el) => el.click());
-
-      //save
-      await page.$eval("#publish", (el) => el.click());
-
-      try {
-        await page.waitForNavigation({
-          waitUntil: "networkidle2",
+    /**
+     * Step 2. Go to 1 post
+     */
+    let number_id = 0;
+    if (post_ids.length > 0) {
+      console.log(" \n Step 3: Go to post \n");
+      while (1) {
+        await page.goto(urlPost + post_ids[number_id], {
+          waitUntil: ["networkidle2"],
         });
-      } catch (error) {}
 
-      console.log(" \n -- DONE " + number_id + ": " + post_ids[number_id]);
-      number_id = number_id + 1;
+        console.log(" \n PUBLISH post " + number_id + ": " + post_ids[number_id]);
 
-      if (number_id >= post_ids.length) {
-        break;
+        //add category
+        //await page.$eval("#in-category-1", (el) => el.click()); //Tin tức
+        // await page.$eval("#in-category-4", (el) => el.click()); //Top kỳ thú
+        // await page.$eval("#in-category-7", (el) => el.click()); //Thợ công nghệ
+        // await page.$eval("#in-category-63", (el) => el.click()); //Đời sống
+
+        //add tag
+        /*await page.$eval("#new-tag-post_tag", (el) => {
+          el.value = "Top";
+        });
+        await page.$eval(".tagadd", (el) => el.click());*/
+
+        //publish
+        await page.$eval(".edit-visibility", (el) => el.click());
+        await page.$eval("#visibility-radio-public", (el) => el.click());
+        await page.$eval(".save-post-visibility", (el) => el.click());
+
+        //save
+        await page.$eval("#publish", (el) => el.click());
+
+        try {
+          await page.waitForNavigation({
+            waitUntil: "networkidle2",
+          });
+        } catch (error) {}
+
+        console.log(" \n -- DONE " + number_id + ": " + post_ids[number_id]);
+        number_id = number_id + 1;
+
+        if (number_id >= post_ids.length) {
+          break;
+        }
       }
+    } else {
+      break;
+      console.log(" \n -- EMPTY -- \n");
     }
-  } else {
-    console.log(" \n -- EMPTY -- \n");
   }
 
   console.log("\n");
