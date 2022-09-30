@@ -99,21 +99,21 @@ import "dotenv/config";
       console.log(" \n PUBLISH post " + number_id + ": " + post_ids[number_id]);
 
       //add category
-      await page.$eval("#in-category-1", (el) => el.click()); //Tin tức
+      //await page.$eval("#in-category-1", (el) => el.click()); //Tin tức
       // await page.$eval("#in-category-4", (el) => el.click()); //Top kỳ thú
       // await page.$eval("#in-category-7", (el) => el.click()); //Thợ công nghệ
       // await page.$eval("#in-category-63", (el) => el.click()); //Đời sống
 
-      //add tag 1
+      //add tag
       /*await page.$eval("#new-tag-post_tag", (el) => {
         el.value = "Top";
       });
       await page.$eval(".tagadd", (el) => el.click());*/
 
       //publish
-      //await page.$eval(".edit-visibility", (el) => el.click());
-      //await page.$eval("#visibility-radio-public", (el) => el.click());
-      //await page.$eval(".save-post-visibility", (el) => el.click());
+      await page.$eval(".edit-visibility", (el) => el.click());
+      await page.$eval("#visibility-radio-public", (el) => el.click());
+      await page.$eval(".save-post-visibility", (el) => el.click());
 
       //save
       await page.$eval("#publish", (el) => el.click());
