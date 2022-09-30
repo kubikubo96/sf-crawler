@@ -4,15 +4,8 @@ import "dotenv/config";
 
 (async () => {
     const browser = await puppeteer.launch({
-        headless: false,
-        args: [
-            "--disable-site-isolation-trials",
-            "--window-size=1900,1000",
-            "--window-position=3000,0",
-            "--lang=en-US,en",
-            "--no-sandbox",
-            "--disable-setuid-sandbox",
-        ],
+        headless: true,
+        args: ["--disable-site-isolation-trials", "--window-size=1900,1000", "--lang=en-US,en", "--no-sandbox", "--disable-setuid-sandbox"],
     });
     const page = await browser.newPage();
 
@@ -368,7 +361,7 @@ import "dotenv/config";
                     'iframe', '.top-news', '.adsbygoogle', '.adsense', '.in-article', '.adszone', '.adstopimage', '.adsviewed', '.generate-promotion-products',
                     'div.toc', 'iframe.lazy', '.bannerAdNews', '.clrindexknh', '.bxindexknh', '#QuickViewId', '.owl-carousel', '.infobox', '.TitleBoxSp',
                     '.HideBox', '.generate-promotion-products', '.wrap_relate', '.interested', '.tags', '.comment', '.fh3menu', '#hmenuid4', '.btn__noibat',
-                    '.generate-productbox', '.generate-gallery', '.mce-preview-object', '.mce-object-iframe'
+                    '.generate-productbox', '.generate-gallery', '.mce-preview-object', '.mce-object-iframe', 'p iframe'
                 ];
 
                 try {
@@ -718,7 +711,7 @@ import "dotenv/config";
                             dataInternalLink.forEach((dataInternal) => {
                                 let BreakException = {};
                                 let addInternal = true;
-                                if (addInternal) {
+                                if(addInternal) {
                                     try {
                                         elms.forEach((item, key) => {
                                             if (
