@@ -127,7 +127,6 @@ import "dotenv/config";
       }
     } else {
       break;
-      console.log(" \n -- EMPTY -- \n");
     }
   }
 
