@@ -455,7 +455,9 @@ export const TRASH_TEXT = [
     'DienmayXANH.com',
     'Dienmay.com',
     'Điện Máy XANH',
-    'FUNiX'
+    'FUNiX',
+    '>> Xem thêm bài viết liên quan:',
+    'Nguyễn Cúc'
 ];
 
 export const ELM_TRASH = [
