@@ -188,10 +188,10 @@ import {
                     }
                     //end: replace src image
 
+                    //start: thay để nội dung ngắn h2 thành strong
                     switch (sourceCrawl) {
                         case 'dienmayxanh.com':
                         case 'funix.edu.vn':
-                            //start: thay để nội dung ngắn h2 thành strong
                             try {
                                 await page.$eval(elmSortContent, (elm) => {
                                     if (elm) {
@@ -201,9 +201,9 @@ import {
                             } catch (error) {
                                 console.log(error)
                             }
-                            //end: replace sort content
                             break;
                     }
+                    //end: thay để nội dung ngắn h2 thành strong
 
 
                     //start: remove trash
