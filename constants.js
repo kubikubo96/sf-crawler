@@ -459,7 +459,6 @@ export const TRASH_AUTHOR = [
     'DienmayXANH.com',
     'Dienmay.com',
     'Điện Máy XANH',
-    'FUNiX',
     'Nguyễn Cúc',
 
 ];
