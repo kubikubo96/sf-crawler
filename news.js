@@ -209,13 +209,13 @@ import {
                                 try {
                                     let queryTrash = document.querySelectorAll(item);
                                     queryTrash.forEach((elm) => {
-                                        elm.remove();
-
                                         //start: remove parent
                                         if (ELM_TRASH_PARENT.includes(item)) {
                                             elm.closest('ul').remove();
                                         }
                                         //start: remove parent
+
+                                        elm.remove();
                                     });
                                 } catch (error) {
                                     console.log(error)
