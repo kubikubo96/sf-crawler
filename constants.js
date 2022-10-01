@@ -152,7 +152,10 @@ export const LIST_TRASH_P = [
     'Tìm hiểu ngay',
     'Xem thêm chuỗi bài viết liên quan',
     'Nếu bạn đang có nhu cầu tìm hiểu khóa học lập trình phân tích dữ liệu',
-    'Đọc thêm bài viết'
+    'Đọc thêm bài viết',
+    'phân tích dữ liệu tại FUNiX',
+    'Tìm hiểu khóa học kỹ sư dữ liệu',
+    'Nếu bạn đang cần tìm hiểu khóa học lập trình phân tích dữ liệu',
 ];
 
 export const DATA_INTERNAL = [
