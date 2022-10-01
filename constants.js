@@ -1,8 +1,9 @@
 export const LIST_CRAWL = [
-    {
+    /*{
         url: 'https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=1&url=',
         source: "dienmayxanh.com",
         elmLinkPost: "a.linktitle",
+        typeLinkPost: 'path',
         elmTitle: ".article h1",
         elmContent: ".bxcontentnews",
         elmLink: ".bxcontentnews a",
@@ -105,6 +106,20 @@ export const LIST_CRAWL = [
                 tag: ["Thiết bị thông minh", "Thiết bị thông minh khác"]
             },
         ],
+    },*/
+    {
+        url: 'https://funix.edu.vn/chia-se-kien-thuc/page/',
+        source: "funix.edu.vn",
+        elmLinkPost: ".site-content .post-title a",
+        typeLinkPost: 'full',
+        elmTitle: ".content-post h1",
+        elmContent: ".content-post-details",
+        elmLink: ".content-post-details a",
+        elmImage: ".content-post-details img",
+        elmSortContent: ".content-post-details h2",
+        elmTagP: ".content-post-details > p",
+        max: 434,
+        tag: ['Chia sẽ kiến thức'],
     },
 ];
 
@@ -115,6 +130,13 @@ export const LIST_TRASH_LINK = [
     'Điện Máy Xanh',
     'ĐIỆN MÁY XANH',
     'Mọi thắc mắc vui lòng để lại câu hỏi ngay bên dưới để Điện máy XANH hỗ trợ cho bạn nhé',
+];
+
+export const LIST_TRASH_P = [
+    'Xem thêm bài viết',
+    'xem thêm bài viết',
+    'học lập trình phân tích dữ liệu FUNiX',
+    'Xem thêm bài viết liên quan',
 ];
 
 export const DATA_INTERNAL = [
@@ -430,7 +452,8 @@ export const TRASH_TEXT = [
     'Điện Máy Xanh',
     'DienmayXANH.com',
     'Dienmay.com',
-    'Điện Máy XANH'
+    'Điện Máy XANH',
+    'FUNiX'
 ];
 
 export const ELM_TRASH = [
@@ -438,5 +461,6 @@ export const ELM_TRASH = [
     'div.toc', 'iframe.lazy', '.bannerAdNews', '.clrindexknh', '.bxindexknh', '#QuickViewId', '.owl-carousel', '.infobox', '.TitleBoxSp',
     '.HideBox', '.generate-promotion-products', '.wrap_relate', '.interested', '.tags', '.comment', '.fh3menu', '#hmenuid4', '.btn__noibat',
     '.generate-productbox', '.generate-gallery', '.mce-preview-object', '.mce-object-iframe', 'p iframe', '.top-news', 'ins', 'box_above',
-    '.adbro-sm', '.adbro-xs', 'adbro-bottom', '.mys-wrapper', '.adbro-satellite', '.adbro-animated'
+    '.adbro-sm', '.adbro-xs', 'adbro-bottom', '.mys-wrapper', '.adbro-satellite', '.adbro-animated', '.ez-toc-container',
+    '#attachment_60985', '.kk-star-ratings'
 ];

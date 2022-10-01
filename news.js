@@ -1,7 +1,7 @@
 import puppeteer from "puppeteer";
 import axios from "axios";
 import "dotenv/config";
-import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from "./constants.js";
+import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, LIST_TRASH_P, TRASH_TEXT} from "./constants.js";
 
 (async () => {
     //set puppeteer
@@ -27,6 +27,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                         tag: LIST_CRAWL[i].data[j].tag,
                         source: LIST_CRAWL[i].source,
                         elmLinkPost: LIST_CRAWL[i].elmLinkPost,
+                        typeLinkPost: LIST_CRAWL[i].typeLinkPost,
                         elmTitle: LIST_CRAWL[i].elmTitle,
                         elmContent: LIST_CRAWL[i].elmContent,
                         elmLink: LIST_CRAWL[i].elmLink,
@@ -37,6 +38,23 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                     listPage.push(temp);
                 }
                 break;
+            case 'funix.edu.vn':
+                for (let j = 1; j < LIST_CRAWL[i].max; j++) {
+                    const temp = {
+                        url: LIST_CRAWL[i].url + j,
+                        tag: LIST_CRAWL[i].tag,
+                        source: LIST_CRAWL[i].source,
+                        elmLinkPost: LIST_CRAWL[i].elmLinkPost,
+                        typeLinkPost: LIST_CRAWL[i].typeLinkPost,
+                        elmTitle: LIST_CRAWL[i].elmTitle,
+                        elmContent: LIST_CRAWL[i].elmContent,
+                        elmLink: LIST_CRAWL[i].elmLink,
+                        elmImage: LIST_CRAWL[i].elmImage,
+                        elmSortContent: LIST_CRAWL[i].elmSortContent,
+                        elmTagP: LIST_CRAWL[i].elmTagP,
+                    };
+                    listPage.push(temp);
+                }
         }
     }
 
@@ -63,13 +81,21 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
              * @type {{url}[]}
              */
             let elmLinkPost = listPage[numberPage].elmLinkPost;
-            const listPost = await page.evaluate((sourceCrawl, elmLinkPost) => {
+            let typeLinkPost = listPage[numberPage].typeLinkPost;
+            const listPost = await page.evaluate((sourceCrawl, elmLinkPost, typeLinkPost) => {
                 let links = document.querySelectorAll(elmLinkPost);
                 links = [...links];
-                return links.map((link) => ({
-                    url: 'https://' + sourceCrawl + link.getAttribute("href"),
-                }));
-            }, sourceCrawl, elmLinkPost);
+                switch (typeLinkPost) {
+                    case 'path':
+                        return links.map((link) => ({
+                            url: 'https://' + sourceCrawl + link.getAttribute("href"),
+                        }));
+                    case 'full':
+                        return links.map((link) => ({
+                            url: link.getAttribute("href"),
+                        }));
+                }
+            }, sourceCrawl, elmLinkPost, typeLinkPost);
 
             let totalCrawled = 0; // tổng số bài đã crawl
             let numberPostCrawled = 0; // number bài đã crawl
@@ -78,6 +104,9 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
             let numberPost = listPost.length - 1;
             //numberPost = numberPost - (numberPost - numberPostCrawled); // tính theo numberPostCrawled
             let minPost = 0;
+
+            console.log(listPost);
+            await page.waitForTimeout(1000 * 1000)
 
             /**
              * Lặp danh sách bài viết
@@ -209,6 +238,30 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                         console.log(error)
                     }
                     //end: remove trash tag a
+
+                    //start: remove trash tag p
+                    try {
+                        await page.$$eval(
+                            elmTagP,
+                            (elms, LIST_TRASH_P) => {
+                                elms = [...elms];
+                                return elms.forEach((elm) => {
+                                    let content = elm.textContent;
+                                    LIST_TRASH_P.forEach(itemTrash => {
+                                        if (
+                                            content.includes(itemTrash)
+                                        ) {
+                                            elm.remove();
+                                        }
+                                    });
+                                });
+                            },
+                            LIST_TRASH_P
+                        );
+                    } catch (error) {
+                        console.log(error)
+                    }
+                    //end: remove trash tag p
 
                     //start: convert link thành text cho link crawl
                     try {
