@@ -157,8 +157,8 @@ import "dotenv/config";
         let totalCrawled = 0; // tổng số bài đã crawl
         let numberPostCrawled = 0; // number bài đã crawl
 
-        //let numberPost = listPost.length - 1 - Math.round(listPost.length / 1.3) - totalCrawled; // tính theo totalCrawled
-        let numberPost = listPost.length - 1 - Math.round(listPost.length / 1.3);
+        //let numberPost = listPost.length - 1 - Math.round(listPost.length / 1.2) - totalCrawled; // tính theo totalCrawled
+        let numberPost = listPost.length - 1 - Math.round(listPost.length / 1.2);
         //numberPost = numberPost - (numberPost - numberPostCrawled); // tính theo numberPostCrawled
         let minPost = 0;
 
