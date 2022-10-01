@@ -134,6 +134,7 @@ export const LIST_TRASH_LINK = [
     'Điện Máy Xanh',
     'ĐIỆN MÁY XANH',
     'Mọi thắc mắc vui lòng để lại câu hỏi ngay bên dưới để Điện máy XANH hỗ trợ cho bạn nhé',
+    'Đọc thêm bài viết',
 ];
 
 export const LIST_TRASH_P = [
@@ -147,7 +148,11 @@ export const LIST_TRASH_P = [
     'Xem thêm bài viết liên quan',
     'bạn có thể tham khảo khóa học tại FUNiX',
     'Đăng ký tư vấn khóa học ngay',
-    'Học lập trình phân tích dữ liệu tại FUNiX'
+    'Học lập trình phân tích dữ liệu tại FUNiX',
+    'Tìm hiểu ngay',
+    'Xem thêm chuỗi bài viết liên quan',
+    'Nếu bạn đang có nhu cầu tìm hiểu khóa học lập trình phân tích dữ liệu',
+    'Đọc thêm bài viết'
 ];
 
 export const DATA_INTERNAL = [
