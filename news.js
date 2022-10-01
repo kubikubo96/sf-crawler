@@ -248,8 +248,8 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
 
                     //start: add internal link
                     try {
-                        data.tag = await page.$$eval(elmTagP, (elms, data, DATA_INTERNAL) => {
-                            let countInternal = 0;
+                        let countInternal = 0;
+                        data.tag = await page.$$eval(elmTagP, (elms, data, countInternal, DATA_INTERNAL) => {
                             if (countInternal <= 1) {
                                 DATA_INTERNAL.forEach((dataInternal) => {
                                     let BreakException = {};
@@ -290,7 +290,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                                 })
                             }
                             return data.tag;
-                        }, data, DATA_INTERNAL);
+                        }, data, countInternal, DATA_INTERNAL);
                     } catch (error) {
                         console.log(error)
                     }
