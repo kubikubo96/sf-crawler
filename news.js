@@ -52,6 +52,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                     waitUntil: ["networkidle2"],
                 });
             } catch (error) {
+                console.log(error)
             }
             const sourceCrawl = listPage[numberPage].source;
 
@@ -97,6 +98,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                             window.scrollTo(0, document.body.scrollHeight);
                         });
                     } catch (error) {
+                        console.log(error)
                     }
                     await page.waitForTimeout(2000);
 
@@ -105,6 +107,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                             window.scrollTo(0, 0);
                         });
                     } catch (error) {
+                        console.log(error)
                     }
                     await page.waitForTimeout(4000);
 
@@ -118,6 +121,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                         await page.waitForSelector(elmTitle);
                         await page.waitForSelector(elmContent);
                     } catch (error) {
+                        console.log(error)
                     }
 
                     //Khởi tạo Data
@@ -141,6 +145,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                             });
                         });
                     } catch (error) {
+                        console.log(error)
                     }
                     //end: replace src image
 
@@ -154,6 +159,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                                     }
                                 });
                             } catch (error) {
+                                console.log(error)
                             }
                             //end: replace sort content
                             break;
@@ -170,6 +176,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                                         elm.remove();
                                     });
                                 } catch (error) {
+                                    console.log(error)
                                 }
                             });
                         }, ELM_TRASH);
@@ -197,6 +204,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                             LIST_TRASH_LINK
                         );
                     } catch (error) {
+                        console.log(error)
                     }
                     //end: remove trash tag a
 
@@ -215,6 +223,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                             sourceCrawl
                         );
                     } catch (error) {
+                        console.log(error)
                     }
                     //end: convert link thành text cho link crawl
 
@@ -234,6 +243,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                             sourceCrawl
                         );
                     } catch (error) {
+                        console.log(error)
                     }
                     //end: replace src image
 
@@ -283,6 +293,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                             return data.tag;
                         }, data);
                     } catch (error) {
+                        console.log(error)
                     }
                     //end: add internal link
 
@@ -302,6 +313,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                             }, lengthDescription);
                         }
                     } catch (error) {
+                        console.log(error)
                     }
 
                     //start: replace Tên trang
@@ -342,9 +354,11 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                         break;
                     }
                 } catch (error) {
+                    console.log(error)
                 }
             }
         } catch (error) {
+            console.log(error)
         }
 
         /**
