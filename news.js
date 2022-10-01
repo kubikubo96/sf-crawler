@@ -122,7 +122,7 @@ import {
              */
             while (1) {
                 console.log('Number Post: \x1b[33m' + numberPost + ' \x1b[0m');
-                console.log('\nUrl Crawl: \x1b[32m' + listPost[numberPost].url + ' \x1b[0m');
+                console.log('Url Crawl: \x1b[32m' + listPost[numberPost].url + ' \x1b[0m');
                 try {
                     try {
                         await page.goto(listPost[numberPost].url, {
