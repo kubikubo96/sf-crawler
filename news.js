@@ -435,7 +435,7 @@ import {
 
                         await saveData(data);
 
-                        console.log('\x1b[44mDONE: ' + data.title + ' \x1b[0m \n');
+                        console.log('\x1b[44mDONE!\x1b[0m \n');
                     }
                     numberPost = numberPost - 1;
                     /**
