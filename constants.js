@@ -10,6 +10,7 @@ export const LIST_CRAWL = [
         elmImage: ".bxcontentnews img",
         elmSortContent: ".bxcontentnews h2",
         elmTagP: ".bxcontentnews > p",
+        elmTagQuote: ".content-post-details > blockquote",
         data: [
             {
                 path: "huong-dan-su-dung-laptop",
@@ -109,6 +110,8 @@ export const LIST_CRAWL = [
     },*/
     {
         url: 'https://funix.edu.vn/chia-se-kien-thuc/page/',
+        max: 434,
+        tag: ['Chia sẽ kiến thức'],
         source: "funix.edu.vn",
         elmLinkPost: ".site-content .post-title a",
         typeLinkPost: 'full',
@@ -118,8 +121,7 @@ export const LIST_CRAWL = [
         elmImage: ".content-post-details img",
         elmSortContent: ".content-post-details h2",
         elmTagP: ".content-post-details > p",
-        max: 434,
-        tag: ['Chia sẽ kiến thức'],
+        elmTagQuote: ".content-post-details > blockquote",
     },
 ];
 
@@ -139,6 +141,8 @@ export const LIST_TRASH_P = [
     'Xem thêm bài viết liên quan',
     'Đọc bài viết:',
     'Đọc bài viết:',
+    '>> Xem thêm bài viết liên quan:',
+    'Xem thêm bài viết liên quan',
 ];
 
 export const DATA_INTERNAL = [
@@ -448,7 +452,7 @@ export const DATA_INTERNAL = [
     },
 ];
 
-export const TRASH_TEXT = [
+export const TRASH_AUTHOR = [
     'Điện máy XANH',
     'Điện máy xanh',
     'Điện Máy Xanh',
@@ -456,8 +460,8 @@ export const TRASH_TEXT = [
     'Dienmay.com',
     'Điện Máy XANH',
     'FUNiX',
-    '>> Xem thêm bài viết liên quan:',
-    'Nguyễn Cúc'
+    'Nguyễn Cúc',
+
 ];
 
 export const ELM_TRASH = [

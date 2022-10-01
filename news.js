@@ -8,7 +8,7 @@ import {
     LIST_CRAWL,
     LIST_TRASH_LINK,
     LIST_TRASH_P,
-    TRASH_TEXT
+    TRASH_AUTHOR
 } from "./constants.js";
 
 (async () => {
@@ -42,6 +42,7 @@ import {
                         elmImage: LIST_CRAWL[i].elmImage,
                         elmSortContent: LIST_CRAWL[i].elmSortContent,
                         elmTagP: LIST_CRAWL[i].elmTagP,
+                        elmTagQuote: LIST_CRAWL[i].elmTagQuote,
                     };
                     listPage.push(temp);
                 }
@@ -60,6 +61,7 @@ import {
                         elmImage: LIST_CRAWL[i].elmImage,
                         elmSortContent: LIST_CRAWL[i].elmSortContent,
                         elmTagP: LIST_CRAWL[i].elmTagP,
+                        elmTagQuote: LIST_CRAWL[i].elmTagQuote,
                     };
                     listPage.push(temp);
                 }
@@ -153,6 +155,7 @@ import {
                     const elmImage = listPage[numberPage].elmImage;
                     const elmSortContent = listPage[numberPage].elmSortContent;
                     const elmTagP = listPage[numberPage].elmTagP;
+                    const elmTagQuote = listPage[numberPage].elmTagQuote;
                     try {
                         await page.waitForSelector(elmTitle);
                         await page.waitForSelector(elmContent);
@@ -275,6 +278,30 @@ import {
                     }
                     //end: remove trash tag p
 
+                    //start: remove trash tag blockquote
+                    try {
+                        await page.$$eval(
+                            elmTagQuote,
+                            (elms, LIST_TRASH_P) => {
+                                elms = [...elms];
+                                return elms.forEach((elm) => {
+                                    let content = elm.textContent;
+                                    LIST_TRASH_P.forEach(itemTrash => {
+                                        if (
+                                            content.includes(itemTrash)
+                                        ) {
+                                            elm.remove();
+                                        }
+                                    });
+                                });
+                            },
+                            LIST_TRASH_P
+                        );
+                    } catch (error) {
+                        console.log(error)
+                    }
+                    //end: remove trash tag blockquote
+
                     //start: convert link thành text cho link crawl
                     try {
                         await page.$$eval(
@@ -384,7 +411,7 @@ import {
                     }
 
                     //start: replace Tên trang
-                    TRASH_TEXT.forEach((item) => {
+                    TRASH_AUTHOR.forEach((item) => {
                         data.content = data.content.replaceAll(item, "KungFuCongNghe.Com");
                     });
                     //end: replace Tên trang
