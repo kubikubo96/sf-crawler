@@ -11,7 +11,6 @@ export const LIST_CRAWL = [
         elmTagP: ".bxcontentnews > p",
         data: [
             {
-                web: "DIENMAYXANH",
                 path: "huong-dan-su-dung-laptop",
                 tag: ["Laptop"],
             },
@@ -106,7 +105,7 @@ export const LIST_CRAWL = [
                 tag: ["Thiết bị thông minh", "Thiết bị thông minh khác"]
             },
         ],
-    }
+    },
 ];
 
 export const LIST_TRASH_LINK = [

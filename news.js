@@ -17,23 +17,26 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
     });
 
     // data crawl
-
     let listPage = [];
     for (let i = 0; i < LIST_CRAWL.length; i++) {
-        for (let j = 0; j < LIST_CRAWL[i].data.length; j++) {
-            const temp = {
-                url: LIST_CRAWL[i].url + LIST_CRAWL[i].data[j].path,
-                tag: LIST_CRAWL[i].data[j].tag,
-                source: LIST_CRAWL[i].source,
-                elmLinkPost: LIST_CRAWL[i].elmLinkPost,
-                elmTitle: LIST_CRAWL[i].elmTitle,
-                elmContent: LIST_CRAWL[i].elmContent,
-                elmLink: LIST_CRAWL[i].elmLink,
-                elmImage: LIST_CRAWL[i].elmImage,
-                elmSortContent: LIST_CRAWL[i].elmSortContent,
-                elmTagP: LIST_CRAWL[i].elmTagP,
-            };
-            listPage.push(temp);
+        switch (LIST_CRAWL[i].source) {
+            case 'dienmayxanh.com':
+                for (let j = 0; j < LIST_CRAWL[i].data.length; j++) {
+                    const temp = {
+                        url: LIST_CRAWL[i].url + LIST_CRAWL[i].data[j].path,
+                        tag: LIST_CRAWL[i].data[j].tag,
+                        source: LIST_CRAWL[i].source,
+                        elmLinkPost: LIST_CRAWL[i].elmLinkPost,
+                        elmTitle: LIST_CRAWL[i].elmTitle,
+                        elmContent: LIST_CRAWL[i].elmContent,
+                        elmLink: LIST_CRAWL[i].elmLink,
+                        elmImage: LIST_CRAWL[i].elmImage,
+                        elmSortContent: LIST_CRAWL[i].elmSortContent,
+                        elmTagP: LIST_CRAWL[i].elmTagP,
+                    };
+                    listPage.push(temp);
+                }
+                break;
         }
     }
 
