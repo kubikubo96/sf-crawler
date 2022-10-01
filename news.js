@@ -25,6 +25,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                 url: LIST_CRAWL[i].url + LIST_CRAWL[i].data[j].path,
                 tag: LIST_CRAWL[i].data[j].tag,
                 source: LIST_CRAWL[i].source,
+                elmLinkPost: LIST_CRAWL[i].elmLinkPost,
                 elmTitle: LIST_CRAWL[i].elmTitle,
                 elmContent: LIST_CRAWL[i].elmContent,
                 elmLink: LIST_CRAWL[i].elmLink,
@@ -35,9 +36,6 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
             listPage.push(temp);
         }
     }
-
-    console.log(listPage);
-    await page.waitForTimeout(1000 * 1000)
 
     const limitPage = listPage.length;
     let numberPage = 0;
