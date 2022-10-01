@@ -117,7 +117,7 @@ import "dotenv/config";
 
     for (let i = 0; i < dataCrawl.length; i++) {
         const itemPage = {
-            url: "https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=1000&url=" + dataCrawl[i].path,
+            url: "https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=10000&url=" + dataCrawl[i].path,
             tag: dataCrawl[i].tag,
         };
         listPage.push(itemPage);
