@@ -137,6 +137,8 @@ export const LIST_TRASH_P = [
     'xem thêm bài viết',
     'học lập trình phân tích dữ liệu FUNiX',
     'Xem thêm bài viết liên quan',
+    'Đọc bài viết:',
+    'Đọc bài viết:',
 ];
 
 export const DATA_INTERNAL = [
@@ -462,5 +464,5 @@ export const ELM_TRASH = [
     '.HideBox', '.generate-promotion-products', '.wrap_relate', '.interested', '.tags', '.comment', '.fh3menu', '#hmenuid4', '.btn__noibat',
     '.generate-productbox', '.generate-gallery', '.mce-preview-object', '.mce-object-iframe', 'p iframe', '.top-news', 'ins', 'box_above',
     '.adbro-sm', '.adbro-xs', 'adbro-bottom', '.mys-wrapper', '.adbro-satellite', '.adbro-animated', '.ez-toc-container',
-    '#attachment_60985', '.kk-star-ratings'
+    '#attachment_60985', '.kk-star-ratings', 'ul > li > a',
 ];

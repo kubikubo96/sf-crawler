@@ -6,7 +6,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, LIST_TRASH_P, TRA
 (async () => {
     //set puppeteer
     const browser = await puppeteer.launch({
-        headless: true,
+        headless: false,
         args: ["--disable-site-isolation-trials", "--window-size=1900,1000", "--lang=en-US,en", "--no-sandbox", "--disable-setuid-sandbox"],
     });
     const page = await browser.newPage();
@@ -105,9 +105,6 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, LIST_TRASH_P, TRA
             //numberPost = numberPost - (numberPost - numberPostCrawled); // tính theo numberPostCrawled
             let minPost = 0;
 
-            console.log(listPost);
-            await page.waitForTimeout(1000 * 1000)
-
             /**
              * Lặp danh sách bài viết
              */
@@ -147,6 +144,12 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, LIST_TRASH_P, TRA
                     const elmImage = listPage[numberPage].elmImage;
                     const elmSortContent = listPage[numberPage].elmSortContent;
                     const elmTagP = listPage[numberPage].elmTagP;
+                    console.log(elmTitle)
+                    console.log(elmContent)
+                    console.log(elmLink)
+                    console.log(elmImage)
+                    console.log(elmSortContent)
+                    console.log(elmTagP)
                     try {
                         await page.waitForSelector(elmTitle);
                         await page.waitForSelector(elmContent);

@@ -16,121 +16,6 @@ import "dotenv/config";
 
     const dataCrawlList = [
         {
-            path: "huong-dan-su-dung-laptop",
-            tag: ["Laptop"],
-        },
-        {
-            path: "huong-dan-su-dung",
-            tag: ["Điện thoại", "Hướng dẫn sự dụng điện thoại"],
-        },
-        {
-            path: "phan-chieu-hinh-anh-tivi",
-            tag: ["Tivi", "Phản chiếu hình ảnh tivi"]
-        },
-        {
-            path: "dieu-khien-tivi-bang-dien-thoai",
-            tag: ["Tivi", "Điều khiển tivi bằng điện thoại"]
-        },
-        {
-            path: "ket-noi-dien-thoai-voi-tivi",
-            tag: ["Tivi", "Điện thoại", "Kết nối điện thoại với tivi"]
-        },
-        {
-            path: "ket-noi-laptop-voi-tivi",
-            tag: ["Tivi", "Laptop", "Nết nối laptop với tivi"]
-        },
-        {
-            path: "ket-noi-tivi-voi-dan-am-thanh",
-            tag: ["Tivi", "Âm thanh", "Kết nối tivi với dàn âm thanh"]
-        },
-        {
-            path: "ket-noi-may-tinh-bang-voi-tivi",
-            tag: ["Tivi", "Máy tính bảng", "Kết nối máy tính bảng với tivi"]
-        },
-        {
-            path: "ket-noi-tivi-voi-dau-thu-ky-thuat-so",
-            tag: ["Tivi", "Đầu kỹ thuật số", "Kết nối tivi với đầu thu kỹ thuật số"]
-        },
-        {
-            path: "ket-noi-tivi-voi-thiet-bi-ngoai-vi",
-            tag: ["Tivi", "Thiết bị ngoại vi", "Kết nối tivi với thiết bị ngoại vi"]
-        },
-        {
-            path: "cach-su-dung-tivi-mobell",
-            tag: ["Tivi", "Cách sử dụng tivi Mobell"]
-        },
-        {
-            path: "cach-su-dung-tivi-samsung",
-            tag: ["Tivi", "Cách sử dụng tivi Samsung"]
-        },
-        {
-            path: "cach-su-dung-tivi-sony",
-            tag: ["Tivi", "Cách sử dụng tivi Sony"]
-        },
-        {
-            path: "cach-su-dung-tivi-lg",
-            tag: ["Tivi", "Cách sử dụng tivi LG"]
-        },
-        {
-            path: "cach-su-dung-tivi-toshiba",
-            tag: ["Tivi", "Cách sử dụng tivi TOSHIBA"]
-        },
-        {
-            path: "cach-su-dung-tivi-panasonic",
-            tag: ["Tivi", "Cách sử dụng tivi panasonic"]
-        },
-        {
-            path: "cach-su-dung-tivi-tcl",
-            tag: ["Tivi", "Cách sử dụng tivi TCL"]
-        },
-        {
-            path: "loi-ti-vi-thuong-gap",
-            tag: ["Tivi", "Lỗi tivi thường gặp"]
-        },
-        {
-            path: "cach-su-dung-tivi-sharp",
-            tag: ["Tivi", "Cách sử dụng tivi Sharp"]
-        },
-        {
-            path: "cach-su-dung-tivi-philips",
-            tag: ["Tivi", "Cách sử dụng tivi Philips"]
-        },
-        {
-            path: "cach-su-dung-tivi-skyworth",
-            tag: ["Tivi", "Cách sử dụng tini Skyworth"]
-        },
-        {
-            path: "cach-su-dung-tivi-vtb",
-            tag: ["Tivi", "Cách sử dụng tivi VTB"]
-        },
-        {
-            path: "cach-su-dung-tivi-asanzo",
-            tag: ["Tivi", "Cách sử dụng tivi Asanzo"]
-        },
-        {
-            path: "cach-su-dung-chung-tivi",
-            tag: ["Tivi", "Cách sử dụng chung tivi"]
-        }, {
-            path: "tivi-man-hinh-cong",
-            tag: ["Tivi", "Tivi màn hình cong"]
-        },
-        {
-            path: "cong-nghe-hinh-anh-am-thanh",
-            tag: ["Tivi", "Công nghệ hình ảnh âm thanh"]
-        },
-        {
-            path: "tinh-nang-ket-noi-tivi",
-            tag: ["Tivi", "Tính năng kết nối tivi"]
-        },
-        {
-            path: "cong-nghe-tivi-moi",
-            tag: ["Tivi", "Công nghệ tivi mới"]
-        },
-        {
-            path: "tu-van-mua-dan-may",
-            tag: ["Âm thanh", "Tư vấn mua dàn máy"]
-        },
-        {
             path: "tin-cong-nghe-dien-thoai",
             tag: ["Điện thoại", "Tin công nghệ điện thoại"]
         },
@@ -226,13 +111,13 @@ import "dotenv/config";
         },
     ];
 
-    const dataCrawl = [dataCrawlList[1]];
+    const dataCrawl = [dataCrawlList[0]];
 
     let listPage = [];
 
     for (let i = 0; i < dataCrawl.length; i++) {
         const itemPage = {
-            url: "https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=10000&url=" + dataCrawl[i].path,
+            url: "https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=1000&url=" + dataCrawl[i].path,
             tag: dataCrawl[i].tag,
         };
         listPage.push(itemPage);
@@ -272,8 +157,8 @@ import "dotenv/config";
         let totalCrawled = 0; // tổng số bài đã crawl
         let numberPostCrawled = 0; // number bài đã crawl
 
-        //let numberPost = listPost.length - 1 - totalCrawled; // tính theo totalCrawled
-        let numberPost = listPost.length - 1;
+        //let numberPost = listPost.length - 1 - Math.round(listPost.length / 1.3) - totalCrawled; // tính theo totalCrawled
+        let numberPost = listPost.length - 1 - Math.round(listPost.length / 1.3);
         //numberPost = numberPost - (numberPost - numberPostCrawled); // tính theo numberPostCrawled
         let minPost = 0;
 
@@ -281,7 +166,8 @@ import "dotenv/config";
          * Lặp danh sách bài viết
          */
         while (1) {
-            console.log('Number Post: \n\x1b[43m' + numberPost + ' \x1b[0m');
+            console.log('Number Post: \x1b[43m' + numberPost + ' \x1b[0m');
+            console.log('\nCrawl Post: \x1b[32m' + listPost[numberPost].url + ' \x1b[0m');
             try {
                 try {
                     await page.goto(listPost[numberPost].url, {
@@ -711,7 +597,7 @@ import "dotenv/config";
                             dataInternalLink.forEach((dataInternal) => {
                                 let BreakException = {};
                                 let addInternal = true;
-                                if(addInternal) {
+                                if (addInternal) {
                                     try {
                                         elms.forEach((item, key) => {
                                             if (
