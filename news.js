@@ -117,7 +117,8 @@ import {
              * Lặp danh sách bài viết
              */
             while (1) {
-                console.log('Number Post: \n\x1b[43m' + numberPost + ' \x1b[0m');
+                console.log('Number Post: \x1b[33m' + numberPost + ' \x1b[0m');
+                console.log('\nCrawl Post: \x1b[32m' + listPost[numberPost].url + ' \x1b[0m');
                 try {
                     try {
                         await page.goto(listPost[numberPost].url, {
@@ -152,12 +153,6 @@ import {
                     const elmImage = listPage[numberPage].elmImage;
                     const elmSortContent = listPage[numberPage].elmSortContent;
                     const elmTagP = listPage[numberPage].elmTagP;
-                    console.log(elmTitle)
-                    console.log(elmContent)
-                    console.log(elmLink)
-                    console.log(elmImage)
-                    console.log(elmSortContent)
-                    console.log(elmTagP)
                     try {
                         await page.waitForSelector(elmTitle);
                         await page.waitForSelector(elmContent);
