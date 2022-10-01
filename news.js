@@ -90,6 +90,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                             waitUntil: ["networkidle2"],
                         });
                     } catch (error) {
+                        console.log(error)
                     }
                     await page.waitForTimeout(3000);
 
@@ -181,6 +182,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                             });
                         }, ELM_TRASH);
                     } catch (error) {
+                        console.log(error)
                     }
                     //end: remove trash
 
@@ -386,5 +388,6 @@ async function saveData(data) {
                 console.log(error.response.data);
             });
     } catch (error) {
+        console.log(error)
     }
 }
