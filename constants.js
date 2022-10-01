@@ -464,5 +464,9 @@ export const ELM_TRASH = [
     '.HideBox', '.generate-promotion-products', '.wrap_relate', '.interested', '.tags', '.comment', '.fh3menu', '#hmenuid4', '.btn__noibat',
     '.generate-productbox', '.generate-gallery', '.mce-preview-object', '.mce-object-iframe', 'p iframe', '.top-news', 'ins', 'box_above',
     '.adbro-sm', '.adbro-xs', 'adbro-bottom', '.mys-wrapper', '.adbro-satellite', '.adbro-animated', '.ez-toc-container',
-    '#attachment_60985', '.kk-star-ratings', 'ul > li > a',
+    '#attachment_60985', '.kk-star-ratings', 'ul > li > a', '.ez-toc-title'
+];
+
+export const ELM_TRASH_PARENT = [
+    'ul > li > a',
 ];

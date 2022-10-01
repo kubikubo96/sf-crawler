@@ -1,7 +1,15 @@
 import puppeteer from "puppeteer";
 import axios from "axios";
 import "dotenv/config";
-import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, LIST_TRASH_P, TRASH_TEXT} from "./constants.js";
+import {
+    DATA_INTERNAL,
+    ELM_TRASH,
+    ELM_TRASH_PARENT,
+    LIST_CRAWL,
+    LIST_TRASH_LINK,
+    LIST_TRASH_P,
+    TRASH_TEXT
+} from "./constants.js";
 
 (async () => {
     //set puppeteer
@@ -201,18 +209,24 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, LIST_TRASH_P, TRA
 
                     //start: remove trash
                     try {
-                        await page.evaluate((ELM_TRASH) => {
+                        await page.evaluate((ELM_TRASH, ELM_TRASH_PARENT) => {
                             ELM_TRASH.forEach((item) => {
                                 try {
                                     let queryTrash = document.querySelectorAll(item);
                                     queryTrash.forEach((elm) => {
                                         elm.remove();
+
+                                        //start: remove parent
+                                        if (ELM_TRASH_PARENT.includes(item)) {
+                                            elm.closest('ul').remove();
+                                        }
+                                        //start: remove parent
                                     });
                                 } catch (error) {
                                     console.log(error)
                                 }
                             });
-                        }, ELM_TRASH);
+                        }, ELM_TRASH, ELM_TRASH_PARENT);
                     } catch (error) {
                         console.log(error)
                     }
