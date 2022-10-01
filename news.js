@@ -59,7 +59,7 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
              *
              * @type {{url}[]}
              */
-            const elmLinkPost = listPage[numberPage].source;
+            let elmLinkPost = listPage[numberPage].elmLinkPost;
             const listPost = await page.evaluate((sourceCrawl, elmLinkPost) => {
                 let links = document.querySelectorAll(elmLinkPost);
                 links = [...links];
@@ -67,7 +67,6 @@ import {DATA_INTERNAL, ELM_TRASH, LIST_CRAWL, LIST_TRASH_LINK, TRASH_TEXT} from 
                     url: 'https://' + sourceCrawl + link.getAttribute("href"),
                 }));
             }, sourceCrawl, elmLinkPost);
-
 
             let totalCrawled = 0; // tổng số bài đã crawl
             let numberPostCrawled = 0; // number bài đã crawl
