@@ -11,6 +11,7 @@ export const LIST_CRAWL = [
         elmSortContent: ".bxcontentnews h2",
         elmTagP: ".bxcontentnews > p",
         elmTagQuote: ".content-post-details > blockquote",
+        elmTagFigure: ".content-post-details > figure",
         data: [
             {
                 path: "huong-dan-su-dung-laptop",
@@ -122,6 +123,7 @@ export const LIST_CRAWL = [
         elmSortContent: ".content-post-details h2",
         elmTagP: ".content-post-details > p",
         elmTagQuote: ".content-post-details > blockquote",
+        elmTagFigure: ".content-post-details > figure",
     },
 ];
 
@@ -143,6 +145,9 @@ export const LIST_TRASH_P = [
     'Đọc bài viết:',
     '>> Xem thêm bài viết liên quan:',
     'Xem thêm bài viết liên quan',
+    'bạn có thể tham khảo khóa học tại FUNiX',
+    'Đăng ký tư vấn khóa học ngay',
+    'Học lập trình phân tích dữ liệu tại FUNiX'
 ];
 
 export const DATA_INTERNAL = [

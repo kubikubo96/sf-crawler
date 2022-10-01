@@ -43,6 +43,7 @@ import {
                         elmSortContent: LIST_CRAWL[i].elmSortContent,
                         elmTagP: LIST_CRAWL[i].elmTagP,
                         elmTagQuote: LIST_CRAWL[i].elmTagQuote,
+                        elmTagFigure: LIST_CRAWL[i].elmTagFigure,
                     };
                     listPage.push(temp);
                 }
@@ -62,6 +63,7 @@ import {
                         elmSortContent: LIST_CRAWL[i].elmSortContent,
                         elmTagP: LIST_CRAWL[i].elmTagP,
                         elmTagQuote: LIST_CRAWL[i].elmTagQuote,
+                        elmTagFigure: LIST_CRAWL[i].elmTagFigure,
                     };
                     listPage.push(temp);
                 }
@@ -156,6 +158,7 @@ import {
                     const elmSortContent = listPage[numberPage].elmSortContent;
                     const elmTagP = listPage[numberPage].elmTagP;
                     const elmTagQuote = listPage[numberPage].elmTagQuote;
+                    const elmTagFigure = listPage[numberPage].elmTagFigure;
                     try {
                         await page.waitForSelector(elmTitle);
                         await page.waitForSelector(elmContent);
@@ -302,6 +305,30 @@ import {
                         console.log(error)
                     }
                     //end: remove trash tag blockquote
+
+                    //start: remove trash tag figure
+                    try {
+                        await page.$$eval(
+                            elmTagFigure,
+                            (elms, LIST_TRASH_P) => {
+                                elms = [...elms];
+                                return elms.forEach((elm) => {
+                                    let content = elm.textContent;
+                                    LIST_TRASH_P.forEach(itemTrash => {
+                                        if (
+                                            content.includes(itemTrash)
+                                        ) {
+                                            elm.remove();
+                                        }
+                                    });
+                                });
+                            },
+                            LIST_TRASH_P
+                        );
+                    } catch (error) {
+                        console.log(error)
+                    }
+                    //end: remove trash tag figure
 
                     //start: convert link thành text cho link crawl
                     try {
