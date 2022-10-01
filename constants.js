@@ -276,6 +276,58 @@ export const DATA_INTERNAL = [
         url: 'https://kungfucongnghe.com/ios-15'
     },
     {
+        name: ' iOS 16',
+        url: 'https://kungfucongnghe.com/ios-16'
+    },
+    {
+        name: ' iPhone 5',
+        url: 'https://kungfucongnghe.com/iphone-5'
+    },
+    {
+        name: ' iPhone 6',
+        url: 'https://kungfucongnghe.com/iphone-6'
+    },
+    {
+        name: ' iPhone 7',
+        url: 'https://kungfucongnghe.com/iphone-7'
+    },
+    {
+        name: ' iPhone 8',
+        url: 'https://kungfucongnghe.com/iphone-8'
+    },
+    {
+        name: ' iPhone 9',
+        url: 'https://kungfucongnghe.com/iphone-9'
+    },
+    {
+        name: ' iPhone 10',
+        url: 'https://kungfucongnghe.com/iphone-10'
+    },
+    {
+        name: ' iPhone 11',
+        url: 'https://kungfucongnghe.com/iphone-11'
+    },
+    {
+        name: ' iPhone 12',
+        url: 'https://kungfucongnghe.com/iphone-12'
+    },
+    {
+        name: ' iPhone 13',
+        url: 'https://kungfucongnghe.com/iphone-13'
+    },
+    {
+        name: ' iPhone 14',
+        url: 'https://kungfucongnghe.com/iphone-14'
+    },
+    {
+        name: ' iPhone 15',
+        url: 'https://kungfucongnghe.com/iphone-15'
+    },
+    {
+        name: ' iPhone 16',
+        url: 'https://kungfucongnghe.com/iphone-16'
+    },
+    {
         name: ' Smartphone ',
         url: 'https://kungfucongnghe.com/smartphone'
     },
@@ -342,10 +394,6 @@ export const DATA_INTERNAL = [
     {
         name: ' Command line ',
         url: 'https://kungfucongnghe.com/tag/command-line'
-    },
-    {
-        name: ' điện thoại ',
-        url: 'https://kungfucongnghe.com/tag/dien-thoai'
     },
     {
         name: ' Onedrive ',
