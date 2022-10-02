@@ -1,8 +1,7 @@
 import puppeteer from "puppeteer";
-import axios from "axios";
 import "dotenv/config";
 import {DATA_INTERNAL, ELM_TRASH, ELM_TRASH_PARENT, LIST_TRASH_LINK, LIST_TRASH_P, TRASH_AUTHOR} from "./constants.js";
-import {handleListPage} from "./helper.js";
+import {handleListPage, saveData} from "./helper.js";
 
 (async () => {
     //set puppeteer
@@ -406,7 +405,7 @@ import {handleListPage} from "./helper.js";
                     if (data.content.length > 0) {
                         // Thêm lời kết KungFuCongNghe
                         data.content = '<strong>' + data.title + '. </strong> ' +
-                            data.content + '<p>Vậy là bạn đã cùng KungFuCongNghe.Com tìm hiểu cách thực hiện. Chúc bạn thành công nhé!</p>';
+                            data.content + 'Vậy là bạn đã cùng KungFuCongNghe.Com tìm hiểu cách thực hiện. Chúc bạn thành công nhé!';
 
                         /**
                          * dùng cho trường hợp auto save images
@@ -447,18 +446,3 @@ import {handleListPage} from "./helper.js";
 
     await browser.close();
 })();
-
-async function saveData(data) {
-    try {
-        await axios
-            .post(process.env.HOST_API, data)
-            .then(function (response) {
-            })
-            .catch(function (error) {
-                console.log("\n ---  \n ERROR SAVE DATABASE \n ---  \n ");
-                console.log(error.response.data);
-            });
-    } catch (error) {
-        console.log(error)
-    }
-}

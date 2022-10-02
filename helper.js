@@ -1,4 +1,20 @@
 import {LIST_CRAWL} from "./constants.js";
+import axios from "axios";
+
+export async function saveData(data) {
+    try {
+        await axios
+            .post(process.env.HOST_API, data)
+            .then(function (response) {
+            })
+            .catch(function (error) {
+                console.log("\n ---  \n ERROR SAVE DATABASE \n ---  \n ");
+                console.log(error.response.data);
+            });
+    } catch (error) {
+        console.log(error)
+    }
+}
 
 export function handleListPage() {
     let listPage = [];
