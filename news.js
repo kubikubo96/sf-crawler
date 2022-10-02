@@ -1,15 +1,8 @@
 import puppeteer from "puppeteer";
 import axios from "axios";
 import "dotenv/config";
-import {
-    DATA_INTERNAL,
-    ELM_TRASH,
-    ELM_TRASH_PARENT,
-    LIST_CRAWL,
-    LIST_TRASH_LINK,
-    LIST_TRASH_P,
-    TRASH_AUTHOR
-} from "./constants.js";
+import {DATA_INTERNAL, ELM_TRASH, ELM_TRASH_PARENT, LIST_TRASH_LINK, LIST_TRASH_P, TRASH_AUTHOR} from "./constants.js";
+import {handleListPage} from "./helper.js";
 
 (async () => {
     //set puppeteer
@@ -31,53 +24,10 @@ import {
     });
 
     // data crawl
-    let listPage = [];
-    for (let i = 0; i < LIST_CRAWL.length; i++) {
-        switch (LIST_CRAWL[i].source) {
-            case 'dienmayxanh.com':
-                for (let j = 0; j < LIST_CRAWL[i].data.length; j++) {
-                    const temp = {
-                        url: LIST_CRAWL[i].url + LIST_CRAWL[i].data[j].path,
-                        tag: LIST_CRAWL[i].data[j].tag,
-                        source: LIST_CRAWL[i].source,
-                        elmLinkPost: LIST_CRAWL[i].elmLinkPost,
-                        typeLinkPost: LIST_CRAWL[i].typeLinkPost,
-                        elmTitle: LIST_CRAWL[i].elmTitle,
-                        elmContent: LIST_CRAWL[i].elmContent,
-                        elmLink: LIST_CRAWL[i].elmLink,
-                        elmImage: LIST_CRAWL[i].elmImage,
-                        elmSortContent: LIST_CRAWL[i].elmSortContent,
-                        elmTagP: LIST_CRAWL[i].elmTagP,
-                        elmTagQuote: LIST_CRAWL[i].elmTagQuote,
-                        elmTagFigure: LIST_CRAWL[i].elmTagFigure,
-                    };
-                    listPage.push(temp);
-                }
-                break;
-            case 'funix.edu.vn':
-                for (let j = 1; j < LIST_CRAWL[i].max; j++) {
-                    const temp = {
-                        url: LIST_CRAWL[i].url + j,
-                        tag: LIST_CRAWL[i].tag,
-                        source: LIST_CRAWL[i].source,
-                        elmLinkPost: LIST_CRAWL[i].elmLinkPost,
-                        typeLinkPost: LIST_CRAWL[i].typeLinkPost,
-                        elmTitle: LIST_CRAWL[i].elmTitle,
-                        elmContent: LIST_CRAWL[i].elmContent,
-                        elmLink: LIST_CRAWL[i].elmLink,
-                        elmImage: LIST_CRAWL[i].elmImage,
-                        elmSortContent: LIST_CRAWL[i].elmSortContent,
-                        elmTagP: LIST_CRAWL[i].elmTagP,
-                        elmTagQuote: LIST_CRAWL[i].elmTagQuote,
-                        elmTagFigure: LIST_CRAWL[i].elmTagFigure,
-                    };
-                    listPage.push(temp);
-                }
-        }
-    }
-
+    let listPage = handleListPage();
     const limitPage = listPage.length;
     let numberPage = 0;
+
     /**
      * Vòng lặp danh sách trang
      */
