@@ -437,7 +437,6 @@ import {handleListPage, saveData} from "./helper.js";
          * Finish
          */
         if (numberPage >= limitPage) {
-            console.log("\n************* !!! FINISH ALL !!!! ************* \n");
             break;
         }
     }
