@@ -1,5 +1,5 @@
 export const LIST_CRAWL = [
-    /*{
+    {
         url: 'https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=1&url=',
         source: "dienmayxanh.com",
         elmLinkPost: "a.linktitle",
@@ -108,7 +108,7 @@ export const LIST_CRAWL = [
                 tag: ["Thiết bị thông minh", "Thiết bị thông minh khác"]
             },
         ],
-    },*/
+    },
     {
         url: 'https://funix.edu.vn/chia-se-kien-thuc/page/',
         max: 434,
