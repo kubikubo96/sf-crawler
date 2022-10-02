@@ -15,7 +15,13 @@ import {
     //set puppeteer
     const browser = await puppeteer.launch({
         headless: true,
-        args: ["--disable-site-isolation-trials", "--window-size=1900,1000", "--lang=en-US,en", "--no-sandbox", "--disable-setuid-sandbox"],
+        args: [
+            "--disable-site-isolation-trials",
+            "--window-size=1900,1000",
+            "--lang=en-US,en",
+            "--no-sandbox",
+            "--disable-setuid-sandbox"
+        ],
     });
     const page = await browser.newPage();
 
@@ -444,14 +450,10 @@ import {
                     });
                     //end: replace Tên trang
 
-                    // fs.writeFileSync('data.json', JSON.stringify(data));
-                    // await page.waitForTimeout(1000 * 1000)
-
                     /**
                      * Save data
                      */
                     if (data.content.length > 0) {
-
                         // Thêm lời kết KungFuCongNghe
                         data.content = '<strong>' + data.title + '. </strong> ' +
                             data.content + '<p>Vậy là bạn đã cùng KungFuCongNghe.Com tìm hiểu cách thực hiện. Chúc bạn thành công nhé!</p>';
