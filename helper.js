@@ -18,9 +18,8 @@ export async function saveData(data) {
 
 export function handleListPage() {
     let listPage = [];
-
     for (let i = 0; i < LIST_CRAWL.length; i++) {
-
+        console.log(LIST_CRAWL[i].source)
         let dataDefault = {
             source: LIST_CRAWL[i].source,
             elmLinkPost: LIST_CRAWL[i].elmLinkPost,
@@ -37,29 +36,33 @@ export function handleListPage() {
 
         switch (LIST_CRAWL[i].source) {
             case 'dienmayxanh.com':
-                listPage = listPageDienMayXanh(listPage, LIST_CRAWL[i], dataDefault);
+                listPage = listPageDienMayXanh(LIST_CRAWL[i], dataDefault);
                 break;
             case 'funix.edu.vn':
-                listPage = listPageFunix(listPage, LIST_CRAWL[i], dataDefault);
+                listPage = listPageFunix(LIST_CRAWL[i], dataDefault);
+                break;
         }
     }
 
     return listPage;
 }
 
-export function listPageDienMayXanh(listPage, itemI, dataDefault) {
-    for (let j = 0; j < itemI.data.length; j++) {
-        let temp = dataDefault;
+export function listPageDienMayXanh(itemI, dataDefault) {
+    let listPage = [];
+    for (let j = itemI.data.length - 1; j >= 0; j--) {
+        let temp = {...dataDefault};
         temp.url = itemI.url + itemI.data[j].path;
         temp.tag = itemI.data[j].tag;
         listPage.push(temp);
     }
+    console.log(listPage)
     return listPage;
 }
 
-export function listPageFunix(listPage, ItemI, dataDefault) {
-    for (let j = 1; j < ItemI.max; j++) {
-        let temp = dataDefault;
+export function listPageFunix(ItemI, dataDefault) {
+    let listPage = [];
+    for (let j = ItemI.max; j >= 1; j--) {
+        let temp = {...dataDefault};
         temp.url = ItemI.url + j;
         temp.tag = ItemI.tag;
         listPage.push(temp);
