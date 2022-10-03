@@ -1,6 +1,6 @@
 export const LIST_CRAWL = [
     {
-        url: 'https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=5&url=',
+        url: 'https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=20&url=',
         source: "dienmayxanh.com",
         elmLinkPost: "a.linktitle",
         typeLinkPost: 'path',
@@ -111,7 +111,8 @@ export const LIST_CRAWL = [
     },
     {
         url: 'https://funix.edu.vn/chia-se-kien-thuc/page/',
-        max: 434,
+        //max: 434,
+        max: 20,
         tag: ['Chia sẽ kiến thức'],
         source: "funix.edu.vn",
         elmLinkPost: ".site-content .post-title a",
