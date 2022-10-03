@@ -331,7 +331,7 @@ import {handleListPage, saveData} from "./helper.js";
                     }
                     //end: replace src image
 
-                    //start: add internal link
+                    //start: add internal link tag
                     try {
                         let countInternal = 0;
                         data.tag = await page.$$eval(elmTagP, (elms, data, countInternal, DATA_INTERNAL_TAG) => {
@@ -379,7 +379,7 @@ import {handleListPage, saveData} from "./helper.js";
                     } catch (error) {
                         console.log(error)
                     }
-                    //end: add internal link
+                    //end: add internal link tag
 
                     await page.waitForTimeout(2000);
                     data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
