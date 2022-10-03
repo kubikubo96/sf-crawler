@@ -24,9 +24,6 @@ import {handleListPage, saveData} from "./helper.js";
 
     // data crawl
     let listPage = handleListPage();
-    // console.log(listPage);
-    // console.log(listPage[0]);
-    await page.waitForTimeout(1000 * 1000)
     const limitPage = listPage.length;
     let numberPage = 0;
 
