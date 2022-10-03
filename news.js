@@ -2,8 +2,8 @@ import puppeteer from "puppeteer";
 import "dotenv/config";
 import {
   DATA_ELEMENT_INTERNAL_POST,
+  DATA_INTERNAL_FULL,
   DATA_INTERNAL_POST,
-  DATA_INTERNAL_TAG,
   ELM_TRASH,
   ELM_TRASH_PARENT,
   LIST_TRASH_LINK,
@@ -336,9 +336,9 @@ import {handleListPage, saveData} from "./helper.js";
           //start: add internal link tag
           try {
             let countInternal = 0;
-            data.tag = await page.$$eval(elmTagP, (elms, data, countInternal, DATA_INTERNAL_TAG) => {
+            data.tag = await page.$$eval(elmTagP, (elms, data, countInternal, DATA_INTERNAL_FULL) => {
               if (countInternal <= 1) {
-                DATA_INTERNAL_TAG.forEach((dataInternal) => {
+                DATA_INTERNAL_FULL.forEach((dataInternal) => {
                   let BreakException = {};
                   let addInternal = true;
                   if (addInternal) {
@@ -377,7 +377,7 @@ import {handleListPage, saveData} from "./helper.js";
                 })
               }
               return data.tag;
-            }, data, countInternal, DATA_INTERNAL_TAG);
+            }, data, countInternal, DATA_INTERNAL_FULL);
           } catch (error) {
             console.log(error)
           }

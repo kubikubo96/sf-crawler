@@ -262,7 +262,7 @@ export const DATA_ELEMENT_INTERNAL_POST = [
   ".entry-content > p > strong",
 ];
 
-export const DATA_INTERNAL_TAG = [
+export const DATA_INTERNAL_FULL = [
   {
     name: ' Hướng dẫn ',
     url: 'https://kungfucongnghe.com/kien-thuc'
