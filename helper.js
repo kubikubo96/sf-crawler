@@ -19,7 +19,6 @@ export async function saveData(data) {
 export function handleListPage() {
     let listPage = [];
     for (let i = 0; i < LIST_CRAWL.length; i++) {
-        console.log(LIST_CRAWL[i].source)
         let dataDefault = {
             source: LIST_CRAWL[i].source,
             elmLinkPost: LIST_CRAWL[i].elmLinkPost,
