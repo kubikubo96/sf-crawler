@@ -1,116 +1,116 @@
 export const LIST_CRAWL = [
+    // {
+    //     url: 'https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=20&url=',
+    //     source: "dienmayxanh.com",
+    //     elmLinkPost: "a.linktitle",
+    //     typeLinkPost: 'path',
+    //     elmTitle: ".article h1",
+    //     elmContent: ".bxcontentnews",
+    //     elmLink: ".bxcontentnews a",
+    //     elmImage: ".bxcontentnews img",
+    //     elmSortContent: ".bxcontentnews h2",
+    //     elmTagP: ".bxcontentnews > p",
+    //     elmTagQuote: ".bxcontentnews > blockquote",
+    //     elmTagFigure: ".bxcontentnews > figure",
+    //     data: [
+    //         {
+    //             path: "huong-dan-su-dung-laptop",
+    //             tag: ["Laptop"],
+    //         },
+    //         {
+    //             path: "huong-dan-su-dung",
+    //             tag: ["Điện thoại", "Hướng dẫn sự dụng điện thoại"],
+    //         },
+    //         {
+    //             path: "loi-ti-vi-thuong-gap",
+    //             tag: ["Tivi", "Lỗi tivi thường gặp"]
+    //         },
+    //         {
+    //             path: "tin-cong-nghe-dien-thoai",
+    //             tag: ["Điện thoại", "Tin công nghệ điện thoại"]
+    //         },
+    //         {
+    //             path: "tu-van-chon-mua-dien-thoai",
+    //             tag: ["Điện thoại", "Tư vấn chọn mua điện thoại"]
+    //         },
+    //         {
+    //             path: "danh-gia-san-pham",
+    //             tag: ["Điện thoại", "Đánh giá sản phẩm"]
+    //         },
+    //         {
+    //             path: "tin-cong-nghe-laptop",
+    //             tag: ["Laptop", "Tin công nghệ laptop"]
+    //         },
+    //         {
+    //             path: "danh-gia-san-pham-laptop",
+    //             tag: ["Laptop", "Đánh giá sản phẩm laptop"]
+    //         },
+    //         {
+    //             path: "huong-dan-su-dung-laptop",
+    //             tag: ["Laptop", "Hướng dẫn sử dụng laptop"]
+    //         },
+    //         {
+    //             path: "danh-gia-san-pham-may-tinh-bang",
+    //             tag: ["Máy tính bảng", "Đánh giá sản phẩm máy tính bảng"]
+    //         }, {
+    //             path: "huong-dan-su-dung-may-tinh-bang",
+    //             tag: ["Máy tính bảng", "Hướng dẫn sử dụng máy tính bảng"]
+    //         },
+    //         {
+    //             path: "meo-hay-facebook-zalo-youtube",
+    //             tag: ["Mạng xã hội", "Mẹo hay Facebook Zalo Youtube"]
+    //         },
+    //         {
+    //             path: "tin-hoc-van-phong",
+    //             tag: ["Tin học văn phòng"]
+    //         },
+    //         {
+    //             path: "phu-kien",
+    //             tag: ["Phụ kiện"]
+    //         },
+    //         {
+    //             path: "thuong-hieu-dong-ho",
+    //             tag: ["Đồng hồ", "Thương hiệu đồng hồ"]
+    //         },
+    //         {
+    //             path: "meo-huong-dan-su-dung-dong-ho",
+    //             tag: ["Đồng hồ", "Mẹo hướng dẫn sử dụng dồng hồ"]
+    //         },
+    //         {
+    //             path: "thuat-ngu-dong-ho",
+    //             tag: ["Đồng hồ", "Thuật ngữ đồng hồ"]
+    //         },
+    //         {
+    //             path: "phan-biet-dong-ho-that-gia",
+    //             tag: ["Đồng hồ", "Phân biệt đồng hồ thật giả"]
+    //         },
+    //         {
+    //             path: "tu-van-chon-mua-mat-kinh",
+    //             tag: ["Mắt kính", "Tư vấn chọn mua mắt kính"]
+    //         },
+    //         {
+    //             path: "thuong-hieu-mat-kinh",
+    //             tag: ["Mắt kính", "Thương hiệu mắt kính"]
+    //         },
+    //         {
+    //             path: "thiet-bi-thong-minh-phong-ngu",
+    //             tag: ["Thiết bị thông minh", "Thiết bị thông minh phòng ngủ"]
+    //         },
+    //         {
+    //             path: "thiet-bi-thong-minh-phong-khach",
+    //             tag: ["Thiết bị thông minh", "Thiết bị thông minh phòng khách"]
+    //         }, {
+    //             path: "thiet-bi-thong-minh-nha-bep",
+    //             tag: ["Thiết bị thông minh", "Thiết bị thông minh nhà bếp"]
+    //         },
+    //         {
+    //             path: "thiet-bi-thong-minh-khac",
+    //             tag: ["Thiết bị thông minh", "Thiết bị thông minh khác"]
+    //         },
+    //     ],
+    // },
     {
-        url: 'https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=20&url=',
-        source: "dienmayxanh.com",
-        elmLinkPost: "a.linktitle",
-        typeLinkPost: 'path',
-        elmTitle: ".article h1",
-        elmContent: ".bxcontentnews",
-        elmLink: ".bxcontentnews a",
-        elmImage: ".bxcontentnews img",
-        elmSortContent: ".bxcontentnews h2",
-        elmTagP: ".bxcontentnews > p",
-        elmTagQuote: ".bxcontentnews > blockquote",
-        elmTagFigure: ".bxcontentnews > figure",
-        data: [
-            {
-                path: "huong-dan-su-dung-laptop",
-                tag: ["Laptop"],
-            },
-            {
-                path: "huong-dan-su-dung",
-                tag: ["Điện thoại", "Hướng dẫn sự dụng điện thoại"],
-            },
-            {
-                path: "loi-ti-vi-thuong-gap",
-                tag: ["Tivi", "Lỗi tivi thường gặp"]
-            },
-            {
-                path: "tin-cong-nghe-dien-thoai",
-                tag: ["Điện thoại", "Tin công nghệ điện thoại"]
-            },
-            {
-                path: "tu-van-chon-mua-dien-thoai",
-                tag: ["Điện thoại", "Tư vấn chọn mua điện thoại"]
-            },
-            {
-                path: "danh-gia-san-pham",
-                tag: ["Điện thoại", "Đánh giá sản phẩm"]
-            },
-            {
-                path: "tin-cong-nghe-laptop",
-                tag: ["Laptop", "Tin công nghệ laptop"]
-            },
-            {
-                path: "danh-gia-san-pham-laptop",
-                tag: ["Laptop", "Đánh giá sản phẩm laptop"]
-            },
-            {
-                path: "huong-dan-su-dung-laptop",
-                tag: ["Laptop", "Hướng dẫn sử dụng laptop"]
-            },
-            {
-                path: "danh-gia-san-pham-may-tinh-bang",
-                tag: ["Máy tính bảng", "Đánh giá sản phẩm máy tính bảng"]
-            }, {
-                path: "huong-dan-su-dung-may-tinh-bang",
-                tag: ["Máy tính bảng", "Hướng dẫn sử dụng máy tính bảng"]
-            },
-            {
-                path: "meo-hay-facebook-zalo-youtube",
-                tag: ["Mạng xã hội", "Mẹo hay Facebook Zalo Youtube"]
-            },
-            {
-                path: "tin-hoc-van-phong",
-                tag: ["Tin học văn phòng"]
-            },
-            {
-                path: "phu-kien",
-                tag: ["Phụ kiện"]
-            },
-            {
-                path: "thuong-hieu-dong-ho",
-                tag: ["Đồng hồ", "Thương hiệu đồng hồ"]
-            },
-            {
-                path: "meo-huong-dan-su-dung-dong-ho",
-                tag: ["Đồng hồ", "Mẹo hướng dẫn sử dụng dồng hồ"]
-            },
-            {
-                path: "thuat-ngu-dong-ho",
-                tag: ["Đồng hồ", "Thuật ngữ đồng hồ"]
-            },
-            {
-                path: "phan-biet-dong-ho-that-gia",
-                tag: ["Đồng hồ", "Phân biệt đồng hồ thật giả"]
-            },
-            {
-                path: "tu-van-chon-mua-mat-kinh",
-                tag: ["Mắt kính", "Tư vấn chọn mua mắt kính"]
-            },
-            {
-                path: "thuong-hieu-mat-kinh",
-                tag: ["Mắt kính", "Thương hiệu mắt kính"]
-            },
-            {
-                path: "thiet-bi-thong-minh-phong-ngu",
-                tag: ["Thiết bị thông minh", "Thiết bị thông minh phòng ngủ"]
-            },
-            {
-                path: "thiet-bi-thong-minh-phong-khach",
-                tag: ["Thiết bị thông minh", "Thiết bị thông minh phòng khách"]
-            }, {
-                path: "thiet-bi-thong-minh-nha-bep",
-                tag: ["Thiết bị thông minh", "Thiết bị thông minh nhà bếp"]
-            },
-            {
-                path: "thiet-bi-thong-minh-khac",
-                tag: ["Thiết bị thông minh", "Thiết bị thông minh khác"]
-            },
-        ],
-    },
-    {
-        url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageIndex=0&pageSize=2000&cateId=',
+        url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageIndex=0&pageSize=10&cateId=',
         source: "bachhoaxanh.com",
         elmLinkPost: "li.news > a",
         typeLinkPost: 'path',
@@ -217,31 +217,36 @@ export const LIST_CRAWL = [
             },
         ],
     },
-    {
-        url: 'https://funix.edu.vn/chia-se-kien-thuc/page/',
-        //max: 434,
-        max: 20,
-        tag: ['Chia sẽ kiến thức'],
-        source: "funix.edu.vn",
-        elmLinkPost: ".site-content .post-title a",
-        typeLinkPost: 'full',
-        elmTitle: ".content-post h1",
-        elmContent: ".content-post-details",
-        elmLink: ".content-post-details a",
-        elmImage: ".content-post-details img",
-        elmSortContent: ".content-post-details h2",
-        elmTagP: ".content-post-details > p",
-        elmTagQuote: ".content-post-details > blockquote",
-        elmTagFigure: ".content-post-details > figure",
-    },
+    // {
+    //     url: 'https://funix.edu.vn/chia-se-kien-thuc/page/',
+    //     //max: 434,
+    //     max: 20,
+    //     tag: ['Chia sẽ kiến thức'],
+    //     source: "funix.edu.vn",
+    //     elmLinkPost: ".site-content .post-title a",
+    //     typeLinkPost: 'full',
+    //     elmTitle: ".content-post h1",
+    //     elmContent: ".content-post-details",
+    //     elmLink: ".content-post-details a",
+    //     elmImage: ".content-post-details img",
+    //     elmSortContent: ".content-post-details h2",
+    //     elmTagP: ".content-post-details > p",
+    //     elmTagQuote: ".content-post-details > blockquote",
+    //     elmTagFigure: ".content-post-details > figure",
+    // },
 ];
 
 export const LIST_TRASH_LINK = [
     'điện máy xanh',
+    'bách hóa xanh',
     'Điện máy XANH',
+    'Bách hóa XANH',
     'Điện máy xanh',
+    'Bách hóa xanh',
     'Điện Máy Xanh',
+    'Bách Hóa Xanh',
     'ĐIỆN MÁY XANH',
+    'BÁCH HÓA XANH',
     'Mọi thắc mắc vui lòng để lại câu hỏi ngay bên dưới để Điện máy XANH hỗ trợ cho bạn nhé',
     'Đọc thêm bài viết',
     'Tham khảo thêm',
@@ -268,7 +273,8 @@ export const LIST_TRASH_P = [
     'Nếu bạn đang cần tìm hiểu khóa học lập trình phân tích dữ liệu',
     'Tham khảo thêm',
     'Tham khảo thêm:',
-    'Xem clip Tiktok cách làm lagu pate sườn non:'
+    'Xem clip Tiktok cách làm lagu pate sườn non:',
+    'Mua đồ trang điểm tại Bách hoá XANH để luôn rạng rỡ mỗi ngày:',
 ];
 
 export const DATA_INTERNAL = [
@@ -580,11 +586,17 @@ export const DATA_INTERNAL = [
 
 export const TRASH_AUTHOR = [
     'Điện máy XANH',
+    'Bách hóa XANH',
     'Điện máy xanh',
+    'Bách hóa xanh',
     'Điện Máy Xanh',
+    'Bách Hóa Xanh',
     'DienmayXANH.com',
+    'BachhoaXANH.com',
     'Dienmay.com',
+    'Bachhoa.com',
     'Điện Máy XANH',
+    'Bachs Hóa XANH',
     'Nguyễn Cúc',
 
 ];

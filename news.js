@@ -382,10 +382,13 @@ import {handleListPage, saveData} from "./helper.js";
                     const lengthDescription = 145 - lengthTitle;
 
                     //thêm seo tag description
-                    data.seo_tag_description = data.title;
+
+                    //thêm title trước seo tag
+                    //data.seo_tag_description = data.title;
                     try {
                         if (lengthDescription > 0) {
-                            data.seo_tag_description = data.seo_tag_description + '. ' + await page.$$eval(elmContent, (elm, lengthDescription) => {
+                            /*data.seo_tag_description + '. ' + */
+                            data.seo_tag_description = await page.$$eval(elmContent, (elm, lengthDescription) => {
                                 return elm[0].textContent.slice(0, Number(lengthDescription)).trim() + "..."
                             }, lengthDescription);
                         }
@@ -404,8 +407,8 @@ import {handleListPage, saveData} from "./helper.js";
                      */
                     if (data.content.length > 0) {
                         // Thêm lời kết KungFuCongNghe
-                        data.content = '<strong>' + data.title + '. </strong> ' +
-                            data.content + 'Vậy là bạn đã cùng KungFuCongNghe.Com tìm hiểu cách thực hiện. Chúc bạn thành công nhé!';
+                        // data.content = '<strong>' + data.title + '. </strong> ' + data.content + '
+                        // Vậy là bạn đã cùng KungFuCongNghe.Com tìm hiểu cách thực hiện. Chúc bạn thành công nhé!';
 
                         /**
                          * dùng cho trường hợp auto save images

@@ -35,10 +35,11 @@ export function handleListPage() {
 
         switch (LIST_CRAWL[i].source) {
             case 'dienmayxanh.com':
-                listPage = listPageDienMayXanh(listPage, LIST_CRAWL[i], dataDefault);
+            case 'bachhoaxanh.com':
+                listPage = listPageTypeA(listPage, LIST_CRAWL[i], dataDefault);
                 break;
             case 'funix.edu.vn':
-                listPage = listPageFunix(listPage, LIST_CRAWL[i], dataDefault);
+                listPage = listPageTypeB(listPage, LIST_CRAWL[i], dataDefault);
                 break;
         }
     }
@@ -46,7 +47,7 @@ export function handleListPage() {
     return listPage;
 }
 
-export function listPageDienMayXanh(listPage, itemI, dataDefault) {
+export function listPageTypeA(listPage, itemI, dataDefault) {
     for (let j = itemI.data.length - 1; j >= 0; j--) {
         let temp = {...dataDefault};
         temp.url = itemI.url + itemI.data[j].path;
@@ -56,7 +57,7 @@ export function listPageDienMayXanh(listPage, itemI, dataDefault) {
     return listPage;
 }
 
-export function listPageFunix(listPage, ItemI, dataDefault) {
+export function listPageTypeB(listPage, ItemI, dataDefault) {
     for (let j = ItemI.max; j >= 1; j--) {
         let temp = {...dataDefault};
         temp.url = ItemI.url + j;
