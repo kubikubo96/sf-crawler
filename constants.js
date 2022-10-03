@@ -584,6 +584,14 @@ export const DATA_INTERNAL_TAG = [
     },
 ];
 
+export const DATA_INTERNAL_POST = [
+    {
+        key_start: "Windows 11",
+        space: 5,
+        key_end: "Windows 11",
+    }
+];
+
 export const TRASH_AUTHOR = [
     'Điện máy XANH',
     'Bách hóa XANH',
