@@ -10,8 +10,8 @@ export const LIST_CRAWL = [
         elmImage: ".bxcontentnews img",
         elmSortContent: ".bxcontentnews h2",
         elmTagP: ".bxcontentnews > p",
-        elmTagQuote: ".content-post-details > blockquote",
-        elmTagFigure: ".content-post-details > figure",
+        elmTagQuote: ".bxcontentnews > blockquote",
+        elmTagFigure: ".bxcontentnews > figure",
         data: [
             {
                 path: "huong-dan-su-dung-laptop",
@@ -110,6 +110,114 @@ export const LIST_CRAWL = [
         ],
     },
     {
+        url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageIndex=0&pageSize=2000&cateId=',
+        source: "bachhoaxanh.com",
+        elmLinkPost: "li.news > a",
+        typeLinkPost: 'path',
+        elmTitle: ".boxcontent h1.titlearticle",
+        elmContent: ".boxcontent",
+        elmLink: ".boxcontent a",
+        elmImage: ".boxcontent img",
+        elmSortContent: ".boxcontent h2",
+        elmTagP: ".boxcontent > p",
+        elmTagQuote: ".boxcontent > blockquote",
+        elmTagFigure: ".boxcontent > figure",
+        data: [
+            {
+                path: "2086",
+                tag: ["Món ngon mỗi ngày", "Công thức nấu ăn"],
+            },
+            {
+                path: "2110",
+                tag: ["Món ngon mỗi ngày", "Mẹo vặt bếp núc"],
+            },
+            {
+                path: "2087",
+                tag: ["Món ngon mỗi ngày", "Đặc sản vùng miền"],
+            },
+            {
+                path: "2090",
+                tag: ["Món ngon mỗi ngày", "Địa điểm ăn uống"],
+            },
+            {
+                path: "2102",
+                tag: ["Món ngon mỗi ngày", "Chế độ ăn uống"],
+            },
+            {
+                path: "2109",
+                tag: ["Mẹo vặt cuộc sống", "Mẹo vặt gia đình"],
+            },
+            {
+                path: "2110",
+                tag: ["Mẹo vặt cuộc sống", "Mẹo vặt bếp núc"],
+            },
+            {
+                path: "2111",
+                tag: ["Mẹo vặt cuộc sống", "Mẹo làm đẹp"],
+            },
+            {
+                path: "2112",
+                tag: ["Mẹo vặt cuộc sống", "Mẹo chi tiêu"],
+            },
+            {
+                path: "2113",
+                tag: ["Mẹo vặt cuộc sống", "Phong thủy"],
+            },
+            {
+                path: "2114",
+                tag: ["Mẹo vặt cuộc sống", "Mẹo vặt công nghệ"],
+            },
+            {
+                path: "2115",
+                tag: ["Mẹo vặt cuộc sống", "Thông tin cần biết"],
+            },
+            {
+                path: "2102",
+                tag: ["Sống khỏe", "Chế độ ăn uống"],
+            },
+            {
+                path: "2103",
+                tag: ["Sống khỏe", "Sống xanh"],
+            },
+            {
+                path: "2348",
+                tag: ["Sống khỏe", "Mẹ và bé"],
+            },
+            {
+                path: "2094",
+                tag: ["Làm đẹp", "Thời trang"],
+            },
+            {
+                path: "2095",
+                tag: ["Làm đẹp", "Dưỡng da"],
+            },
+            {
+                path: "2096",
+                tag: ["Làm đẹp", "Trang điểm"],
+            },
+            {
+                path: "2111",
+                tag: ["Làm đẹp", "Mẹo làm đẹp"],
+            },
+            {
+                path: "2089",
+                tag: ["Ăn gì chơi gì", "Địa điểm du lịch"],
+            },
+            {
+                path: "2090",
+                tag: ["Ăn gì chơi gì", "Địa điểm ăn uống"],
+            },
+            {
+                path: "2091",
+                tag: ["Ăn gì chơi gì", "Phim hay"],
+            },
+            {
+                path: "2092",
+                tag: ["Ăn gì chơi gì", "Nhạc hay"],
+            },
+        ],
+    },
+    {
         url: 'https://funix.edu.vn/chia-se-kien-thuc/page/',
         //max: 434,
         max: 20,
@@ -136,6 +244,7 @@ export const LIST_TRASH_LINK = [
     'ĐIỆN MÁY XANH',
     'Mọi thắc mắc vui lòng để lại câu hỏi ngay bên dưới để Điện máy XANH hỗ trợ cho bạn nhé',
     'Đọc thêm bài viết',
+    'Tham khảo thêm',
 ];
 
 export const LIST_TRASH_P = [
@@ -143,7 +252,7 @@ export const LIST_TRASH_P = [
     'xem thêm bài viết',
     'học lập trình phân tích dữ liệu FUNiX',
     'Xem thêm bài viết liên quan',
-    'Đọc bài viết:',
+    'Đọc bài viết',
     'Đọc bài viết:',
     '>> Xem thêm bài viết liên quan:',
     'Xem thêm bài viết liên quan',
@@ -157,6 +266,9 @@ export const LIST_TRASH_P = [
     'phân tích dữ liệu tại FUNiX',
     'Tìm hiểu khóa học kỹ sư dữ liệu',
     'Nếu bạn đang cần tìm hiểu khóa học lập trình phân tích dữ liệu',
+    'Tham khảo thêm',
+    'Tham khảo thêm:',
+    'Xem clip Tiktok cách làm lagu pate sườn non:'
 ];
 
 export const DATA_INTERNAL = [
@@ -482,8 +594,9 @@ export const ELM_TRASH = [
     'div.toc', 'iframe.lazy', '.bannerAdNews', '.clrindexknh', '.bxindexknh', '#QuickViewId', '.owl-carousel', '.infobox', '.TitleBoxSp',
     '.HideBox', '.generate-promotion-products', '.wrap_relate', '.interested', '.tags', '.comment', '.fh3menu', '#hmenuid4', '.btn__noibat',
     '.generate-productbox', '.generate-gallery', '.mce-preview-object', '.mce-object-iframe', 'p iframe', '.top-news', 'ins', 'box_above',
-    '.adbro-sm', '.adbro-xs', 'adbro-bottom', '.mys-wrapper', '.adbro-satellite', '.adbro-animated', '.ez-toc-container',
-    '#attachment_60985', '.kk-star-ratings', 'ul > li > a', '.ez-toc-title', '#player', '.html5-video-container',
+    '.adbro-sm', '.adbro-xs', 'adbro-bottom', '.mys-wrapper', '.adbro-satellite', '.adbro-animated', '.ez-toc-container', '.newscare',
+    '#attachment_60985', '.kk-star-ratings', 'ul > li > a', '.ez-toc-title', '#player', '.html5-video-container', '.bxindexknh', 'tiktok',
+    'productbox'
 
 ];
 
