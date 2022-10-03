@@ -1,6 +1,13 @@
 import puppeteer from "puppeteer";
 import "dotenv/config";
-import {DATA_INTERNAL, ELM_TRASH, ELM_TRASH_PARENT, LIST_TRASH_LINK, LIST_TRASH_P, TRASH_AUTHOR} from "./constants.js";
+import {
+    DATA_INTERNAL_TAG,
+    ELM_TRASH,
+    ELM_TRASH_PARENT,
+    LIST_TRASH_LINK,
+    LIST_TRASH_P,
+    TRASH_AUTHOR
+} from "./constants.js";
 import {handleListPage, saveData} from "./helper.js";
 
 (async () => {
@@ -327,9 +334,9 @@ import {handleListPage, saveData} from "./helper.js";
                     //start: add internal link
                     try {
                         let countInternal = 0;
-                        data.tag = await page.$$eval(elmTagP, (elms, data, countInternal, DATA_INTERNAL) => {
+                        data.tag = await page.$$eval(elmTagP, (elms, data, countInternal, DATA_INTERNAL_TAG) => {
                             if (countInternal <= 1) {
-                                DATA_INTERNAL.forEach((dataInternal) => {
+                                DATA_INTERNAL_TAG.forEach((dataInternal) => {
                                     let BreakException = {};
                                     let addInternal = true;
                                     if (addInternal) {
@@ -368,7 +375,7 @@ import {handleListPage, saveData} from "./helper.js";
                                 })
                             }
                             return data.tag;
-                        }, data, countInternal, DATA_INTERNAL);
+                        }, data, countInternal, DATA_INTERNAL_TAG);
                     } catch (error) {
                         console.log(error)
                     }

@@ -277,7 +277,7 @@ export const LIST_TRASH_P = [
     'Mua đồ trang điểm tại Bách hoá XANH để luôn rạng rỡ mỗi ngày:',
 ];
 
-export const DATA_INTERNAL = [
+export const DATA_INTERNAL_TAG = [
     {
         name: ' Hướng dẫn ',
         url: 'https://kungfucongnghe.com/kien-thuc'
