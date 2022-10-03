@@ -54,7 +54,6 @@ export function listPageDienMayXanh(itemI, dataDefault) {
         temp.tag = itemI.data[j].tag;
         listPage.push(temp);
     }
-    console.log(listPage)
     return listPage;
 }
 
