@@ -153,7 +153,7 @@ import {handleListPage, saveData} from "./helper.js";
                             try {
                                 await page.$eval(elmSortContent, (elm) => {
                                     if (elm) {
-                                        elm.outerHTML = '<p><strong>' + elm.textContent + '</strong></p>'
+                                        elm.outerHTML = '<strong>' + elm.textContent + '</strong>'
                                     }
                                 });
                             } catch (error) {
