@@ -219,7 +219,7 @@ export const LIST_CRAWL = [
   // },
   {
     url: 'https://funix.edu.vn/chia-se-kien-thuc/page/',
-    max: 350,
+    max: 349,
     //max: 20,
     tag: ['Chia sẽ kiến thức'],
     source: "funix.edu.vn",
@@ -263,14 +263,6 @@ export const DATA_ELEMENT_INTERNAL_POST = [
 ];
 
 export const DATA_INTERNAL_FULL = [
-  {
-    name: ' Hướng dẫn ',
-    url: 'https://kungfucongnghe.com/kien-thuc'
-  },
-  {
-    name: ' Kiến thức ',
-    url: 'https://kungfucongnghe.com/kien-thuc'
-  },
   {
     name: ' Bluetooth ',
     url: 'https://kungfucongnghe.com/bluetooth'
@@ -608,6 +600,7 @@ export const LIST_TRASH_P = [
   'Tham khảo thêm:',
   'Xem clip Tiktok cách làm lagu pate sườn non:',
   'Mua đồ trang điểm tại Bách hoá XANH để luôn rạng rỡ mỗi ngày:',
+  'Lương Thuận – Tổng hợp',
 ];
 
 export const TRASH_AUTHOR = [
@@ -622,8 +615,9 @@ export const TRASH_AUTHOR = [
   'Dienmay.com',
   'Bachhoa.com',
   'Điện Máy XANH',
-  'Bachs Hóa XANH',
+  'Bách Hóa XANH',
   'Nguyễn Cúc',
+  'FUNiX',
 
 ];
 
