@@ -219,7 +219,7 @@ export const LIST_CRAWL = [
   // },
   {
     url: 'https://funix.edu.vn/chia-se-kien-thuc/page/',
-    max: 434,
+    max: 350,
     //max: 20,
     tag: ['Chia sẽ kiến thức'],
     source: "funix.edu.vn",
