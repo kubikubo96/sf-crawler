@@ -13,7 +13,7 @@ import {DATA_INTERNAL_POST} from "./internal_smart.js";
 import {handleListPage, saveData} from "./helper.js";
 
 (async () => {
-  while (1) {
+  while (1) { /*@todo bot*/
     //set puppeteer
     const browser = await puppeteer.launch({
       headless: true,
@@ -490,7 +490,7 @@ import {handleListPage, saveData} from "./helper.js";
 
     await browser.close();
 
-    await page.waitForTimeout(5000)
-    console.log('\n \x1b[33m ! --- SLEEP TIME --- ! \x1b[0m \n');
-  }
+    await page.waitForTimeout(5000) /*@todo bot*/
+    console.log('\n \x1b[33m ! --- SLEEP TIME --- ! \x1b[0m \n'); /*@todo bot*/
+  } /*@todo bot*/
 })();
