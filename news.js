@@ -2,14 +2,14 @@ import puppeteer from "puppeteer";
 import "dotenv/config";
 import {
   DATA_ELEMENT_INTERNAL_POST,
-  DATA_INTERNAL_FULL,
-  DATA_INTERNAL_POST,
   ELM_TRASH,
   ELM_TRASH_PARENT,
   LIST_TRASH_LINK,
   LIST_TRASH_P,
   TRASH_AUTHOR
 } from "./constants.js";
+import {DATA_INTERNAL_FULL} from "./internal_full.js";
+import {DATA_INTERNAL_POST} from "./internal_smart.js";
 import {handleListPage, saveData} from "./helper.js";
 
 (async () => {
