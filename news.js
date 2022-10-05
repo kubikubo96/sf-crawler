@@ -489,7 +489,7 @@ import {handleListPage, saveData, timestamps} from "./helper.js";
     await browser.close();
 
     /*@todo bot*/
-    let timeSleep = 10000;
+    let timeSleep = 3600000; //1 giờ
     /*@todo bot*/
     console.log("\n\x1b[43m************************\x1b[0m");
     /*@todo bot*/
