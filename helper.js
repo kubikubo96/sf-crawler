@@ -1,5 +1,5 @@
-import {LIST_CRAWL} from "./constants.js";
-//import {LIST_CRAWL} from "./data_bot.js";
+// import {LIST_CRAWL} from "./constants.js";
+import {LIST_CRAWL} from "./data_bot.js";
 import axios from "axios";
 
 export async function saveData(data) {
