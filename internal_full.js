@@ -367,33 +367,4 @@ export const DATA_INTERNAL_FULL = [
     name: ' nguyên liệu ',
     url: 'https://kungfucongnghe.com/tag/nguyen-lieu'
   },
-  {
-    name: '  ',
-    url: 'https://kungfucongnghe.com/tag/'
-  },
-  {
-    name: '  ',
-    url: 'https://kungfucongnghe.com/tag/'
-  },
-  {
-    name: '  ',
-    url: 'https://kungfucongnghe.com/tag/'
-  },
-  {
-    name: '  ',
-    url: 'https://kungfucongnghe.com/tag/'
-  },
-  {
-    name: '  ',
-    url: 'https://kungfucongnghe.com/tag/'
-  },
-  {
-    name: '  ',
-    url: 'https://kungfucongnghe.com/tag/'
-  },
-  {
-    name: '  ',
-    url: 'https://kungfucongnghe.com/tag/'
-  },
-];
 ];
