@@ -243,6 +243,12 @@ export const DATA_INTERNAL_POST = [
     key_end: "Windows 11",
     url: "https://kungfucongnghe.com/cach-xoa-du-lieu-bang-tam-tren-windows-11-154609092022.htm",
   },
+  {
+    key_start: "",
+    space: 5,
+    key_end: "",
+    url: "",
+  },
 ];
 
 export const DATA_ELEMENT_INTERNAL_POST = [
@@ -575,6 +581,7 @@ export const LIST_TRASH_LINK = [
   'Mọi thắc mắc vui lòng để lại câu hỏi ngay bên dưới để Điện máy XANH hỗ trợ cho bạn nhé',
   'Đọc thêm bài viết',
   'Tham khảo thêm',
+  '>> Tham khảo:',
 ];
 
 export const LIST_TRASH_P = [
@@ -601,6 +608,7 @@ export const LIST_TRASH_P = [
   'Xem clip Tiktok cách làm lagu pate sườn non:',
   'Mua đồ trang điểm tại Bách hoá XANH để luôn rạng rỡ mỗi ngày:',
   'Lương Thuận – Tổng hợp',
+  'Lợi ích khi học lập trình Python tại FUNiX',
 ];
 
 export const TRASH_AUTHOR = [
