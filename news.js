@@ -362,7 +362,7 @@ import {handleListPage, saveData} from "./helper.js";
                             //Nếu chưa có tag thì thì thêm tag
                             let dataCheck = data.tag.filter(item => item.trim().toLowerCase() === dataInternal.name.trim().toLowerCase());
                             if (dataCheck.length === 0) {
-                              data.tag = [...data.tag, (dataInternal.name.trim().charAt(0).toUpperCase() + dataInternal.name.trim().slice(1))];
+                              data.tag = [...data.tag, dataInternal.name.trim()];
                               countInternal++;
                               addInternal = false;
                               throw BreakException; //xử lý break forEach element
