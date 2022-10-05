@@ -145,9 +145,7 @@ import {handleListPage, saveData} from "./helper.js";
             await page.$$eval(elmImage, (elms) => {
               return elms.forEach((elm) => {
                 elms = [...elms];
-                elm.src = elm.getAttribute("data-src")
-                  ? elm.getAttribute("data-src")
-                  : elm.src;
+                elm.src = elm.getAttribute("data-src") ? elm.getAttribute("data-src") : (elm.getAttribute("data-img-url") ? elm.getAttribute("data-img-url") : elm.src);
               });
             });
           } catch (error) {
