@@ -158,7 +158,6 @@ import {handleListPage, saveData} from "./helper.js";
           //start: thay để nội dung ngắn h2 thành strong
           switch (sourceCrawl) {
             case 'dienmayxanh.com':
-            case 'funix.edu.vn':
               try {
                 await page.$eval(elmSortContent, (elm) => {
                   if (elm) {

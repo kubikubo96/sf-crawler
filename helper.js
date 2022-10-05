@@ -38,9 +38,6 @@ export function handleListPage() {
             case 'bachhoaxanh.com':
                 listPage = listPageTypeA(listPage, LIST_CRAWL[i], dataDefault);
                 break;
-            case 'funix.edu.vn':
-                listPage = listPageTypeB(listPage, LIST_CRAWL[i], dataDefault);
-                break;
         }
     }
 
