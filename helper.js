@@ -1,5 +1,5 @@
-// import {LIST_CRAWL} from "./constants.js";
-import {LIST_CRAWL} from "./data_bot.js";
+import {LIST_CRAWL} from "./constants.js";
+import {LIST_CRAWL_BOT} from "./data_bot.js";
 import axios from "axios";
 
 export async function saveData(data) {
@@ -18,26 +18,32 @@ export async function saveData(data) {
 }
 
 export function handleListPage() {
+
+  let dataCrawl = LIST_CRAWL;
+  if (process.env.HOST_PRODUCT === '1') {
+    dataCrawl = LIST_CRAWL_BOT;
+  }
+
   let listPage = [];
-  for (let i = 0; i < LIST_CRAWL.length; i++) {
+  for (let i = 0; i < dataCrawl.length; i++) {
     let dataDefault = {
-      source: LIST_CRAWL[i].source,
-      elmLinkPost: LIST_CRAWL[i].elmLinkPost,
-      typeLinkPost: LIST_CRAWL[i].typeLinkPost,
-      elmTitle: LIST_CRAWL[i].elmTitle,
-      elmContent: LIST_CRAWL[i].elmContent,
-      elmLink: LIST_CRAWL[i].elmLink,
-      elmImage: LIST_CRAWL[i].elmImage,
-      elmSortContent: LIST_CRAWL[i].elmSortContent,
-      elmTagP: LIST_CRAWL[i].elmTagP,
-      elmTagQuote: LIST_CRAWL[i].elmTagQuote,
-      elmTagFigure: LIST_CRAWL[i].elmTagFigure,
+      source: dataCrawl[i].source,
+      elmLinkPost: dataCrawl[i].elmLinkPost,
+      typeLinkPost: dataCrawl[i].typeLinkPost,
+      elmTitle: dataCrawl[i].elmTitle,
+      elmContent: dataCrawl[i].elmContent,
+      elmLink: dataCrawl[i].elmLink,
+      elmImage: dataCrawl[i].elmImage,
+      elmSortContent: dataCrawl[i].elmSortContent,
+      elmTagP: dataCrawl[i].elmTagP,
+      elmTagQuote: dataCrawl[i].elmTagQuote,
+      elmTagFigure: dataCrawl[i].elmTagFigure,
     };
 
-    switch (LIST_CRAWL[i].source) {
+    switch (dataCrawl[i].source) {
       case 'dienmayxanh.com':
       case 'bachhoaxanh.com':
-        listPage = listPageTypeA(listPage, LIST_CRAWL[i], dataDefault);
+        listPage = listPageTypeA(listPage, dataCrawl[i], dataDefault);
         break;
     }
   }

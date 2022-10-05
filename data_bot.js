@@ -1,4 +1,4 @@
-export const LIST_CRAWL = [
+export const LIST_CRAWL_BOT = [
   {
     url: 'https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=20&url=',
     source: "dienmayxanh.com",
