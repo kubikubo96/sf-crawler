@@ -17,6 +17,10 @@ export async function saveData(data) {
   }
 }
 
+export function timestamps() {
+  return new Date().toLocaleString("en-US", {timeZone: "Asia/Ho_Chi_Minh"});
+}
+
 export function handleListPage() {
 
   let dataCrawl = LIST_CRAWL;

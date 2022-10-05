@@ -10,7 +10,7 @@ import {
 } from "./constants.js";
 import {DATA_INTERNAL_FULL} from "./internal_full.js";
 import {DATA_INTERNAL_POST} from "./internal_smart.js";
-import {handleListPage, saveData} from "./helper.js";
+import {handleListPage, saveData, timestamps} from "./helper.js";
 
 (async () => {
   while (1) { /*@todo bot*/
@@ -486,11 +486,19 @@ import {handleListPage, saveData} from "./helper.js";
       }
     }
 
-    console.log("\n************* !!! FINISH ALL !!!! ************* \n");
-
     await browser.close();
 
-    await page.waitForTimeout(5000) /*@todo bot*/
-    console.log('\n \x1b[33m ! --- SLEEP TIME --- ! \x1b[0m \n'); /*@todo bot*/
+    /*@todo bot*/
+    let timeSleep = 10000;
+    /*@todo bot*/
+    console.log("\n\x1b[43m************************\x1b[0m");
+    /*@todo bot*/
+    console.log('\x1b[43m ! --- SLEEP TIME --- ! \x1b[0m');
+    /*@todo bot*/
+    console.log("\x1b[43m************************\x1b[0m \n");
+    /*@todo bot*/
+    console.log("START TIME: " + "\x1b[31m" + timestamps() + "\x1b[0m" + " - DURATION: " + "\x1b[31m" + timeSleep / 1000 + "\x1b[0m" + 's');
+    /*@todo bot*/
+    await page.waitForTimeout(timeSleep);
   } /*@todo bot*/
 })();

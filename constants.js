@@ -137,6 +137,7 @@ export const LIST_TRASH_LINK = [
   'Bách Hóa Xanh',
   'ĐIỆN MÁY XANH',
   'BÁCH HÓA XANH',
+  'Bách hoá XANH',
   'Mọi thắc mắc vui lòng để lại câu hỏi ngay bên dưới để Điện máy XANH hỗ trợ cho bạn nhé',
   'Đọc thêm bài viết',
   'Tham khảo thêm',
@@ -183,6 +184,7 @@ export const TRASH_AUTHOR = [
   'Bachhoa.com',
   'Điện Máy XANH',
   'Bách Hóa XANH',
+  'Bách hoá XANH',
   'Nguyễn Cúc',
   'FUNiX',
 
