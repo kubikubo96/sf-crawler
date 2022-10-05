@@ -16,45 +16,6 @@ import "dotenv/config";
 
   const dataCrawlList = [
     {
-      path: "tin-cong-nghe-dien-thoai",
-      tag: ["Điện thoại", "Tin công nghệ điện thoại"]
-    },
-    {
-      path: "tu-van-chon-mua-dien-thoai",
-      tag: ["Điện thoại", "Tư vấn chọn mua điện thoại"]
-    },
-    {
-      path: "danh-gia-san-pham",
-      tag: ["Điện thoại", "Đánh giá sản phẩm"]
-    },
-    {
-      path: "tin-cong-nghe-laptop",
-      tag: ["Laptop", "Tin công nghệ laptop"]
-    },
-    {
-      path: "danh-gia-san-pham-laptop",
-      tag: ["Laptop", "Đánh giá sản phẩm laptop"]
-    },
-    {
-      path: "huong-dan-su-dung-laptop",
-      tag: ["Laptop", "Hướng dẫn sử dụng laptop"]
-    },
-    {
-      path: "danh-gia-san-pham-may-tinh-bang",
-      tag: ["Máy tính bảng", "Đánh giá sản phẩm máy tính bảng"]
-    }, {
-      path: "huong-dan-su-dung-may-tinh-bang",
-      tag: ["Máy tính bảng", "Hướng dẫn sử dụng máy tính bảng"]
-    },
-    {
-      path: "danh-gia-san-pham-pc-may-in",
-      tag: ["Máy in", "Đánh gái sản phẩm PC máy in"]
-    },
-    {
-      path: "huong-dan-su-dung-pc-may-in",
-      tag: ["Máy in", "Hướng dẫn sử dụng PC máy in"]
-    },
-    {
       path: "meo-hay-facebook-zalo-youtube",
       tag: ["Mạng xã hội", "Mẹo hay Facebook Zalo Youtube"]
     },
@@ -63,51 +24,12 @@ import "dotenv/config";
       tag: ["Tin học văn phòng"]
     },
     {
-      path: "tu-van-mua-may-anh",
-      tag: ["Máy ảnh", "Tư vấn mua máy ảnh"]
-    },
-    {
       path: "phu-kien",
       tag: ["Phụ kiện"]
     },
     {
-      path: "thuong-hieu-dong-ho",
-      tag: ["Đồng hồ", "Thương hiệu đồng hồ"]
-    },
-    {
       path: "meo-huong-dan-su-dung-dong-ho",
       tag: ["Đồng hồ", "Mẹo hướng dẫn sử dụng dồng hồ"]
-    },
-    {
-      path: "thuat-ngu-dong-ho",
-      tag: ["Đồng hồ", "Thuật ngữ đồng hồ"]
-    },
-    {
-      path: "phan-biet-dong-ho-that-gia",
-      tag: ["Đồng hồ", "Phân biệt đồng hồ thật giả"]
-    },
-    {
-      path: "tu-van-chon-mua-mat-kinh",
-      tag: ["Mắt kính", "Tư vấn chọn mua mắt kính"]
-    },
-    {
-      path: "thuong-hieu-mat-kinh",
-      tag: ["Mắt kính", "Thương hiệu mắt kính"]
-    },
-    {
-      path: "thiet-bi-thong-minh-phong-ngu",
-      tag: ["Thiết bị thông minh", "Thiết bị thông minh phòng ngủ"]
-    },
-    {
-      path: "thiet-bi-thong-minh-phong-khach",
-      tag: ["Thiết bị thông minh", "Thiết bị thông minh phòng khách"]
-    }, {
-      path: "thiet-bi-thong-minh-nha-bep",
-      tag: ["Thiết bị thông minh", "Thiết bị thông minh nhà bếp"]
-    },
-    {
-      path: "thiet-bi-thong-minh-khac",
-      tag: ["Thiết bị thông minh", "Thiết bị thông minh khác"]
     },
   ];
 
