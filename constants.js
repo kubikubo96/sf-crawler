@@ -34,10 +34,6 @@ export const LIST_CRAWL = [
         tag: ["Điện thoại", "Tư vấn chọn mua điện thoại"]
       },
       {
-        path: "danh-gia-san-pham",
-        tag: ["Điện thoại", "Đánh giá sản phẩm"]
-      },
-      {
         path: "tin-cong-nghe-laptop",
         tag: ["Laptop", "Tin công nghệ laptop"]
       },
