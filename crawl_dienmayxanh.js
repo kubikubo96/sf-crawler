@@ -643,7 +643,8 @@ import "dotenv/config";
         data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
 
         const lengthTitle = data.title.length;
-        const lengthDescription = 145 - lengthTitle;
+        //const lengthDescription = 145 - lengthTitle;
+        const lengthDescription = 150;
 
         //thêm seo tag description
         data.seo_tag_description = data.title;
