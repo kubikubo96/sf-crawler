@@ -15,7 +15,7 @@ import "dotenv/config";
 
   const urlLogin = process.env.HOST_ADMIN + "wp-login.php?loggedout=true&wp_lang=vi";
 
-  const urlPostPrivate = process.env.HOST_ADMIN + "wp-admin/edit.php?post_status=private&m=" + process.env.TIME_AUTO_UPDATE;
+  const urlPostPrivate = process.env.HOST_ADMIN + "wp-admin/edit.php?post_status=private";
 
   const urlPost = process.env.HOST_ADMIN + "wp-admin/post.php?action=edit&post=";
 
