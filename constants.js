@@ -1,7 +1,7 @@
 export const LIST_CRAWL = [
   {
-    url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageSize=50',
-    pageIndex: 10,
+    url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageSize=1',
+    pageIndex: 0,
     source: "bachhoaxanh.com",
     elmLinkPost: "li.news > a",
     typeLinkPost: 'path',
@@ -31,82 +31,82 @@ export const LIST_CRAWL = [
         path: "2090",
         tag: ["Món ngon mỗi ngày", "Địa điểm ăn uống"],
       },
-      {
-        path: "2102",
-        tag: ["Món ngon mỗi ngày", "Chế độ ăn uống"],
-      },
-      {
-        path: "2109",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo vặt gia đình"],
-      },
-      {
-        path: "2110",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo vặt bếp núc"],
-      },
-      {
-        path: "2111",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo làm đẹp"],
-      },
-      {
-        path: "2112",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo chi tiêu"],
-      },
-      {
-        path: "2113",
-        tag: ["Mẹo vặt cuộc sống", "Phong thủy"],
-      },
-      {
-        path: "2114",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo vặt công nghệ"],
-      },
-      {
-        path: "2115",
-        tag: ["Mẹo vặt cuộc sống", "Thông tin cần biết"],
-      },
-      {
-        path: "2102",
-        tag: ["Sống khỏe", "Chế độ ăn uống"],
-      },
-      {
-        path: "2103",
-        tag: ["Sống khỏe", "Sống xanh"],
-      },
-      {
-        path: "2348",
-        tag: ["Sống khỏe", "Mẹ và bé"],
-      },
-      {
-        path: "2094",
-        tag: ["Làm đẹp", "Thời trang"],
-      },
-      {
-        path: "2095",
-        tag: ["Làm đẹp", "Dưỡng da"],
-      },
-      {
-        path: "2096",
-        tag: ["Làm đẹp", "Trang điểm"],
-      },
-      {
-        path: "2111",
-        tag: ["Làm đẹp", "Mẹo làm đẹp"],
-      },
-      {
-        path: "2089",
-        tag: ["Ăn gì chơi gì", "Địa điểm du lịch"],
-      },
-      {
-        path: "2090",
-        tag: ["Ăn gì chơi gì", "Địa điểm ăn uống"],
-      },
-      {
-        path: "2091",
-        tag: ["Ăn gì chơi gì", "Phim hay"],
-      },
-      {
-        path: "2092",
-        tag: ["Ăn gì chơi gì", "Nhạc hay"],
-      },
+      // {
+      //   path: "2102",
+      //   tag: ["Món ngon mỗi ngày", "Chế độ ăn uống"],
+      // },
+      // {
+      //   path: "2109",
+      //   tag: ["Mẹo vặt cuộc sống", "Mẹo vặt gia đình"],
+      // },
+      // {
+      //   path: "2110",
+      //   tag: ["Mẹo vặt cuộc sống", "Mẹo vặt bếp núc"],
+      // },
+      // {
+      //   path: "2111",
+      //   tag: ["Mẹo vặt cuộc sống", "Mẹo làm đẹp"],
+      // },
+      // {
+      //   path: "2112",
+      //   tag: ["Mẹo vặt cuộc sống", "Mẹo chi tiêu"],
+      // },
+      // {
+      //   path: "2113",
+      //   tag: ["Mẹo vặt cuộc sống", "Phong thủy"],
+      // },
+      // {
+      //   path: "2114",
+      //   tag: ["Mẹo vặt cuộc sống", "Mẹo vặt công nghệ"],
+      // },
+      // {
+      //   path: "2115",
+      //   tag: ["Mẹo vặt cuộc sống", "Thông tin cần biết"],
+      // },
+      // {
+      //   path: "2102",
+      //   tag: ["Sống khỏe", "Chế độ ăn uống"],
+      // },
+      // {
+      //   path: "2103",
+      //   tag: ["Sống khỏe", "Sống xanh"],
+      // },
+      // {
+      //   path: "2348",
+      //   tag: ["Sống khỏe", "Mẹ và bé"],
+      // },
+      // {
+      //   path: "2094",
+      //   tag: ["Làm đẹp", "Thời trang"],
+      // },
+      // {
+      //   path: "2095",
+      //   tag: ["Làm đẹp", "Dưỡng da"],
+      // },
+      // {
+      //   path: "2096",
+      //   tag: ["Làm đẹp", "Trang điểm"],
+      // },
+      // {
+      //   path: "2111",
+      //   tag: ["Làm đẹp", "Mẹo làm đẹp"],
+      // },
+      // {
+      //   path: "2089",
+      //   tag: ["Ăn gì chơi gì", "Địa điểm du lịch"],
+      // },
+      // {
+      //   path: "2090",
+      //   tag: ["Ăn gì chơi gì", "Địa điểm ăn uống"],
+      // },
+      // {
+      //   path: "2091",
+      //   tag: ["Ăn gì chơi gì", "Phim hay"],
+      // },
+      // {
+      //   path: "2092",
+      //   tag: ["Ăn gì chơi gì", "Nhạc hay"],
+      // },
     ],
   },
 ];
@@ -145,6 +145,7 @@ export const LIST_TRASH_LINK = [
   'Tham khảo thêm',
   '>> Tham khảo:',
   '<a href="" target="_blank"></a>',
+  'Xem clip Tiktok',
 ];
 
 export const LIST_TRASH_P = [
@@ -175,6 +176,7 @@ export const LIST_TRASH_P = [
   'tại Bách hóa XANH',
   'tại Bách hoá XANH',
   '<a href="" target="_blank"></a>',
+  'Xem clip Tiktok',
 ];
 
 export const TRASH_AUTHOR = [
@@ -207,7 +209,7 @@ export const ELM_TRASH = [
   '.generate-productbox', '.generate-gallery', '.mce-preview-object', '.mce-object-iframe', 'p iframe', '.top-news', 'ins', 'box_above',
   '.adbro-sm', '.adbro-xs', 'adbro-bottom', '.mys-wrapper', '.adbro-satellite', '.adbro-animated', '.ez-toc-container', '.newscare',
   '#attachment_60985', '.kk-star-ratings', 'ul > li > a', '.ez-toc-title', '#player', '.html5-video-container', '.bxindexknh', 'tiktok',
-  'productbox', '.ad-even', 'p.title > b', '.hiddenbxindex',
+  'productbox', '.ad-even', 'p.title > b', '.hiddenbxindex', '.tiktokEmbed0', '.hidden',
 
 ];
 

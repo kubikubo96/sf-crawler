@@ -98,11 +98,11 @@ import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
         let numberPostCrawled = 0; // number bài đã crawl
 
         //let numberPost = listPost.length - 1 - totalCrawled; // tính theo totalCrawled
-        let numberPost = listPost.length ? (listPost.length - 1) : 0;
+        let numberPost = listPost.length ? (listPost.length - 1) : -1;
         //numberPost = numberPost - (numberPost - numberPostCrawled); // tính theo numberPostCrawled
         let minPost = 0;
 
-        if (numberPost <= 0) {
+        if (numberPost < 0) {
           numberPage = numberPage + 1;
           continue;
         }
@@ -166,6 +166,16 @@ import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
               tag: listPage[numberPage].tag,
               seo_tag_description: "",
             };
+
+            //start: remove trash img
+            await page.$$eval(elmImage, (elms) => {
+              return elms.forEach((elm) => {
+                if (elm.src?.includes("base64")) {
+                  elm.remove();
+                }
+              });
+            });
+            //end: remove trash img
 
             //start: replace src image
             try {
