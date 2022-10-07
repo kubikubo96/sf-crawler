@@ -17,6 +17,14 @@ export async function saveData(data) {
   }
 }
 
+export function oneWhileSpace(string) {
+  return string.replace(/\s\s+/g, ' ');
+}
+
+export function timestamps() {
+  return new Date().toLocaleString("en-US", {timeZone: "Asia/Ho_Chi_Minh"});
+}
+
 export function handleListPage() {
 
   let dataCrawl = LIST_CRAWL;
@@ -43,8 +51,10 @@ export function handleListPage() {
 
     switch (dataCrawl[i].source) {
       case 'dienmayxanh.com':
+        listPage = listPageTypeB(listPage, dataCrawl[i], dataDefault);
+        break;
       case 'bachhoaxanh.com':
-        listPage = listPageTypeA(listPage, dataCrawl[i], dataDefault);
+        listPage = listPageTypeC(listPage, dataCrawl[i], dataDefault);
         break;
     }
   }
@@ -52,17 +62,7 @@ export function handleListPage() {
   return listPage;
 }
 
-export function listPageTypeA(listPage, itemI, dataDefault) {
-  for (let j = itemI.data.length - 1; j >= 0; j--) {
-    let temp = {...dataDefault};
-    temp.url = itemI.url + itemI.data[j].path;
-    temp.tag = itemI.data[j].tag;
-    listPage.push(temp);
-  }
-  return listPage;
-}
-
-export function listPageTypeB(listPage, ItemI, dataDefault) {
+export function listPageTypeA(listPage, ItemI, dataDefault) {
   for (let j = ItemI.max; j >= 1; j--) {
     let temp = {...dataDefault};
     temp.url = ItemI.url + j;
@@ -72,10 +72,26 @@ export function listPageTypeB(listPage, ItemI, dataDefault) {
   return listPage;
 }
 
-export function oneWhileSpace(string) {
-  return string.replace(/\s\s+/g, ' ');
+
+export function listPageTypeB(listPage, itemI, dataDefault) {
+  for (let j = itemI.data.length - 1; j >= 0; j--) {
+    let temp = {...dataDefault};
+    temp.url = itemI.url + itemI.data[j].path;
+    temp.tag = itemI.data[j].tag;
+    listPage.push(temp);
+  }
+  return listPage;
 }
 
-export function timestamps() {
-  return new Date().toLocaleString("en-US", {timeZone: "Asia/Ho_Chi_Minh"});
+export function listPageTypeC(listPage, itemI, dataDefault) {
+  // 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageSize=50'
+  for (let i = itemI.data.length - 1; i >= 0; i--) {
+    for (let j = itemI.pageIndex; j >= 0; j++) {
+      let temp = {...dataDefault};
+      temp.url = itemI.url + "&cateId=" + itemI.data[i].path + "&pageIndex=" + j;
+      temp.tag = itemI.data[i].tag;
+      listPage.push(temp);
+    }
+  }
+  return listPage;
 }

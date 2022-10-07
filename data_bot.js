@@ -49,7 +49,8 @@ export const LIST_CRAWL_BOT = [
     ],
   },
   {
-    url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageIndex=0&pageSize=5&cateId=',
+    url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageSize=50',
+    pageIndex: 10,
     source: "bachhoaxanh.com",
     elmLinkPost: "li.news > a",
     typeLinkPost: 'path',
