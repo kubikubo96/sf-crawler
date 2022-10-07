@@ -120,7 +120,8 @@ import {handleListPage, saveData, timestamps} from "./helper.js";
             const elmContent = listPage[numberPage].elmContent;
             const elmLink = listPage[numberPage].elmLink;
             const elmImage = listPage[numberPage].elmImage;
-            const elmSortContent = listPage[numberPage].elmSortContent;
+            const elmH1 = listPage[numberPage].elmH1;
+            const elmH2 = listPage[numberPage].elmH2;
             const elmTagP = listPage[numberPage].elmTagP;
             const elmTagQuote = listPage[numberPage].elmTagQuote;
             const elmTagFigure = listPage[numberPage].elmTagFigure;
@@ -154,12 +155,12 @@ import {handleListPage, saveData, timestamps} from "./helper.js";
             }
             //end: replace src image
 
-            //start: thay để nội dung ngắn h2 thành strong
+            //start: thay để nội dung ngắn h1,2
             switch (sourceCrawl) {
               case 'dienmayxanh.com':
               case 'bachhoaxanh.com':
                 try {
-                  await page.$eval(elmSortContent, (elm) => {
+                  await page.$eval(elmH1, (elm) => {
                     if (elm) {
                       elm.outerHTML = elm.textContent
                     }
@@ -167,9 +168,18 @@ import {handleListPage, saveData, timestamps} from "./helper.js";
                 } catch (error) {
                   console.log(error)
                 }
+                try {
+                  await page.$eval(elmH2, (elm) => {
+                    if (elm) {
+                      elm.outerHTML = '<strong>' + elm.textContent + '</strong>'
+                    }
+                  });
+                } catch (error) {
+                  console.log(error)
+                }
                 break;
             }
-            //end: thay để nội dung ngắn h2 thành strong
+            //end: thay để nội dung ngắn h1,2
 
 
             //start: remove trash
@@ -489,17 +499,17 @@ import {handleListPage, saveData, timestamps} from "./helper.js";
 
     await browser.close();
 
-    /*@todo bot*/
+    if (process.env.HOST_PRODUCT === '0') {
+      break;
+    }
+
+    //start: bot
     let timeSleep = 3600000 * 4; //4 giờ
-    /*@todo bot*/
     console.log("\n\x1b[43m************************\x1b[0m");
-    /*@todo bot*/
     console.log('\x1b[43m ! --- SLEEP TIME --- ! \x1b[0m');
-    /*@todo bot*/
     console.log("\x1b[43m************************\x1b[0m \n");
-    /*@todo bot*/
     console.log("START TIME: " + "\x1b[31m" + timestamps() + "\x1b[0m" + " - DURATION: " + "\x1b[31m" + timeSleep / 1000 + "\x1b[0m" + 's');
-    /*@todo bot*/
     await page.waitForTimeout(timeSleep);
-  } /*@todo bot*/
+    //end: bot
+  }
 })();

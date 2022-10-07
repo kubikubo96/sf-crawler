@@ -8,7 +8,8 @@ export const LIST_CRAWL = [
     elmContent: ".boxcontent",
     elmLink: ".boxcontent a",
     elmImage: ".boxcontent img",
-    elmSortContent: ".boxcontent h2",
+    elmH1: ".boxcontent h1",
+    elmH2: ".boxcontent h2",
     elmTagP: ".boxcontent > p",
     elmTagQuote: ".boxcontent > blockquote",
     elmTagFigure: ".boxcontent > figure",
@@ -170,6 +171,7 @@ export const LIST_TRASH_P = [
   'Lương Thuận – Tổng hợp',
   'Lợi ích khi học lập trình Python tại FUNiX',
   'tại Bách hóa XANH',
+  'tại Bách hoá XANH',
 ];
 
 export const TRASH_AUTHOR = [
@@ -198,7 +200,7 @@ export const ELM_TRASH = [
   '.generate-productbox', '.generate-gallery', '.mce-preview-object', '.mce-object-iframe', 'p iframe', '.top-news', 'ins', 'box_above',
   '.adbro-sm', '.adbro-xs', 'adbro-bottom', '.mys-wrapper', '.adbro-satellite', '.adbro-animated', '.ez-toc-container', '.newscare',
   '#attachment_60985', '.kk-star-ratings', 'ul > li > a', '.ez-toc-title', '#player', '.html5-video-container', '.bxindexknh', 'tiktok',
-  'productbox', '.ad-even', 'p.title > p', '.hiddenbxindex',
+  'productbox', '.ad-even', 'p.title > b', '.hiddenbxindex',
 
 ];
 
