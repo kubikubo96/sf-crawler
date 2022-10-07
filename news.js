@@ -16,7 +16,7 @@ import {BLOCKED_ADS, MINIMAL_ARGS} from "./minimal.js";
 (async () => {
   while (1) { /*@todo bot*/
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: MINIMAL_ARGS,
       userDataDir: './cache'
     });
