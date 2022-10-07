@@ -431,8 +431,8 @@ import {handleListPage, saveData, timestamps} from "./helper.js";
             data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
 
             const lengthTitle = data.title.length;
-            //const lengthDescription = 145 - lengthTitle;
-            const lengthDescription = 145;
+            //const lengthDescription = 140 - lengthTitle;
+            const lengthDescription = 140;
 
             //thêm seo tag description
 
