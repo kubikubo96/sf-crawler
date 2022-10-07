@@ -143,6 +143,7 @@ export const LIST_TRASH_LINK = [
   'Đọc thêm bài viết',
   'Tham khảo thêm',
   '>> Tham khảo:',
+  '<a href="" target="_blank"></a>',
 ];
 
 export const LIST_TRASH_P = [
@@ -172,6 +173,7 @@ export const LIST_TRASH_P = [
   'Lợi ích khi học lập trình Python tại FUNiX',
   'tại Bách hóa XANH',
   'tại Bách hoá XANH',
+  '<a href="" target="_blank"></a>',
 ];
 
 export const TRASH_AUTHOR = [
