@@ -169,6 +169,7 @@ export const LIST_TRASH_P = [
   'Mua đồ trang điểm tại Bách hoá XANH để luôn rạng rỡ mỗi ngày:',
   'Lương Thuận – Tổng hợp',
   'Lợi ích khi học lập trình Python tại FUNiX',
+  'tại Bách hóa XANH',
 ];
 
 export const TRASH_AUTHOR = [
@@ -197,7 +198,7 @@ export const ELM_TRASH = [
   '.generate-productbox', '.generate-gallery', '.mce-preview-object', '.mce-object-iframe', 'p iframe', '.top-news', 'ins', 'box_above',
   '.adbro-sm', '.adbro-xs', 'adbro-bottom', '.mys-wrapper', '.adbro-satellite', '.adbro-animated', '.ez-toc-container', '.newscare',
   '#attachment_60985', '.kk-star-ratings', 'ul > li > a', '.ez-toc-title', '#player', '.html5-video-container', '.bxindexknh', 'tiktok',
-  'productbox', '.ad-even',
+  'productbox', '.ad-even', 'p.title > p'
 
 ];
 

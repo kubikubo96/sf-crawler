@@ -157,6 +157,7 @@ import {handleListPage, saveData, timestamps} from "./helper.js";
             //start: thay để nội dung ngắn h2 thành strong
             switch (sourceCrawl) {
               case 'dienmayxanh.com':
+              case 'bachhoaxanh.com':
                 try {
                   await page.$eval(elmSortContent, (elm) => {
                     if (elm) {
