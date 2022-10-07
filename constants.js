@@ -198,7 +198,7 @@ export const ELM_TRASH = [
   '.generate-productbox', '.generate-gallery', '.mce-preview-object', '.mce-object-iframe', 'p iframe', '.top-news', 'ins', 'box_above',
   '.adbro-sm', '.adbro-xs', 'adbro-bottom', '.mys-wrapper', '.adbro-satellite', '.adbro-animated', '.ez-toc-container', '.newscare',
   '#attachment_60985', '.kk-star-ratings', 'ul > li > a', '.ez-toc-title', '#player', '.html5-video-container', '.bxindexknh', 'tiktok',
-  'productbox', '.ad-even', 'p.title > p'
+  'productbox', '.ad-even', 'p.title > p', '.hiddenbxindex',
 
 ];
 
