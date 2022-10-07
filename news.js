@@ -76,17 +76,21 @@ import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
         let elmLinkPost = listPage[numberPage].elmLinkPost;
         let typeLinkPost = listPage[numberPage].typeLinkPost;
         const listPost = await page.evaluate((sourceCrawl, elmLinkPost, typeLinkPost) => {
-          let links = document.querySelectorAll(elmLinkPost);
-          links = [...links];
-          switch (typeLinkPost) {
-            case 'path':
-              return links.map((link) => ({
-                url: 'https://' + sourceCrawl + link.getAttribute("href"),
-              }));
-            case 'full':
-              return links.map((link) => ({
-                url: link.getAttribute("href"),
-              }));
+          try {
+            let links = document.querySelectorAll(elmLinkPost);
+            links = [...links];
+            switch (typeLinkPost) {
+              case 'path':
+                return links.map((link) => ({
+                  url: 'https://' + sourceCrawl + link.getAttribute("href"),
+                }));
+              case 'full':
+                return links.map((link) => ({
+                  url: link.getAttribute("href"),
+                }));
+            }
+          } catch (error) {
+            return [];
           }
         }, sourceCrawl, elmLinkPost, typeLinkPost);
 
@@ -442,7 +446,6 @@ import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
               data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
               data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
             } catch (error) {
-              console.log(error);
               console.log(error);
               await browser.close();
               break;
