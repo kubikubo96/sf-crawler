@@ -84,9 +84,8 @@ export function listPageTypeB(listPage, itemI, dataDefault) {
 }
 
 export function listPageTypeC(listPage, itemI, dataDefault) {
-  // 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageSize=50'
   for (let i = itemI.data.length - 1; i >= 0; i--) {
-    for (let j = itemI.pageIndex; j >= 0; j++) {
+    for (let j = itemI.pageIndex; j >= 0; j--) {
       let temp = {...dataDefault};
       temp.url = itemI.url + "&cateId=" + itemI.data[i].path + "&pageIndex=" + j;
       temp.tag = itemI.data[i].tag;

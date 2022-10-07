@@ -94,9 +94,14 @@ import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
         let numberPostCrawled = 0; // number bài đã crawl
 
         //let numberPost = listPost.length - 1 - totalCrawled; // tính theo totalCrawled
-        let numberPost = listPost.length - 1;
+        let numberPost = listPost.length ? (listPost.length - 1) : 0;
         //numberPost = numberPost - (numberPost - numberPostCrawled); // tính theo numberPostCrawled
         let minPost = 0;
+
+        if (numberPost <= 0) {
+          numberPage = numberPage + 1;
+          continue;
+        }
 
         /**
          * Lặp danh sách bài viết
