@@ -11,25 +11,31 @@ import {
 import {DATA_INTERNAL_FULL} from "./internal_full.js";
 import {DATA_INTERNAL_POST} from "./internal_smart.js";
 import {handleListPage, saveData, timestamps} from "./helper.js";
+import {BLOCKED_ADS, MINIMAL_ARGS} from "./minimal.js";
 
 (async () => {
   while (1) { /*@todo bot*/
-    //set puppeteer
     const browser = await puppeteer.launch({
-      headless: true,
-      args: [
-        "--disable-site-isolation-trials",
-        "--window-size=1900,1000",
-        "--lang=en-US,en",
-        "--no-sandbox",
-        "--disable-setuid-sandbox"
-      ],
+      headless: false,
+      args: MINIMAL_ARGS,
+      userDataDir: process.env.DIR_CACHE_PUPPETEER,
     });
     const page = await browser.newPage();
 
     await page.setViewport({
       width: 1920,
       height: 1080,
+    });
+
+    await page.setRequestInterception(true);
+
+    page.on('request', request => {
+      const url = request.url()
+      if (BLOCKED_ADS.some(domain => url.includes(domain))) {
+        request.abort();
+      } else {
+        request.continue();
+      }
     });
 
     // data crawl
@@ -422,6 +428,8 @@ import {handleListPage, saveData, timestamps} from "./helper.js";
               data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
             } catch (error) {
               console.log(error);
+              console.log(error);
+              await browser.close();
               break;
             }
 
