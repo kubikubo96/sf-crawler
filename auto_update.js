@@ -1,10 +1,12 @@
 import puppeteer from "puppeteer";
 import "dotenv/config";
+import {MINIMAL_ARGS} from "./minimal";
 
 (async () => {
   const browser = await puppeteer.launch({
-    headless: false,
-    args: ["--window-size=1900,1000"],
+    headless: true,
+    args: MINIMAL_ARGS,
+    userDataDir: './cache'
   });
   const page = await browser.newPage();
 
