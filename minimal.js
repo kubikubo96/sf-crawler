@@ -37,7 +37,8 @@ export const MINIMAL_ARGS = [
   '--window-size=1900,1000',
 ];
 
-export const BLOCKED_ADS = [
+export const BLOCKED_URL = [
   'googlesyndication.com',
   'adservice.google.com',
+  'youtube.com'
 ];

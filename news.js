@@ -6,12 +6,13 @@ import {
   ELM_TRASH_PARENT,
   LIST_TRASH_LINK,
   LIST_TRASH_P,
-  TRASH_AUTHOR
+  TRASH_AUTHOR,
+  TRASH_TEXT,
 } from "./constants.js";
 import {DATA_INTERNAL_FULL} from "./internal_full.js";
 import {DATA_INTERNAL_POST} from "./internal_smart.js";
 import {handleListPage, saveData, timestamps} from "./helper.js";
-import {BLOCKED_ADS, MINIMAL_ARGS} from "./minimal.js";
+import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
 
 (async () => {
   while (1) { /*@todo bot*/
@@ -31,7 +32,16 @@ import {BLOCKED_ADS, MINIMAL_ARGS} from "./minimal.js";
 
     page.on('request', request => {
       const url = request.url()
-      if (BLOCKED_ADS.some(domain => url.includes(domain))) {
+      if (
+        BLOCKED_URL.some(domain => url.includes(domain)) ||
+        request.resourceType() === 'video' ||
+        request.resourceType() === 'audio' ||
+        request.resourceType() === 'embed' ||
+        request.resourceType() === 'iframe' ||
+        request.resourceType() === 'frame' ||
+        request.resourceType() === 'xslt' ||
+        request.resourceType() === 'XSLT'
+      ) {
         request.abort();
       } else {
         request.continue();
@@ -457,6 +467,12 @@ import {BLOCKED_ADS, MINIMAL_ARGS} from "./minimal.js";
               data.content = data.content.replaceAll(item, "KungFuCongNghe.Com");
             });
             //end: replace Tên trang
+
+            //start: remove trash text
+            TRASH_TEXT.forEach((item) => {
+              data.content = data.content.replaceAll(item, "");
+            });
+            //end: replace trash text
 
             /**
              * Save data

@@ -195,6 +195,10 @@ export const TRASH_AUTHOR = [
 
 ];
 
+export const TRASH_TEXT = [
+  '<a href="" target="_blank"></a>'
+];
+
 export const ELM_TRASH = [
   'iframe', '.top-news', '.adsbygoogle', '.adsense', '.in-article', '.adszone', '.adstopimage', '.adsviewed', '.generate-promotion-products',
   'div.toc', 'iframe.lazy', '.bannerAdNews', '.clrindexknh', '.bxindexknh', '#QuickViewId', '.owl-carousel', '.infobox', '.TitleBoxSp',
