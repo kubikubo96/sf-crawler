@@ -18,7 +18,7 @@ import {BLOCKED_ADS, MINIMAL_ARGS} from "./minimal.js";
     const browser = await puppeteer.launch({
       headless: false,
       args: MINIMAL_ARGS,
-      userDataDir: process.env.DIR_CACHE_PUPPETEER,
+      userDataDir: './cache'
     });
     const page = await browser.newPage();
 

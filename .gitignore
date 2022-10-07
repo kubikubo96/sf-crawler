@@ -5,3 +5,5 @@ tmp/*
 errors/*
 package-lock.json
 data.json
+cache/*
+temp/*
