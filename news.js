@@ -10,7 +10,7 @@ import {
 } from "./constants.js";
 import {DATA_INTERNAL_FULL} from "./internal_full.js";
 import {DATA_INTERNAL_POST} from "./internal_smart.js";
-import {handleListPage, saveData, timestamps} from "./helper.js";
+import {handleListPage, oneWhileSpace, saveData, timestamps} from "./helper.js";
 
 (async () => {
   while (1) { /*@todo bot*/
@@ -432,7 +432,7 @@ import {handleListPage, saveData, timestamps} from "./helper.js";
               if (lengthDescription > 0) {
                 /*data.seo_tag_description + '. ' + */
                 data.seo_tag_description = await page.$$eval(elmContent, (elm, lengthDescription) => {
-                  return elm[0].textContent.slice(0, Number(lengthDescription)).trim() + "..."
+                  return oneWhileSpace(elm[0].textContent).slice(0, Number(lengthDescription)).trim() + "..."
                 }, lengthDescription);
               }
             } catch (error) {

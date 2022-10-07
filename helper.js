@@ -17,10 +17,6 @@ export async function saveData(data) {
   }
 }
 
-export function timestamps() {
-  return new Date().toLocaleString("en-US", {timeZone: "Asia/Ho_Chi_Minh"});
-}
-
 export function handleListPage() {
 
   let dataCrawl = LIST_CRAWL;
@@ -73,4 +69,12 @@ export function listPageTypeB(listPage, ItemI, dataDefault) {
     listPage.push(temp);
   }
   return listPage;
+}
+
+export function oneWhileSpace(string) {
+  return string.replace(/\s\s+/g, ' ');
+}
+
+export function timestamps() {
+  return new Date().toLocaleString("en-US", {timeZone: "Asia/Ho_Chi_Minh"});
 }
