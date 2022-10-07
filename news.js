@@ -166,6 +166,7 @@ import {handleListPage, saveData, timestamps} from "./helper.js";
                     }
                   });
                 } catch (error) {
+                  //console.log(error)
                 }
                 try {
                   await page.$eval(elmH2, (elm) => {
@@ -174,11 +175,11 @@ import {handleListPage, saveData, timestamps} from "./helper.js";
                     }
                   });
                 } catch (error) {
+                  //console.log(error)
                 }
                 break;
             }
             //end: thay để nội dung ngắn h1,2
-
 
             //start: remove trash
             try {
