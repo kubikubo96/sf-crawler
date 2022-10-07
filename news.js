@@ -155,19 +155,10 @@ import {handleListPage, saveData, timestamps} from "./helper.js";
             }
             //end: replace src image
 
-            //start: thay để nội dung ngắn h1,2
+            //start: thay để nội dung ngắn h2
             switch (sourceCrawl) {
               case 'dienmayxanh.com':
               case 'bachhoaxanh.com':
-                try {
-                  await page.$eval(elmH1, (elm) => {
-                    if (elm) {
-                      elm.outerHTML = elm.textContent
-                    }
-                  });
-                } catch (error) {
-                  //console.log(error)
-                }
                 try {
                   await page.$eval(elmH2, (elm) => {
                     if (elm) {
@@ -426,8 +417,13 @@ import {handleListPage, saveData, timestamps} from "./helper.js";
             //end: add internal link post
 
             await page.waitForTimeout(2000);
-            data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
-            data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
+            try {
+              data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
+              data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
+            } catch (error) {
+              console.log(error);
+              break;
+            }
 
             const lengthTitle = data.title.length;
             //const lengthDescription = 140 - lengthTitle;
