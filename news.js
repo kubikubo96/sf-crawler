@@ -64,7 +64,7 @@ import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
             waitUntil: ["networkidle2"],
           });
         } catch (error) {
-          console.log(error)
+          console.log(error);
         }
         const sourceCrawl = listPage[numberPage].source;
 
@@ -457,7 +457,6 @@ import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
               data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
             } catch (error) {
               console.log(error);
-              await browser.close();
               break;
             }
 

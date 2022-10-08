@@ -1,7 +1,7 @@
 export const LIST_CRAWL = [
   {
     url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageSize=50',
-    pageIndex: 2,
+    pageIndex: 1,
     source: "bachhoaxanh.com",
     elmLinkPost: "li.news > a",
     typeLinkPost: 'path',
@@ -15,58 +15,6 @@ export const LIST_CRAWL = [
     elmTagQuote: ".boxcontent > blockquote",
     elmTagFigure: ".boxcontent > figure",
     data: [
-      {
-        path: "2086",
-        tag: ["Món ngon mỗi ngày", "Công thức nấu ăn"],
-      },
-      {
-        path: "2110",
-        tag: ["Món ngon mỗi ngày", "Mẹo vặt bếp núc"],
-      },
-      {
-        path: "2087",
-        tag: ["Món ngon mỗi ngày", "Đặc sản vùng miền"],
-      },
-      {
-        path: "2090",
-        tag: ["Món ngon mỗi ngày", "Địa điểm ăn uống"],
-      },
-      {
-        path: "2102",
-        tag: ["Món ngon mỗi ngày", "Chế độ ăn uống"],
-      },
-      {
-        path: "2109",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo vặt gia đình"],
-      },
-      {
-        path: "2110",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo vặt bếp núc"],
-      },
-      {
-        path: "2111",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo làm đẹp"],
-      },
-      {
-        path: "2112",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo chi tiêu"],
-      },
-      {
-        path: "2113",
-        tag: ["Mẹo vặt cuộc sống", "Phong thủy"],
-      },
-      {
-        path: "2114",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo vặt công nghệ"],
-      },
-      {
-        path: "2115",
-        tag: ["Mẹo vặt cuộc sống", "Thông tin cần biết"],
-      },
-      {
-        path: "2102",
-        tag: ["Sống khỏe", "Chế độ ăn uống"],
-      },
       {
         path: "2103",
         tag: ["Sống khỏe", "Sống xanh"],
