@@ -15,6 +15,12 @@ import {handleListPage, saveData, timestamps} from "./helper.js";
 import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
 
 (async () => {
+
+  // data crawl
+  let listPage = handleListPage();
+  const limitPage = listPage.length;
+  let numberPage = 0;
+
   while (1) { /*@todo bot*/
     const browser = await puppeteer.launch({
       headless: true,
@@ -47,11 +53,6 @@ import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
         request.continue();
       }
     });
-
-    // data crawl
-    let listPage = handleListPage();
-    const limitPage = listPage.length;
-    let numberPage = 0;
 
     /**
      * Vòng lặp danh sách trang
@@ -111,15 +112,15 @@ import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
          * Lặp danh sách bài viết
          */
         while (1) {
-          console.log('Number Post: \x1b[33m' + numberPost + ' \x1b[0m');
-          console.log('Url Crawl: \x1b[32m' + listPost[numberPost].url + ' \x1b[0m');
           try {
+            console.log('Number Post: \x1b[33m' + numberPost + ' \x1b[0m');
+            console.log('Url Crawl: \x1b[32m' + listPost[numberPost].url + ' \x1b[0m');
             try {
               await page.goto(listPost[numberPost].url, {
                 waitUntil: ["networkidle2"],
               });
             } catch (error) {
-              console.log(error)
+              console.log(error);
             }
             await page.waitForTimeout(3000);
 
@@ -456,8 +457,7 @@ import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
               data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
               data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
             } catch (error) {
-              console.log(error);
-              break;
+              console.log(error)
             }
 
             const lengthTitle = data.title.length;
