@@ -1,6 +1,6 @@
 import puppeteer from "puppeteer";
 import "dotenv/config";
-import {MINIMAL_ARGS} from "./minimal";
+import {MINIMAL_ARGS} from "./minimal.js";
 
 (async () => {
   const browser = await puppeteer.launch({
