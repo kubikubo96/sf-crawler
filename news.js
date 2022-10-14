@@ -544,7 +544,7 @@ import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
     console.log("\n\x1b[43m************************\x1b[0m");
     console.log('\x1b[43m ! --- SLEEP TIME --- ! \x1b[0m');
     console.log("\x1b[43m************************\x1b[0m \n");
-    console.log("START TIME: " + "\x1b[31m" + timestamps() + "\x1b[0m" + " - DURATION: " + "\x1b[31m" + timeSleep / 1000 + "\x1b[0m" + 's');
+    console.log("START TIME: " + "\x1b[33m" + timestamps() + "\x1b[0m" + " - DURATION: " + "\x1b[31m" + timeSleep / 1000 + "\x1b[0m" + 's');
     await page.waitForTimeout(timeSleep);
     //end: bot
   }
