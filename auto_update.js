@@ -102,12 +102,26 @@ import {MINIMAL_ARGS} from "./minimal.js";
           }
           console.log(" \n PUBLISH post " + number_id + ": " + post_ids[number_id]);
 
+          //save remote image
+          try {
+            console.log("Save Remote Image")
+            await page.click('#save-remote-images-button');
+            await page.waitForTimeout(1000 * 60 * 10);
+            await page.reload();
+            try {
+              await page.waitForNavigation({timeout: 10000});
+            } catch (error) {
+            }
+          } catch (error) {
+
+          }
+
           try {
             //add category
-            //await page.$eval("#in-category-1", (el) => el.click()); //Tin tức
-            // await page.$eval("#in-category-4", (el) => el.click()); //Top kỳ thú
-            // await page.$eval("#in-category-7", (el) => el.click()); //Thợ công nghệ
-            // await page.$eval("#in-category-63", (el) => el.click()); //Đời sống
+            /*await page.$eval("#in-category-1", (el) => el.click()); //Tin tức
+            await page.$eval("#in-category-4", (el) => el.click()); //Top kỳ thú
+            await page.$eval("#in-category-7", (el) => el.click()); //Thợ công nghệ
+            await page.$eval("#in-category-63", (el) => el.click()); //Đời sống*/
 
             //add tag
             /*await page.$eval("#new-tag-post_tag", (el) => {
