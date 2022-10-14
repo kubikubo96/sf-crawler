@@ -16,12 +16,13 @@ import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
 
 (async () => {
 
-  // data crawl
-  let listPage = handleListPage();
-  const limitPage = listPage.length;
-  let numberPage = 0;
-
   while (1) { /*@todo bot*/
+
+    //data crawl default
+    let listPage = handleListPage();
+    const limitPage = listPage.length;
+    let numberPage = 0;
+
     const browser = await puppeteer.launch({
       headless: true,
       args: MINIMAL_ARGS,
