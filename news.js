@@ -533,7 +533,7 @@ import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
       }
     }
 
-    await browser.close();
+    //await browser.close();
 
     if (process.env.HOST_PRODUCT === '0') {
       break;
