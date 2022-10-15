@@ -66,9 +66,13 @@ import {MINIMAL_ARGS} from "./minimal.js";
     while (1) {
       let post_ids = [];
       try {
-        await page.goto(urlPostPrivate, {
-          waitUntil: ["networkidle2"],
-        });
+        try {
+          await page.goto(urlPostPrivate, {
+            waitUntil: ["networkidle2"],
+          });
+        } catch (error) {
+
+        }
 
         await page.$eval("#the-list tr", (el) => el.id);
         let ids_perpage = await page.$$eval("#the-list tr", (els) => {
@@ -98,16 +102,19 @@ import {MINIMAL_ARGS} from "./minimal.js";
 
         //go page
         try {
-          await page.goto(urlPost + post_ids[number_id], {
-            waitUntil: ["networkidle2"],
-          });
+          try {
+            await page.goto(urlPost + post_ids[number_id], {
+              waitUntil: ["networkidle2"],
+            });
+          } catch (error) {
+
+          }
           try {
             await page.waitForNavigation({timeout: 15000});
           } catch (error) {
           }
           await page.waitForTimeout(5000);
         } catch (error) {
-          console.log(error);
         }
         console.log("Post ID: " + post_ids[number_id]);
 
