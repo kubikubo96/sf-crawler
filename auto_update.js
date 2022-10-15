@@ -103,15 +103,14 @@ import {MINIMAL_ARGS} from "./minimal.js";
         } catch (error) {
           console.log(error);
         }
-        console.log("Publish post " + number_id + ": " + post_ids[number_id]);
+        console.log("Post ID: " + post_ids[number_id]);
 
 
         //save remote image
         try {
           console.log("Save Remote Image");
           await page.click('#save-remote-images-button');
-          //await page.waitForTimeout(1000 * 60 * 10);
-          await page.waitForTimeout(1000 * 10);
+          await page.waitForTimeout(1000 * 60 * 10);
           console.log("Reload Page");
           await page.reload();
           try {
@@ -152,7 +151,8 @@ import {MINIMAL_ARGS} from "./minimal.js";
         }
 
         //next post
-        console.log("DONE " + number_id + ": " + post_ids[number_id] + "\n");
+        console.log("Done Post: " + post_ids[number_id] + "\n");
+        console.log("\x1b[34m------------\x1b[0m\n");
         number_id = number_id + 1;
       }
     }
