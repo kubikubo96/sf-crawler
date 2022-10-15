@@ -4,7 +4,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
 
 (async () => {
   const browser = await puppeteer.launch({
-    headless: true,
+    headless: false,
     args: MINIMAL_ARGS,
     userDataDir: './cache'
   });
@@ -15,11 +15,11 @@ import {MINIMAL_ARGS} from "./minimal.js";
     height: 1080,
   });
 
-  const urlLogin = process.env.HOST_DOMAIN + "/wp-login.php?loggedout=true&wp_lang=vi";
+  const urlLogin = process.env.HOST_ADMIN + "/wp-login.php?loggedout=true&wp_lang=vi";
 
-  const urlPostPrivate = process.env.HOST_DOMAIN + "/wp-admin/edit.php?post_status=private";
+  const urlPostPrivate = process.env.HOST_ADMIN + "/wp-admin/edit.php?post_status=private";
 
-  const urlPost = process.env.HOST_DOMAIN + "/wp-admin/post.php?action=edit&post=";
+  const urlPost = process.env.HOST_ADMIN + "/wp-admin/post.php?action=edit&post=";
 
   try {
     await page.goto(urlLogin, {
@@ -110,7 +110,8 @@ import {MINIMAL_ARGS} from "./minimal.js";
         try {
           console.log("Save Remote Image")
           await page.click('#save-remote-images-button');
-          await page.waitForTimeout(1000 * 60 * 10);
+          //await page.waitForTimeout(1000 * 60 * 10);
+          await page.waitForTimeout(1000 * 10);
           await page.reload();
           try {
             await page.waitForNavigation({timeout: 10000});
