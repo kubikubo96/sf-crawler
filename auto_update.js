@@ -4,7 +4,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
 
 (async () => {
   const browser = await puppeteer.launch({
-    headless: false,
+    headless: true,
     args: MINIMAL_ARGS,
     userDataDir: './cache'
   });
