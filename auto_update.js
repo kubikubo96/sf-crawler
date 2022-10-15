@@ -54,7 +54,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
     await page.waitForNavigation({
       waitUntil: "networkidle2",
     });
-    console.log("\n-- login success --\n");
+    console.log("\n-- LOGIN SUCCESS --\n");
   } catch (error) {
   }
 
