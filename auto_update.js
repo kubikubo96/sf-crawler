@@ -131,8 +131,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
           } catch (error) {
           }
         } catch (error) {
-          console.log(error)
-          process.exit(1);
+          //console.log(error)
         }
 
         //publish
