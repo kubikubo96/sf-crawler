@@ -108,10 +108,11 @@ import {MINIMAL_ARGS} from "./minimal.js";
 
         //save remote image
         try {
-          console.log("Save Remote Image")
+          console.log("Save Remote Image");
           await page.click('#save-remote-images-button');
           //await page.waitForTimeout(1000 * 60 * 10);
           await page.waitForTimeout(1000 * 10);
+          console.log("Reload Page");
           await page.reload();
           try {
             await page.waitForNavigation({timeout: 10000});
@@ -123,6 +124,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
 
         //publish
         try {
+          console.log("Publish Post");
           await page.$eval(".edit-visibility", (el) => el.click());
           await page.$eval("#visibility-radio-public", (el) => el.click());
           await page.$eval(".save-post-visibility", (el) => el.click());
@@ -134,6 +136,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
 
         //save post
         try {
+          console.log("Save Post");
           await page.$eval("#publish", (el) => el.click());
 
           try {
