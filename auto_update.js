@@ -15,11 +15,11 @@ import {MINIMAL_ARGS} from "./minimal.js";
     height: 1080,
   });
 
-  const urlLogin = process.env.HOST_ADMIN + "wp-login.php?loggedout=true&wp_lang=vi";
+  const urlLogin = process.env.HOST_DOMAIN + "/wp-login.php?loggedout=true&wp_lang=vi";
 
-  const urlPostPrivate = process.env.HOST_ADMIN + "wp-admin/edit.php?post_status=private";
+  const urlPostPrivate = process.env.HOST_DOMAIN + "/wp-admin/edit.php?post_status=private";
 
-  const urlPost = process.env.HOST_ADMIN + "wp-admin/post.php?action=edit&post=";
+  const urlPost = process.env.HOST_DOMAIN + "/wp-admin/post.php?action=edit&post=";
 
   try {
     await page.goto(urlLogin, {
@@ -32,7 +32,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
    * Step 1: Login
    */
   try {
-    console.log(" \n Step 1: Login page \n");
+    console.log("Login admin:");
     console.log("username: " + process.env.USER_ADMIN);
     console.log("password: " + process.env.USER_PASSWORD);
 
@@ -54,15 +54,13 @@ import {MINIMAL_ARGS} from "./minimal.js";
     await page.waitForNavigation({
       waitUntil: "networkidle2",
     });
-    console.log(" \n -- SUCCESS --");
+    console.log("\n-- login success --\n");
   } catch (error) {
   }
 
   /**
-   * Step 2: Get list id post
+   * Get list id post
    */
-  console.log(" \n Step 2: Get list id post \n");
-
   try {
     while (1) {
       let post_ids = [];
@@ -80,86 +78,82 @@ import {MINIMAL_ARGS} from "./minimal.js";
           return getNumberInString(id);
         });
         post_ids = ids_perpage[0] !== "" ? post_ids.concat(ids_perpage) : post_ids;
-        console.log(post_ids);
       } catch (e) {
 
       }
 
+      //stop nếu chưa có bài biết riêng tư
+      if (post_ids.length <= 0) {
+        await page.waitForTimeout(5000);
+        continue;
+      }
+      console.log(post_ids);
 
       /**
-       * Step 2. Go to 1 post
+       * Go to 1 post
        */
       let number_id = 0;
-      if (post_ids.length > 0) {
-        console.log(" \n Step 3: Go to post \n");
-        while (1) {
-          try {
-            await page.goto(urlPost + post_ids[number_id], {
-              waitUntil: ["networkidle2"],
-            });
-          } catch (e) {
+      while (1) {
 
-          }
-          console.log(" \n PUBLISH post " + number_id + ": " + post_ids[number_id]);
-
-          //save remote image
-          try {
-            console.log("Save Remote Image")
-            await page.click('#save-remote-images-button');
-            await page.waitForTimeout(1000 * 60 * 10);
-            await page.reload();
-            try {
-              await page.waitForNavigation({timeout: 10000});
-            } catch (error) {
-            }
-          } catch (error) {
-
-          }
-
-          try {
-            //add category
-            /*await page.$eval("#in-category-1", (el) => el.click()); //Tin tức
-            await page.$eval("#in-category-4", (el) => el.click()); //Top kỳ thú
-            await page.$eval("#in-category-7", (el) => el.click()); //Thợ công nghệ
-            await page.$eval("#in-category-63", (el) => el.click()); //Đời sống*/
-
-            //add tag
-            /*await page.$eval("#new-tag-post_tag", (el) => {
-              el.value = "Top";
-            });
-            await page.$eval(".tagadd", (el) => el.click());*/
-
-            //publish
-            await page.$eval(".edit-visibility", (el) => el.click());
-            await page.$eval("#visibility-radio-public", (el) => el.click());
-            await page.$eval(".save-post-visibility", (el) => el.click());
-
-            //save
-            await page.$eval("#publish", (el) => el.click());
-
-            try {
-              await page.waitForNavigation({
-                waitUntil: "networkidle2",
-              });
-            } catch (error) {
-            }
-
-            console.log(" \n -- DONE " + number_id + ": " + post_ids[number_id]);
-            number_id = number_id + 1;
-
-            if (number_id >= post_ids.length) {
-              break;
-            }
-          } catch (e) {
-
-          }
+        //go page
+        try {
+          await page.goto(urlPost + post_ids[number_id], {
+            waitUntil: ["networkidle2"],
+          });
+        } catch (error) {
+          console.log(error);
         }
-      } else {
-        break;
+        console.log("Publish post " + number_id + ": " + post_ids[number_id]);
+
+
+        //save remote image
+        try {
+          console.log("Save Remote Image")
+          await page.click('#save-remote-images-button');
+          await page.waitForTimeout(1000 * 60 * 10);
+          await page.reload();
+          try {
+            await page.waitForNavigation({timeout: 10000});
+          } catch (error) {
+          }
+        } catch (error) {
+          console.log(error)
+        }
+
+        //publish
+        try {
+          await page.$eval(".edit-visibility", (el) => el.click());
+          await page.$eval("#visibility-radio-public", (el) => el.click());
+          await page.$eval(".save-post-visibility", (el) => el.click());
+
+          await page.waitForTimeout(5000);
+        } catch (error) {
+          console.log(error);
+        }
+
+        //save post
+        try {
+          await page.$eval("#publish", (el) => el.click());
+
+          try {
+            await page.waitForNavigation({
+              waitUntil: "networkidle2",
+            });
+          } catch (error) {
+            console.log(error);
+          }
+          await page.waitForTimeout(2000);
+        } catch (error) {
+          console.log(error);
+        }
+
+        //next post
+        console.log("DONE " + number_id + ": " + post_ids[number_id] + "\n");
+        number_id = number_id + 1;
       }
     }
-  } catch (e) {
-
+  } catch (error) {
+    console.log(error)
   }
 
   console.log("\n");
