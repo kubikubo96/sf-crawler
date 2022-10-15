@@ -51,9 +51,10 @@ import {MINIMAL_ARGS} from "./minimal.js";
       process
     );
     await page.click("#wp-submit");
-    await page.waitForNavigation({
-      waitUntil: "networkidle2",
-    });
+    try {
+      await page.waitForNavigation({timeout: 15000});
+    } catch (error) {
+    }
     console.log("\n-- LOGIN SUCCESS --\n");
   } catch (error) {
   }
@@ -101,7 +102,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
             waitUntil: ["networkidle2"],
           });
           try {
-            await page.waitForNavigation({timeout: 10000});
+            await page.waitForNavigation({timeout: 15000});
           } catch (error) {
           }
           await page.waitForTimeout(5000);
@@ -119,7 +120,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
           console.log("Reload Page");
           await page.reload();
           try {
-            await page.waitForNavigation({timeout: 10000});
+            await page.waitForNavigation({timeout: 15000});
           } catch (error) {
           }
         } catch (error) {
@@ -145,11 +146,8 @@ import {MINIMAL_ARGS} from "./minimal.js";
           await page.$eval("#publish", (el) => el.click());
 
           try {
-            await page.waitForNavigation({
-              waitUntil: "networkidle2",
-            });
+            await page.waitForNavigation({timeout: 15000});
           } catch (error) {
-            console.log(error);
           }
           await page.waitForTimeout(2000);
         } catch (error) {
