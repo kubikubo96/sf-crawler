@@ -100,6 +100,11 @@ import {MINIMAL_ARGS} from "./minimal.js";
           await page.goto(urlPost + post_ids[number_id], {
             waitUntil: ["networkidle2"],
           });
+          try {
+            await page.waitForNavigation({timeout: 10000});
+          } catch (error) {
+          }
+          await page.waitForTimeout(5000);
         } catch (error) {
           console.log(error);
         }
@@ -119,6 +124,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
           }
         } catch (error) {
           console.log(error)
+          process.exit(1);
         }
 
         //publish
