@@ -53,7 +53,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
       );
       await page.click("#wp-submit");
       try {
-        await page.waitForNavigation({timeout: 20000});
+        await page.waitForNavigation({timeout: 60000});
       } catch (error) {
       }
       console.log("\n-- LOGIN SUCCESS --\n");
@@ -129,7 +129,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
             } catch (error) {
             }
             try {
-              await page.waitForNavigation({timeout: 20000});
+              await page.waitForNavigation({timeout: 60000});
             } catch (error) {
             }
             await page.waitForTimeout(5000);
@@ -146,7 +146,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
             console.log("Reload Page");
             await page.reload();
             try {
-              await page.waitForNavigation({timeout: 20000});
+              await page.waitForNavigation({timeout: 60000});
             } catch (error) {
             }
           } catch (error) {
@@ -177,7 +177,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
             await page.$eval("#publish", (el) => el.click());
 
             try {
-              await page.waitForNavigation({timeout: 20000});
+              await page.waitForNavigation({timeout: 60000});
             } catch (error) {
             }
             await page.waitForTimeout(2000);
