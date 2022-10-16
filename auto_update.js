@@ -67,15 +67,18 @@ import {MINIMAL_ARGS} from "./minimal.js";
       let breakWhileGetListPost = false;
       try {
         let post_ids = [];
+
+        //go to list post private
         try {
-          try {
-            await page.goto(urlPostPrivate, {
-              waitUntil: ["networkidle2"],
-            });
-          } catch (error) {
+          await page.goto(urlPostPrivate, {
+            waitUntil: ["networkidle2"],
+          });
+        } catch (error) {
 
-          }
+        }
 
+        //get list id post private
+        try {
           await page.$eval("#the-list tr", (el) => el.id);
           let ids_perpage = await page.$$eval("#the-list tr", (els) => {
             return els.map((el) => el.id);
