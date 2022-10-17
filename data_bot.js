@@ -42,10 +42,6 @@ export const LIST_CRAWL_BOT = [
         path: "tin-hoc-van-phong",
         tag: ["Tin học văn phòng"]
       },
-      {
-        path: "phu-kien",
-        tag: ["Phụ kiện"]
-      },
     ],
   },
   {
@@ -73,20 +69,8 @@ export const LIST_CRAWL_BOT = [
         tag: ["Món ngon mỗi ngày", "Mẹo vặt bếp núc"],
       },
       {
-        path: "2090",
-        tag: ["Món ngon mỗi ngày", "Địa điểm ăn uống"],
-      },
-      {
         path: "2102",
         tag: ["Món ngon mỗi ngày", "Chế độ ăn uống"],
-      },
-      {
-        path: "2109",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo vặt gia đình"],
-      },
-      {
-        path: "2110",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo vặt bếp núc"],
       },
       {
         path: "2111",
