@@ -161,6 +161,8 @@ import {MINIMAL_ARGS} from "./minimal.js";
 
             await page.waitForTimeout(5000);
           } catch (error) {
+
+            //go to 1 post
             try {
               try {
                 await page.goto(urlPost + post_ids[number_id], {
@@ -191,19 +193,6 @@ import {MINIMAL_ARGS} from "./minimal.js";
               await page.waitForTimeout(5000);
             } catch (error) {
             }
-
-            //save post
-            try {
-              console.log("Save Post");
-              await page.$eval("#publish", (el) => el.click());
-
-              try {
-                await page.waitForNavigation({timeout: 60000});
-              } catch (error) {
-              }
-              await page.waitForTimeout(2000);
-            } catch (error) {
-            }
           }
 
           //save post
@@ -217,6 +206,8 @@ import {MINIMAL_ARGS} from "./minimal.js";
             }
             await page.waitForTimeout(2000);
           } catch (error) {
+
+            //go to 1 post
             try {
               try {
                 await page.goto(urlPost + post_ids[number_id], {
