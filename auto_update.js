@@ -161,9 +161,23 @@ import {MINIMAL_ARGS} from "./minimal.js";
 
             await page.waitForTimeout(5000);
           } catch (error) {
-            //break while go to post and list post
-            breakWhileGetListPost = true;
-            break;
+            try {
+              try {
+                await page.goto(urlPost + post_ids[number_id], {
+                  waitUntil: ["networkidle2"],
+                });
+              } catch (error) {
+              }
+              try {
+                await page.waitForNavigation({timeout: 60000});
+              } catch (error) {
+              }
+              await page.waitForTimeout(5000);
+            } catch (error) {
+              //break while go to post and list post
+              breakWhileGetListPost = true;
+              break;
+            }
           }
 
           //save post
@@ -177,9 +191,23 @@ import {MINIMAL_ARGS} from "./minimal.js";
             }
             await page.waitForTimeout(2000);
           } catch (error) {
-            //break while go to post and list post
-            breakWhileGetListPost = true;
-            break;
+            try {
+              try {
+                await page.goto(urlPost + post_ids[number_id], {
+                  waitUntil: ["networkidle2"],
+                });
+              } catch (error) {
+              }
+              try {
+                await page.waitForNavigation({timeout: 60000});
+              } catch (error) {
+              }
+              await page.waitForTimeout(5000);
+            } catch (error) {
+              //break while go to post and list post
+              breakWhileGetListPost = true;
+              break;
+            }
           }
 
           //next post
