@@ -73,10 +73,6 @@ export const LIST_CRAWL_BOT = [
         tag: ["Món ngon mỗi ngày", "Mẹo vặt bếp núc"],
       },
       {
-        path: "2087",
-        tag: ["Món ngon mỗi ngày", "Đặc sản vùng miền"],
-      },
-      {
         path: "2090",
         tag: ["Món ngon mỗi ngày", "Địa điểm ăn uống"],
       },
@@ -97,10 +93,6 @@ export const LIST_CRAWL_BOT = [
         tag: ["Mẹo vặt cuộc sống", "Mẹo làm đẹp"],
       },
       {
-        path: "2112",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo chi tiêu"],
-      },
-      {
         path: "2113",
         tag: ["Mẹo vặt cuộc sống", "Phong thủy"],
       },
@@ -115,46 +107,6 @@ export const LIST_CRAWL_BOT = [
       {
         path: "2102",
         tag: ["Sống khỏe", "Chế độ ăn uống"],
-      },
-      {
-        path: "2103",
-        tag: ["Sống khỏe", "Sống xanh"],
-      },
-      {
-        path: "2348",
-        tag: ["Sống khỏe", "Mẹ và bé"],
-      },
-      {
-        path: "2094",
-        tag: ["Làm đẹp", "Thời trang"],
-      },
-      {
-        path: "2095",
-        tag: ["Làm đẹp", "Dưỡng da"],
-      },
-      {
-        path: "2096",
-        tag: ["Làm đẹp", "Trang điểm"],
-      },
-      {
-        path: "2111",
-        tag: ["Làm đẹp", "Mẹo làm đẹp"],
-      },
-      {
-        path: "2089",
-        tag: ["Ăn gì chơi gì", "Địa điểm du lịch"],
-      },
-      {
-        path: "2090",
-        tag: ["Ăn gì chơi gì", "Địa điểm ăn uống"],
-      },
-      {
-        path: "2091",
-        tag: ["Ăn gì chơi gì", "Phim hay"],
-      },
-      {
-        path: "2092",
-        tag: ["Ăn gì chơi gì", "Nhạc hay"],
       },
     ],
   },
