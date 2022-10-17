@@ -1,61 +1,21 @@
 export const LIST_CRAWL = [
   {
-    url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageSize=50',
-    pageIndex: 1,
-    source: "bachhoaxanh.com",
-    elmLinkPost: "li.news > a",
+    url: 'https://fptshop.com.vn/api-data/tin-tuc/News/GetListNews/thu-thuat?numberRecord=15&page=1',
+    method: 'POST',
+    tag: ["Hướng dẫn"],
+    source: "fptshop.com.vn",
+    elmLinkPost: ".news-section .news__item > a",
     typeLinkPost: 'path',
-    elmTitle: ".boxcontent h1.titlearticle",
-    elmContent: ".boxcontent",
-    elmLink: ".boxcontent a",
-    elmImage: ".boxcontent img",
-    elmH1: ".boxcontent h1",
-    elmH2: ".boxcontent h2",
-    elmTagP: ".boxcontent > p",
-    elmTagQuote: ".boxcontent > blockquote",
-    elmTagFigure: ".boxcontent > figure",
-    data: [
-      {
-        path: "2103",
-        tag: ["Sống khỏe", "Sống xanh"],
-      },
-      {
-        path: "2348",
-        tag: ["Sống khỏe", "Mẹ và bé"],
-      },
-      {
-        path: "2094",
-        tag: ["Làm đẹp", "Thời trang"],
-      },
-      {
-        path: "2095",
-        tag: ["Làm đẹp", "Dưỡng da"],
-      },
-      {
-        path: "2096",
-        tag: ["Làm đẹp", "Trang điểm"],
-      },
-      {
-        path: "2111",
-        tag: ["Làm đẹp", "Mẹo làm đẹp"],
-      },
-      {
-        path: "2089",
-        tag: ["Ăn gì chơi gì", "Địa điểm du lịch"],
-      },
-      {
-        path: "2090",
-        tag: ["Ăn gì chơi gì", "Địa điểm ăn uống"],
-      },
-      {
-        path: "2091",
-        tag: ["Ăn gì chơi gì", "Phim hay"],
-      },
-      {
-        path: "2092",
-        tag: ["Ăn gì chơi gì", "Nhạc hay"],
-      },
-    ],
+    elmTitle: ".post-wrap h1.post__title",
+    elmDescription: ".post-wrap h2.post__des",
+    elmContent: ".post__content",
+    elmLink: ".post__content a",
+    elmImage: ".post__content img",
+    elmH1: ".post__content h1",
+    elmH2: ".post__content h2",
+    elmTagP: ".post__content > p",
+    elmTagQuote: ".post__content > blockquote",
+    elmTagFigure: ".post__content > figure",
   },
 ];
 
@@ -94,6 +54,7 @@ export const LIST_TRASH_LINK = [
   '>> Tham khảo:',
   '<a href="" target="_blank"></a>',
   'Xem clip Tiktok',
+  'Tìm hiểu chi tiết',
 ];
 
 export const LIST_TRASH_P = [
@@ -125,6 +86,8 @@ export const LIST_TRASH_P = [
   'tại Bách hoá XANH',
   '<a href="" target="_blank"></a>',
   'Xem clip Tiktok',
+  "Xem thêm:",
+  'Tìm hiểu chi tiết',
 ];
 
 export const TRASH_AUTHOR = [
@@ -138,12 +101,13 @@ export const TRASH_AUTHOR = [
   'BachhoaXANH.com',
   'Dienmay.com',
   'Bachhoa.com',
+  'fptshop.com.vn',
   'Điện Máy XANH',
   'Bách Hóa XANH',
   'Bách hoá XANH',
   'Nguyễn Cúc',
   'FUNiX',
-
+  'FPT Shop',
 ];
 
 export const TRASH_TEXT = [
@@ -157,7 +121,7 @@ export const ELM_TRASH = [
   '.generate-productbox', '.generate-gallery', '.mce-preview-object', '.mce-object-iframe', 'p iframe', '.top-news', 'ins', 'box_above',
   '.adbro-sm', '.adbro-xs', 'adbro-bottom', '.mys-wrapper', '.adbro-satellite', '.adbro-animated', '.ez-toc-container', '.newscare',
   '#attachment_60985', '.kk-star-ratings', 'ul > li > a', '.ez-toc-title', '#player', '.html5-video-container', '.bxindexknh', 'tiktok',
-  'productbox', '.ad-even', 'p.title > b', '.hiddenbxindex', '.tiktokEmbed0', '.hidden',
+  'productbox', '.ad-even', 'p.title > b', '.hiddenbxindex', '.tiktokEmbed0', '.hidden', '.post__user', '#post__list',
 
 ];
 

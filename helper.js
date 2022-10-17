@@ -35,10 +35,14 @@ export function handleListPage() {
   let listPage = [];
   for (let i = 0; i < dataCrawl.length; i++) {
     let dataDefault = {
+      url: dataCrawl[i].url,
+      method: dataCrawl[i].method,
+      tag: dataCrawl[i].tag,
       source: dataCrawl[i].source,
       elmLinkPost: dataCrawl[i].elmLinkPost,
       typeLinkPost: dataCrawl[i].typeLinkPost,
       elmTitle: dataCrawl[i].elmTitle,
+      elmDescription: dataCrawl[i].elmDescription,
       elmContent: dataCrawl[i].elmContent,
       elmLink: dataCrawl[i].elmLink,
       elmImage: dataCrawl[i].elmImage,
@@ -55,6 +59,9 @@ export function handleListPage() {
         break;
       case 'bachhoaxanh.com':
         listPage = listPageTypeC(listPage, dataCrawl[i], dataDefault);
+        break;
+      case 'fptshop.com.vn':
+        listPage = [dataDefault];
         break;
     }
   }

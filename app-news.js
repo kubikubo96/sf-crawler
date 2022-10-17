@@ -13,6 +13,7 @@ import {DATA_INTERNAL_FULL} from "./internal_full.js";
 import {DATA_INTERNAL_POST} from "./internal_smart.js";
 import {handleListPage, saveData, timestamps} from "./helper.js";
 import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
+import axios from "axios";
 
 (async () => {
 
@@ -61,40 +62,56 @@ import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
     while (1) {
       try {
         console.log("\n Url page: " + listPage[numberPage].url + "\n -------- \n");
-        try {
-          await page.goto(listPage[numberPage].url, {
-            waitUntil: ["networkidle2"],
-          });
-        } catch (error) {
-          console.log(error);
-        }
-        const sourceCrawl = listPage[numberPage].source;
 
-        /**
-         * Get danh sách bài viết
-         *
-         * @type {{url}[]}
-         */
+        const sourceCrawl = listPage[numberPage].source;
         let elmLinkPost = listPage[numberPage].elmLinkPost;
         let typeLinkPost = listPage[numberPage].typeLinkPost;
-        const listPost = await page.evaluate((sourceCrawl, elmLinkPost, typeLinkPost) => {
-          try {
-            let links = document.querySelectorAll(elmLinkPost);
-            links = [...links];
-            switch (typeLinkPost) {
-              case 'path':
-                return links.map((link) => ({
-                  url: 'https://' + sourceCrawl + link.getAttribute("href"),
-                }));
-              case 'full':
-                return links.map((link) => ({
-                  url: link.getAttribute("href"),
-                }));
-            }
-          } catch (error) {
-            return [];
+        let listPost = [];
+
+        if (listPage[numberPage].method === 'POST') {
+          //TYPE GET LIST POST
+
+          switch (listPage[numberPage].source) {
+            case 'fptshop.com.vn':
+              const response = await axios.post(listPage[numberPage].url);
+              let dataResponse = response.data.datas;
+              listPost = dataResponse.map((item) => {
+                return {url: 'https://fptshop.com.vn/tin-tuc/thu-thuat/' + item.titleAscii};
+              });
           }
-        }, sourceCrawl, elmLinkPost, typeLinkPost);
+
+        } else {
+          //TYPE POST GET LIST
+
+          try {
+            await page.goto(listPage[numberPage].url, {
+              waitUntil: ["networkidle2"],
+            });
+          } catch (error) {
+            console.log(error);
+          }
+
+          //Get danh sách bài viết
+          listPost = await page.evaluate((sourceCrawl, elmLinkPost, typeLinkPost) => {
+            try {
+              let links = document.querySelectorAll(elmLinkPost);
+              links = [...links];
+              switch (typeLinkPost) {
+                case 'path':
+                  return links.map((link) => ({
+                    url: 'https://' + sourceCrawl + link.getAttribute("href"),
+                  }));
+                case 'full':
+                  return links.map((link) => ({
+                    url: link.getAttribute("href"),
+                  }));
+              }
+            } catch (error) {
+              return [];
+            }
+          }, sourceCrawl, elmLinkPost, typeLinkPost);
+
+        }
 
         let totalCrawled = 0; // tổng số bài đã crawl
         let numberPostCrawled = 0; // number bài đã crawl
