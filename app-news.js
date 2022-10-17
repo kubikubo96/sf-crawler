@@ -387,11 +387,12 @@ import axios from "axios";
             //end: replace src image
 
             //start: add internal link tag
+            let dataInternalFull = [...DATA_INTERNAL_FULL];
             try {
-              let countInternal = 0;
-              data.tag = await page.$$eval(elmTagP, (elms, data, countInternal, DATA_INTERNAL_FULL) => {
+              data.tag = await page.$$eval(elmTagP, (elms, data, dataInternalFull) => {
+                let countInternal = 0;
                 if (countInternal <= 1) {
-                  DATA_INTERNAL_FULL.forEach((dataInternal) => {
+                  dataInternalFull.forEach((dataInternal) => {
                     let BreakException = {};
                     let addInternal = true;
                     if (addInternal) {
@@ -416,10 +417,12 @@ import axios from "axios";
                               let dataCheck = data.tag.filter(item => item.trim().toLowerCase() === dataInternal.name.trim().toLowerCase());
                               if (dataCheck.length === 0) {
                                 data.tag = [...data.tag, dataInternal.name.trim()];
-                                countInternal++;
-                                addInternal = false;
-                                throw BreakException; //xử lý break forEach element
                               }
+
+                              dataInternalFull = dataInternalFull.filter((item) => item !== dataInternal);
+                              countInternal++;
+                              addInternal = false;
+                              throw BreakException; //xử lý break forEach element
                             }
                           }
                         })
@@ -430,7 +433,7 @@ import axios from "axios";
                   })
                 }
                 return data.tag;
-              }, data, countInternal, DATA_INTERNAL_FULL);
+              }, data, dataInternalFull);
             } catch (error) {
               console.log(error)
             }
