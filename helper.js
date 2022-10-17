@@ -79,7 +79,6 @@ export function listPageTypeA(listPage, ItemI, dataDefault) {
   return listPage;
 }
 
-
 export function listPageTypeB(listPage, itemI, dataDefault) {
   for (let j = itemI.data.length - 1; j >= 0; j--) {
     let temp = {...dataDefault};

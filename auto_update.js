@@ -178,6 +178,32 @@ import {MINIMAL_ARGS} from "./minimal.js";
               breakWhileGetListPost = true;
               break;
             }
+
+            //publish
+            try {
+              console.log("Publish Post");
+              await page.$eval(".edit-visibility", (el) => el.click());
+              await page.waitForTimeout(2000);
+              await page.$eval("#visibility-radio-public", (el) => el.click());
+              await page.waitForTimeout(2000);
+              await page.$eval(".save-post-visibility", (el) => el.click());
+
+              await page.waitForTimeout(5000);
+            } catch (error) {
+            }
+
+            //save post
+            try {
+              console.log("Save Post");
+              await page.$eval("#publish", (el) => el.click());
+
+              try {
+                await page.waitForNavigation({timeout: 60000});
+              } catch (error) {
+              }
+              await page.waitForTimeout(2000);
+            } catch (error) {
+            }
           }
 
           //save post
@@ -207,6 +233,32 @@ import {MINIMAL_ARGS} from "./minimal.js";
               //break while go to post and list post
               breakWhileGetListPost = true;
               break;
+            }
+
+            //publish
+            try {
+              console.log("Publish Post");
+              await page.$eval(".edit-visibility", (el) => el.click());
+              await page.waitForTimeout(2000);
+              await page.$eval("#visibility-radio-public", (el) => el.click());
+              await page.waitForTimeout(2000);
+              await page.$eval(".save-post-visibility", (el) => el.click());
+
+              await page.waitForTimeout(5000);
+            } catch (error) {
+            }
+
+            //save post
+            try {
+              console.log("Save Post");
+              await page.$eval("#publish", (el) => el.click());
+
+              try {
+                await page.waitForNavigation({timeout: 60000});
+              } catch (error) {
+              }
+              await page.waitForTimeout(2000);
+            } catch (error) {
             }
           }
 
