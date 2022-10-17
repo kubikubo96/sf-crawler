@@ -101,7 +101,6 @@ export const TRASH_AUTHOR = [
   'BachhoaXANH.com',
   'Dienmay.com',
   'Bachhoa.com',
-  'fptshop.com.vn',
   'Điện Máy XANH',
   'Bách Hóa XANH',
   'Bách hoá XANH',
