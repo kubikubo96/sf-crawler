@@ -502,7 +502,7 @@ import axios from "axios";
 
             //start: replace Tên trang
             TRASH_AUTHOR.forEach((item) => {
-              data.content = data.content.replaceAll(item, "KungFuCongNghe.Com");
+              data.content = data.content.replaceAll(item, "CNKungFu");
             });
             //end: replace Tên trang
 
