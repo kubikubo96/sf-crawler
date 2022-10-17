@@ -111,7 +111,7 @@ export const LIST_CRAWL_BOT = [
     ],
   },
   {
-    url: 'https://fptshop.com.vn/api-data/tin-tuc/News/GetListNews/thu-thuat?numberRecord=15&page=1',
+    url: 'https://fptshop.com.vn/api-data/tin-tuc/News/GetListNews/thu-thuat?numberRecord=10&page=1',
     method: 'POST',
     tag: ["Hướng dẫn"],
     source: "fptshop.com.vn",
