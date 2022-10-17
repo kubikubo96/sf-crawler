@@ -11,11 +11,6 @@ import {MINIMAL_ARGS} from "./minimal.js";
     });
     const page = await browser.newPage();
 
-    await page.setViewport({
-      width: 1920,
-      height: 1080,
-    });
-
     const urlLogin = process.env.HOST_ADMIN + "/wp-login.php?loggedout=true&wp_lang=vi";
 
     const urlPostPrivate = process.env.HOST_ADMIN + "/wp-admin/edit.php?post_status=private";

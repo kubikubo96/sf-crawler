@@ -34,7 +34,7 @@ export const MINIMAL_ARGS = [
   '--use-gl=swiftshader',
   '--use-mock-keychain',
   '--disable-site-isolation-trials',
-  '--window-size=1900,1000',
+  //'--window-size=1900,1000',
 ];
 
 export const BLOCKED_URL = [
