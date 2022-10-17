@@ -201,6 +201,8 @@ import {MINIMAL_ARGS} from "./minimal.js";
         break;
       }
     }
+
+    await browser.close();
   }
 })();
 
