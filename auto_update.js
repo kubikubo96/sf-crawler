@@ -142,7 +142,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
           try {
             console.log("Save Remote Image");
             await page.click('#save-remote-images-button');
-            await page.waitForTimeout(1000 * 60 * 10);
+            await page.waitForTimeout(1000 * 60 * 5);
             console.log("Reload Page");
             await page.reload();
             try {
