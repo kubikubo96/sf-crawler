@@ -134,7 +134,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
 
 
           //save remote image
-          try {
+          /*try {
             console.log("Save Remote Image");
             await page.click('#save-remote-images-button');
             await page.waitForTimeout(1000 * 60 * 5);
@@ -148,7 +148,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
             //break while go to post and list post
             breakWhileGetListPost = true;
             break;
-          }
+          }*/
 
           //publish
           try {
