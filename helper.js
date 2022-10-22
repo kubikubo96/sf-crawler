@@ -34,24 +34,7 @@ export function handleListPage() {
 
   let listPage = [];
   for (let i = 0; i < dataCrawl.length; i++) {
-    let dataDefault = {
-      url: dataCrawl[i].url,
-      method: dataCrawl[i].method,
-      tag: dataCrawl[i].tag,
-      source: dataCrawl[i].source,
-      elmLinkPost: dataCrawl[i].elmLinkPost,
-      typeLinkPost: dataCrawl[i].typeLinkPost,
-      elmTitle: dataCrawl[i].elmTitle,
-      elmDescription: dataCrawl[i].elmDescription,
-      elmContent: dataCrawl[i].elmContent,
-      elmLink: dataCrawl[i].elmLink,
-      elmImage: dataCrawl[i].elmImage,
-      elmH1: dataCrawl[i].elmH1,
-      elmH2: dataCrawl[i].elmH2,
-      elmTagP: dataCrawl[i].elmTagP,
-      elmTagQuote: dataCrawl[i].elmTagQuote,
-      elmTagFigure: dataCrawl[i].elmTagFigure,
-    };
+    let dataDefault = {...dataCrawl[i]};
 
     switch (dataCrawl[i].source) {
       case 'dienmayxanh.com':
@@ -61,7 +44,7 @@ export function handleListPage() {
         listPage = listPageTypeC(listPage, dataCrawl[i], dataDefault);
         break;
       case 'fptshop.com.vn':
-        listPage = [dataDefault];
+        listPage = [...listPage, dataDefault];
         break;
     }
   }

@@ -24,12 +24,16 @@ import axios from "axios";
     const limitPage = listPage.length;
     let numberPage = 0;
 
+    console.log(listPage)
+
     const browser = await puppeteer.launch({
       headless: true,
       args: MINIMAL_ARGS,
       userDataDir: './cache'
     });
     const page = await browser.newPage();
+
+    await page.waitForTimeout(1000 * 1000)
 
     await page.setViewport({
       width: 1920,
