@@ -24,8 +24,6 @@ import axios from "axios";
     const limitPage = listPage.length;
     let numberPage = 0;
 
-    console.log(listPage)
-
     const browser = await puppeteer.launch({
       headless: true,
       args: MINIMAL_ARGS,
