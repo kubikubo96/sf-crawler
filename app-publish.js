@@ -138,16 +138,21 @@ import {MINIMAL_ARGS} from "./minimal.js";
             console.log("Save Remote Image");
             await page.click('#save-remote-images-button');
             await page.waitForTimeout(1000 * 60 * 5);
+          } catch (error) {
+            //break while go to post and list post
+            breakWhileGetListPost = true;
+            break;
+          }
+
+          //reload page after save remote image
+          try {
             console.log("Reload Page");
-            await page.reload();
+            await page.reload({timeout: 60000});
             try {
               await page.waitForNavigation({timeout: 60000});
             } catch (error) {
             }
           } catch (error) {
-            //break while go to post and list post
-            breakWhileGetListPost = true;
-            break;
           }
 
           //publish
