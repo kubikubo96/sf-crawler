@@ -31,8 +31,6 @@ import axios from "axios";
     });
     const page = await browser.newPage();
 
-    await page.waitForTimeout(1000 * 1000)
-
     await page.setViewport({
       width: 1920,
       height: 1080,
