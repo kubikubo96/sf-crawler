@@ -1,6 +1,6 @@
 export const LIST_CRAWL = [
   {
-    url: 'https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=20&url=',
+    url: 'https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=1000&url=',
     source: "dienmayxanh.com",
     elmLinkPost: "a.linktitle",
     typeLinkPost: 'path',
@@ -111,7 +111,7 @@ export const LIST_CRAWL = [
   },
   {
     url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageSize=50',
-    pageIndex: 0,
+    pageIndex: 10,
     source: "bachhoaxanh.com",
     elmLinkPost: "li.news > a",
     typeLinkPost: 'path',
@@ -220,7 +220,7 @@ export const LIST_CRAWL = [
     ],
   },
   {
-    url: 'https://fptshop.com.vn/api-data/tin-tuc/News/GetListNews/thu-thuat?numberRecord=500&page=1',
+    url: 'https://fptshop.com.vn/api-data/tin-tuc/News/GetListNews/thu-thuat?numberRecord=2000&page=1',
     method: 'POST',
     tag: ["Hướng dẫn"],
     source: "fptshop.com.vn",

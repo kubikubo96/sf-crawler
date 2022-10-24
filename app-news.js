@@ -11,7 +11,7 @@ import {
 } from "./constants.js";
 import {DATA_INTERNAL_FULL} from "./internal_full.js";
 import {DATA_INTERNAL_POST} from "./internal_smart.js";
-import {handleListPage, saveData, timestamps} from "./helper.js";
+import {checkTitleTrue, handleListPage, saveData, timestamps} from "./helper.js";
 import {BLOCKED_URL, MINIMAL_ARGS} from "./minimal.js";
 import axios from "axios";
 
@@ -525,8 +525,10 @@ import axios from "axios";
                */
               data.content = data.content.replaceAll('\\', '\\\\');
 
-              await saveData(data);
-
+              //nếu không có trash thì trả về true
+              if (checkTitleTrue(data.title)) {
+                await saveData(data);
+              }
               console.log('\x1b[44mDONE!\x1b[0m \n');
             }
             numberPost = numberPost - 1;
