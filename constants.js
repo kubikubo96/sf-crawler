@@ -1,6 +1,6 @@
 export const LIST_CRAWL = [
   {
-    url: 'https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=1000&url=',
+    url: 'https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=300&url=',
     source: "dienmayxanh.com",
     elmLinkPost: "a.linktitle",
     typeLinkPost: 'path',
@@ -30,29 +30,14 @@ export const LIST_CRAWL = [
         tag: ["Điện thoại", "Tin công nghệ điện thoại"]
       },
       {
-        path: "tu-van-chon-mua-dien-thoai",
-        tag: ["Điện thoại", "Tư vấn chọn mua điện thoại"]
-      },
-      {
-        path: "danh-gia-san-pham",
-        tag: ["Điện thoại", "Đánh giá sản phẩm"]
-      },
-      {
         path: "tin-cong-nghe-laptop",
         tag: ["Laptop", "Tin công nghệ laptop"]
-      },
-      {
-        path: "danh-gia-san-pham-laptop",
-        tag: ["Laptop", "Đánh giá sản phẩm laptop"]
       },
       {
         path: "huong-dan-su-dung-laptop",
         tag: ["Laptop", "Hướng dẫn sử dụng laptop"]
       },
       {
-        path: "danh-gia-san-pham-may-tinh-bang",
-        tag: ["Máy tính bảng", "Đánh giá sản phẩm máy tính bảng"]
-      }, {
         path: "huong-dan-su-dung-may-tinh-bang",
         tag: ["Máy tính bảng", "Hướng dẫn sử dụng máy tính bảng"]
       },
@@ -85,10 +70,6 @@ export const LIST_CRAWL = [
         tag: ["Đồng hồ", "Phân biệt đồng hồ thật giả"]
       },
       {
-        path: "tu-van-chon-mua-mat-kinh",
-        tag: ["Mắt kính", "Tư vấn chọn mua mắt kính"]
-      },
-      {
         path: "thuong-hieu-mat-kinh",
         tag: ["Mắt kính", "Thương hiệu mắt kính"]
       },
@@ -111,7 +92,7 @@ export const LIST_CRAWL = [
   },
   /*{
     url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageSize=50',
-    pageIndex: 10,
+    pageIndex: 5,
     source: "bachhoaxanh.com",
     elmLinkPost: "li.news > a",
     typeLinkPost: 'path',
@@ -220,7 +201,7 @@ export const LIST_CRAWL = [
     ],
   },*/
   /*{
-    url: 'https://fptshop.com.vn/api-data/tin-tuc/News/GetListNews/thu-thuat?numberRecord=2000&page=1',
+    url: 'https://fptshop.com.vn/api-data/tin-tuc/News/GetListNews/thu-thuat?numberRecord=1000&page=1',
     method: 'POST',
     tag: ["Hướng dẫn"],
     source: "fptshop.com.vn",
