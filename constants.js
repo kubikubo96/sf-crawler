@@ -48,6 +48,7 @@ export const LIST_TRASH_LINK = [
   'ĐIỆN MÁY XANH',
   'BÁCH HÓA XANH',
   'Bách hoá XANH',
+  'Bách hoá XANH',
   'Mọi thắc mắc vui lòng để lại câu hỏi ngay bên dưới để Điện máy XANH hỗ trợ cho bạn nhé',
   'Đọc thêm bài viết',
   'Tham khảo thêm',
