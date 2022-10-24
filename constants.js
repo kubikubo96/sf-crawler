@@ -109,7 +109,7 @@ export const LIST_CRAWL = [
       },
     ],
   },
-  {
+  /*{
     url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageSize=50',
     pageIndex: 10,
     source: "bachhoaxanh.com",
@@ -218,8 +218,8 @@ export const LIST_CRAWL = [
         tag: ["Ăn gì chơi gì", "Nhạc hay"],
       },
     ],
-  },
-  {
+  },*/
+  /*{
     url: 'https://fptshop.com.vn/api-data/tin-tuc/News/GetListNews/thu-thuat?numberRecord=2000&page=1',
     method: 'POST',
     tag: ["Hướng dẫn"],
@@ -236,7 +236,7 @@ export const LIST_CRAWL = [
     elmTagP: ".post__content > p",
     elmTagQuote: ".post__content > blockquote",
     elmTagFigure: ".post__content > figure",
-  },
+  },*/
 ];
 
 export const DATA_ELEMENT_INTERNAL_POST = [
