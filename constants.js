@@ -27,11 +27,11 @@ export const LIST_CRAWL = [
       },
       {
         path: "tin-cong-nghe-dien-thoai",
-        tag: ["Điện thoại", "Tin công nghệ điện thoại"]
+        tag: ["Điện thoại", "Tin công nghệ điện thoại", "Tin tức"]
       },
       {
         path: "tin-cong-nghe-laptop",
-        tag: ["Laptop", "Tin công nghệ laptop"]
+        tag: ["Laptop", "Tin công nghệ laptop", "Tin tức"]
       },
       {
         path: "huong-dan-su-dung-laptop",
