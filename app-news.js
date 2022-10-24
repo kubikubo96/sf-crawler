@@ -126,6 +126,9 @@ import axios from "axios";
           continue;
         }
 
+        //lấy 40% trên tổng số trang
+        numberPost = Math.round(numberPost * 0.3);
+
         /**
          * Lặp danh sách bài viết
          */

@@ -1,6 +1,6 @@
 export const LIST_CRAWL = [
   {
-    url: 'https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=300&url=',
+    url: 'https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=2000&url=',
     source: "dienmayxanh.com",
     elmLinkPost: "a.linktitle",
     typeLinkPost: 'path',
