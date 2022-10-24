@@ -41,53 +41,53 @@ export const LIST_CRAWL = [
         path: "huong-dan-su-dung-may-tinh-bang",
         tag: ["Máy tính bảng", "Hướng dẫn sử dụng máy tính bảng"]
       },
-      {
-        path: "meo-hay-facebook-zalo-youtube",
-        tag: ["Mạng xã hội", "Mẹo hay Facebook Zalo Youtube"]
-      },
-      {
-        path: "tin-hoc-van-phong",
-        tag: ["Tin học văn phòng"]
-      },
-      {
-        path: "phu-kien",
-        tag: ["Phụ kiện"]
-      },
-      {
-        path: "thuong-hieu-dong-ho",
-        tag: ["Đồng hồ", "Thương hiệu đồng hồ"]
-      },
-      {
-        path: "meo-huong-dan-su-dung-dong-ho",
-        tag: ["Đồng hồ", "Mẹo hướng dẫn sử dụng dồng hồ"]
-      },
-      {
-        path: "thuat-ngu-dong-ho",
-        tag: ["Đồng hồ", "Thuật ngữ đồng hồ"]
-      },
-      {
-        path: "phan-biet-dong-ho-that-gia",
-        tag: ["Đồng hồ", "Phân biệt đồng hồ thật giả"]
-      },
-      {
-        path: "thuong-hieu-mat-kinh",
-        tag: ["Mắt kính", "Thương hiệu mắt kính"]
-      },
-      {
-        path: "thiet-bi-thong-minh-phong-ngu",
-        tag: ["Thiết bị thông minh", "Thiết bị thông minh phòng ngủ"]
-      },
-      {
-        path: "thiet-bi-thong-minh-phong-khach",
-        tag: ["Thiết bị thông minh", "Thiết bị thông minh phòng khách"]
-      }, {
-        path: "thiet-bi-thong-minh-nha-bep",
-        tag: ["Thiết bị thông minh", "Thiết bị thông minh nhà bếp"]
-      },
-      {
-        path: "thiet-bi-thong-minh-khac",
-        tag: ["Thiết bị thông minh", "Thiết bị thông minh khác"]
-      },
+      // {
+      //   path: "meo-hay-facebook-zalo-youtube",
+      //   tag: ["Mạng xã hội", "Mẹo hay Facebook Zalo Youtube"]
+      // },
+      // {
+      //   path: "tin-hoc-van-phong",
+      //   tag: ["Tin học văn phòng"]
+      // },
+      // {
+      //   path: "phu-kien",
+      //   tag: ["Phụ kiện"]
+      // },
+      // {
+      //   path: "thuong-hieu-dong-ho",
+      //   tag: ["Đồng hồ", "Thương hiệu đồng hồ"]
+      // },
+      // {
+      //   path: "meo-huong-dan-su-dung-dong-ho",
+      //   tag: ["Đồng hồ", "Mẹo hướng dẫn sử dụng dồng hồ"]
+      // },
+      // {
+      //   path: "thuat-ngu-dong-ho",
+      //   tag: ["Đồng hồ", "Thuật ngữ đồng hồ"]
+      // },
+      // {
+      //   path: "phan-biet-dong-ho-that-gia",
+      //   tag: ["Đồng hồ", "Phân biệt đồng hồ thật giả"]
+      // },
+      // {
+      //   path: "thuong-hieu-mat-kinh",
+      //   tag: ["Mắt kính", "Thương hiệu mắt kính"]
+      // },
+      // {
+      //   path: "thiet-bi-thong-minh-phong-ngu",
+      //   tag: ["Thiết bị thông minh", "Thiết bị thông minh phòng ngủ"]
+      // },
+      // {
+      //   path: "thiet-bi-thong-minh-phong-khach",
+      //   tag: ["Thiết bị thông minh", "Thiết bị thông minh phòng khách"]
+      // }, {
+      //   path: "thiet-bi-thong-minh-nha-bep",
+      //   tag: ["Thiết bị thông minh", "Thiết bị thông minh nhà bếp"]
+      // },
+      // {
+      //   path: "thiet-bi-thong-minh-khac",
+      //   tag: ["Thiết bị thông minh", "Thiết bị thông minh khác"]
+      // },
     ],
   },
   /*{
