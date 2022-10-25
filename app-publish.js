@@ -11,11 +11,11 @@ import {MINIMAL_ARGS} from "./minimal.js";
     });
     const page = await browser.newPage();
 
-    const urlLogin = process.env.HOST_ADMIN + "/wp-login.php?loggedout=true&wp_lang=vi";
+    const urlLogin = process.env.HOST_DOMAIN + "/wp-login.php?loggedout=true&wp_lang=vi";
 
-    const urlPostPrivate = process.env.HOST_ADMIN + "/wp-admin/edit.php?post_status=private";
+    const urlPostPrivate = process.env.HOST_DOMAIN + "/wp-admin/edit.php?post_status=private";
 
-    const urlPost = process.env.HOST_ADMIN + "/wp-admin/post.php?action=edit&post=";
+    const urlPost = process.env.HOST_DOMAIN + "/wp-admin/post.php?action=edit&post=";
 
     try {
       await page.goto(urlLogin, {

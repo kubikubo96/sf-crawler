@@ -1,370 +1,370 @@
 export const DATA_INTERNAL_FULL = [
   {
     name: ' Bluetooth ',
-    url: process.env.HOST_ADMIN + '/bluetooth'
+    url: process.env.HOST_DOMAIN + '/bluetooth'
   },
   {
     name: ' Windows 11 ',
-    url: process.env.HOST_ADMIN + '/tag/windows-11'
+    url: process.env.HOST_DOMAIN + '/tag/windows-11'
   },
   {
     name: ' Windows 10 ',
-    url: process.env.HOST_ADMIN + '/tag/windows-10'
+    url: process.env.HOST_DOMAIN + '/tag/windows-10'
   },
   {
     name: ' Windows 8.1 ',
-    url: process.env.HOST_ADMIN + '/windows-81'
+    url: process.env.HOST_DOMAIN + '/windows-81'
   },
   {
     name: ' Windows 7 ',
-    url: process.env.HOST_ADMIN + '/windows-7'
+    url: process.env.HOST_DOMAIN + '/windows-7'
   },
   {
     name: ' Google Chrome ',
-    url: process.env.HOST_ADMIN + '/tag/google-chrome'
+    url: process.env.HOST_DOMAIN + '/tag/google-chrome'
   },
   {
     name: ' Microsoft Edge ',
-    url: process.env.HOST_ADMIN + '/tag/microsoft-edge'
+    url: process.env.HOST_DOMAIN + '/tag/microsoft-edge'
   },
   {
     name: ' Firefox ',
-    url: process.env.HOST_ADMIN + '/tag/firefox'
+    url: process.env.HOST_DOMAIN + '/tag/firefox'
   },
   {
     name: ' Cốc Cốc ',
-    url: process.env.HOST_ADMIN + '/tag/coc-coc'
+    url: process.env.HOST_DOMAIN + '/tag/coc-coc'
   },
   {
     name: ' Laptop ',
-    url: process.env.HOST_ADMIN + '/laptop'
+    url: process.env.HOST_DOMAIN + '/laptop'
   },
   {
     name: ' iPhone 5',
-    url: process.env.HOST_ADMIN + '/tag/iphone-5'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-5'
   },
   {
     name: ' iPhone 6',
-    url: process.env.HOST_ADMIN + '/tag/iphone-6'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-6'
   },
   {
     name: ' iPhone 7',
-    url: process.env.HOST_ADMIN + '/tag/iphone-7'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-7'
   },
   {
     name: ' iPhone 8',
-    url: process.env.HOST_ADMIN + '/tag/iphone-8'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-8'
   },
   {
     name: ' iPhone 9',
-    url: process.env.HOST_ADMIN + '/tag/iphone-10'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-10'
   },
   {
     name: ' iPhone 11',
-    url: process.env.HOST_ADMIN + '/tag/iphone-11'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-11'
   },
   {
     name: ' iPhone 12',
-    url: process.env.HOST_ADMIN + '/tag/iphone-12'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-12'
   },
   {
     name: ' iPhone 13',
-    url: process.env.HOST_ADMIN + '/tag/iphone-13'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-13'
   },
   {
     name: ' iPhone 14',
-    url: process.env.HOST_ADMIN + '/tag/iphone-14'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-14'
   },
   {
     name: ' iPhone 15',
-    url: process.env.HOST_ADMIN + '/tag/iphone-15'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-15'
   },
   {
     name: ' iCloud ',
-    url: process.env.HOST_ADMIN + '/tag/icloud'
+    url: process.env.HOST_DOMAIN + '/tag/icloud'
   },
   {
     name: ' Instagram ',
-    url: process.env.HOST_ADMIN + '/tag/instagram'
+    url: process.env.HOST_DOMAIN + '/tag/instagram'
   },
   {
     name: ' Facebook ',
-    url: process.env.HOST_ADMIN + '/tag/facebook'
+    url: process.env.HOST_DOMAIN + '/tag/facebook'
   },
   {
     name: ' Zalo ',
-    url: process.env.HOST_ADMIN + '/tag/zalo'
+    url: process.env.HOST_DOMAIN + '/tag/zalo'
   },
   {
     name: ' MacBook ',
-    url: process.env.HOST_ADMIN + '/macbook'
+    url: process.env.HOST_DOMAIN + '/macbook'
   },
   {
     name: ' Android ',
-    url: process.env.HOST_ADMIN + '/android'
+    url: process.env.HOST_DOMAIN + '/android'
   },
   {
     name: ' iOS 5',
-    url: process.env.HOST_ADMIN + '/ios-5'
+    url: process.env.HOST_DOMAIN + '/ios-5'
   },
   {
     name: ' iOS 6',
-    url: process.env.HOST_ADMIN + '/ios-6'
+    url: process.env.HOST_DOMAIN + '/ios-6'
   },
   {
     name: ' iOS 7',
-    url: process.env.HOST_ADMIN + '/ios-7'
+    url: process.env.HOST_DOMAIN + '/ios-7'
   },
   {
     name: ' iOS 8',
-    url: process.env.HOST_ADMIN + '/ios-8'
+    url: process.env.HOST_DOMAIN + '/ios-8'
   },
   {
     name: ' iOS 9',
-    url: process.env.HOST_ADMIN + '/ios-9'
+    url: process.env.HOST_DOMAIN + '/ios-9'
   },
   {
     name: ' iOS 10',
-    url: process.env.HOST_ADMIN + '/ios-10'
+    url: process.env.HOST_DOMAIN + '/ios-10'
   },
   {
     name: ' iOS 11',
-    url: process.env.HOST_ADMIN + '/ios-11'
+    url: process.env.HOST_DOMAIN + '/ios-11'
   },
   {
     name: ' iOS 12',
-    url: process.env.HOST_ADMIN + '/ios-12'
+    url: process.env.HOST_DOMAIN + '/ios-12'
   },
   {
     name: ' iOS 13',
-    url: process.env.HOST_ADMIN + '/ios-13'
+    url: process.env.HOST_DOMAIN + '/ios-13'
   },
   {
     name: ' iOS 14',
-    url: process.env.HOST_ADMIN + '/ios-14'
+    url: process.env.HOST_DOMAIN + '/ios-14'
   },
   {
     name: ' iOS 15',
-    url: process.env.HOST_ADMIN + '/ios-15'
+    url: process.env.HOST_DOMAIN + '/ios-15'
   },
   {
     name: ' iOS 16',
-    url: process.env.HOST_ADMIN + '/ios-16'
+    url: process.env.HOST_DOMAIN + '/ios-16'
   },
   {
     name: ' iPhone 5',
-    url: process.env.HOST_ADMIN + '/iphone-5'
+    url: process.env.HOST_DOMAIN + '/iphone-5'
   },
   {
     name: ' iPhone 6',
-    url: process.env.HOST_ADMIN + '/iphone-6'
+    url: process.env.HOST_DOMAIN + '/iphone-6'
   },
   {
     name: ' iPhone 7',
-    url: process.env.HOST_ADMIN + '/iphone-7'
+    url: process.env.HOST_DOMAIN + '/iphone-7'
   },
   {
     name: ' iPhone 8',
-    url: process.env.HOST_ADMIN + '/iphone-8'
+    url: process.env.HOST_DOMAIN + '/iphone-8'
   },
   {
     name: ' iPhone 9',
-    url: process.env.HOST_ADMIN + '/iphone-9'
+    url: process.env.HOST_DOMAIN + '/iphone-9'
   },
   {
     name: ' iPhone 10',
-    url: process.env.HOST_ADMIN + '/iphone-10'
+    url: process.env.HOST_DOMAIN + '/iphone-10'
   },
   {
     name: ' iPhone 11',
-    url: process.env.HOST_ADMIN + '/iphone-11'
+    url: process.env.HOST_DOMAIN + '/iphone-11'
   },
   {
     name: ' iPhone 12',
-    url: process.env.HOST_ADMIN + '/iphone-12'
+    url: process.env.HOST_DOMAIN + '/iphone-12'
   },
   {
     name: ' iPhone 13',
-    url: process.env.HOST_ADMIN + '/iphone-13'
+    url: process.env.HOST_DOMAIN + '/iphone-13'
   },
   {
     name: ' iPhone 14',
-    url: process.env.HOST_ADMIN + '/iphone-14'
+    url: process.env.HOST_DOMAIN + '/iphone-14'
   },
   {
     name: ' iPhone 15',
-    url: process.env.HOST_ADMIN + '/iphone-15'
+    url: process.env.HOST_DOMAIN + '/iphone-15'
   },
   {
     name: ' iPhone 16',
-    url: process.env.HOST_ADMIN + '/iphone-16'
+    url: process.env.HOST_DOMAIN + '/iphone-16'
   },
   {
     name: ' Smartphone ',
-    url: process.env.HOST_ADMIN + '/smartphone'
+    url: process.env.HOST_DOMAIN + '/smartphone'
   },
   {
     name: ' Apple Watch ',
-    url: process.env.HOST_ADMIN + '/apple-watch'
+    url: process.env.HOST_DOMAIN + '/apple-watch'
   },
   {
     name: ' thiết bị thông minh ',
-    url: process.env.HOST_ADMIN + '/tag/thiet-bi-thong-minh'
+    url: process.env.HOST_DOMAIN + '/tag/thiet-bi-thong-minh'
   },
   {
     name: ' mắt kính ',
-    url: process.env.HOST_ADMIN + '/tag/mat-kinh'
+    url: process.env.HOST_DOMAIN + '/tag/mat-kinh'
   },
   {
     name: ' đồng hồ ',
-    url: process.env.HOST_ADMIN + '/tag/dong-ho'
+    url: process.env.HOST_DOMAIN + '/tag/dong-ho'
   },
   {
     name: ' phụ kiện ',
-    url: process.env.HOST_ADMIN + '/tag/phu-kien'
+    url: process.env.HOST_DOMAIN + '/tag/phu-kien'
   },
   {
     name: ' máy ảnh ',
-    url: process.env.HOST_ADMIN + '/tag/may-anh'
+    url: process.env.HOST_DOMAIN + '/tag/may-anh'
   },
   {
     name: ' tin học văn phòng ',
-    url: process.env.HOST_ADMIN + '/tag/tin-hoc-van-phong'
+    url: process.env.HOST_DOMAIN + '/tag/tin-hoc-van-phong'
   },
   {
     name: ' mạng xã hội ',
-    url: process.env.HOST_ADMIN + '/tag/mang-xa-hoi'
+    url: process.env.HOST_DOMAIN + '/tag/mang-xa-hoi'
   },
   {
     name: ' máy in ',
-    url: process.env.HOST_ADMIN + '/tag/may-in'
+    url: process.env.HOST_DOMAIN + '/tag/may-in'
   },
   {
     name: ' thiết bị ngoại vi ',
-    url: process.env.HOST_ADMIN + '/tag/thiet-bi-ngoai-vi'
+    url: process.env.HOST_DOMAIN + '/tag/thiet-bi-ngoai-vi'
   },
   {
     name: ' đầu kỹ thuật số ',
-    url: process.env.HOST_ADMIN + '/tag/dau-ky-thuat-so'
+    url: process.env.HOST_DOMAIN + '/tag/dau-ky-thuat-so'
   },
   {
     name: ' máy tính bảng ',
-    url: process.env.HOST_ADMIN + '/tag/may-tinh-bang'
+    url: process.env.HOST_DOMAIN + '/tag/may-tinh-bang'
   },
   {
     name: ' iPad ',
-    url: process.env.HOST_ADMIN + '/tag/may-tinh-bang'
+    url: process.env.HOST_DOMAIN + '/tag/may-tinh-bang'
   },
   {
     name: ' âm thanh ',
-    url: process.env.HOST_ADMIN + '/tag/am-thanh'
+    url: process.env.HOST_DOMAIN + '/tag/am-thanh'
   },
   {
     name: ' tivi ',
-    url: process.env.HOST_ADMIN + '/tag/tivi'
+    url: process.env.HOST_DOMAIN + '/tag/tivi'
   },
   {
     name: ' Command line ',
-    url: process.env.HOST_ADMIN + '/tag/command-line'
+    url: process.env.HOST_DOMAIN + '/tag/command-line'
   },
   {
     name: ' Onedrive ',
-    url: process.env.HOST_ADMIN + '/tag/onedrive'
+    url: process.env.HOST_DOMAIN + '/tag/onedrive'
   },
   {
     name: ' Terminal ',
-    url: process.env.HOST_ADMIN + '/tag/terminal'
+    url: process.env.HOST_DOMAIN + '/tag/terminal'
   },
   {
     name: ' Ubuntu ',
-    url: process.env.HOST_ADMIN + '/tag/ubuntu'
+    url: process.env.HOST_DOMAIN + '/tag/ubuntu'
   },
   {
     name: ' Vmware ',
-    url: process.env.HOST_ADMIN + '/tag/vmware'
+    url: process.env.HOST_DOMAIN + '/tag/vmware'
   },
   {
     name: ' Excel ',
-    url: process.env.HOST_ADMIN + '/tag/excel'
+    url: process.env.HOST_DOMAIN + '/tag/excel'
   },
   {
     name: ' Word ',
-    url: process.env.HOST_ADMIN + '/tag/word'
+    url: process.env.HOST_DOMAIN + '/tag/word'
   },
   {
     name: ' Apple ',
-    url: process.env.HOST_ADMIN + '/apple'
+    url: process.env.HOST_DOMAIN + '/apple'
   },
   {
     name: ' ăn sáng ',
-    url: process.env.HOST_ADMIN + '/tag/an-sang'
+    url: process.env.HOST_DOMAIN + '/tag/an-sang'
   },
   {
     name: ' rau củ ',
-    url: process.env.HOST_ADMIN + '/tag/rau-cu'
+    url: process.env.HOST_DOMAIN + '/tag/rau-cu'
   },
   {
     name: ' món ngon ',
-    url: process.env.HOST_ADMIN + '/tag/mon-ngon'
+    url: process.env.HOST_DOMAIN + '/tag/mon-ngon'
   },
   {
     name: ' món ăn ',
-    url: process.env.HOST_ADMIN + '/tag/mon-an'
+    url: process.env.HOST_DOMAIN + '/tag/mon-an'
   },
   {
     name: ' chất béo ',
-    url: process.env.HOST_ADMIN + '/tag/chat-beo'
+    url: process.env.HOST_DOMAIN + '/tag/chat-beo'
   },
   {
     name: ' Kali ',
-    url: process.env.HOST_ADMIN + '/tag/kali'
+    url: process.env.HOST_DOMAIN + '/tag/kali'
   },
   {
     name: ' chất chống oxy hóa ',
-    url: process.env.HOST_ADMIN + '/tag/chat-chong-oxy-hoa'
+    url: process.env.HOST_DOMAIN + '/tag/chat-chong-oxy-hoa'
   },
   {
     name: ' chất xơ ',
-    url: process.env.HOST_ADMIN + '/tag/chat-xo'
+    url: process.env.HOST_DOMAIN + '/tag/chat-xo'
   },
   {
     name: ' vitamin A ',
-    url: process.env.HOST_ADMIN + '/tag/vitamin-a'
+    url: process.env.HOST_DOMAIN + '/tag/vitamin-a'
   },
   {
     name: ' vitamin B ',
-    url: process.env.HOST_ADMIN + '/tag/vitamin-b'
+    url: process.env.HOST_DOMAIN + '/tag/vitamin-b'
   },
   {
     name: ' vitamin C ',
-    url: process.env.HOST_ADMIN + '/tag/vitamin-c'
+    url: process.env.HOST_DOMAIN + '/tag/vitamin-c'
   },
   {
     name: ' vitamin D ',
-    url: process.env.HOST_ADMIN + '/tag/vitamin-d'
+    url: process.env.HOST_DOMAIN + '/tag/vitamin-d'
   },
   {
     name: ' vitamin E ',
-    url: process.env.HOST_ADMIN + '/tag/vitamin-e'
+    url: process.env.HOST_DOMAIN + '/tag/vitamin-e'
   },
   {
     name: ' vitamin F ',
-    url: process.env.HOST_ADMIN + '/tag/vitamin-f'
+    url: process.env.HOST_DOMAIN + '/tag/vitamin-f'
   },
   {
     name: ' vitamin K ',
-    url: process.env.HOST_ADMIN + '/tag/vitamin-k'
+    url: process.env.HOST_DOMAIN + '/tag/vitamin-k'
   },
   {
     name: ' gia vị ',
-    url: process.env.HOST_ADMIN + '/tag/gia vị'
+    url: process.env.HOST_DOMAIN + '/tag/gia vị'
   },
   {
     name: ' bổ dưỡng ',
-    url: process.env.HOST_ADMIN + '/tag/bo-duong'
+    url: process.env.HOST_DOMAIN + '/tag/bo-duong'
   },
   {
     name: ' nguyên liệu ',
-    url: process.env.HOST_ADMIN + '/tag/nguyen-lieu'
+    url: process.env.HOST_DOMAIN + '/tag/nguyen-lieu'
   },
 ];
