@@ -88,7 +88,7 @@ import axios from "axios";
               waitUntil: ["networkidle2"],
             });
           } catch (error) {
-            console.log(error);
+            //console.log(error);
           }
 
           //Get danh sách bài viết
@@ -141,7 +141,7 @@ import axios from "axios";
                 waitUntil: ["networkidle2"],
               });
             } catch (error) {
-              console.log(error);
+              //console.log(error);
             }
             await page.waitForTimeout(3000);
 
@@ -150,7 +150,7 @@ import axios from "axios";
                 window.scrollTo(0, document.body.scrollHeight);
               });
             } catch (error) {
-              console.log(error)
+              //console.log(error)
             }
             await page.waitForTimeout(2000);
 
@@ -159,7 +159,7 @@ import axios from "axios";
                 window.scrollTo(0, 0);
               });
             } catch (error) {
-              console.log(error)
+              //console.log(error)
             }
             await page.waitForTimeout(4000);
 
@@ -176,7 +176,7 @@ import axios from "axios";
               await page.waitForSelector(elmTitle);
               await page.waitForSelector(elmContent);
             } catch (error) {
-              console.log(error)
+              //console.log(error)
             }
 
             //Khởi tạo Data
@@ -208,7 +208,7 @@ import axios from "axios";
                 });
               });
             } catch (error) {
-              console.log(error)
+              //console.log(error)
             }
             //end: replace src image
 
@@ -245,12 +245,12 @@ import axios from "axios";
                       elm.remove();
                     });
                   } catch (error) {
-                    console.log(error)
+                    //console.log(error)
                   }
                 });
               }, ELM_TRASH, ELM_TRASH_PARENT);
             } catch (error) {
-              console.log(error)
+              //console.log(error)
             }
             //end: remove trash
 
@@ -274,7 +274,7 @@ import axios from "axios";
                 LIST_TRASH_LINK
               );
             } catch (error) {
-              console.log(error)
+              //console.log(error)
             }
             //end: remove trash tag a
 
@@ -298,7 +298,7 @@ import axios from "axios";
                 LIST_TRASH_P
               );
             } catch (error) {
-              console.log(error)
+              //console.log(error)
             }
             //end: remove trash tag p
 
@@ -322,7 +322,7 @@ import axios from "axios";
                 LIST_TRASH_P
               );
             } catch (error) {
-              console.log(error)
+              //console.log(error)
             }
             //end: remove trash tag blockquote
 
@@ -346,7 +346,7 @@ import axios from "axios";
                 LIST_TRASH_P
               );
             } catch (error) {
-              console.log(error)
+              //console.log(error)
             }
             //end: remove trash tag figure
 
@@ -365,7 +365,7 @@ import axios from "axios";
                 sourceCrawl
               );
             } catch (error) {
-              console.log(error)
+              //console.log(error)
             }
             //end: convert link thành text cho link crawl
 
@@ -385,7 +385,7 @@ import axios from "axios";
                 sourceCrawl
               );
             } catch (error) {
-              console.log(error)
+              //console.log(error)
             }
             //end: replace src image
 
@@ -438,7 +438,7 @@ import axios from "axios";
                 return data.tag;
               }, data, dataInternalFull);
             } catch (error) {
-              console.log(error)
+              //console.log(error)
             }
             //end: add internal link tag
 
@@ -481,7 +481,7 @@ import axios from "axios";
               data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
               data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
             } catch (error) {
-              console.log(error)
+              //console.log(error)
             }
 
             const lengthTitle = data.title.length;
@@ -500,7 +500,7 @@ import axios from "axios";
                 }, lengthDescription);
               }
             } catch (error) {
-              console.log(error)
+              //console.log(error)
             }
 
             //start: replace Tên trang
@@ -544,11 +544,11 @@ import axios from "axios";
               break;
             }
           } catch (error) {
-            console.log(error)
+            //console.log(error)
           }
         }
       } catch (error) {
-        console.log(error)
+        //console.log(error)
       }
 
       /**
