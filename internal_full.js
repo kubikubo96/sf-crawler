@@ -1,370 +1,370 @@
 export const DATA_INTERNAL_FULL = [
   {
     name: ' Bluetooth ',
-    url: 'https://kungfucongnghe.com/bluetooth'
+    url: process.env.HOST_ADMIN + '/bluetooth'
   },
   {
     name: ' Windows 11 ',
-    url: 'https://kungfucongnghe.com/tag/windows-11'
+    url: process.env.HOST_ADMIN + '/tag/windows-11'
   },
   {
     name: ' Windows 10 ',
-    url: 'https://kungfucongnghe.com/tag/windows-10'
+    url: process.env.HOST_ADMIN + '/tag/windows-10'
   },
   {
     name: ' Windows 8.1 ',
-    url: 'https://kungfucongnghe.com/windows-81'
+    url: process.env.HOST_ADMIN + '/windows-81'
   },
   {
     name: ' Windows 7 ',
-    url: 'https://kungfucongnghe.com/windows-7'
+    url: process.env.HOST_ADMIN + '/windows-7'
   },
   {
     name: ' Google Chrome ',
-    url: 'https://kungfucongnghe.com/tag/google-chrome'
+    url: process.env.HOST_ADMIN + '/tag/google-chrome'
   },
   {
     name: ' Microsoft Edge ',
-    url: 'https://kungfucongnghe.com/tag/microsoft-edge'
+    url: process.env.HOST_ADMIN + '/tag/microsoft-edge'
   },
   {
     name: ' Firefox ',
-    url: 'https://kungfucongnghe.com/tag/firefox'
+    url: process.env.HOST_ADMIN + '/tag/firefox'
   },
   {
     name: ' Cốc Cốc ',
-    url: 'https://kungfucongnghe.com/tag/coc-coc'
+    url: process.env.HOST_ADMIN + '/tag/coc-coc'
   },
   {
     name: ' Laptop ',
-    url: 'https://kungfucongnghe.com/laptop'
+    url: process.env.HOST_ADMIN + '/laptop'
   },
   {
     name: ' iPhone 5',
-    url: 'https://kungfucongnghe.com/tag/iphone-5'
+    url: process.env.HOST_ADMIN + '/tag/iphone-5'
   },
   {
     name: ' iPhone 6',
-    url: 'https://kungfucongnghe.com/tag/iphone-6'
+    url: process.env.HOST_ADMIN + '/tag/iphone-6'
   },
   {
     name: ' iPhone 7',
-    url: 'https://kungfucongnghe.com/tag/iphone-7'
+    url: process.env.HOST_ADMIN + '/tag/iphone-7'
   },
   {
     name: ' iPhone 8',
-    url: 'https://kungfucongnghe.com/tag/iphone-8'
+    url: process.env.HOST_ADMIN + '/tag/iphone-8'
   },
   {
     name: ' iPhone 9',
-    url: 'https://kungfucongnghe.com/tag/iphone-10'
+    url: process.env.HOST_ADMIN + '/tag/iphone-10'
   },
   {
     name: ' iPhone 11',
-    url: 'https://kungfucongnghe.com/tag/iphone-11'
+    url: process.env.HOST_ADMIN + '/tag/iphone-11'
   },
   {
     name: ' iPhone 12',
-    url: 'https://kungfucongnghe.com/tag/iphone-12'
+    url: process.env.HOST_ADMIN + '/tag/iphone-12'
   },
   {
     name: ' iPhone 13',
-    url: 'https://kungfucongnghe.com/tag/iphone-13'
+    url: process.env.HOST_ADMIN + '/tag/iphone-13'
   },
   {
     name: ' iPhone 14',
-    url: 'https://kungfucongnghe.com/tag/iphone-14'
+    url: process.env.HOST_ADMIN + '/tag/iphone-14'
   },
   {
     name: ' iPhone 15',
-    url: 'https://kungfucongnghe.com/tag/iphone-15'
+    url: process.env.HOST_ADMIN + '/tag/iphone-15'
   },
   {
     name: ' iCloud ',
-    url: 'https://kungfucongnghe.com/tag/icloud'
+    url: process.env.HOST_ADMIN + '/tag/icloud'
   },
   {
     name: ' Instagram ',
-    url: 'https://kungfucongnghe.com/tag/instagram'
+    url: process.env.HOST_ADMIN + '/tag/instagram'
   },
   {
     name: ' Facebook ',
-    url: 'https://kungfucongnghe.com/tag/facebook'
+    url: process.env.HOST_ADMIN + '/tag/facebook'
   },
   {
     name: ' Zalo ',
-    url: 'https://kungfucongnghe.com/tag/zalo'
+    url: process.env.HOST_ADMIN + '/tag/zalo'
   },
   {
     name: ' MacBook ',
-    url: 'https://kungfucongnghe.com/macbook'
+    url: process.env.HOST_ADMIN + '/macbook'
   },
   {
     name: ' Android ',
-    url: 'https://kungfucongnghe.com/android'
+    url: process.env.HOST_ADMIN + '/android'
   },
   {
     name: ' iOS 5',
-    url: 'https://kungfucongnghe.com/ios-5'
+    url: process.env.HOST_ADMIN + '/ios-5'
   },
   {
     name: ' iOS 6',
-    url: 'https://kungfucongnghe.com/ios-6'
+    url: process.env.HOST_ADMIN + '/ios-6'
   },
   {
     name: ' iOS 7',
-    url: 'https://kungfucongnghe.com/ios-7'
+    url: process.env.HOST_ADMIN + '/ios-7'
   },
   {
     name: ' iOS 8',
-    url: 'https://kungfucongnghe.com/ios-8'
+    url: process.env.HOST_ADMIN + '/ios-8'
   },
   {
     name: ' iOS 9',
-    url: 'https://kungfucongnghe.com/ios-9'
+    url: process.env.HOST_ADMIN + '/ios-9'
   },
   {
     name: ' iOS 10',
-    url: 'https://kungfucongnghe.com/ios-10'
+    url: process.env.HOST_ADMIN + '/ios-10'
   },
   {
     name: ' iOS 11',
-    url: 'https://kungfucongnghe.com/ios-11'
+    url: process.env.HOST_ADMIN + '/ios-11'
   },
   {
     name: ' iOS 12',
-    url: 'https://kungfucongnghe.com/ios-12'
+    url: process.env.HOST_ADMIN + '/ios-12'
   },
   {
     name: ' iOS 13',
-    url: 'https://kungfucongnghe.com/ios-13'
+    url: process.env.HOST_ADMIN + '/ios-13'
   },
   {
     name: ' iOS 14',
-    url: 'https://kungfucongnghe.com/ios-14'
+    url: process.env.HOST_ADMIN + '/ios-14'
   },
   {
     name: ' iOS 15',
-    url: 'https://kungfucongnghe.com/ios-15'
+    url: process.env.HOST_ADMIN + '/ios-15'
   },
   {
     name: ' iOS 16',
-    url: 'https://kungfucongnghe.com/ios-16'
+    url: process.env.HOST_ADMIN + '/ios-16'
   },
   {
     name: ' iPhone 5',
-    url: 'https://kungfucongnghe.com/iphone-5'
+    url: process.env.HOST_ADMIN + '/iphone-5'
   },
   {
     name: ' iPhone 6',
-    url: 'https://kungfucongnghe.com/iphone-6'
+    url: process.env.HOST_ADMIN + '/iphone-6'
   },
   {
     name: ' iPhone 7',
-    url: 'https://kungfucongnghe.com/iphone-7'
+    url: process.env.HOST_ADMIN + '/iphone-7'
   },
   {
     name: ' iPhone 8',
-    url: 'https://kungfucongnghe.com/iphone-8'
+    url: process.env.HOST_ADMIN + '/iphone-8'
   },
   {
     name: ' iPhone 9',
-    url: 'https://kungfucongnghe.com/iphone-9'
+    url: process.env.HOST_ADMIN + '/iphone-9'
   },
   {
     name: ' iPhone 10',
-    url: 'https://kungfucongnghe.com/iphone-10'
+    url: process.env.HOST_ADMIN + '/iphone-10'
   },
   {
     name: ' iPhone 11',
-    url: 'https://kungfucongnghe.com/iphone-11'
+    url: process.env.HOST_ADMIN + '/iphone-11'
   },
   {
     name: ' iPhone 12',
-    url: 'https://kungfucongnghe.com/iphone-12'
+    url: process.env.HOST_ADMIN + '/iphone-12'
   },
   {
     name: ' iPhone 13',
-    url: 'https://kungfucongnghe.com/iphone-13'
+    url: process.env.HOST_ADMIN + '/iphone-13'
   },
   {
     name: ' iPhone 14',
-    url: 'https://kungfucongnghe.com/iphone-14'
+    url: process.env.HOST_ADMIN + '/iphone-14'
   },
   {
     name: ' iPhone 15',
-    url: 'https://kungfucongnghe.com/iphone-15'
+    url: process.env.HOST_ADMIN + '/iphone-15'
   },
   {
     name: ' iPhone 16',
-    url: 'https://kungfucongnghe.com/iphone-16'
+    url: process.env.HOST_ADMIN + '/iphone-16'
   },
   {
     name: ' Smartphone ',
-    url: 'https://kungfucongnghe.com/smartphone'
+    url: process.env.HOST_ADMIN + '/smartphone'
   },
   {
     name: ' Apple Watch ',
-    url: 'https://kungfucongnghe.com/apple-watch'
+    url: process.env.HOST_ADMIN + '/apple-watch'
   },
   {
     name: ' thiết bị thông minh ',
-    url: 'https://kungfucongnghe.com/tag/thiet-bi-thong-minh'
+    url: process.env.HOST_ADMIN + '/tag/thiet-bi-thong-minh'
   },
   {
     name: ' mắt kính ',
-    url: 'https://kungfucongnghe.com/tag/mat-kinh'
+    url: process.env.HOST_ADMIN + '/tag/mat-kinh'
   },
   {
     name: ' đồng hồ ',
-    url: 'https://kungfucongnghe.com/tag/dong-ho'
+    url: process.env.HOST_ADMIN + '/tag/dong-ho'
   },
   {
     name: ' phụ kiện ',
-    url: 'https://kungfucongnghe.com/tag/phu-kien'
+    url: process.env.HOST_ADMIN + '/tag/phu-kien'
   },
   {
     name: ' máy ảnh ',
-    url: 'https://kungfucongnghe.com/tag/may-anh'
+    url: process.env.HOST_ADMIN + '/tag/may-anh'
   },
   {
     name: ' tin học văn phòng ',
-    url: 'https://kungfucongnghe.com/tag/tin-hoc-van-phong'
+    url: process.env.HOST_ADMIN + '/tag/tin-hoc-van-phong'
   },
   {
     name: ' mạng xã hội ',
-    url: 'https://kungfucongnghe.com/tag/mang-xa-hoi'
+    url: process.env.HOST_ADMIN + '/tag/mang-xa-hoi'
   },
   {
     name: ' máy in ',
-    url: 'https://kungfucongnghe.com/tag/may-in'
+    url: process.env.HOST_ADMIN + '/tag/may-in'
   },
   {
     name: ' thiết bị ngoại vi ',
-    url: 'https://kungfucongnghe.com/tag/thiet-bi-ngoai-vi'
+    url: process.env.HOST_ADMIN + '/tag/thiet-bi-ngoai-vi'
   },
   {
     name: ' đầu kỹ thuật số ',
-    url: 'https://kungfucongnghe.com/tag/dau-ky-thuat-so'
+    url: process.env.HOST_ADMIN + '/tag/dau-ky-thuat-so'
   },
   {
     name: ' máy tính bảng ',
-    url: 'https://kungfucongnghe.com/tag/may-tinh-bang'
+    url: process.env.HOST_ADMIN + '/tag/may-tinh-bang'
   },
   {
     name: ' iPad ',
-    url: 'https://kungfucongnghe.com/tag/may-tinh-bang'
+    url: process.env.HOST_ADMIN + '/tag/may-tinh-bang'
   },
   {
     name: ' âm thanh ',
-    url: 'https://kungfucongnghe.com/tag/am-thanh'
+    url: process.env.HOST_ADMIN + '/tag/am-thanh'
   },
   {
     name: ' tivi ',
-    url: 'https://kungfucongnghe.com/tag/tivi'
+    url: process.env.HOST_ADMIN + '/tag/tivi'
   },
   {
     name: ' Command line ',
-    url: 'https://kungfucongnghe.com/tag/command-line'
+    url: process.env.HOST_ADMIN + '/tag/command-line'
   },
   {
     name: ' Onedrive ',
-    url: 'https://kungfucongnghe.com/tag/onedrive'
+    url: process.env.HOST_ADMIN + '/tag/onedrive'
   },
   {
     name: ' Terminal ',
-    url: 'https://kungfucongnghe.com/tag/terminal'
+    url: process.env.HOST_ADMIN + '/tag/terminal'
   },
   {
     name: ' Ubuntu ',
-    url: 'https://kungfucongnghe.com/tag/ubuntu'
+    url: process.env.HOST_ADMIN + '/tag/ubuntu'
   },
   {
     name: ' Vmware ',
-    url: 'https://kungfucongnghe.com/tag/vmware'
+    url: process.env.HOST_ADMIN + '/tag/vmware'
   },
   {
     name: ' Excel ',
-    url: 'https://kungfucongnghe.com/tag/excel'
+    url: process.env.HOST_ADMIN + '/tag/excel'
   },
   {
     name: ' Word ',
-    url: 'https://kungfucongnghe.com/tag/word'
+    url: process.env.HOST_ADMIN + '/tag/word'
   },
   {
     name: ' Apple ',
-    url: 'https://kungfucongnghe.com/apple'
+    url: process.env.HOST_ADMIN + '/apple'
   },
   {
     name: ' ăn sáng ',
-    url: 'https://kungfucongnghe.com/tag/an-sang'
+    url: process.env.HOST_ADMIN + '/tag/an-sang'
   },
   {
     name: ' rau củ ',
-    url: 'https://kungfucongnghe.com/tag/rau-cu'
+    url: process.env.HOST_ADMIN + '/tag/rau-cu'
   },
   {
     name: ' món ngon ',
-    url: 'https://kungfucongnghe.com/tag/mon-ngon'
+    url: process.env.HOST_ADMIN + '/tag/mon-ngon'
   },
   {
     name: ' món ăn ',
-    url: 'https://kungfucongnghe.com/tag/mon-an'
+    url: process.env.HOST_ADMIN + '/tag/mon-an'
   },
   {
     name: ' chất béo ',
-    url: 'https://kungfucongnghe.com/tag/chat-beo'
+    url: process.env.HOST_ADMIN + '/tag/chat-beo'
   },
   {
     name: ' Kali ',
-    url: 'https://kungfucongnghe.com/tag/kali'
+    url: process.env.HOST_ADMIN + '/tag/kali'
   },
   {
     name: ' chất chống oxy hóa ',
-    url: 'https://kungfucongnghe.com/tag/chat-chong-oxy-hoa'
+    url: process.env.HOST_ADMIN + '/tag/chat-chong-oxy-hoa'
   },
   {
     name: ' chất xơ ',
-    url: 'https://kungfucongnghe.com/tag/chat-xo'
+    url: process.env.HOST_ADMIN + '/tag/chat-xo'
   },
   {
     name: ' vitamin A ',
-    url: 'https://kungfucongnghe.com/tag/vitamin-a'
+    url: process.env.HOST_ADMIN + '/tag/vitamin-a'
   },
   {
     name: ' vitamin B ',
-    url: 'https://kungfucongnghe.com/tag/vitamin-b'
+    url: process.env.HOST_ADMIN + '/tag/vitamin-b'
   },
   {
     name: ' vitamin C ',
-    url: 'https://kungfucongnghe.com/tag/vitamin-c'
+    url: process.env.HOST_ADMIN + '/tag/vitamin-c'
   },
   {
     name: ' vitamin D ',
-    url: 'https://kungfucongnghe.com/tag/vitamin-d'
+    url: process.env.HOST_ADMIN + '/tag/vitamin-d'
   },
   {
     name: ' vitamin E ',
-    url: 'https://kungfucongnghe.com/tag/vitamin-e'
+    url: process.env.HOST_ADMIN + '/tag/vitamin-e'
   },
   {
     name: ' vitamin F ',
-    url: 'https://kungfucongnghe.com/tag/vitamin-f'
+    url: process.env.HOST_ADMIN + '/tag/vitamin-f'
   },
   {
     name: ' vitamin K ',
-    url: 'https://kungfucongnghe.com/tag/vitamin-k'
+    url: process.env.HOST_ADMIN + '/tag/vitamin-k'
   },
   {
     name: ' gia vị ',
-    url: 'https://kungfucongnghe.com/tag/gia vị'
+    url: process.env.HOST_ADMIN + '/tag/gia vị'
   },
   {
     name: ' bổ dưỡng ',
-    url: 'https://kungfucongnghe.com/tag/bo-duong'
+    url: process.env.HOST_ADMIN + '/tag/bo-duong'
   },
   {
     name: ' nguyên liệu ',
-    url: 'https://kungfucongnghe.com/tag/nguyen-lieu'
+    url: process.env.HOST_ADMIN + '/tag/nguyen-lieu'
   },
 ];
