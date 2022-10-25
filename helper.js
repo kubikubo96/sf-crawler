@@ -59,13 +59,15 @@ export function checkTitleTrue(title) {
     'ĐTCL', 'DTCL',
   ];
 
+  let check = true;
+
   trashTitle.forEach((item) => {
     if (title.includes(item)) {
-      return false;
+      check = false;
     }
   });
 
-  return true;
+  return check;
 }
 
 export function listPageTypeA(listPage, ItemI, dataDefault) {
