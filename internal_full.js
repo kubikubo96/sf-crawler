@@ -1,7 +1,7 @@
 export const DATA_INTERNAL_FULL = [
   {
     name: ' Bluetooth ',
-    url: process.env.HOST_DOMAIN + '/bluetooth'
+    url: process.env.HOST_DOMAIN + '/tag/bluetooth'
   },
   {
     name: ' Windows 11 ',
@@ -13,11 +13,11 @@ export const DATA_INTERNAL_FULL = [
   },
   {
     name: ' Windows 8.1 ',
-    url: process.env.HOST_DOMAIN + '/windows-81'
+    url: process.env.HOST_DOMAIN + '/tag/windows-81'
   },
   {
     name: ' Windows 7 ',
-    url: process.env.HOST_DOMAIN + '/windows-7'
+    url: process.env.HOST_DOMAIN + '/tag/windows-7'
   },
   {
     name: ' Google Chrome ',
@@ -37,7 +37,7 @@ export const DATA_INTERNAL_FULL = [
   },
   {
     name: ' Laptop ',
-    url: process.env.HOST_DOMAIN + '/laptop'
+    url: process.env.HOST_DOMAIN + '/tag/laptop'
   },
   {
     name: ' iPhone 5',
@@ -97,115 +97,115 @@ export const DATA_INTERNAL_FULL = [
   },
   {
     name: ' MacBook ',
-    url: process.env.HOST_DOMAIN + '/macbook'
+    url: process.env.HOST_DOMAIN + '/tag/macbook'
   },
   {
     name: ' Android ',
-    url: process.env.HOST_DOMAIN + '/android'
+    url: process.env.HOST_DOMAIN + '/tag/android'
   },
   {
     name: ' iOS 5',
-    url: process.env.HOST_DOMAIN + '/ios-5'
+    url: process.env.HOST_DOMAIN + '/tag/ios-5'
   },
   {
     name: ' iOS 6',
-    url: process.env.HOST_DOMAIN + '/ios-6'
+    url: process.env.HOST_DOMAIN + '/tag/ios-6'
   },
   {
     name: ' iOS 7',
-    url: process.env.HOST_DOMAIN + '/ios-7'
+    url: process.env.HOST_DOMAIN + '/tag/ios-7'
   },
   {
     name: ' iOS 8',
-    url: process.env.HOST_DOMAIN + '/ios-8'
+    url: process.env.HOST_DOMAIN + '/tag/ios-8'
   },
   {
     name: ' iOS 9',
-    url: process.env.HOST_DOMAIN + '/ios-9'
+    url: process.env.HOST_DOMAIN + '/tag/ios-9'
   },
   {
     name: ' iOS 10',
-    url: process.env.HOST_DOMAIN + '/ios-10'
+    url: process.env.HOST_DOMAIN + '/tag/ios-10'
   },
   {
     name: ' iOS 11',
-    url: process.env.HOST_DOMAIN + '/ios-11'
+    url: process.env.HOST_DOMAIN + '/tag/ios-11'
   },
   {
     name: ' iOS 12',
-    url: process.env.HOST_DOMAIN + '/ios-12'
+    url: process.env.HOST_DOMAIN + '/tag/ios-12'
   },
   {
     name: ' iOS 13',
-    url: process.env.HOST_DOMAIN + '/ios-13'
+    url: process.env.HOST_DOMAIN + '/tag/ios-13'
   },
   {
     name: ' iOS 14',
-    url: process.env.HOST_DOMAIN + '/ios-14'
+    url: process.env.HOST_DOMAIN + '/tag/ios-14'
   },
   {
     name: ' iOS 15',
-    url: process.env.HOST_DOMAIN + '/ios-15'
+    url: process.env.HOST_DOMAIN + '/tag/ios-15'
   },
   {
     name: ' iOS 16',
-    url: process.env.HOST_DOMAIN + '/ios-16'
+    url: process.env.HOST_DOMAIN + '/tag/ios-16'
   },
   {
     name: ' iPhone 5',
-    url: process.env.HOST_DOMAIN + '/iphone-5'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-5'
   },
   {
     name: ' iPhone 6',
-    url: process.env.HOST_DOMAIN + '/iphone-6'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-6'
   },
   {
     name: ' iPhone 7',
-    url: process.env.HOST_DOMAIN + '/iphone-7'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-7'
   },
   {
     name: ' iPhone 8',
-    url: process.env.HOST_DOMAIN + '/iphone-8'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-8'
   },
   {
     name: ' iPhone 9',
-    url: process.env.HOST_DOMAIN + '/iphone-9'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-9'
   },
   {
     name: ' iPhone 10',
-    url: process.env.HOST_DOMAIN + '/iphone-10'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-10'
   },
   {
     name: ' iPhone 11',
-    url: process.env.HOST_DOMAIN + '/iphone-11'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-11'
   },
   {
     name: ' iPhone 12',
-    url: process.env.HOST_DOMAIN + '/iphone-12'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-12'
   },
   {
     name: ' iPhone 13',
-    url: process.env.HOST_DOMAIN + '/iphone-13'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-13'
   },
   {
     name: ' iPhone 14',
-    url: process.env.HOST_DOMAIN + '/iphone-14'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-14'
   },
   {
     name: ' iPhone 15',
-    url: process.env.HOST_DOMAIN + '/iphone-15'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-15'
   },
   {
     name: ' iPhone 16',
-    url: process.env.HOST_DOMAIN + '/iphone-16'
+    url: process.env.HOST_DOMAIN + '/tag/iphone-16'
   },
   {
     name: ' Smartphone ',
-    url: process.env.HOST_DOMAIN + '/smartphone'
+    url: process.env.HOST_DOMAIN + '/tag/smartphone'
   },
   {
     name: ' Apple Watch ',
-    url: process.env.HOST_DOMAIN + '/apple-watch'
+    url: process.env.HOST_DOMAIN + '/tag/apple-watch'
   },
   {
     name: ' thiết bị thông minh ',
@@ -293,7 +293,7 @@ export const DATA_INTERNAL_FULL = [
   },
   {
     name: ' Apple ',
-    url: process.env.HOST_DOMAIN + '/apple'
+    url: process.env.HOST_DOMAIN + '/tag/apple'
   },
   {
     name: ' ăn sáng ',
@@ -357,7 +357,7 @@ export const DATA_INTERNAL_FULL = [
   },
   {
     name: ' gia vị ',
-    url: process.env.HOST_DOMAIN + '/tag/gia vị'
+    url: process.env.HOST_DOMAIN + '/tag/gia-vi'
   },
   {
     name: ' bổ dưỡng ',
