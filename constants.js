@@ -258,6 +258,8 @@ export const LIST_TRASH_LINK = [
   '<a href="" target="_blank"></a>',
   'Xem clip Tiktok',
   'Tìm hiểu chi tiết',
+  'Mời bạn xem ngay',
+  'Xem thêm sản phẩm',
 ];
 
 export const LIST_TRASH_P = [
@@ -291,6 +293,8 @@ export const LIST_TRASH_P = [
   'Xem clip Tiktok',
   "Xem thêm:",
   'Tìm hiểu chi tiết',
+  'Mời bạn xem ngay',
+  'Xem thêm sản phẩm',
 ];
 
 export const TRASH_AUTHOR = [
