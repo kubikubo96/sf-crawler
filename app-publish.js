@@ -6,7 +6,7 @@ import {DATA_TAG_PUBLISH} from "./constants.js";
 (async () => {
   while (1) {
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: MINIMAL_ARGS,
       userDataDir: './cache'
     });
