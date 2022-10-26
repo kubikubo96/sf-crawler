@@ -49,7 +49,7 @@ import {DATA_TAG_PUBLISH} from "./constants.js";
       );
       await page.click("#wp-submit");
       try {
-        await page.waitForNavigation({timeout: 60000});
+        await page.waitForNavigation();
       } catch (error) {
       }
       console.log("\n-- LOGIN SUCCESS --\n");
@@ -125,7 +125,7 @@ import {DATA_TAG_PUBLISH} from "./constants.js";
             } catch (error) {
             }
             try {
-              await page.waitForNavigation({timeout: 60000});
+              await page.waitForNavigation({timeout: 10000});
             } catch (error) {
             }
             await page.waitForTimeout(5000);
@@ -134,7 +134,7 @@ import {DATA_TAG_PUBLISH} from "./constants.js";
           console.log("Post ID: " + post_ids[number_id]);
 
 
-          //save remote image
+          //start: save remote image
           try {
             console.log("Save Remote Image");
             await page.click('#save-remote-images-button');
@@ -148,24 +148,24 @@ import {DATA_TAG_PUBLISH} from "./constants.js";
           //reload page after save remote image
           try {
             console.log("Reload Page");
-            await page.reload({timeout: 60000});
+            await page.reload();
             try {
-              await page.waitForNavigation({timeout: 60000});
+              await page.waitForNavigation({timeout: 10000});
             } catch (error) {
             }
           } catch (error) {
           }
+          //end: save remote image
 
           //publish
           try {
             console.log("Publish Post");
             await page.$eval(".edit-visibility", (el) => el.click());
-            await page.waitForTimeout(2000);
+            await page.waitForTimeout(1000);
             await page.$eval("#visibility-radio-public", (el) => el.click());
-            await page.waitForTimeout(2000);
+            await page.waitForTimeout(1000);
             await page.$eval(".save-post-visibility", (el) => el.click());
-
-            await page.waitForTimeout(5000);
+            await page.waitForTimeout(1000);
           } catch (error) {
 
             //go to 1 post
@@ -177,7 +177,7 @@ import {DATA_TAG_PUBLISH} from "./constants.js";
               } catch (error) {
               }
               try {
-                await page.waitForNavigation({timeout: 60000});
+                await page.waitForNavigation({timeout: 10000});
               } catch (error) {
               }
               await page.waitForTimeout(5000);
@@ -191,12 +191,12 @@ import {DATA_TAG_PUBLISH} from "./constants.js";
             try {
               console.log("Publish Post");
               await page.$eval(".edit-visibility", (el) => el.click());
-              await page.waitForTimeout(2000);
+              await page.waitForTimeout(1000);
               await page.$eval("#visibility-radio-public", (el) => el.click());
-              await page.waitForTimeout(2000);
+              await page.waitForTimeout(1000);
               await page.$eval(".save-post-visibility", (el) => el.click());
 
-              await page.waitForTimeout(5000);
+              await page.waitForTimeout(1000);
             } catch (error) {
             }
           }
@@ -207,7 +207,7 @@ import {DATA_TAG_PUBLISH} from "./constants.js";
             await page.$eval("#publish", (el) => el.click());
 
             try {
-              await page.waitForNavigation({timeout: 60000});
+              await page.waitForNavigation({timeout: 10000});
             } catch (error) {
             }
             await page.waitForTimeout(2000);
@@ -222,7 +222,7 @@ import {DATA_TAG_PUBLISH} from "./constants.js";
               } catch (error) {
               }
               try {
-                await page.waitForNavigation({timeout: 60000});
+                await page.waitForNavigation({timeout: 10000});
               } catch (error) {
               }
               await page.waitForTimeout(5000);
@@ -236,12 +236,11 @@ import {DATA_TAG_PUBLISH} from "./constants.js";
             try {
               console.log("Publish Post");
               await page.$eval(".edit-visibility", (el) => el.click());
-              await page.waitForTimeout(2000);
+              await page.waitForTimeout(1000);
               await page.$eval("#visibility-radio-public", (el) => el.click());
-              await page.waitForTimeout(2000);
+              await page.waitForTimeout(1000);
               await page.$eval(".save-post-visibility", (el) => el.click());
-
-              await page.waitForTimeout(5000);
+              await page.waitForTimeout(1000);
             } catch (error) {
             }
 
@@ -251,7 +250,7 @@ import {DATA_TAG_PUBLISH} from "./constants.js";
               await page.$eval("#publish", (el) => el.click());
 
               try {
-                await page.waitForNavigation({timeout: 60000});
+                await page.waitForNavigation({timeout: 10000});
               } catch (error) {
               }
               await page.waitForTimeout(2000);
