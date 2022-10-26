@@ -267,6 +267,7 @@ export const LIST_TRASH_LINK = [
   'Mời bạn xem ngay',
   'Xem thêm sản phẩm',
   'Xem thêm',
+  'Mời bạn xem qua',
 ];
 
 export const LIST_TRASH_P = [
@@ -303,6 +304,7 @@ export const LIST_TRASH_P = [
   'Tìm hiểu chi tiết',
   'Mời bạn xem ngay',
   'Xem thêm sản phẩm',
+  'Mời bạn xem qua',
 ];
 
 export const TRASH_AUTHOR = [
@@ -335,7 +337,7 @@ export const ELM_TRASH = [
   '.generate-productbox', '.generate-gallery', '.mce-preview-object', '.mce-object-iframe', 'p iframe', '.top-news', 'ins', 'box_above',
   '.adbro-sm', '.adbro-xs', 'adbro-bottom', '.mys-wrapper', '.adbro-satellite', '.adbro-animated', '.ez-toc-container', '.newscare',
   '#attachment_60985', '.kk-star-ratings', '.ez-toc-title', '#player', '.html5-video-container', '.bxindexknh', 'tiktok',
-  'productbox', '.ad-even', 'p.title > b', '.hiddenbxindex', '.tiktokEmbed0', '.hidden', '.post__user', '#post__list',
+  'productbox', '.ad-even', 'p.title > b', '.hiddenbxindex', '.tiktokEmbed0', '.hidden', '.post__user', '#post__list', '.boxpromote',
 
 ];
 
