@@ -1,11 +1,12 @@
 import puppeteer from "puppeteer";
 import "dotenv/config";
 import {MINIMAL_ARGS} from "./minimal.js";
+import {DATA_TAG_PUBLISH} from "./constants.js";
 
 (async () => {
   while (1) {
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: false,
       args: MINIMAL_ARGS,
       userDataDir: './cache'
     });
@@ -13,7 +14,7 @@ import {MINIMAL_ARGS} from "./minimal.js";
 
     const urlLogin = process.env.HOST_DOMAIN + "/wp-login.php?loggedout=true&wp_lang=vi";
 
-    const urlPostPrivate = process.env.HOST_DOMAIN + "/wp-admin/edit.php?post_status=private";
+    const urlPostPrivate = process.env.HOST_DOMAIN + "/wp-admin/edit.php?post_status=private&tag=" + DATA_TAG_PUBLISH;
 
     const urlPost = process.env.HOST_DOMAIN + "/wp-admin/post.php?action=edit&post=";
 

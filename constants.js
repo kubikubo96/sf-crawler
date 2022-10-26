@@ -221,6 +221,12 @@ export const LIST_CRAWL = [
   },*/
 ];
 
+export const DATA_TAG_PUBLISH = [
+  'tin-tuc',
+  'tho-cong-nghe',
+  'huong-dan',
+];
+
 export const DATA_ELEMENT_INTERNAL_POST = [
   ".bxcontentnews > p",
   ".bxcontentnews > p > strong",
