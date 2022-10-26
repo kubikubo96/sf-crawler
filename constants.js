@@ -109,95 +109,95 @@ export const LIST_CRAWL = [
     data: [
       {
         path: "2086",
-        tag: ["Món ngon mỗi ngày", "Công thức nấu ăn"],
+        tag: ["Đời sống", "Món ngon mỗi ngày"],
       },
       {
         path: "2110",
-        tag: ["Món ngon mỗi ngày", "Mẹo vặt bếp núc"],
+        tag: ["Đời sống", "Món ngon mỗi ngày"],
       },
       {
         path: "2087",
-        tag: ["Món ngon mỗi ngày", "Đặc sản vùng miền"],
+        tag: ["Đời sống", "Món ngon mỗi ngày"],
       },
       {
         path: "2090",
-        tag: ["Món ngon mỗi ngày", "Địa điểm ăn uống"],
+        tag: ["Đời sống", "Món ngon mỗi ngày"],
       },
       {
         path: "2102",
-        tag: ["Món ngon mỗi ngày", "Chế độ ăn uống"],
+        tag: ["Đời sống", "Món ngon mỗi ngày"],
       },
       {
         path: "2109",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo vặt gia đình"],
+        tag: ["Đời sống", "Mẹo vặt"],
       },
       {
         path: "2110",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo vặt bếp núc"],
+        tag: ["Đời sống", "Mẹo vặt"],
       },
       {
         path: "2111",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo làm đẹp"],
+        tag: ["Đời sống", "Mẹo vặt"],
       },
       {
         path: "2112",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo chi tiêu"],
+        tag: ["Đời sống", "Mẹo vặt"],
       },
       {
         path: "2113",
-        tag: ["Mẹo vặt cuộc sống", "Phong thủy"],
+        tag: ["Đời sống", "Mẹo vặt"],
       },
       {
         path: "2114",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo vặt công nghệ"],
+        tag: ["Đời sống", "Mẹo vặt"],
       },
       {
         path: "2115",
-        tag: ["Mẹo vặt cuộc sống", "Thông tin cần biết"],
+        tag: ["Đời sống", "Mẹo vặt"],
       },
       {
         path: "2102",
-        tag: ["Sống khỏe", "Chế độ ăn uống"],
+        tag: ["Đời sống", "Sống khỏe"],
       },
       {
         path: "2103",
-        tag: ["Sống khỏe", "Sống xanh"],
+        tag: ["Đời sống", "Sống khỏe"],
       },
       {
         path: "2348",
-        tag: ["Sống khỏe", "Mẹ và bé"],
+        tag: ["Đời sống", "Sống khỏe"],
       },
       {
         path: "2094",
-        tag: ["Làm đẹp", "Thời trang"],
+        tag: ["Đời sống", "Làm đẹp"],
       },
       {
         path: "2095",
-        tag: ["Làm đẹp", "Dưỡng da"],
+        tag: ["Đời sống", "Làm đẹp"],
       },
       {
         path: "2096",
-        tag: ["Làm đẹp", "Trang điểm"],
+        tag: ["Đời sống", "Làm đẹp"],
       },
       {
         path: "2111",
-        tag: ["Làm đẹp", "Mẹo làm đẹp"],
+        tag: ["Đời sống", "Làm đẹp"],
       },
       {
         path: "2089",
-        tag: ["Ăn gì chơi gì", "Địa điểm du lịch"],
+        tag: ["Đời sống", "Ăn gì chơi gì"],
       },
       {
         path: "2090",
-        tag: ["Ăn gì chơi gì", "Địa điểm ăn uống"],
+        tag: ["Đời sống", "Ăn gì chơi gì"],
       },
       {
         path: "2091",
-        tag: ["Ăn gì chơi gì", "Phim hay"],
+        tag: ["Đời sống", "Ăn gì chơi gì"],
       },
       {
         path: "2092",
-        tag: ["Ăn gì chơi gì", "Nhạc hay"],
+        tag: ["Đời sống", "Ăn gì chơi gì"],
       },
     ],
   },*/
