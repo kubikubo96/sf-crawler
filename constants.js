@@ -225,6 +225,7 @@ export const DATA_TAG_PUBLISH = [
   'tin-tuc',
   'tho-cong-nghe',
   'huong-dan',
+  'doi-song',
 ];
 
 export const DATA_ELEMENT_INTERNAL_POST = [
