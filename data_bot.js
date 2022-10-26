@@ -16,31 +16,78 @@ export const LIST_CRAWL_BOT = [
     data: [
       {
         path: "huong-dan-su-dung-laptop",
-        tag: ["Laptop"],
+        tag: ["Thợ công nghệ", "Laptop"],
       },
       {
         path: "huong-dan-su-dung",
-        tag: ["Điện thoại", "Hướng dẫn sự dụng điện thoại"],
+        tag: ["Thợ công nghệ", "Điện thoại"],
       },
       {
         path: "loi-ti-vi-thuong-gap",
-        tag: ["Tivi", "Lỗi tivi thường gặp"]
+        tag: ["Thợ công nghệ", "Tivi"]
+      },
+      {
+        path: "tin-cong-nghe-dien-thoai",
+        tag: ["Tin tức", "Tin tức điện thoại"]
+      },
+      {
+        path: "tin-cong-nghe-laptop",
+        tag: ["Tin tức", "Tin tức Laptop"]
       },
       {
         path: "huong-dan-su-dung-laptop",
-        tag: ["Laptop", "Hướng dẫn sử dụng laptop"]
+        tag: ["Thợ công nghệ", "Laptop"]
       },
       {
         path: "huong-dan-su-dung-may-tinh-bang",
-        tag: ["Máy tính bảng", "Hướng dẫn sử dụng máy tính bảng"]
+        tag: ["Thợ công nghệ", "Máy tính bảng"]
       },
       {
         path: "meo-hay-facebook-zalo-youtube",
-        tag: ["Mạng xã hội", "Mẹo hay Facebook Zalo Youtube"]
+        tag: ["Hướng dẫn", "Mạng xã hội"]
       },
       {
         path: "tin-hoc-van-phong",
-        tag: ["Tin học văn phòng"]
+        tag: ["Hướng dẫn", "Tin học văn phòng"]
+      },
+      {
+        path: "phu-kien",
+        tag: ["Hướng dẫn", "Phụ kiện"]
+      },
+      {
+        path: "thuong-hieu-dong-ho",
+        tag: ["Tin tức", "Thương hiệu đồng hồ"]
+      },
+      {
+        path: "meo-huong-dan-su-dung-dong-ho",
+        tag: ["Hướng dẫn", "Mẹo hướng dẫn sử dụng dồng hồ"]
+      },
+      {
+        path: "thuat-ngu-dong-ho",
+        tag: ["Hướng dẫn", "Thuật ngữ đồng hồ"]
+      },
+      {
+        path: "phan-biet-dong-ho-that-gia",
+        tag: ["Hướng dẫn", "Phân biệt đồng hồ thật giả"]
+      },
+      {
+        path: "thuong-hieu-mat-kinh",
+        tag: ["Tin tức", "Thương hiệu mắt kính"]
+      },
+      {
+        path: "thiet-bi-thong-minh-phong-ngu",
+        tag: ["Hướng dẫn", "Thiết bị thông minh"]
+      },
+      {
+        path: "thiet-bi-thong-minh-phong-khach",
+        tag: ["Hướng dẫn", "Thiết bị thông minh"]
+      }, {
+        path: "thiet-bi-thong-minh-nha-bep",
+        tag: ["Hướng dẫn", "Thiết bị thông minh"]
+      },
+      {
+        path: "thiet-bi-thong-minh-khac",
+        tag: ["Hướng dẫn", "Thiết bị thông minh"]
       },
     ],
   },
