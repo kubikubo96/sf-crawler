@@ -109,35 +109,95 @@ export const LIST_CRAWL_BOT = [
     data: [
       {
         path: "2086",
-        tag: ["Món ngon mỗi ngày", "Công thức nấu ăn"],
+        tag: ["Đời sống", "Món ngon mỗi ngày"],
       },
       {
         path: "2110",
-        tag: ["Món ngon mỗi ngày", "Mẹo vặt bếp núc"],
+        tag: ["Đời sống", "Món ngon mỗi ngày"],
+      },
+      {
+        path: "2087",
+        tag: ["Đời sống", "Món ngon mỗi ngày"],
+      },
+      {
+        path: "2090",
+        tag: ["Đời sống", "Món ngon mỗi ngày"],
       },
       {
         path: "2102",
-        tag: ["Món ngon mỗi ngày", "Chế độ ăn uống"],
+        tag: ["Đời sống", "Món ngon mỗi ngày"],
+      },
+      {
+        path: "2109",
+        tag: ["Đời sống", "Mẹo vặt"],
+      },
+      {
+        path: "2110",
+        tag: ["Đời sống", "Mẹo vặt"],
       },
       {
         path: "2111",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo làm đẹp"],
+        tag: ["Đời sống", "Mẹo vặt"],
+      },
+      {
+        path: "2112",
+        tag: ["Đời sống", "Mẹo vặt"],
       },
       {
         path: "2113",
-        tag: ["Mẹo vặt cuộc sống", "Phong thủy"],
+        tag: ["Đời sống", "Mẹo vặt"],
       },
       {
         path: "2114",
-        tag: ["Mẹo vặt cuộc sống", "Mẹo vặt công nghệ"],
+        tag: ["Đời sống", "Mẹo vặt"],
       },
       {
         path: "2115",
-        tag: ["Mẹo vặt cuộc sống", "Thông tin cần biết"],
+        tag: ["Đời sống", "Mẹo vặt"],
       },
       {
         path: "2102",
-        tag: ["Sống khỏe", "Chế độ ăn uống"],
+        tag: ["Đời sống", "Sống khỏe"],
+      },
+      {
+        path: "2103",
+        tag: ["Đời sống", "Sống khỏe"],
+      },
+      {
+        path: "2348",
+        tag: ["Đời sống", "Sống khỏe"],
+      },
+      {
+        path: "2094",
+        tag: ["Đời sống", "Làm đẹp"],
+      },
+      {
+        path: "2095",
+        tag: ["Đời sống", "Làm đẹp"],
+      },
+      {
+        path: "2096",
+        tag: ["Đời sống", "Làm đẹp"],
+      },
+      {
+        path: "2111",
+        tag: ["Đời sống", "Làm đẹp"],
+      },
+      {
+        path: "2089",
+        tag: ["Đời sống", "Ăn gì chơi gì"],
+      },
+      {
+        path: "2090",
+        tag: ["Đời sống", "Ăn gì chơi gì"],
+      },
+      {
+        path: "2091",
+        tag: ["Đời sống", "Ăn gì chơi gì"],
+      },
+      {
+        path: "2092",
+        tag: ["Đời sống", "Ăn gì chơi gì"],
       },
     ],
   },
