@@ -222,10 +222,11 @@ export const LIST_CRAWL = [
 ];
 
 export const DATA_TAG_PUBLISH = [
-  'tin-tuc',
+  'an-com',
   'tho-cong-nghe',
   'huong-dan',
   'doi-song',
+  'tin-tuc',
 ];
 
 export const DATA_ELEMENT_INTERNAL_POST = [
