@@ -381,7 +381,7 @@ export const ELM_TRASH = [
   '.adbro-sm', '.adbro-xs', 'adbro-bottom', '.mys-wrapper', '.adbro-satellite', '.adbro-animated', '.ez-toc-container', '.newscare',
   '#attachment_60985', '.kk-star-ratings', '.ez-toc-title', '#player', '.html5-video-container', '.bxindexknh', 'tiktok', '.tlt',
   'productbox', '.ad-even', 'p.title > b', '.hiddenbxindex', '.tiktokEmbed0', '.hidden', '.post__user', '#post__list', '.boxpromote',
-  '.td-post-sharing', '.td-post-sharing-bottom', '.td-with-like', '.detail-content div > div', '.breadcrumb', '.biz .post-content',
+  '.td-post-sharing', '.td-post-sharing-bottom', '.td-with-like', '.breadcrumb', '.biz .post-content',
   '.page-title-content', '.tagcloud', '.VCSortableInPreviewMode',
 
 ];
