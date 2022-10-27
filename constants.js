@@ -304,7 +304,6 @@ export const LIST_TRASH_LINK = [
   'Mời bạn xem qua',
   'Cloud Server',
   'Có thể bạn quan tâm',
-  'Bizfly Cloud',
   'Đăng ký dùng thử miễn phí',
   'Bài viết được tham khảo',
 ];
@@ -346,7 +345,6 @@ export const LIST_TRASH_P = [
   'Mời bạn xem qua',
   'Cloud Server',
   'Có thể bạn quan tâm',
-  'Bizfly Cloud',
   'Đăng ký dùng thử miễn phí',
   'Bài viết được tham khảo',
 ];
