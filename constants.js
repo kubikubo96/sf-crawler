@@ -408,7 +408,8 @@ export const TRASH_AUTHOR = [
   'FUNiX',
   'FPT Shop',
   'Bizfly Cloud',
-  //'Di Động Việt',
+  'hệ thống Di Động Việt',
+  'Di Động Việt',
 ];
 
 export const TRASH_TEXT = [

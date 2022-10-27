@@ -108,6 +108,14 @@ export const DATA_INTERNAL_FULL = [
     url: process.env.HOST_DOMAIN + '/tag/android'
   },
   {
+    name: ' CH Play ',
+    url: process.env.HOST_DOMAIN + '/tag/ch-play'
+  },
+  {
+    name: ' Google Play ',
+    url: process.env.HOST_DOMAIN + '/tag/google-play'
+  },
+  {
     name: ' iOS 5',
     url: process.env.HOST_DOMAIN + '/tag/ios-5'
   },
