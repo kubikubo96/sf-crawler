@@ -25,7 +25,7 @@ import axios from "axios";
     let numberPage = 0;
 
     const browser = await puppeteer.launch({
-      headless: true,
+      headless: false,
       args: MINIMAL_ARGS,
       userDataDir: './cache'
     });
@@ -181,7 +181,7 @@ import axios from "axios";
 
             //Khởi tạo Data
             const data = {
-              title: "",
+              title: await page.$$eval(elmTitle, (elm) => elm[0].textContent),
               content: "",
               source: "",
               url_crawl: page.url(),
@@ -234,15 +234,20 @@ import axios from "axios";
               await page.evaluate((ELM_TRASH, ELM_TRASH_PARENT) => {
                 ELM_TRASH.forEach((item) => {
                   try {
+                    let queryTrash = document.querySelectorAll(item);
+                    queryTrash.forEach((elm) => {
+                      elm.remove();
+                    });
+                  } catch (error) {
+                    //console.log(error)
+                  }
+                });
+
+                ELM_TRASH_PARENT.forEach((item) => {
+                  try {
                     let queryTrash = document.querySelectorAll(item.elm);
                     queryTrash.forEach((elm) => {
-                      //start: remove parent
-                      if (ELM_TRASH_PARENT.includes(item)) {
-                        elm.closest(item.parent).remove();
-                      }
-                      //start: remove parent
-
-                      elm.remove();
+                      elm.closest(item.parent).remove();
                     });
                   } catch (error) {
                     //console.log(error)
@@ -478,7 +483,7 @@ import axios from "axios";
 
             await page.waitForTimeout(2000);
             try {
-              data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
+              //data.title = await page.$$eval(elmTitle, (elm) => elm[0].textContent);
               data.content = await page.$$eval(elmContent, (elm) => elm[0].innerHTML);
             } catch (error) {
               //console.log(error)

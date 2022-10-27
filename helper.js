@@ -46,6 +46,9 @@ export function handleListPage() {
       case 'fptshop.com.vn':
         listPage = [...listPage, dataDefault];
         break;
+      case 'bizflycloud.vn':
+        listPage = listPageTypeD(listPage, dataCrawl[i], dataDefault);
+        break;
     }
   }
 
@@ -96,6 +99,18 @@ export function listPageTypeC(listPage, itemI, dataDefault) {
     for (let j = itemI.pageIndex; j >= 0; j--) {
       let temp = {...dataDefault};
       temp.url = itemI.url + "&cateId=" + itemI.data[i].path + "&pageIndex=" + j;
+      temp.tag = itemI.data[i].tag;
+      listPage.push(temp);
+    }
+  }
+  return listPage;
+}
+
+export function listPageTypeD(listPage, itemI, dataDefault) {
+  for (let i = itemI.data.length - 1; i >= 0; i--) {
+    for (let j = itemI.pageIndex; j >= 1; j--) {
+      let temp = {...dataDefault};
+      temp.url = itemI.url + itemI.data[i].path + "/trang-" + j + '.htm';
       temp.tag = itemI.data[i].tag;
       listPage.push(temp);
     }

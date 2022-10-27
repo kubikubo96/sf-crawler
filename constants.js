@@ -91,7 +91,7 @@ export const LIST_CRAWL = [
       },
     ],
   },*/
-  {
+  /*{
     url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageSize=50',
     pageIndex: 5,
     source: "bachhoaxanh.com",
@@ -200,7 +200,7 @@ export const LIST_CRAWL = [
       //   tag: ["Đời sống", "Ăn gì chơi gì"],
       // },
     ],
-  },
+  },*/
   /*{
     url: 'https://fptshop.com.vn/api-data/tin-tuc/News/GetListNews/thu-thuat?numberRecord=1000&page=1',
     method: 'POST',
@@ -220,8 +220,8 @@ export const LIST_CRAWL = [
     elmTagFigure: ".post__content > figure",
   },*/
   {
-    url: 'https://bizflycloud.vn/tin-tuc/kien-thuc-co-ban/trang-',
-    pageIndex: 5,
+    url: 'https://bizflycloud.vn/tin-tuc/',
+    pageIndex: 1,
     source: "bizflycloud.vn",
     elmLinkPost: ".main-content .post-title a",
     typeLinkPost: 'path',
@@ -236,7 +236,7 @@ export const LIST_CRAWL = [
     elmTagFigure: ".detail-content > figure",
     data: [
       {
-        path: "2111",
+        path: "kien-thuc-co-ban",
         tag: ["Đời sống", "Mẹo vặt"],
       },
     ],
@@ -350,6 +350,7 @@ export const TRASH_AUTHOR = [
   'Nguyễn Cúc',
   'FUNiX',
   'FPT Shop',
+  'Bizfly Cloud',
 ];
 
 export const TRASH_TEXT = [
@@ -364,8 +365,8 @@ export const ELM_TRASH = [
   '.adbro-sm', '.adbro-xs', 'adbro-bottom', '.mys-wrapper', '.adbro-satellite', '.adbro-animated', '.ez-toc-container', '.newscare',
   '#attachment_60985', '.kk-star-ratings', '.ez-toc-title', '#player', '.html5-video-container', '.bxindexknh', 'tiktok', '.tlt',
   'productbox', '.ad-even', 'p.title > b', '.hiddenbxindex', '.tiktokEmbed0', '.hidden', '.post__user', '#post__list', '.boxpromote',
-  '.td-post-sharing', '.td-post-sharing-bottom', '.td-with-like', '.detail-content div > div', '.breadcrumb',
-  '.biz .post-content', '.biz .page-title-content',
+  '.td-post-sharing', '.td-post-sharing-bottom', '.td-with-like', '.detail-content div > div', '.breadcrumb', '.biz .post-content',
+  '.page-title-content', '.tagcloud',
 
 ];
 
