@@ -127,7 +127,7 @@ import axios from "axios";
         }
 
         //lấy 30% trên tổng số trang
-        numberPost = Math.round(numberPost * 0.3);
+        //numberPost = Math.round(numberPost * 0.3);
 
         /**
          * Lặp danh sách bài viết

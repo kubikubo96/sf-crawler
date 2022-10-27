@@ -1,5 +1,5 @@
 export const LIST_CRAWL = [
-  {
+  /*{
     url: 'https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=2000&url=',
     source: "dienmayxanh.com",
     elmLinkPost: "a.linktitle",
@@ -14,34 +14,34 @@ export const LIST_CRAWL = [
     elmTagQuote: ".bxcontentnews > blockquote",
     elmTagFigure: ".bxcontentnews > figure",
     data: [
-      // {
-      //   path: "huong-dan-su-dung-laptop",
-      //   tag: ["Thợ công nghệ", "Laptop"],
-      // },
-      // {
-      //   path: "huong-dan-su-dung",
-      //   tag: ["Thợ công nghệ", "Điện thoại"],
-      // },
-      // {
-      //   path: "loi-ti-vi-thuong-gap",
-      //   tag: ["Thợ công nghệ", "Tivi"]
-      // },
-      // {
-      //   path: "tin-cong-nghe-dien-thoai",
-      //   tag: ["Tin tức", "Tin tức điện thoại"]
-      // },
-      // {
-      //   path: "tin-cong-nghe-laptop",
-      //   tag: ["Tin tức", "Tin tức Laptop"]
-      // },
-      // {
-      //   path: "huong-dan-su-dung-laptop",
-      //   tag: ["Thợ công nghệ", "Laptop"]
-      // },
-      // {
-      //   path: "huong-dan-su-dung-may-tinh-bang",
-      //   tag: ["Thợ công nghệ", "Máy tính bảng"]
-      // },
+      {
+        path: "huong-dan-su-dung-laptop",
+        tag: ["Thợ công nghệ", "Laptop"],
+      },
+      {
+        path: "huong-dan-su-dung",
+        tag: ["Thợ công nghệ", "Điện thoại"],
+      },
+      {
+        path: "loi-ti-vi-thuong-gap",
+        tag: ["Thợ công nghệ", "Tivi"]
+      },
+      {
+        path: "tin-cong-nghe-dien-thoai",
+        tag: ["Tin tức", "Tin tức điện thoại"]
+      },
+      {
+        path: "tin-cong-nghe-laptop",
+        tag: ["Tin tức", "Tin tức Laptop"]
+      },
+      {
+        path: "huong-dan-su-dung-laptop",
+        tag: ["Thợ công nghệ", "Laptop"]
+      },
+      {
+        path: "huong-dan-su-dung-may-tinh-bang",
+        tag: ["Thợ công nghệ", "Máy tính bảng"]
+      },
       {
         path: "meo-hay-facebook-zalo-youtube",
         tag: ["Hướng dẫn", "Mạng xã hội"]
@@ -90,8 +90,8 @@ export const LIST_CRAWL = [
         tag: ["Hướng dẫn", "Thiết bị thông minh"]
       },
     ],
-  },
-  /*{
+  },*/
+  {
     url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageSize=50',
     pageIndex: 5,
     source: "bachhoaxanh.com",
@@ -200,7 +200,7 @@ export const LIST_CRAWL = [
         tag: ["Đời sống", "Ăn gì chơi gì"],
       },
     ],
-  },*/
+  },
   /*{
     url: 'https://fptshop.com.vn/api-data/tin-tuc/News/GetListNews/thu-thuat?numberRecord=1000&page=1',
     method: 'POST',
