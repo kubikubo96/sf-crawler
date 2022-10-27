@@ -27,7 +27,7 @@ import axios from "axios";
     let numberPage = 0;
 
     const browser = await puppeteer.launch({
-      headless: false,
+      headless: true,
       args: MINIMAL_ARGS,
       userDataDir: './cache'
     });
@@ -193,13 +193,17 @@ import axios from "axios";
             };
 
             //start: remove trash img
-            await page.$$eval(elmImage, (elms) => {
-              return elms.forEach((elm) => {
-                if (elm.src?.includes("base64")) {
-                  elm.remove();
-                }
+            try {
+              await page.$$eval(elmImage, (elms) => {
+                return elms.forEach((elm) => {
+                  if (elm.src?.includes("base64")) {
+                    elm.remove();
+                  }
+                });
               });
-            });
+            } catch (error) {
+              console.log(error);
+            }
             //end: remove trash img
 
             //start: replace src image
@@ -394,16 +398,22 @@ import axios from "axios";
             //end: remove trash tag div
 
             //start: remove trash ul xem thêm
-            await page.evaluate((ELM_UL, listPage, numberPage) => {
-              ELM_UL.forEach((item) => {
-                switch (listPage[numberPage].source) {
-                  case 'didongviet.vn':
-                    let elmUls = document.querySelectorAll(item);
-                    elmUls[elmUls.length - 1].remove();
-                    break;
-                }
-              });
-            }, ELM_UL, listPage, numberPage);
+            try {
+              await page.evaluate((ELM_UL, listPage, numberPage) => {
+                ELM_UL.forEach((item) => {
+                  switch (listPage[numberPage].source) {
+                    case 'didongviet.vn':
+                      let elmUls = document.querySelectorAll(item);
+                      if (elmUls.length > 0) {
+                        elmUls[elmUls.length - 1].remove();
+                      }
+                      break;
+                  }
+                });
+              }, ELM_UL, listPage, numberPage);
+            } catch (error) {
+              //console.log(error)
+            }
             //end: remove trash ul xem thêm
 
             //start: convert link thành text cho link crawl
@@ -501,37 +511,41 @@ import axios from "axios";
             //end: add internal link tag
 
             //start: add internal link post
-            await page.evaluate((DATA_INTERNAL_POST, DATA_ELEMENT_INTERNAL_POST) => {
-              DATA_ELEMENT_INTERNAL_POST.forEach((elmInternal) => {
-                let elms = document.querySelectorAll(elmInternal);
-                DATA_INTERNAL_POST.forEach((internalPost) => {
-                  elms.forEach((item) => {
-                    if (
-                      !item.querySelector('ul') &&
-                      !item.querySelector('li') &&
-                      !item.querySelector('ol') &&
-                      !item.querySelector('a') &&
-                      !item.querySelector('code') &&
-                      !item.querySelector('code') &&
-                      !item.querySelector('kbd') &&
-                      !item.querySelector('caption') &&
-                      !item.querySelector('figure') &&
-                      !item.querySelector('figcaption') &&
-                      !item.querySelector('img')) {
-                      if (item.innerHTML.search(internalPost.key_start) !== -1) {
-                        let maxLengthBetween = internalPost.space * 7;
-                        if (item.innerHTML.search(internalPost.key_end) !== -1) {
-                          if ((item.innerHTML.search(internalPost.key_end) - item.innerHTML.search(internalPost.key_start)) < maxLengthBetween) {
-                            let textPostInternal = item.innerHTML.slice(item.innerHTML.search(internalPost.key_start), (item.innerHTML.search(internalPost.key_end) + internalPost.key_end.length));
-                            item.innerHTML = item.innerHTML.replace(textPostInternal, ' <a href="' + internalPost.url + '" target="_blank">' + textPostInternal + '</a> ')
+            try {
+              await page.evaluate((DATA_INTERNAL_POST, DATA_ELEMENT_INTERNAL_POST) => {
+                DATA_ELEMENT_INTERNAL_POST.forEach((elmInternal) => {
+                  let elms = document.querySelectorAll(elmInternal);
+                  DATA_INTERNAL_POST.forEach((internalPost) => {
+                    elms.forEach((item) => {
+                      if (
+                        !item.querySelector('ul') &&
+                        !item.querySelector('li') &&
+                        !item.querySelector('ol') &&
+                        !item.querySelector('a') &&
+                        !item.querySelector('code') &&
+                        !item.querySelector('code') &&
+                        !item.querySelector('kbd') &&
+                        !item.querySelector('caption') &&
+                        !item.querySelector('figure') &&
+                        !item.querySelector('figcaption') &&
+                        !item.querySelector('img')) {
+                        if (item.innerHTML.search(internalPost.key_start) !== -1) {
+                          let maxLengthBetween = internalPost.space * 7;
+                          if (item.innerHTML.search(internalPost.key_end) !== -1) {
+                            if ((item.innerHTML.search(internalPost.key_end) - item.innerHTML.search(internalPost.key_start)) < maxLengthBetween) {
+                              let textPostInternal = item.innerHTML.slice(item.innerHTML.search(internalPost.key_start), (item.innerHTML.search(internalPost.key_end) + internalPost.key_end.length));
+                              item.innerHTML = item.innerHTML.replace(textPostInternal, ' <a href="' + internalPost.url + '" target="_blank">' + textPostInternal + '</a> ')
+                            }
                           }
                         }
                       }
-                    }
-                  })
+                    })
+                  });
                 });
-              });
-            }, DATA_INTERNAL_POST, DATA_ELEMENT_INTERNAL_POST);
+              }, DATA_INTERNAL_POST, DATA_ELEMENT_INTERNAL_POST);
+            } catch (error) {
+              // console.log(error)
+            }
             //end: add internal link post
 
             await page.waitForTimeout(2000);
