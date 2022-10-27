@@ -12,6 +12,7 @@ export const LIST_CRAWL = [
     elmTagP: ".bxcontentnews > p",
     elmTagQuote: ".bxcontentnews > blockquote",
     elmTagFigure: ".bxcontentnews > figure",
+    elmTagDiv: ".bxcontentnews > div",
     data: [
       {
         path: "huong-dan-su-dung-laptop",
@@ -124,6 +125,7 @@ export const LIST_CRAWL = [
     elmTagP: ".boxcontent > p",
     elmTagQuote: ".boxcontent > blockquote",
     elmTagFigure: ".boxcontent > figure",
+    elmTagDiv: ".boxcontent > div",
     data: [
       {
         path: "2086",
@@ -236,5 +238,6 @@ export const LIST_CRAWL = [
     elmTagP: ".post__content > p",
     elmTagQuote: ".post__content > blockquote",
     elmTagFigure: ".post__content > figure",
+    elmTagDiv: ".post__content > div",
   },
 ];

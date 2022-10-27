@@ -172,6 +172,7 @@ import axios from "axios";
             const elmTagP = listPage[numberPage].elmTagP;
             const elmTagQuote = listPage[numberPage].elmTagQuote;
             const elmTagFigure = listPage[numberPage].elmTagFigure;
+            const elmTagDiv = listPage[numberPage].elmTagDiv;
             try {
               await page.waitForSelector(elmTitle);
               await page.waitForSelector(elmContent);
@@ -363,6 +364,30 @@ import axios from "axios";
               //console.log(error)
             }
             //end: remove trash tag figure
+
+            //start: remove trash tag div
+            try {
+              await page.$$eval(
+                elmTagDiv,
+                (elms, LIST_TRASH_P) => {
+                  elms = [...elms];
+                  return elms.forEach((elm) => {
+                    let content = elm.textContent;
+                    LIST_TRASH_P.forEach(itemTrash => {
+                      if (
+                        content.includes(itemTrash)
+                      ) {
+                        elm.remove();
+                      }
+                    });
+                  });
+                },
+                LIST_TRASH_P
+              );
+            } catch (error) {
+              //console.log(error)
+            }
+            //end: remove trash tag div
 
             //start: convert link thành text cho link crawl
             try {

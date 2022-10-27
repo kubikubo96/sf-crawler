@@ -13,6 +13,7 @@ export const LIST_CRAWL = [
     elmTagP: ".bxcontentnews > p",
     elmTagQuote: ".bxcontentnews > blockquote",
     elmTagFigure: ".bxcontentnews > figure",
+    elmTagDiv: ".bxcontentnews > div",
     data: [
       {
         path: "huong-dan-su-dung-laptop",
@@ -106,6 +107,7 @@ export const LIST_CRAWL = [
     elmTagP: ".boxcontent > p",
     elmTagQuote: ".boxcontent > blockquote",
     elmTagFigure: ".boxcontent > figure",
+    elmTagDiv: ".boxcontent > div",
     data: [
       {
         path: "2086",
@@ -233,6 +235,7 @@ export const LIST_CRAWL = [
     elmTagP: ".detail-content > p",
     elmTagQuote: ".detail-content > blockquote",
     elmTagFigure: ".detail-content > figure",
+    elmTagDiv: ".detail-content > div",
     data: [
       {
         path: "kien-thuc-co-ban",
@@ -246,7 +249,7 @@ export const LIST_CRAWL = [
       },
       {
         path: "thu-thuat",
-        tag: ["Tin tức", "Tin công nghệ"],
+        tag: ["Thợ công nghệ"],
         pageIndex: 15,
       },
     ],
