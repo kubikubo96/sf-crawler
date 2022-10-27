@@ -424,7 +424,7 @@ export const ELM_TRASH = [
   'productbox', '.ad-even', 'p.title > b', '.hiddenbxindex', '.tiktokEmbed0', '.hidden', '.post__user', '#post__list', '.boxpromote',
   '.td-post-sharing', '.td-post-sharing-bottom', '.td-with-like', '.detail-content .metas', '.breadcrumb',
   '.page-title-content', '.tagcloud', 'nav#ftwp-contents', 'button#ftwp-trigger', '.box-comments', '.post-tags', '.meta-post',
-  '.kk-star-ratings', 'p.has-text-align-right', '.wp-block-separator'
+  '.kk-star-ratings', 'p.has-text-align-right', '.wp-block-separator', '.placeholder-dproduct',
 
 ];
 
