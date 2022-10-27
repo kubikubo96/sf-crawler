@@ -509,7 +509,7 @@ import axios from "axios";
                 return data.tag;
               }, data, dataInternalFull);
             } catch (error) {
-              //console.log(error)
+              console.log(error)
             }
             //end: add internal link tag
 
@@ -547,7 +547,7 @@ import axios from "axios";
                 });
               }, DATA_INTERNAL_POST, DATA_ELEMENT_INTERNAL_POST);
             } catch (error) {
-              // console.log(error)
+              console.log(error)
             }
             //end: add internal link post
 
