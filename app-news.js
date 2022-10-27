@@ -4,6 +4,8 @@ import {
   DATA_ELEMENT_INTERNAL_POST,
   ELM_TRASH,
   ELM_TRASH_PARENT,
+  ELM_UL,
+  LIST_TRASH_DIV,
   LIST_TRASH_LINK,
   LIST_TRASH_P,
   TRASH_AUTHOR,
@@ -202,14 +204,18 @@ import axios from "axios";
 
             //start: replace src image
             try {
-              await page.$$eval(elmImage, (elms) => {
+              await page.$$eval(elmImage, (elms, listPage, numberPage) => {
                 return elms.forEach((elm) => {
                   elms = [...elms];
-                  elm.src = elm.getAttribute("data-src") ? elm.getAttribute("data-src") : (elm.getAttribute("data-img-url") ? elm.getAttribute("data-img-url") : elm.src);
+                  if (
+                    listPage[numberPage].source !== 'didongviet.vn'
+                  ) {
+                    elm.src = elm.getAttribute("data-src") ? elm.getAttribute("data-src") : (elm.getAttribute("data-img-url") ? elm.getAttribute("data-img-url") : elm.src);
+                  }
                 });
-              });
+              }, listPage, numberPage);
             } catch (error) {
-              //console.log(error)
+              console.log(error)
             }
             //end: replace src image
 
@@ -302,9 +308,7 @@ import axios from "axios";
                   return elms.forEach((elm) => {
                     let content = elm.textContent;
                     LIST_TRASH_P.forEach(itemTrash => {
-                      if (
-                        content.includes(itemTrash)
-                      ) {
+                      if (content.includes(itemTrash)) {
                         elm.remove();
                       }
                     });
@@ -369,11 +373,11 @@ import axios from "axios";
             try {
               await page.$$eval(
                 elmTagDiv,
-                (elms, LIST_TRASH_P) => {
+                (elms, LIST_TRASH_DIV) => {
                   elms = [...elms];
                   return elms.forEach((elm) => {
                     let content = elm.textContent;
-                    LIST_TRASH_P.forEach(itemTrash => {
+                    LIST_TRASH_DIV.forEach(itemTrash => {
                       if (
                         content.includes(itemTrash)
                       ) {
@@ -382,12 +386,25 @@ import axios from "axios";
                     });
                   });
                 },
-                LIST_TRASH_P
+                LIST_TRASH_DIV
               );
             } catch (error) {
               //console.log(error)
             }
             //end: remove trash tag div
+
+            //start: remove trash ul xem thêm
+            await page.evaluate((ELM_UL, listPage, numberPage) => {
+              ELM_UL.forEach((item) => {
+                switch (listPage[numberPage].source) {
+                  case 'didongviet.vn':
+                    let elmUls = document.querySelectorAll(item);
+                    elmUls[elmUls.length - 1].remove();
+                    break;
+                }
+              });
+            }, ELM_UL, listPage, numberPage);
+            //end: remove trash ul xem thêm
 
             //start: convert link thành text cho link crawl
             try {

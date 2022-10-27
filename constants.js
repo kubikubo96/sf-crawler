@@ -221,7 +221,7 @@ export const LIST_CRAWL = [
     elmTagQuote: ".post__content > blockquote",
     elmTagFigure: ".post__content > figure",
   },*/
-  {
+  /*{
     url: 'https://bizflycloud.vn/tin-tuc/',
     source: "bizflycloud.vn",
     elmLinkPost: ".main-content .post-title a",
@@ -253,6 +253,24 @@ export const LIST_CRAWL = [
       //   pageIndex: 15,
       // },
     ],
+  },*/
+  {
+    url: 'https://didongviet.vn/dchannel/thu-thuat/page/',
+    pageIndex: 50,
+    tag: ["Thợ công nghệ"],
+    source: "didongviet.vn",
+    elmLinkPost: ".post h3 a",
+    typeLinkPost: 'full',
+    elmTitle: ".article-title h1",
+    elmContent: ".article-body",
+    elmLink: ".article-body a",
+    elmImage: ".article-body img",
+    elmH1: ".article-body h1",
+    elmH2: ".article-body h2",
+    elmTagP: ".article-body > p",
+    elmTagQuote: ".article-body > blockquote",
+    elmTagFigure: ".article-body > figure",
+    elmTagDiv: ".article-body > div",
   },
 ];
 
@@ -310,6 +328,7 @@ export const LIST_TRASH_LINK = [
   'Đăng ký dùng thử miễn phí',
   'Bài viết được tham khảo',
   'Theo BizFly Cloud',
+  //'Di Động Việt'
 ];
 
 export const LIST_TRASH_P = [
@@ -357,6 +376,16 @@ export const LIST_TRASH_P = [
   'DÙNG THỬ MIỄN PHÍ',
   'Độc giả quan tâm đến các giải pháp của BizFly Cloud',
   'Theo BizFly Cloud',
+  //'Di Động Việt'
+];
+
+export const LIST_TRASH_DIV = [
+  'Theo BizFly Cloud',
+  'Cloud Server – Giải pháp đám mây giúp vận hành website ổn định, nhanh chóng',
+  'là nhà cung cấp dịch vụ điện toán đám mây với chi phí thấp, được vận hành bởi VCCorp',
+  'BizFly Cloud là một trong 4 doanh nghiệp',
+  'DÙNG THỬ MIỄN PHÍ',
+  'Độc giả quan tâm đến các giải pháp của BizFly Cloud',
 ];
 
 export const TRASH_AUTHOR = [
@@ -377,10 +406,12 @@ export const TRASH_AUTHOR = [
   'FUNiX',
   'FPT Shop',
   'Bizfly Cloud',
+  //'Di Động Việt',
 ];
 
 export const TRASH_TEXT = [
-  '<a href="" target="_blank"></a>'
+  '<a href="" target="_blank"></a>',
+  'Xem thêm:',
 ];
 
 export const ELM_TRASH = [
@@ -392,8 +423,13 @@ export const ELM_TRASH = [
   '#attachment_60985', '.kk-star-ratings', '.ez-toc-title', '#player', '.html5-video-container', '.bxindexknh', 'tiktok', '.tlt',
   'productbox', '.ad-even', 'p.title > b', '.hiddenbxindex', '.tiktokEmbed0', '.hidden', '.post__user', '#post__list', '.boxpromote',
   '.td-post-sharing', '.td-post-sharing-bottom', '.td-with-like', '.detail-content .metas', '.breadcrumb',
-  '.page-title-content', '.tagcloud',
+  '.page-title-content', '.tagcloud', 'nav#ftwp-contents', 'button#ftwp-trigger', '.box-comments', '.post-tags', '.meta-post',
+  '.kk-star-ratings', 'p.has-text-align-right', '.wp-block-separator'
 
+];
+
+export const ELM_UL = [
+  '.box-desc ul',
 ];
 
 export const ELM_TRASH_PARENT = [

@@ -49,6 +49,9 @@ export function handleListPage() {
       case 'bizflycloud.vn':
         listPage = listPageTypeD(listPage, dataCrawl[i], dataDefault);
         break;
+      case 'didongviet.vn':
+        listPage = listPageTypeE(listPage, dataCrawl[i], dataDefault);
+        break;
     }
   }
 
@@ -59,7 +62,7 @@ export function checkTitleTrue(title) {
   const trashTitle = [
     '2002', '2003', '2004', '2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012',
     '2013', '2014', '2015', '2016', '2017', '2018', '2019', '2020', '2021', '2022',
-    'ĐTCL', 'DTCL', 'Bách hóa XANH', '4G', '5G',
+    'ĐTCL', 'DTCL', 'Bách hóa XANH', 'Bách Hóa XANH', '4G', '5G',
     'Mobifone', 'mobifone', 'Viettel', 'viettel', 'VinaPhone', 'SIM', 'eSIM', 'Vietnamobile',
   ];
 
@@ -114,6 +117,16 @@ export function listPageTypeD(listPage, itemI, dataDefault) {
       temp.tag = itemI.data[i].tag;
       listPage.push(temp);
     }
+  }
+  return listPage;
+}
+
+export function listPageTypeE(listPage, itemI, dataDefault) {
+  for (let j = itemI.pageIndex; j >= 1; j--) {
+    let temp = {...dataDefault};
+    temp.url = itemI.url + j;
+    temp.tag = itemI.tag;
+    listPage.push(temp);
   }
   return listPage;
 }
