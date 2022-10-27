@@ -139,66 +139,66 @@ export const LIST_CRAWL = [
         path: "2111",
         tag: ["Đời sống", "Mẹo vặt"],
       },
-      {
-        path: "2112",
-        tag: ["Đời sống", "Mẹo vặt"],
-      },
-      {
-        path: "2113",
-        tag: ["Đời sống", "Mẹo vặt"],
-      },
-      {
-        path: "2114",
-        tag: ["Đời sống", "Mẹo vặt"],
-      },
-      {
-        path: "2115",
-        tag: ["Đời sống", "Mẹo vặt"],
-      },
-      {
-        path: "2102",
-        tag: ["Đời sống", "Sống khỏe"],
-      },
-      {
-        path: "2103",
-        tag: ["Đời sống", "Sống khỏe"],
-      },
-      {
-        path: "2348",
-        tag: ["Đời sống", "Sống khỏe"],
-      },
-      {
-        path: "2094",
-        tag: ["Đời sống", "Làm đẹp"],
-      },
-      {
-        path: "2095",
-        tag: ["Đời sống", "Làm đẹp"],
-      },
-      {
-        path: "2096",
-        tag: ["Đời sống", "Làm đẹp"],
-      },
-      {
-        path: "2111",
-        tag: ["Đời sống", "Làm đẹp"],
-      },
-      {
-        path: "2089",
-        tag: ["Đời sống", "Ăn gì chơi gì"],
-      },
-      {
-        path: "2090",
-        tag: ["Đời sống", "Ăn gì chơi gì"],
-      },
-      {
-        path: "2091",
-        tag: ["Đời sống", "Ăn gì chơi gì"],
-      },
-      {
-        path: "2092",
-        tag: ["Đời sống", "Ăn gì chơi gì"],
-      },
+      // {
+      //   path: "2112",
+      //   tag: ["Đời sống", "Mẹo vặt"],
+      // },
+      // {
+      //   path: "2113",
+      //   tag: ["Đời sống", "Mẹo vặt"],
+      // },
+      // {
+      //   path: "2114",
+      //   tag: ["Đời sống", "Mẹo vặt"],
+      // },
+      // {
+      //   path: "2115",
+      //   tag: ["Đời sống", "Mẹo vặt"],
+      // },
+      // {
+      //   path: "2102",
+      //   tag: ["Đời sống", "Sống khỏe"],
+      // },
+      // {
+      //   path: "2103",
+      //   tag: ["Đời sống", "Sống khỏe"],
+      // },
+      // {
+      //   path: "2348",
+      //   tag: ["Đời sống", "Sống khỏe"],
+      // },
+      // {
+      //   path: "2094",
+      //   tag: ["Đời sống", "Làm đẹp"],
+      // },
+      // {
+      //   path: "2095",
+      //   tag: ["Đời sống", "Làm đẹp"],
+      // },
+      // {
+      //   path: "2096",
+      //   tag: ["Đời sống", "Làm đẹp"],
+      // },
+      // {
+      //   path: "2111",
+      //   tag: ["Đời sống", "Làm đẹp"],
+      // },
+      // {
+      //   path: "2089",
+      //   tag: ["Đời sống", "Ăn gì chơi gì"],
+      // },
+      // {
+      //   path: "2090",
+      //   tag: ["Đời sống", "Ăn gì chơi gì"],
+      // },
+      // {
+      //   path: "2091",
+      //   tag: ["Đời sống", "Ăn gì chơi gì"],
+      // },
+      // {
+      //   path: "2092",
+      //   tag: ["Đời sống", "Ăn gì chơi gì"],
+      // },
     ],
   },
   /*{
