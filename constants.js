@@ -222,7 +222,7 @@ export const LIST_CRAWL = [
 ];
 
 export const DATA_TAG_PUBLISH = [
-  'an-com',
+  'tag',
   'tho-cong-nghe',
   'huong-dan',
   'doi-song',
