@@ -347,6 +347,7 @@ export const LIST_TRASH_P = [
   'Có thể bạn quan tâm',
   'Đăng ký dùng thử miễn phí',
   'Bài viết được tham khảo',
+  'Cloud Server – Giải pháp đám mây giúp vận hành website ổn định, nhanh chóng',
 ];
 
 export const TRASH_AUTHOR = [
@@ -381,11 +382,11 @@ export const ELM_TRASH = [
   '.adbro-sm', '.adbro-xs', 'adbro-bottom', '.mys-wrapper', '.adbro-satellite', '.adbro-animated', '.ez-toc-container', '.newscare',
   '#attachment_60985', '.kk-star-ratings', '.ez-toc-title', '#player', '.html5-video-container', '.bxindexknh', 'tiktok', '.tlt',
   'productbox', '.ad-even', 'p.title > b', '.hiddenbxindex', '.tiktokEmbed0', '.hidden', '.post__user', '#post__list', '.boxpromote',
-  '.td-post-sharing', '.td-post-sharing-bottom', '.td-with-like', '.breadcrumb', '.biz .post-content',
+  '.td-post-sharing', '.td-post-sharing-bottom', '.td-with-like', '.detail-content .metas', '.breadcrumb',
   '.page-title-content', '.tagcloud', '.VCSortableInPreviewMode',
 
 ];
 
 export const ELM_TRASH_PARENT = [
-  {elm: '.detail-content div > a > img', parent: 'div'},
+  // {elm: '.detail-content div > a > img', parent: 'div', source: 'bizflycloud.vn'},
 ];

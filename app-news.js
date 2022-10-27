@@ -247,7 +247,16 @@ import axios from "axios";
                   try {
                     let queryTrash = document.querySelectorAll(item.elm);
                     queryTrash.forEach((elm) => {
-                      elm.closest(item.parent).remove();
+                      switch (item.source) {
+                        case 'bizflycloud.vn':
+                          let href = elm.getAttribute('href');
+                          if (href.includes('cloud-server-16456918000201222366759.gif')) {
+                            elm.closest(item.parent).remove();
+                          }
+                          break;
+                        default:
+                          elm.closest(item.parent).remove();
+                      }
                     });
                   } catch (error) {
                     //console.log(error)
@@ -359,15 +368,17 @@ import axios from "axios";
             try {
               await page.$$eval(
                 elmLink,
-                (elms, sourceCrawl) => {
+                (elms, sourceCrawl, listPost, numberPost) => {
                   elms = [...elms];
                   return elms.map((elm) => {
-                    if (elm.href && elm.href.toLowerCase().search(sourceCrawl) !== -1) {
+                    if (elm.href && elm.href !== (listPost[numberPost].url + '#') && elm.href.toLowerCase().search(sourceCrawl) !== -1) {
                       elm.outerHTML = elm.textContent;
                     }
                   });
                 },
-                sourceCrawl
+                sourceCrawl,
+                listPost,
+                numberPost
               );
             } catch (error) {
               //console.log(error)
