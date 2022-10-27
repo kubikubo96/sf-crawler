@@ -92,6 +92,10 @@ export const DATA_INTERNAL_FULL = [
     url: process.env.HOST_DOMAIN + '/tag/facebook'
   },
   {
+    name: ' TikTok ',
+    url: process.env.HOST_DOMAIN + '/tag/tiktok'
+  },
+  {
     name: ' Zalo ',
     url: process.env.HOST_DOMAIN + '/tag/zalo'
   },
