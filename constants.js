@@ -242,16 +242,16 @@ export const LIST_CRAWL = [
         tag: ["Hướng dẫn"],
         pageIndex: 50,
       },
-      {
-        path: "tin-cong-nghe",
-        tag: ["Tin tức", "Tin công nghệ"],
-        pageIndex: 5,
-      },
-      {
-        path: "thu-thuat",
-        tag: ["Thợ công nghệ"],
-        pageIndex: 15,
-      },
+      // {
+      //   path: "tin-cong-nghe",
+      //   tag: ["Tin tức", "Tin công nghệ"],
+      //   pageIndex: 5,
+      // },
+      // {
+      //   path: "thu-thuat",
+      //   tag: ["Thợ công nghệ"],
+      //   pageIndex: 15,
+      // },
     ],
   },
 ];
@@ -309,6 +309,7 @@ export const LIST_TRASH_LINK = [
   'Có thể bạn quan tâm',
   'Đăng ký dùng thử miễn phí',
   'Bài viết được tham khảo',
+  'Theo BizFly Cloud',
 ];
 
 export const LIST_TRASH_P = [
@@ -351,6 +352,11 @@ export const LIST_TRASH_P = [
   'Đăng ký dùng thử miễn phí',
   'Bài viết được tham khảo',
   'Cloud Server – Giải pháp đám mây giúp vận hành website ổn định, nhanh chóng',
+  'là nhà cung cấp dịch vụ điện toán đám mây với chi phí thấp, được vận hành bởi VCCorp',
+  'BizFly Cloud là một trong 4 doanh nghiệp',
+  'DÙNG THỬ MIỄN PHÍ',
+  'Độc giả quan tâm đến các giải pháp của BizFly Cloud',
+  'Theo BizFly Cloud',
 ];
 
 export const TRASH_AUTHOR = [
@@ -386,7 +392,7 @@ export const ELM_TRASH = [
   '#attachment_60985', '.kk-star-ratings', '.ez-toc-title', '#player', '.html5-video-container', '.bxindexknh', 'tiktok', '.tlt',
   'productbox', '.ad-even', 'p.title > b', '.hiddenbxindex', '.tiktokEmbed0', '.hidden', '.post__user', '#post__list', '.boxpromote',
   '.td-post-sharing', '.td-post-sharing-bottom', '.td-with-like', '.detail-content .metas', '.breadcrumb',
-  '.page-title-content', '.tagcloud', '.VCSortableInPreviewMode',
+  '.page-title-content', '.tagcloud',
 
 ];
 
