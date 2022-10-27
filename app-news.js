@@ -211,10 +211,13 @@ import axios from "axios";
               await page.$$eval(elmImage, (elms, listPage, numberPage) => {
                 return elms.forEach((elm) => {
                   elms = [...elms];
-                  if (
-                    listPage[numberPage].source !== 'didongviet.vn'
-                  ) {
-                    elm.src = elm.getAttribute("data-src") ? elm.getAttribute("data-src") : (elm.getAttribute("data-img-url") ? elm.getAttribute("data-img-url") : elm.src);
+                  switch (listPage[numberPage].source) {
+                    case 'didongviet.vn':
+                      elm.src = elm.getAttribute("data-lazy-src") ? elm.getAttribute("data-lazy-src") : elm.src;
+                      break;
+                    default:
+                      elm.src = elm.getAttribute("data-src") ? elm.getAttribute("data-src") : (elm.getAttribute("data-img-url") ? elm.getAttribute("data-img-url") : elm.src);
+                      break;
                   }
                 });
               }, listPage, numberPage);

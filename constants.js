@@ -328,7 +328,8 @@ export const LIST_TRASH_LINK = [
   'Đăng ký dùng thử miễn phí',
   'Bài viết được tham khảo',
   'Theo BizFly Cloud',
-  //'Di Động Việt'
+  'Di Động Việt',
+  'DI ĐỘNG VIỆT',
 ];
 
 export const LIST_TRASH_P = [
@@ -376,7 +377,8 @@ export const LIST_TRASH_P = [
   'DÙNG THỬ MIỄN PHÍ',
   'Độc giả quan tâm đến các giải pháp của BizFly Cloud',
   'Theo BizFly Cloud',
-  //'Di Động Việt'
+  'Di Động Việt',
+  'DI ĐỘNG VIỆT',
 ];
 
 export const LIST_TRASH_DIV = [
