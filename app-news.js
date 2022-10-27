@@ -234,11 +234,11 @@ import axios from "axios";
               await page.evaluate((ELM_TRASH, ELM_TRASH_PARENT) => {
                 ELM_TRASH.forEach((item) => {
                   try {
-                    let queryTrash = document.querySelectorAll(item);
+                    let queryTrash = document.querySelectorAll(item.elm);
                     queryTrash.forEach((elm) => {
                       //start: remove parent
                       if (ELM_TRASH_PARENT.includes(item)) {
-                        elm.closest('ul').remove();
+                        elm.closest(item.parent).remove();
                       }
                       //start: remove parent
 

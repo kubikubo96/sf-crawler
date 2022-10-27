@@ -219,6 +219,28 @@ export const LIST_CRAWL = [
     elmTagQuote: ".post__content > blockquote",
     elmTagFigure: ".post__content > figure",
   },*/
+  {
+    url: 'https://bizflycloud.vn/tin-tuc/kien-thuc-co-ban/trang-',
+    pageIndex: 5,
+    source: "bizflycloud.vn",
+    elmLinkPost: ".main-content .post-title a",
+    typeLinkPost: 'path',
+    elmTitle: ".detail-content h1.page-title-content",
+    elmContent: ".detail-content",
+    elmLink: ".detail-content a",
+    elmImage: ".detail-content img",
+    elmH1: ".detail-content h1",
+    elmH2: ".detail-content h2",
+    elmTagP: ".detail-content > p",
+    elmTagQuote: ".detail-content > blockquote",
+    elmTagFigure: ".detail-content > figure",
+    data: [
+      {
+        path: "2111",
+        tag: ["Đời sống", "Mẹo vặt"],
+      },
+    ],
+  },
 ];
 
 export const DATA_TAG_PUBLISH = [
@@ -270,6 +292,7 @@ export const LIST_TRASH_LINK = [
   'Xem thêm sản phẩm',
   'Xem thêm',
   'Mời bạn xem qua',
+  'Cloud Server',
 ];
 
 export const LIST_TRASH_P = [
@@ -307,6 +330,7 @@ export const LIST_TRASH_P = [
   'Mời bạn xem ngay',
   'Xem thêm sản phẩm',
   'Mời bạn xem qua',
+  'Cloud Server',
 ];
 
 export const TRASH_AUTHOR = [
@@ -340,9 +364,11 @@ export const ELM_TRASH = [
   '.adbro-sm', '.adbro-xs', 'adbro-bottom', '.mys-wrapper', '.adbro-satellite', '.adbro-animated', '.ez-toc-container', '.newscare',
   '#attachment_60985', '.kk-star-ratings', '.ez-toc-title', '#player', '.html5-video-container', '.bxindexknh', 'tiktok', '.tlt',
   'productbox', '.ad-even', 'p.title > b', '.hiddenbxindex', '.tiktokEmbed0', '.hidden', '.post__user', '#post__list', '.boxpromote',
+  '.td-post-sharing', '.td-post-sharing-bottom', '.td-with-like', '.detail-content div > div', '.breadcrumb',
+  '.biz .post-content', '.biz .page-title-content',
 
 ];
 
 export const ELM_TRASH_PARENT = [
-  //'ul > li > a',
+  {elm: '.detail-content div > a > img', parent: 'div'},
 ];
