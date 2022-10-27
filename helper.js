@@ -108,7 +108,7 @@ export function listPageTypeC(listPage, itemI, dataDefault) {
 
 export function listPageTypeD(listPage, itemI, dataDefault) {
   for (let i = itemI.data.length - 1; i >= 0; i--) {
-    for (let j = itemI.pageIndex; j >= 1; j--) {
+    for (let j = itemI.data[i].pageIndex; j >= 1; j--) {
       let temp = {...dataDefault};
       temp.url = itemI.url + itemI.data[i].path + "/trang-" + j + '.htm';
       temp.tag = itemI.data[i].tag;

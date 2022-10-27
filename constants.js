@@ -221,7 +221,6 @@ export const LIST_CRAWL = [
   },*/
   {
     url: 'https://bizflycloud.vn/tin-tuc/',
-    pageIndex: 1,
     source: "bizflycloud.vn",
     elmLinkPost: ".main-content .post-title a",
     typeLinkPost: 'path',
@@ -237,7 +236,18 @@ export const LIST_CRAWL = [
     data: [
       {
         path: "kien-thuc-co-ban",
-        tag: ["Đời sống", "Mẹo vặt"],
+        tag: ["Hướng dẫn"],
+        pageIndex: 50,
+      },
+      {
+        path: "tin-cong-nghe",
+        tag: ["Tin tức", "Tin công nghệ"],
+        pageIndex: 5,
+      },
+      {
+        path: "thu-thuat",
+        tag: ["Tin tức", "Tin công nghệ"],
+        pageIndex: 15,
       },
     ],
   },
@@ -293,6 +303,10 @@ export const LIST_TRASH_LINK = [
   'Xem thêm',
   'Mời bạn xem qua',
   'Cloud Server',
+  'Có thể bạn quan tâm',
+  'Bizfly Cloud',
+  'Đăng ký dùng thử miễn phí',
+  'Bài viết được tham khảo',
 ];
 
 export const LIST_TRASH_P = [
@@ -331,6 +345,10 @@ export const LIST_TRASH_P = [
   'Xem thêm sản phẩm',
   'Mời bạn xem qua',
   'Cloud Server',
+  'Có thể bạn quan tâm',
+  'Bizfly Cloud',
+  'Đăng ký dùng thử miễn phí',
+  'Bài viết được tham khảo',
 ];
 
 export const TRASH_AUTHOR = [
@@ -366,7 +384,7 @@ export const ELM_TRASH = [
   '#attachment_60985', '.kk-star-ratings', '.ez-toc-title', '#player', '.html5-video-container', '.bxindexknh', 'tiktok', '.tlt',
   'productbox', '.ad-even', 'p.title > b', '.hiddenbxindex', '.tiktokEmbed0', '.hidden', '.post__user', '#post__list', '.boxpromote',
   '.td-post-sharing', '.td-post-sharing-bottom', '.td-with-like', '.detail-content div > div', '.breadcrumb', '.biz .post-content',
-  '.page-title-content', '.tagcloud',
+  '.page-title-content', '.tagcloud', '.VCSortableInPreviewMode',
 
 ];
 
