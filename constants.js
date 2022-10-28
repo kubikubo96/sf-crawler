@@ -1,5 +1,5 @@
 export const LIST_CRAWL = [
-  /*{
+  {
     url: 'https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=2000&url=',
     source: "dienmayxanh.com",
     elmLinkPost: "a.linktitle",
@@ -91,7 +91,7 @@ export const LIST_CRAWL = [
         tag: ["Hướng dẫn", "Thiết bị thông minh"]
       },
     ],
-  },*/
+  },
   /*{
     url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageSize=50',
     pageIndex: 5,
@@ -254,7 +254,7 @@ export const LIST_CRAWL = [
       // },
     ],
   },*/
-  {
+  /*{
     url: 'https://didongviet.vn/dchannel/thu-thuat/page/',
     pageIndex: 50,
     tag: ["Thợ công nghệ"],
@@ -271,7 +271,7 @@ export const LIST_CRAWL = [
     elmTagQuote: "#ftwp-postcontent > blockquote",
     elmTagFigure: "#ftwp-postcontent > figure",
     elmTagDiv: "#ftwp-postcontent > div",
-  },
+  },*/
 ];
 
 export const DATA_TAG_PUBLISH = [

@@ -192,20 +192,6 @@ import axios from "axios";
               seo_tag_description: "",
             };
 
-            //start: remove trash img
-            try {
-              await page.$$eval(elmImage, (elms) => {
-                return elms.forEach((elm) => {
-                  if (elm.src?.includes("base64")) {
-                    elm.remove();
-                  }
-                });
-              });
-            } catch (error) {
-              console.log(error);
-            }
-            //end: remove trash img
-
             //start: replace src image
             try {
               await page.$$eval(elmImage, (elms, listPage, numberPage) => {
