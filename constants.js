@@ -1,5 +1,5 @@
 export const LIST_CRAWL = [
-  {
+  /*{
     url: 'https://www.dienmayxanh.com/kinh-nghiem-hay/aj/CategoryV2/LoadNewsNext?hotSorting=true&pageIndex=0&pageSize=2000&url=',
     source: "dienmayxanh.com",
     elmLinkPost: "a.linktitle",
@@ -91,8 +91,8 @@ export const LIST_CRAWL = [
         tag: ["Hướng dẫn", "Thiết bị thông minh"]
       },
     ],
-  },
-  /*{
+  },*/
+  {
     url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageSize=50',
     pageIndex: 5,
     source: "bachhoaxanh.com",
@@ -202,7 +202,7 @@ export const LIST_CRAWL = [
       //   tag: ["Đời sống", "Ăn gì chơi gì"],
       // },
     ],
-  },*/
+  },
   /*{
     url: 'https://fptshop.com.vn/api-data/tin-tuc/News/GetListNews/thu-thuat?numberRecord=1000&page=1',
     method: 'POST',
