@@ -109,62 +109,62 @@ export const LIST_CRAWL = [
     elmTagFigure: ".boxcontent > figure",
     elmTagDiv: ".boxcontent > div",
     data: [
-      {
-        path: "2086",
-        tag: ["Đời sống", "Món ngon mỗi ngày"],
-      },
-      {
-        path: "2110",
-        tag: ["Đời sống", "Món ngon mỗi ngày"],
-      },
-      {
-        path: "2087",
-        tag: ["Đời sống", "Món ngon mỗi ngày"],
-      },
-      {
-        path: "2090",
-        tag: ["Đời sống", "Món ngon mỗi ngày"],
-      },
-      {
-        path: "2102",
-        tag: ["Đời sống", "Món ngon mỗi ngày"],
-      },
-      {
-        path: "2109",
-        tag: ["Đời sống", "Mẹo vặt"],
-      },
-      {
-        path: "2110",
-        tag: ["Đời sống", "Mẹo vặt"],
-      },
-      {
-        path: "2111",
-        tag: ["Đời sống", "Mẹo vặt"],
-      },
       // {
-      //   path: "2112",
-      //   tag: ["Đời sống", "Mẹo vặt"],
+      //   path: "2086",
+      //   tag: ["Đời sống", "Món ngon mỗi ngày"],
       // },
       // {
-      //   path: "2113",
-      //   tag: ["Đời sống", "Mẹo vặt"],
+      //   path: "2110",
+      //   tag: ["Đời sống", "Món ngon mỗi ngày"],
       // },
       // {
-      //   path: "2114",
-      //   tag: ["Đời sống", "Mẹo vặt"],
+      //   path: "2087",
+      //   tag: ["Đời sống", "Món ngon mỗi ngày"],
       // },
       // {
-      //   path: "2115",
-      //   tag: ["Đời sống", "Mẹo vặt"],
+      //   path: "2090",
+      //   tag: ["Đời sống", "Món ngon mỗi ngày"],
       // },
       // {
       //   path: "2102",
-      //   tag: ["Đời sống", "Sống khỏe"],
+      //   tag: ["Đời sống", "Món ngon mỗi ngày"],
       // },
       // {
-      //   path: "2103",
-      //   tag: ["Đời sống", "Sống khỏe"],
+      //   path: "2109",
+      //   tag: ["Đời sống", "Mẹo vặt"],
       // },
+      // {
+      //   path: "2110",
+      //   tag: ["Đời sống", "Mẹo vặt"],
+      // },
+      // {
+      //   path: "2111",
+      //   tag: ["Đời sống", "Mẹo vặt"],
+      // },
+      {
+        path: "2112",
+        tag: ["Đời sống", "Mẹo vặt"],
+      },
+      {
+        path: "2113",
+        tag: ["Đời sống", "Mẹo vặt"],
+      },
+      {
+        path: "2114",
+        tag: ["Đời sống", "Mẹo vặt"],
+      },
+      {
+        path: "2115",
+        tag: ["Đời sống", "Mẹo vặt"],
+      },
+      {
+        path: "2102",
+        tag: ["Đời sống", "Sống khỏe"],
+      },
+      {
+        path: "2103",
+        tag: ["Đời sống", "Sống khỏe"],
+      },
       // {
       //   path: "2348",
       //   tag: ["Đời sống", "Sống khỏe"],
