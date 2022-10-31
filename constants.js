@@ -28,14 +28,6 @@ export const LIST_CRAWL = [
         tag: ["Thợ công nghệ", "Tivi"]
       },
       {
-        path: "tin-cong-nghe-dien-thoai",
-        tag: ["Tin tức", "Tin tức điện thoại"]
-      },
-      {
-        path: "tin-cong-nghe-laptop",
-        tag: ["Tin tức", "Tin tức Laptop"]
-      },
-      {
         path: "huong-dan-su-dung-laptop",
         tag: ["Thợ công nghệ", "Laptop"]
       },
