@@ -275,6 +275,8 @@ export const LIST_TRASH_P = [
   'Cloud Server – Giải pháp đám mây giúp vận hành website ổn định, nhanh chóng',
   'Cloud Server - Giải pháp đám mây giúp vận hành website ổn định, nhanh chóng',
   'là nhà cung cấp dịch vụ điện toán đám mây với chi phí thấp, được vận hành bởi VCCorp',
+  'vận hành bởi VCCorp',
+  'BizFly Cloud là hệ sinh thái điện toán đám mây',
   'BizFly Cloud là một trong 4 doanh nghiệp',
   'DÙNG THỬ MIỄN PHÍ',
   'Độc giả quan tâm đến các giải pháp của BizFly Cloud',
@@ -282,6 +284,7 @@ export const LIST_TRASH_P = [
   'Di Động Việt',
   'DI ĐỘNG VIỆT',
   'Tìm hiểu thêm',
+  'dịch vụ đám mây do BizFly Cloud',
 ];
 
 export const LIST_TRASH_DIV = [
@@ -293,6 +296,9 @@ export const LIST_TRASH_DIV = [
   'DÙNG THỬ MIỄN PHÍ',
   'Độc giả quan tâm đến các giải pháp của BizFly Cloud',
   'VCCloud chính thức đổi tên thành BizFly Cloud',
+  'vận hành bởi VCCorp',
+  'BizFly Cloud là hệ sinh thái điện toán đám mây',
+  'dịch vụ đám mây do BizFly Cloud',
 ];
 
 export const TRASH_AUTHOR = [
