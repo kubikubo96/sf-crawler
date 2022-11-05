@@ -285,6 +285,9 @@ export const LIST_TRASH_P = [
   'DI ĐỘNG VIỆT',
   'Tìm hiểu thêm',
   'dịch vụ đám mây do BizFly Cloud',
+  'Bizfly Cloud là một trong 4 doanh nghiệp nòng cốt trong',
+  'Bizfly Cloud là 1 trong top 4 doanh nghiệp',
+  'BizFly Cloud - được vận hành bởi VCCorp',
 ];
 
 export const LIST_TRASH_DIV = [
@@ -299,6 +302,9 @@ export const LIST_TRASH_DIV = [
   'vận hành bởi VCCorp',
   'BizFly Cloud là hệ sinh thái điện toán đám mây',
   'dịch vụ đám mây do BizFly Cloud',
+  'Bizfly Cloud là một trong 4 doanh nghiệp nòng cốt trong',
+  'Bizfly Cloud là 1 trong top 4 doanh nghiệp',
+  'BizFly Cloud - được vận hành bởi VCCorp',
 ];
 
 export const TRASH_AUTHOR = [
