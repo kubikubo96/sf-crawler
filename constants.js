@@ -281,6 +281,7 @@ export const LIST_TRASH_P = [
   'Theo BizFly Cloud',
   'Di Động Việt',
   'DI ĐỘNG VIỆT',
+  'Tìm hiểu thêm',
 ];
 
 export const LIST_TRASH_DIV = [
