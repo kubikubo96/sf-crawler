@@ -273,6 +273,7 @@ export const LIST_TRASH_P = [
   'Đăng ký dùng thử miễn phí',
   'Bài viết được tham khảo',
   'Cloud Server – Giải pháp đám mây giúp vận hành website ổn định, nhanh chóng',
+  'Cloud Server - Giải pháp đám mây giúp vận hành website ổn định, nhanh chóng',
   'là nhà cung cấp dịch vụ điện toán đám mây với chi phí thấp, được vận hành bởi VCCorp',
   'BizFly Cloud là một trong 4 doanh nghiệp',
   'DÙNG THỬ MIỄN PHÍ',
@@ -285,10 +286,12 @@ export const LIST_TRASH_P = [
 export const LIST_TRASH_DIV = [
   'Theo BizFly Cloud',
   'Cloud Server – Giải pháp đám mây giúp vận hành website ổn định, nhanh chóng',
+  'Cloud Server - Giải pháp đám mây giúp vận hành website ổn định, nhanh chóng',
   'là nhà cung cấp dịch vụ điện toán đám mây với chi phí thấp, được vận hành bởi VCCorp',
   'BizFly Cloud là một trong 4 doanh nghiệp',
   'DÙNG THỬ MIỄN PHÍ',
   'Độc giả quan tâm đến các giải pháp của BizFly Cloud',
+  'VCCloud chính thức đổi tên thành BizFly Cloud',
 ];
 
 export const TRASH_AUTHOR = [
