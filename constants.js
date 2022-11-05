@@ -45,7 +45,7 @@ export const LIST_CRAWL = [
       },
     ],
   },*/
-  {
+  /*{
     url: 'https://www.bachhoaxanh.com/kinh-nghiem-hay/aj/Category/ListNews?pageSize=50',
     pageIndex: 5,
     source: "bachhoaxanh.com",
@@ -103,7 +103,7 @@ export const LIST_CRAWL = [
         tag: ["Đời sống", "Ăn gì chơi gì"],
       },
     ],
-  },
+  },*/
   /*{
     url: 'https://fptshop.com.vn/api-data/tin-tuc/News/GetListNews/thu-thuat?numberRecord=1000&page=1',
     method: 'POST',
@@ -122,7 +122,7 @@ export const LIST_CRAWL = [
     elmTagQuote: ".post__content > blockquote",
     elmTagFigure: ".post__content > figure",
   },*/
-  /*{
+  {
     url: 'https://bizflycloud.vn/tin-tuc/',
     source: "bizflycloud.vn",
     elmLinkPost: ".main-content .post-title a",
@@ -140,21 +140,21 @@ export const LIST_CRAWL = [
     data: [
       {
         path: "kien-thuc-co-ban",
-        tag: ["Hướng dẫn"],
+        tag: ["Thợ công nghệ"],
         pageIndex: 50,
       },
-      // {
-      //   path: "tin-cong-nghe",
-      //   tag: ["Tin tức", "Tin công nghệ"],
-      //   pageIndex: 5,
-      // },
-      // {
-      //   path: "thu-thuat",
-      //   tag: ["Thợ công nghệ"],
-      //   pageIndex: 15,
-      // },
+      {
+        path: "tin-cong-nghe",
+        tag: ["Tin tức", "Tin công nghệ"],
+        pageIndex: 5,
+      },
+      {
+        path: "thu-thuat",
+        tag: ["Thợ công nghệ"],
+        pageIndex: 15,
+      },
     ],
-  },*/
+  },
   /*{
     url: 'https://didongviet.vn/dchannel/thu-thuat/page/',
     pageIndex: 50,
