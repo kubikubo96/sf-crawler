@@ -24,18 +24,6 @@ export const LIST_CRAWL_BOT = [
         tag: ["Thợ công nghệ", "Điện thoại"],
       },
       {
-        path: "loi-ti-vi-thuong-gap",
-        tag: ["Thợ công nghệ", "Tivi"]
-      },
-      {
-        path: "tin-cong-nghe-dien-thoai",
-        tag: ["Tin tức", "Tin tức điện thoại"]
-      },
-      {
-        path: "tin-cong-nghe-laptop",
-        tag: ["Tin tức", "Tin tức Laptop"]
-      },
-      {
         path: "huong-dan-su-dung-laptop",
         tag: ["Thợ công nghệ", "Laptop"]
       },
@@ -52,43 +40,8 @@ export const LIST_CRAWL_BOT = [
         tag: ["Hướng dẫn", "Tin học văn phòng"]
       },
       {
-        path: "phu-kien",
-        tag: ["Hướng dẫn", "Phụ kiện"]
-      },
-      {
-        path: "thuong-hieu-dong-ho",
-        tag: ["Tin tức", "Thương hiệu đồng hồ"]
-      },
-      {
-        path: "meo-huong-dan-su-dung-dong-ho",
-        tag: ["Hướng dẫn", "Mẹo hướng dẫn sử dụng dồng hồ"]
-      },
-      {
         path: "thuat-ngu-dong-ho",
         tag: ["Hướng dẫn", "Thuật ngữ đồng hồ"]
-      },
-      {
-        path: "phan-biet-dong-ho-that-gia",
-        tag: ["Hướng dẫn", "Phân biệt đồng hồ thật giả"]
-      },
-      {
-        path: "thuong-hieu-mat-kinh",
-        tag: ["Tin tức", "Thương hiệu mắt kính"]
-      },
-      {
-        path: "thiet-bi-thong-minh-phong-ngu",
-        tag: ["Hướng dẫn", "Thiết bị thông minh"]
-      },
-      {
-        path: "thiet-bi-thong-minh-phong-khach",
-        tag: ["Hướng dẫn", "Thiết bị thông minh"]
-      }, {
-        path: "thiet-bi-thong-minh-nha-bep",
-        tag: ["Hướng dẫn", "Thiết bị thông minh"]
-      },
-      {
-        path: "thiet-bi-thong-minh-khac",
-        tag: ["Hướng dẫn", "Thiết bị thông minh"]
       },
     ],
   },
@@ -118,23 +71,7 @@ export const LIST_CRAWL_BOT = [
         tag: ["Đời sống", "Món ngon mỗi ngày"],
       },
       {
-        path: "2087",
-        tag: ["Đời sống", "Món ngon mỗi ngày"],
-      },
-      {
-        path: "2090",
-        tag: ["Đời sống", "Món ngon mỗi ngày"],
-      },
-      {
-        path: "2102",
-        tag: ["Đời sống", "Món ngon mỗi ngày"],
-      },
-      {
         path: "2109",
-        tag: ["Đời sống", "Mẹo vặt"],
-      },
-      {
-        path: "2110",
         tag: ["Đời sống", "Mẹo vặt"],
       },
       {
@@ -142,31 +79,7 @@ export const LIST_CRAWL_BOT = [
         tag: ["Đời sống", "Mẹo vặt"],
       },
       {
-        path: "2112",
-        tag: ["Đời sống", "Mẹo vặt"],
-      },
-      {
-        path: "2113",
-        tag: ["Đời sống", "Mẹo vặt"],
-      },
-      {
-        path: "2114",
-        tag: ["Đời sống", "Mẹo vặt"],
-      },
-      {
-        path: "2115",
-        tag: ["Đời sống", "Mẹo vặt"],
-      },
-      {
         path: "2102",
-        tag: ["Đời sống", "Sống khỏe"],
-      },
-      {
-        path: "2103",
-        tag: ["Đời sống", "Sống khỏe"],
-      },
-      {
-        path: "2348",
         tag: ["Đời sống", "Sống khỏe"],
       },
       {
@@ -178,14 +91,6 @@ export const LIST_CRAWL_BOT = [
         tag: ["Đời sống", "Làm đẹp"],
       },
       {
-        path: "2096",
-        tag: ["Đời sống", "Làm đẹp"],
-      },
-      {
-        path: "2111",
-        tag: ["Đời sống", "Làm đẹp"],
-      },
-      {
         path: "2089",
         tag: ["Đời sống", "Ăn gì chơi gì"],
       },
@@ -193,15 +98,7 @@ export const LIST_CRAWL_BOT = [
         path: "2090",
         tag: ["Đời sống", "Ăn gì chơi gì"],
       },
-      {
-        path: "2091",
-        tag: ["Đời sống", "Ăn gì chơi gì"],
-      },
-      {
-        path: "2092",
-        tag: ["Đời sống", "Ăn gì chơi gì"],
-      },
-    ],
+    ]
   },
   {
     url: 'https://fptshop.com.vn/api-data/tin-tuc/News/GetListNews/thu-thuat?numberRecord=10&page=1',
@@ -222,4 +119,22 @@ export const LIST_CRAWL_BOT = [
     elmTagFigure: ".post__content > figure",
     elmTagDiv: ".post__content > div",
   },
+  {
+    url: 'https://didongviet.vn/dchannel/thu-thuat/page/',
+    pageIndex: 1,
+    tag: ["Thợ công nghệ"],
+    source: "didongviet.vn",
+    elmLinkPost: ".post h3 a",
+    typeLinkPost: 'full',
+    elmTitle: ".article-title h1",
+    elmContent: ".article-body",
+    elmLink: "#ftwp-postcontent a",
+    elmImage: "#ftwp-postcontent img",
+    elmH1: "#ftwp-postcontent h1",
+    elmH2: "#ftwp-postcontent h2",
+    elmTagP: "#ftwp-postcontent > p",
+    elmTagQuote: "#ftwp-postcontent > blockquote",
+    elmTagFigure: "#ftwp-postcontent > figure",
+    elmTagDiv: "#ftwp-postcontent > div",
+  }
 ];
