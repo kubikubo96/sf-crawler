@@ -122,7 +122,7 @@ export const LIST_CRAWL = [
     elmTagQuote: ".post__content > blockquote",
     elmTagFigure: ".post__content > figure",
   },*/
-  {
+  /*{
     url: 'https://bizflycloud.vn/tin-tuc/',
     source: "bizflycloud.vn",
     elmLinkPost: ".main-content .post-title a",
@@ -154,7 +154,7 @@ export const LIST_CRAWL = [
         pageIndex: 15,
       },
     ],
-  },
+  },*/
   /*{
     url: 'https://didongviet.vn/dchannel/thu-thuat/page/',
     pageIndex: 50,

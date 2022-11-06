@@ -138,36 +138,13 @@ export const LIST_CRAWL_BOT = [
       {
         path: "kien-thuc-co-ban",
         tag: ["Thợ công nghệ"],
-        pageIndex: 50,
-      },
-      {
-        path: "tin-cong-nghe",
-        tag: ["Tin tức", "Tin công nghệ"],
-        pageIndex: 5,
+        pageIndex: 1,
       },
       {
         path: "thu-thuat",
         tag: ["Thợ công nghệ"],
-        pageIndex: 15,
+        pageIndex: 1,
       },
     ],
   },
-  {
-    url: 'https://didongviet.vn/dchannel/thu-thuat/page/',
-    pageIndex: 1,
-    tag: ["Thợ công nghệ"],
-    source: "didongviet.vn",
-    elmLinkPost: ".post h3 a",
-    typeLinkPost: 'full',
-    elmTitle: ".article-title h1",
-    elmContent: ".article-body",
-    elmLink: "#ftwp-postcontent a",
-    elmImage: "#ftwp-postcontent img",
-    elmH1: "#ftwp-postcontent h1",
-    elmH2: "#ftwp-postcontent h2",
-    elmTagP: "#ftwp-postcontent > p",
-    elmTagQuote: "#ftwp-postcontent > blockquote",
-    elmTagFigure: "#ftwp-postcontent > figure",
-    elmTagDiv: "#ftwp-postcontent > div",
-  }
 ];
