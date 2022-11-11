@@ -1,11 +1,12 @@
 import puppeteer from "puppeteer";
 import "dotenv/config";
+import fs from "fs";
 import {
   DATA_ELEMENT_INTERNAL_POST,
   ELM_TRASH,
   ELM_TRASH_PARENT,
   ELM_UL,
-  LIST_TRASH_DIV,
+  LIST_TRASH_DIV_BIZ,
   LIST_TRASH_LINK,
   LIST_TRASH_P,
   TRASH_AUTHOR,
@@ -363,26 +364,30 @@ import axios from "axios";
             //end: remove trash tag figure
 
             //start: remove trash tag div
-            try {
-              await page.$$eval(
-                elmTagDiv,
-                (elms, LIST_TRASH_DIV) => {
-                  elms = [...elms];
-                  return elms.forEach((elm) => {
-                    let content = elm.textContent;
-                    LIST_TRASH_DIV.forEach(itemTrash => {
-                      if (
-                        content.includes(itemTrash)
-                      ) {
-                        elm.remove();
-                      }
-                    });
-                  });
-                },
-                LIST_TRASH_DIV
-              );
-            } catch (error) {
-              //console.log(error)
+            switch (listPage[numberPage].source) {
+              case 'bizflycloud.vn':
+                try {
+                  await page.$$eval(
+                    elmTagDiv,
+                    (elms, LIST_TRASH_DIV_BIZ) => {
+                      elms = [...elms];
+                      return elms.forEach((elm) => {
+                        let content = elm.textContent;
+                        LIST_TRASH_DIV_BIZ.forEach(itemTrash => {
+                          if (
+                            content.includes(itemTrash)
+                          ) {
+                            elm.remove();
+                          }
+                        });
+                      });
+                    },
+                    LIST_TRASH_DIV_BIZ
+                  );
+                } catch (error) {
+                  //console.log(error)
+                }
+                break;
             }
             //end: remove trash tag div
 
@@ -588,6 +593,14 @@ import axios from "axios";
                * dùng cho trường hợp auto save images
                */
               data.content = data.content.replaceAll('\\', '\\\\');
+
+              //stop crawl nếu length content < 1000
+              if (data.content.length < 1000) {
+                fs.writeFileSync('temp/content.json', JSON.stringify(data));
+                console.log('\x1b[31m CONTENT LENGTH < 1000 \x1b[0m');
+                console.log("Url crawl: " + listPost[numberPost].url);
+                process.exit(1);
+              }
 
               //nếu không có trash thì trả về true
               if (checkTitleTrue(data.title)) {

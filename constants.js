@@ -290,7 +290,7 @@ export const LIST_TRASH_P = [
   'BizFly Cloud - được vận hành bởi VCCorp',
 ];
 
-export const LIST_TRASH_DIV = [
+export const LIST_TRASH_DIV_BIZ = [
   'Theo BizFly Cloud',
   'Cloud Server – Giải pháp đám mây giúp vận hành website ổn định, nhanh chóng',
   'Cloud Server - Giải pháp đám mây giúp vận hành website ổn định, nhanh chóng',
